@@ -1,0 +1,155 @@
+.slide-up.ng-enter {
+	z-index:100;
+  	transition:0.5s linear all;
+	opacity:1;
+	top:250px;
+}
+.slide-up.ng-enter-active {
+  	opacity:1;
+	top:0px;
+}
+.slide-up.ng-leave {
+	z-index:50;
+	transition:0.5s linear all;
+	top:0px;
+}
+.slide-up.ng-leave-active {
+    opacity:0;
+}
+
+.slide-down.ng-enter {
+	z-index:100;
+	transition:0.5s linear all;
+	opacity:1;
+	top:-250px;
+}
+.slide-down.ng-enter-active {
+  	opacity:1;
+	top:0px;
+}
+.slide-down.ng-leave {
+ 	z-index:50;
+	transition:0.5s linear all;
+	top:0px;
+}
+.slide-down.ng-leave-active {
+    opacity:0;
+}
+
+.slide-left.ng-enter {
+	z-index:100;
+	transition:0.5s linear all;
+	opacity:1;
+	left:250px;
+}
+.slide-left.ng-enter-active {
+  	opacity:1;
+	left:0px;
+}
+.slide-left.ng-leave {
+ 	z-index:50;
+	transition:0.5s linear all;
+	left:0px;
+}
+.slide-left.ng-leave-active {
+    opacity:0;
+}
+
+.slide-right.ng-enter {
+	z-index:100;
+	transition:0.5s linear all;
+	opacity:1;
+	left:-250px;
+}
+.slide-right.ng-enter-active {
+  	opacity:1;
+	left:0px;
+}
+.slide-right.ng-leave {
+ 	z-index:50;
+  	transition:0.5s linear all;
+	left:0px;
+}
+.slide-right.ng-leave-active {
+    opacity:0;
+}
+
+
+
+
+.slidebak-up.ng-enter {
+	z-index:100;
+  	transition:0.5s linear all;
+	opacity:1;
+	top:250px;
+}
+.slidebak-up.ng-enter-active {
+  	opacity:1;
+	top:0px;
+}
+.slidebak-up.ng-leave {
+	z-index:50;
+	transition:0.5s linear all;
+	top:0px;
+}
+.slidebak-up.ng-leave-active {
+    opacity:0;
+}
+
+.slidebak-down.ng-enter {
+	z-index:100;
+	transition:0.5s linear all;
+	opacity:1;
+	top:-250px;
+}
+.slidebak-down.ng-enter-active {
+  	opacity:1;
+	top:0px;
+}
+.slidebak-down.ng-leave {
+ 	z-index:50;
+	transition:0.5s linear all;
+	top:0px;
+}
+.slidebak-down.ng-leave-active {
+    opacity:0;
+}
+
+.slidebak-left.ng-enter {
+	z-index:100;
+	transition:0.5s linear all;
+	opacity:1;
+	left:250px;
+}
+.slidebak-left.ng-enter-active {
+  	opacity:1;
+	left:0px;
+}
+.slidebak-left.ng-leave {
+ 	z-index:50;
+	transition:0.5s linear all;
+	left:0px;
+}
+.slidebak-left.ng-leave-active {
+    opacity:0;
+}
+
+.slidebak-right.ng-enter {
+	z-index:100;
+	transition:0.5s linear all;
+	opacity:1;
+	left:-250px;
+}
+.slidebak-right.ng-enter-active {
+  	opacity:1;
+	left:0px;
+}
+.slidebak-right.ng-leave {
+ 	z-index:50;
+  	transition:0.5s linear all;
+	left:0px;
+}
+.slidebak-right.ng-leave-active {
+    opacity:0;
+}
+

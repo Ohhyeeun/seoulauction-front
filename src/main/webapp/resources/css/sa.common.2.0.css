@@ -1,0 +1,72 @@
+@CHARSET "UTF-8";
+.page_ul{
+	list-style:none;
+    margin: 0;
+    padding: 0;
+}
+.page_ul > li{
+    display: inline-block;
+	/* padding-left: 3px; 
+	padding-right: 3px; */
+	padding: 0 5px;
+	padding-bottom: 3px; 
+}
+.page_ul > li > a{
+	font-size: 18px;
+	cursor:pointer; 
+	vertical-align: middle;
+}
+
+.page_active > a{
+	color: #00acac;
+	text-decoration: underline;
+}
+
+.page_disable > a{
+}
+
+.page_btn {
+    display: inline-block;
+    overflow: hidden;
+    width:26px;
+}
+
+/* common.css - 변형 */
+.wrap_paging .btn_prev02 {
+    width: 26px;
+    /* background-position: -24px -170px; */
+}
+
+.wrap_paging .btn_next02 {
+    width: 26px;  
+}
+
+.bg-cover {
+	background-size: cover !important;
+	background-position: center !important;
+	background-repeat: no-repeat !important;
+	height: 100% !important;
+	width: 100% !important;
+	content:url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7');
+}
+
+.bg-contain {
+	background-size: contain !important;
+	background-position: center !important;
+	background-repeat: no-repeat !important;
+	height: 100% !important;
+	width: 100% !important;
+	content:url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7');
+}
+/* mobile paging button 추가 (em 2020.02.12) */ 
+@media all and (max-width:768px) {
+.page_ul > li:first-child,
+.page_ul > li:nth-child(2)
+{ 
+	padding-left: 0;
+}
+.page_ul > li:last-child,
+.page_ul > li:nth-last-child(2) {
+	padding-right: 0;  
+}
+}

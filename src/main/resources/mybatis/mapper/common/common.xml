@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.common">
+	<insert id="insert_conn_hist" parameterType="Map">
+        INSERT INTO CONN_HIST
+         (CONN_DT, IP, USER_KIND_CD, USER_NO) 
+		VALUES (NOW(), #{ip}, #{user_kind_cd},  #{user_no}); 
+    </insert>
+    
+	<sql id="lot_last_bid_info">
+		select 		BD.*, BD.BID_PRICE as LAST_PRICE, <![CDATA[if(L.TO_DT < now(), 'Y', 'N') as SOLD_YN]]>
+				  , CU.LOGIN_ID as LAST_CUST_ID
+				  , CU.CUST_NO as LAST_CUST_NO
+				  , case when CU.CUST_NO = '${action_user_no}' then 'Y' else 'N' end IS_WIN
+				  ,	CU.CUST_NAME
+			  	  ,	(select count(A.BID_NO) from BID A where A.SALE_NO = L.SALE_NO and A.LOT_NO = L.LOT_NO) as BID_CNT		  
+		from 		LOT L inner join BID BD on BD.SALE_NO = L.SALE_NO and BD.LOT_NO = L.LOT_NO
+					inner join CUST CU on BD.CUST_NO = CU.CUST_NO
+		where 		L.SALE_NO = #{sale_no} and L.LOT_NO = #{lot_no}
+		order by 	BD.BID_PRICE desc, BD.BID_DT asc, BD.BID_NO asc limit 1
+	</sql>
+	
+	<sql id="sale_last_bid_infos">
+		select 		BD.*, BD.BID_PRICE as LAST_PRICE, <![CDATA[if(L.TO_DT < now(), 'Y', 'N') as SOLD_YN ]]>
+				  , CU.LOGIN_ID as LAST_CUST_ID
+				  , CU.CUST_NO as LAST_CUST_NO
+				  , case when CU.CUST_NO = '${action_user_no}' then 'Y' else 'N' end IS_WIN
+				  ,	CU.CUST_NAME
+			  	  ,	(select count(A.BID_NO) from BID A where A.SALE_NO = L.SALE_NO and A.LOT_NO = L.LOT_NO) as BID_CNT		  
+		from 		LOT L inner join BID BD on BD.SALE_NO = L.SALE_NO and BD.LOT_NO = L.LOT_NO
+						and BD.BID_NO = (select A.BID_NO from BID A where A.SALE_NO = L.SALE_NO and A.LOT_NO = L.LOT_NO order by A.BID_PRICE desc, A.BID_DT asc, A.BID_NO asc limit 1)
+					inner join CUST CU on BD.CUST_NO = CU.CUST_NO
+		<if test="sale_no != null">
+		where 		L.SALE_NO = #{sale_no}
+		</if>
+	</sql>
+	<select id="code_list" resultType="Map">
+		select 		GRP_ID
+				  , CD_ID, CD_NM, CD_NM_EN, CD_NM_CN
+				  , CD_VAL, CD_VAL2, CD_VAL3
+				  , P_GRP_ID, P_CD_ID, LEVEL
+				  , CMMT, DISP_ORD
+		from 		CODE
+		where		USE_YN = 'Y'
+				<foreach collection="grp_ids" item="item" index="index" open="and GRP_ID in (" close=")" separator=",">
+					'${item}'
+				</foreach>
+		order by GRP_ID, DISP_ORD, CD_NM_EN
+	</select>
+	<select id="artist_find" resultType="Map">
+		select 		ARTIST_NO
+				  , COLUMN_JSON(ARTIST_NAME_BLOB) ARTIST_NAME_JSON 
+				  , BORN_YEAR, DIE_YEAR
+		from 		ARTIST
+		where		( COLUMN_GET(ARTIST_NAME_BLOB, 'ko' AS CHAR) like concat('%', #{find_word}, '%')
+				 	or 	COLUMN_GET(ARTIST_NAME_BLOB, 'en' AS CHAR) 	like concat('%', #{find_word}, '%')
+					or 	COLUMN_GET(ARTIST_NAME_BLOB, 'zh' AS CHAR) 	like concat('%', #{find_word}, '%'))
+		order by 	ARTIST_NAME_BLOB
+	</select>
+	<select id="get_date_now" resultType="Map">
+	    select now() as DATE_NOW
+	</select>
+	
+	<select id="maigration_image" resultType="Map">
+	    select * from map_file_img_dev
+	    union all
+	    select * from map_file_img_homepage
+	    union all
+	    select * from map_file_img_office
+	    union all
+	    select * from map_file_img_v3
+	</select>
+	<!-- <update id="custPasswdChange" parameterType="Map">
+	    update CUST
+	    set 
+	    	PASSWD = ${@com.seoulauction.common.auth.PasswordEncoderAESforSA@saPasswdEncoding(passwd)}
+	    PASSWD = '${@com.seoulauction.common.auth.AuthUtil@saPasswdEncoding(passwd)}'
+	</update>-->
+	
+	<select id="get_auth_number" resultType="Map" parameterType="Map">
+	    set @rand_num := CAST(FLOOR(100000 + RAND() * 899999) AS unsigned integer);
+	   	insert into SC_TRAN(
+			TR_PHONE,
+			TR_CALLBACK,
+			TR_MSG,
+			TR_SENDDATE
+		)
+		values(
+			#{to_phone},
+			#{from_phone},
+			replace('${msg}', '##rand_num##', @rand_num),
+			now()
+		);
+	    select @rand_num as AUTH_NUM
+	</select>
+	
+	<select id="send_pw_number" resultType="Map" parameterType="Map">
+	   	insert into SC_TRAN(
+			TR_PHONE,
+			TR_CALLBACK,
+			TR_MSG,
+			TR_SENDDATE
+		)
+		values(
+			#{to_phone},
+			#{from_phone},
+			#{msg},
+			now()
+		);
+	    select @rand_num as AUTH_NUM
+	</select>
+	
+	<insert id="add_sms_msg" parameterType="Map">
+		insert SC_TRAN(
+			TR_PHONE,
+			TR_CALLBACK,
+			TR_MSG
+		)
+		values(
+			#{to_phone},
+			#{from_phone},
+			#{msg}
+		)
+	</insert>
+</mapper>

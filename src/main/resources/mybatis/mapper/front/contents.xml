@@ -1,0 +1,638 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.front.contents">
+
+	
+	<select id="get_recruit_list" resultType="Map">
+		<include refid="get_recruit_sql"/>
+		  limit	#{from}, #{rows}
+	</select>
+	
+	<select id="get_recruit_count" resultType="Map">
+		select  count(A.recruitment_no) as CNT
+		from 	(
+		<include refid="get_recruit_sql" />
+		) A
+	</select>
+	
+	<sql id="get_recruit_sql">
+		select *
+	   from RECRUITMENT
+	   where 1=1 and del_yn = 'N' and www_disp_yn = 'Y'
+	   <if test="recruitment_title != null">
+		 and recruitment_title like concat('%', #{recruitment_title}, '%') 
+		</if>
+		<if test="recruitment_all != null">
+		 and (recruitment_title like concat('%', #{recruitment_title}, '%') or recruitment_memo like concat('%', #{recruitment_memo}, '%'))
+		</if>
+	</sql>
+	
+	<select id="get_recruit_detail" resultType="Map">
+		select 
+		recruitment_no,
+		recruitment_title,
+		recruitment_from_dt,
+		recruitment_to_dt,
+		recruitment_dt_none,
+		recruitment_memo,
+		COLUMN_JSON(recruitment_memo_blob) MEMO_JSON ,
+		recruitment_form_file_path,
+		recruitment_form_file_name,
+		recruitment_form_file_name_org,
+		recruitment_img_file_path,
+		recruitment_img_file_name,
+		recruitment_img_file_name_org,
+		del_yn,
+		www_disp_yn,
+		reg_dt,
+		reg_emp_no,
+		mod_dt,
+		mod_emp_no
+		from RECRUITMENT
+		where recruitment_no = #{recruitment_no}
+	</select>
+	
+
+
+	<select id="get_academy_now_count" resultType="Map">
+		select  count(A.ACADEMY_NO) as CNT
+				,SUM(IF(A.ACADEMY_CD = 'CULTURE' AND A.END_YN='N', 1, 0)) CULTURE_NEW,
+				SUM(IF(A.ACADEMY_CD = 'ARTAUCTION' AND A.END_YN='N', 1, 0)) ARTAUCTION_NEW,
+				SUM(IF(A.ACADEMY_CD = 'LECTURE' AND A.END_YN='N', 1, 0)) LECTURE_NEW,
+				SUM(IF(A.ACADEMY_CD = 'ARTBRUNCH' AND A.END_YN='N', 1, 0)) ARTBRUNCH_NEW,
+				SUM(IF(A.ACADEMY_CD = 'ARTCULTURE' AND A.END_YN='N', 1, 0)) ARTCULTURE_NEW,
+				SUM(IF(A.ACADEMY_CD = 'ARTBUSAN' AND A.END_YN='N', 1, 0)) ARTBUSAN_NEW,
+				SUM(IF(A.ACADEMY_CD = 'ARTISTTALK' AND A.END_YN='N', 1, 0)) ARTISTTALK_NEW
+	    	 from 	(
+	    	 <include refid="get_academy_now_sql"/>
+	    	 ) A
+	</select>
+	
+	<select id="get_academy_now_list" resultType="Map">
+		<include refid="get_academy_now_sql"/>
+		    limit		#{from}, #{rows}
+	</select>
+	
+	<sql id="get_academy_now_sql">
+		select A.ACADEMY_NO AS ACADEMY_NO, 
+			   A.ACADEMY_CD AS ACADEMY_CD,
+			   COLUMN_JSON(A.TITLE_BLOB) TITLE_JSON ,
+			   COLUMN_JSON(A.CONTENTS_BLOB) CONTENTS_JSON ,	
+		       A.FROM_DT AS FROM_DT, 
+		       A.TO_DT AS TO_DT, 
+		       A.ACADEMY_TIME AS ACADEMY_TIME,
+		       A.ACADEMY_TIME_EN AS ACADEMY_TIME_EN,
+		       A.IMG_PATH AS IMG_PATH, 
+		       A.IMG_PATH_EN AS IMG_PATH_EN, 
+		       A.IMG_VIEW_PATH AS IMG_VIEW_PATH,
+		       A.IMG_VIEW_PATH_EN AS IMG_VIEW_PATH_EN,
+		       A.FILE_NAME AS FILE_NAME,
+		       A.FILE_NAME_EN AS FILE_NAME_EN,
+		       A.FILE_ORG_NAME AS FILE_ORG_NAME,
+		       A.FILE_ORG_NAME_EN AS FILE_ORG_NAME_EN,
+		       A.FILE_PATH AS FILE_PATH, 
+		       A.FILE_PATH_EN AS FILE_PATH_EN,
+		       A.REG_DT AS  REG_DT, 
+		       A.REG_EMP_NO AS REG_EMP_NO, 
+		       B.EMP_NAME AS REG_EMP_NAME,
+		       A.VIEW_FILE_NAME AS VIEW_FILE_NAME,
+		       A.VIEW_FILE_NAME_EN AS VIEW_FILE_NAME_EN,
+		       A.VIEW_FILE_ORG_NAME AS VIEW_FILE_ORG_NAME,
+		       A.VIEW_FILE_ORG_NAME_EN AS VIEW_FILE_ORG_NAME_EN,
+		       A.ACADEMY_PAY AS ACADEMY_PAY,		       
+		       (case when #{action_user_no} = null then 0 else (SELECT COUNT(*) FROM ACADEMY_PAY C WHERE A.ACADEMY_NO = C.ACADEMY_NO AND C.CUST_NO = #{action_user_no} ) end )  AS ACADEMY_COMPLETE,
+		       IF(CAST(DATE_FORMAT(NOW(), "%Y-%m-%d") AS CHAR) > A.TO_DT, 'Y', 'N') END_YN,
+		       date_format(NOW(), '%Y-%m-%d') as DB_NOW
+		   from ACADEMY A INNER JOIN EMP B ON A.REG_EMP_NO = B.EMP_NO
+		     where A.DISP_YN = 'Y' AND A.DEL_YN = 'N'
+		order by A.FROM_DT DESC 
+	</sql>
+
+	<select id="get_academy_cnt" resultType="Map">
+		select count(*) as CNT   
+		   from ACADEMY A INNER JOIN EMP B ON A.REG_EMP_NO = B.EMP_NO
+		      where A.ACADEMY_CD = #{academy_cd} 
+		      and A.DISP_YN = 'Y' AND A.DEL_YN = 'N'
+		order by A.REG_DT DESC
+	</select>
+	<select id="get_academy_info" resultType="Map">
+		select A.ACADEMY_NO AS ACADEMY_NO, 
+			   A.ACADEMY_CD AS ACADEMY_CD,
+			   COLUMN_JSON(A.TITLE_BLOB) TITLE_JSON ,
+			   COLUMN_JSON(A.CONTENTS_BLOB) CONTENTS_JSON ,	
+		       A.FROM_DT AS FROM_DT, 
+		       A.TO_DT AS TO_DT, 
+		       A.ACADEMY_TIME AS ACADEMY_TIME,
+		       A.ACADEMY_TIME_EN AS ACADEMY_TIME_EN,
+		       A.IMG_PATH AS IMG_PATH, 
+		       A.IMG_PATH_EN AS IMG_PATH_EN, 
+		       A.IMG_VIEW_PATH AS IMG_VIEW_PATH,
+		       A.IMG_VIEW_PATH_EN AS IMG_VIEW_PATH_EN,
+		       A.FILE_NAME AS FILE_NAME,
+		       A.FILE_NAME_EN AS FILE_NAME_EN,
+		       A.FILE_ORG_NAME AS FILE_ORG_NAME,
+		       A.FILE_ORG_NAME_EN AS FILE_ORG_NAME_EN,
+		       A.FILE_PATH AS FILE_PATH, 
+		       A.FILE_PATH_EN AS FILE_PATH_EN,
+		       A.REG_DT AS  REG_DT, 
+		       A.REG_EMP_NO AS REG_EMP_NO, 
+		       B.EMP_NAME AS REG_EMP_NAME,
+		       A.VIEW_FILE_NAME AS VIEW_FILE_NAME,
+		       A.VIEW_FILE_NAME_EN AS VIEW_FILE_NAME_EN,
+		       A.VIEW_FILE_ORG_NAME AS VIEW_FILE_ORG_NAME,
+		       A.VIEW_FILE_ORG_NAME_EN AS VIEW_FILE_ORG_NAME_EN,
+		       A.ACADEMY_PAY AS ACADEMY_PAY,
+		       IF(CAST(DATE_FORMAT(NOW(), "%Y-%m-%d") AS CHAR) > A.TO_DT, 'Y', 'N') END_YN
+		   from ACADEMY A INNER JOIN EMP B ON A.REG_EMP_NO = B.EMP_NO
+		     where A.ACADEMY_NO = #{academy_no} 
+		      and A.DISP_YN = 'Y' AND A.DEL_YN = 'N'
+		order by A.FROM_DT DESC
+	</select>
+    <select id="get_academy_list" resultType="Map">
+		select A.ACADEMY_NO AS ACADEMY_NO, 
+			   A.ACADEMY_CD AS ACADEMY_CD,
+			   COLUMN_JSON(A.TITLE_BLOB) TITLE_JSON ,
+			   COLUMN_JSON(A.CONTENTS_BLOB) CONTENTS_JSON ,	
+		       A.FROM_DT AS FROM_DT, 
+		       A.TO_DT AS TO_DT, 
+		       A.ACADEMY_TIME AS ACADEMY_TIME,
+		       A.ACADEMY_TIME_EN AS ACADEMY_TIME_EN,
+		       A.IMG_PATH AS IMG_PATH, 
+		       A.IMG_PATH_EN AS IMG_PATH_EN, 
+		       A.IMG_VIEW_PATH AS IMG_VIEW_PATH,
+		       A.IMG_VIEW_PATH_EN AS IMG_VIEW_PATH_EN,
+		       A.FILE_NAME AS FILE_NAME,
+		       A.FILE_NAME_EN AS FILE_NAME_EN,
+		       A.FILE_ORG_NAME AS FILE_ORG_NAME,
+		       A.FILE_ORG_NAME_EN AS FILE_ORG_NAME_EN,
+		       A.FILE_PATH AS FILE_PATH, 
+		       A.FILE_PATH_EN AS FILE_PATH_EN,
+		       A.REG_DT AS  REG_DT, 
+		       A.REG_EMP_NO AS REG_EMP_NO, 
+		       B.EMP_NAME AS REG_EMP_NAME,
+		       A.VIEW_FILE_NAME AS VIEW_FILE_NAME,
+		       A.VIEW_FILE_NAME_EN AS VIEW_FILE_NAME_EN,
+		       A.VIEW_FILE_ORG_NAME AS VIEW_FILE_ORG_NAME,
+		       A.VIEW_FILE_ORG_NAME_EN AS VIEW_FILE_ORG_NAME_EN,
+		       A.ACADEMY_PAY AS ACADEMY_PAY,		       
+		       (case when #{action_user_no} = null then 0 else (SELECT COUNT(*) FROM ACADEMY_PAY C WHERE A.ACADEMY_NO = C.ACADEMY_NO AND C.CUST_NO = #{action_user_no} ) end )  AS ACADEMY_COMPLETE,
+		       IF(CAST(DATE_FORMAT(NOW(), "%Y-%m-%d") AS CHAR) > A.TO_DT, 'Y', 'N') END_YN,
+		       date_format(NOW(), '%Y-%m-%d') as DB_NOW
+		   from ACADEMY A INNER JOIN EMP B ON A.REG_EMP_NO = B.EMP_NO
+		     where A.ACADEMY_CD = #{academy_cd} 
+		      and A.DISP_YN = 'Y' AND A.DEL_YN = 'N'
+		order by A.FROM_DT DESC limit	#{from}, #{rows}
+	</select>
+	<select id="get_academy_view" resultType="Map">
+		select A.ACADEMY_NO AS ACADEMY_NO, 
+			   A.ACADEMY_CD AS ACADEMY_CD,
+			   COLUMN_JSON(A.TITLE_BLOB) TITLE_JSON ,
+			   COLUMN_JSON(A.CONTENTS_BLOB) CONTENTS_JSON ,	
+		       A.FROM_DT AS FROM_DT, 
+		       A.TO_DT AS TO_DT, 
+		       A.ACADEMY_TIME AS ACADEMY_TIME,
+		       A.ACADEMY_TIME_EN AS ACADEMY_TIME_EN,
+		       A.IMG_PATH AS IMG_PATH, 
+		       A.IMG_PATH_EN AS IMG_PATH_EN,
+		       A.IMG_VIEW_PATH AS IMG_VIEW_PATH,
+		       A.IMG_VIEW_PATH_EN AS IMG_VIEW_PATH_EN,
+		       A.FILE_NAME AS FILE_NAME,
+		       A.FILE_NAME_EN AS FILE_NAME_EN,
+		       A.FILE_ORG_NAME AS FILE_ORG_NAME,
+		       A.FILE_ORG_NAME_EN AS FILE_ORG_NAME_EN,		       
+		       A.FILE_PATH AS FILE_PATH, 
+		       A.FILE_PATH_EN AS FILE_PATH_EN,
+		       A.REG_DT AS  REG_DT, 
+		       A.REG_EMP_NO AS REG_EMP_NO, 
+		       B.EMP_NAME AS REG_EMP_NAME,
+		       A.VIEW_FILE_NAME AS VIEW_FILE_NAME,
+		       A.VIEW_FILE_NAME_EN AS VIEW_FILE_NAME_EN,
+		       A.VIEW_FILE_ORG_NAME AS VIEW_FILE_ORG_NAME,
+		       A.VIEW_FILE_ORG_NAME_EN AS VIEW_FILE_ORG_NAME_EN,
+		       A.ACADEMY_PAY AS ACADEMY_PAY,		
+		       A.CLOSE_YN AS CLOSE_YN,       
+		       (case when #{action_user_no} = null then 0 else (SELECT COUNT(*) FROM ACADEMY_PAY C WHERE A.ACADEMY_NO = C.ACADEMY_NO AND C.CUST_NO = #{action_user_no} ) end )  AS ACADEMY_COMPLETE,
+		       IF(CAST(DATE_FORMAT(NOW(), "%Y-%m-%d") AS CHAR) > A.TO_DT, 'Y', 'N') END_YN,
+		       date_format(NOW(), '%Y-%m-%d') as DB_NOW
+		   from ACADEMY A INNER JOIN EMP B ON A.REG_EMP_NO = B.EMP_NO
+		     where A.ACADEMY_CD = #{academy_cd} 
+		     and A.ACADEMY_NO = #{academy_no}
+		     and A.DISP_YN = 'Y' AND A.DEL_YN = 'N'
+		order by A.REG_DT DESC
+	</select>
+	<!-- Auction Live Pop Mapper -->
+	<select id="liveSaleInfo" resultType="map">
+		SELECT	S.SALE_NO 
+			 ,	S.SALE_KIND_CD
+			 ,	IF(S.SALE_TH_DSP_YN = 'N', '', S.SALE_TH) SALE_TH
+			 ,	IF(S.SALE_TH_DSP_YN = 'N', '', f_ordinal_number(S.SALE_TH)) SALE_TH_DSP 
+			 ,	S.TO_DT
+			 ,	S.CURR_CD
+       		 ,	COLUMN_JSON(S.TITLE_BLOB) TITLE_JSON
+ 			 , (SELECT MAX(LOT_NO) FROM LOT WHERE SALE_NO = S.SALE_NO) MAX_LOT_NO
+ 			 , (SELECT LOT_NO FROM LOT WHERE SALE_NO = S.SALE_NO AND LIVE_ING_YN = 'Y') ING_LOT_NO
+       	 FROM	SALE S
+ 		WHERE 
+ 			S.SALE_NO = #{sale_no}
+ 			AND S.SALE_KIND_CD IN ('main','plan','honkong')
+       		ORDER BY S.TO_DT ASC
+   			LIMIT 1;
+	</select>
+	<select id="liveLotInfo" resultType="map">
+		SELECT L.SALE_NO
+			 , L.LOT_NO
+			 , COLUMN_JSON(A.ARTIST_NAME_BLOB) ARTIST_NAME_JSON
+			 , COLUMN_JSON(L.TITLE_BLOB) TITLE_JSON
+			 , COLUMN_JSON(L.EXPE_PRICE_FROM_BLOB) EXPE_PRICE_FROM_JSON
+			 , COLUMN_JSON(L.EXPE_PRICE_TO_BLOB) EXPE_PRICE_TO_JSON
+			 , CD.CD_NM_EN as MATE_NM_EN
+			 , L.EXPE_PRICE_INQ_YN 
+			 , L.START_PRICE
+ 			 , LI.FILE_PATH
+ 			 , LI.FILE_NAME
+ 			 , (SELECT BD_OFF.BID_PRICE FROM BID_OFFLINE BD_OFF WHERE BD_OFF.BID_NOTICE is NULL AND BD_OFF.SALE_NO = L.SALE_NO AND BD_OFF.LOT_NO = L.LOT_NO ORDER BY BD_OFF.BID_NO DESC, BD_OFF.BID_DT DESC LIMIT 1) AS LAST_PRICE 
+ 			 , IF(S.CURR_CD = 'HKD', f_grow_price_offline_hongkong(((SELECT BD_OFF.BID_PRICE FROM BID_OFFLINE BD_OFF WHERE BD_OFF.BID_NOTICE is NULL AND BD_OFF.SALE_NO = L.SALE_NO AND BD_OFF.LOT_NO = L.LOT_NO ORDER BY BD_OFF.BID_DT DESC LIMIT 1))),
+ 			 	f_grow_price_offline(((SELECT BD_OFF.BID_PRICE FROM BID_OFFLINE BD_OFF WHERE BD_OFF.BID_NOTICE is NULL AND BD_OFF.SALE_NO = L.SALE_NO AND BD_OFF.LOT_NO = L.LOT_NO ORDER BY BD_OFF.BID_DT DESC LIMIT 1)))
+ 			 	) AS GROW_PRICE 			 
+ 			 , L.GROW_PRICE as START_GROW_PRICE
+ 			 , (CASE WHEN (SELECT CUST_NO FROM BID_OFFLINE BD_OFF WHERE BD_OFF.BID_NOTICE is NULL AND BD_OFF.SALE_NO = L.SALE_NO AND BD_OFF.LOT_NO = L.LOT_NO ORDER BY BD_OFF.BID_DT DESC, BD_OFF.BID_PRICE desc, BD_OFF.BID_NO desc limit 1) 
+ 			 		 = '${action_user_no}' THEN 'Y' ELSE 'N' END) AS IS_WIN
+ 			 , L.LIVE_CLOSE_YN
+ 			 , IFNULL(IL.DEL_YN, 'Y') AS INTE_LOT_DEL
+  		  FROM 
+  		  	(SELECT * FROM LOT WHERE sale_no = #{sale_no} and STAT_CD = 'entry' 
+                  AND lot_no = IFNULL((SELECT lot_no FROM LOT WHERE sale_no = #{sale_no} and STAT_CD = 'entry' AND LIVE_ING_YN = 'Y'), 1)) L 
+			LEFT OUTER JOIN ARTIST A ON L.ARTIST_NO = A.ARTIST_NO 
+ 			LEFT OUTER JOIN CODE CD	on CD.grp_id = 'material' and CD.CD_ID = L.MATE_CD
+	 		LEFT OUTER JOIN LOT_IMG LI ON L.SALE_NO = LI.SALE_NO AND L.LOT_NO = LI.LOT_NO
+	 		AND LI.IMG_NO = (SELECT T.IMG_NO FROM LOT_IMG T WHERE T.SALE_NO = L.SALE_NO AND T.LOT_NO = L.LOT_NO ORDER BY T.DISP_ORD LIMIT 1)
+	 		INNER JOIN SALE S ON S.SALE_NO = L.SALE_NO
+	 		LEFT OUTER JOIN CUST_INTE_LOT IL ON L.SALE_NO = IL.SALE_NO AND L.LOT_NO = IL.LOT_NO AND IL.DEL_YN = 'N' AND IL.CUST_NO = #{cust_no}
+		 WHERE L.SALE_NO = #{sale_no}
+   		 ORDER BY L.LOT_NO ASC
+   		 LIMIT 1;
+	</select>
+	<update id="modLiveLot" parameterType="Map">
+		UPDATE LOT SET LIVE_ING_YN = 'N', LIVE_CLOSE_YN = 'Y'; 
+ 		<if test="lot_no != null">
+		UPDATE LOT SET LIVE_ING_YN = 'Y', LIVE_CLOSE_YN = 'Y' WHERE SALE_NO = #{sale_no}  AND LOT_NO = #{lot_no};
+		</if>
+	</update>
+	<update id="closeLiveLot" parameterType="Map">
+		<if test="lot_no != null">
+		UPDATE LOT SET LIVE_CLOSE_YN = IF(LIVE_CLOSE_YN = 'Y', 'N', 'Y') 
+		WHERE SALE_NO = #{sale_no}  AND LOT_NO = #{lot_no};
+		</if>
+	</update>
+	<insert id="addOffBidPrice">
+	<!-- DELETE FROM BID_OFFLINE WHERE SALE_NO = #{sale_no} AND LOT_NO = #{lot_no} AND BID_PRICE &gt;= #{bid_price}; -->
+	<!-- 직원인 경우 현재가 강제조정(PRICE_SET)이 아닌경우 현재가 이상 금액만 입력 처리. 강제조정인 경우 무조건 입력처리.
+	     고객인 경우 본인이 최고응찰중인 경우 재응찰 불가처리. 응찰금액은 현재가 이상 금액만 입력 처리. 
+	  BID_OFFLINE의 데이터가 없는경우가 있을수 있어서 LOT테이블을 메인으로 SELECT 처리함.-->
+	INSERT INTO BID_OFFLINE ( 
+	    	SALE_NO, 
+	    	LOT_NO,
+	    	CUST_NO, 
+	    	PADD_NO,
+	    	BID_PRICE, 
+	    	BID_KIND_CD,
+	    	BID_NOTICE,
+	    	BID_NOTICE_EN,
+	    	BID_DT, 
+	    	REG_DT
+		) 
+	SELECT BMAX.SALE_NO, BMAX.LOT_NO, BMAX.CUST_NO, #{padd_no}, BMAX.BID_PRICE, BMAX.BID_KIND_CD, BMAX.BID_NOTICE, BMAX.BID_NOTICE_EN, NOW(6), NOW(6)
+	  FROM (SELECT 	#{sale_no} as SALE_NO, 
+					#{lot_no} as LOT_NO, 
+					CASE WHEN #{bid_kind_cd} = 'online' THEN ${action_user_no} END as CUST_NO,
+					#{bid_price} as BID_PRICE,
+					#{bid_kind_cd} as BID_KIND_CD, 
+					#{bid_notice} as BID_NOTICE,
+					#{bid_notice_en} as BID_NOTICE_EN
+			  FROM  (SELECT L.SALE_NO, L.LOT_NO, BO.CUST_NO, BO.BID_PRICE 
+			  		   FROM (SELECT * FROM LOT WHERE SALE_NO = #{sale_no} AND LOT_NO = #{lot_no}) L
+			  		   			LEFT OUTER JOIN (SELECT * FROM BID_OFFLINE WHERE SALE_NO = #{sale_no} AND LOT_NO = #{lot_no} AND BID_PRICE IS NOT NULL ORDER BY BID_NO DESC LIMIT 1 ) BO
+									ON L.SALE_NO = BO.SALE_NO AND L.LOT_NO = BO.LOT_NO) BOFF
+			  		   
+			 WHERE  BOFF.SALE_NO = #{sale_no}
+			   AND  BOFF.LOT_NO = #{lot_no}
+			   <if test='bid_kind_cd == "online"'>
+			   AND  IFNULL(BOFF.CUST_NO, 0) != ${action_user_no}
+			   AND  IFNULL(#{bid_price}, 0) > IFNULL(BOFF.BID_PRICE, 0)
+			   </if>
+			   <if test='bid_notice == null and bid_kind_cd != "price_change"'>
+			   AND  IFNULL(#{bid_price}, 0) >= IFNULL(BOFF.BID_PRICE, 0)
+			   </if>
+	  ) BMAX
+	; 	
+<!-- 		VALUES (
+			#{sale_no}, 
+			#{lot_no},
+			CASE WHEN #{bid_kind_cd} = 'online' THEN ${action_user_no} END, 
+			#{bid_price},
+			#{bid_kind_cd},
+			#{bid_notice},
+			now(),
+			now()
+		); 2010.03.12 YDH 주석처리. SELECT문으로 변경처리함.-->
+	</insert>
+	<select id="offBidList" resultType="map">
+		SELECT BD_OFF.*, PADD.PADD_NO as ONLINE_BID_ID
+		  FROM BID_OFFLINE BD_OFF 
+		  LEFT OUTER JOIN CUST C ON BD_OFF.CUST_NO = C.CUST_NO 
+		  LEFT OUTER JOIN SALE_PADD PADD ON BD_OFF.SALE_NO = PADD.SALE_NO AND BD_OFF.CUST_NO = PADD.CUST_NO AND PADD.PADD_NO > 600
+		 WHERE 1 = 1 
+		 AND BD_OFF.SALE_NO = #{sale_no}
+		 AND BD_OFF.LOT_NO  = #{lot_no}
+		 ORDER BY BD_OFF.BID_NO DESC
+	</select>
+	<delete id="offBidDel">
+		DELETE FROM BID_OFFLINE WHERE BID_NO = #{bid_no};
+	</delete>
+	<select id="offBidListEmp" resultType="map"><!-- 경매사 페이지 응찰기록 -->
+		SELECT PADD.PADD_NO AS ONLINE_BID_ID, BD_OFF.BID_PRICE, BD_OFF.BID_KIND_CD, BD_OFF.BID_NOTICE , L.LOT_NO
+		  FROM BID_OFFLINE BD_OFF 
+		  LEFT OUTER JOIN CUST C ON BD_OFF.CUST_NO = C.CUST_NO 
+		  LEFT OUTER JOIN SALE_PADD PADD ON BD_OFF.SALE_NO = PADD.SALE_NO AND BD_OFF.CUST_NO = PADD.CUST_NO AND PADD.PADD_NO > 600
+		  INNER JOIN (SELECT SALE_NO, LOT_NO FROM LOT WHERE SALE_NO = #{sale_no} AND STAT_CD = 'entry' AND LIVE_ING_YN = 'Y' LIMIT 1) L ON L.SALE_NO = BD_OFF.SALE_NO AND L.LOT_NO = BD_OFF.LOT_NO
+		  WHERE BD_OFF.BID_NOTICE IS NULL
+		  AND BD_OFF.SALE_NO = #{sale_no}
+		  AND BD_OFF.LOT_NO  = L.LOT_NO
+		  ORDER BY BD_OFF.BID_NO DESC   		
+		  LIMIT 10
+	</select>
+	<select id="liveLotNaviList" resultType="map">
+		SELECT L.SALE_NO
+			 , L.LOT_NO
+			 , COLUMN_JSON(A.ARTIST_NAME_BLOB) ARTIST_NAME_JSON
+			 , COLUMN_JSON(L.TITLE_BLOB) TITLE_JSON
+			 , COLUMN_JSON(L.EXPE_PRICE_FROM_BLOB) EXPE_PRICE_FROM_JSON
+			 , COLUMN_JSON(L.EXPE_PRICE_TO_BLOB) EXPE_PRICE_TO_JSON 
+ 			 , LI.FILE_PATH
+ 			 , LI.FILE_NAME
+ 			 , IF(L.LIVE_ING_YN = 'Y', 'LIVE', '') LIVE_STAT
+ 			 , IFNULL(#{mid_lot_no}, (SELECT LOT_NO FROM LOT WHERE LIVE_ING_YN = 'Y')) MID_LOT_NO
+ 			 , IF(B.BID_PRICE > 0, 'SOLD', '') SOLD_STAT
+ 			 , B.BID_PRICE
+ 			 , L.STAT_CD
+ 			 , IFNULL(IL.DEL_YN, 'Y') AS INTE_LOT_DEL
+  		  FROM LOT L	LEFT OUTER JOIN ARTIST A ON L.ARTIST_NO = A.ARTIST_NO 
+  				 		LEFT OUTER JOIN LOT_IMG LI ON L.SALE_NO = LI.SALE_NO AND L.LOT_NO = LI.LOT_NO
+  				 				AND LI.IMG_NO = (SELECT T.IMG_NO FROM LOT_IMG T WHERE T.SALE_NO = L.SALE_NO AND T.LOT_NO = L.LOT_NO ORDER BY T.DISP_ORD LIMIT 1)
+  				 		LEFT OUTER JOIN BID B ON B.SALE_NO = L.SALE_NO AND B.LOT_NO = L.LOT_NO 
+  				 		                 AND B.BID_NO = (select A.BID_NO from BID A where A.SALE_NO = L.SALE_NO and A.LOT_NO = L.LOT_NO order by A.BID_PRICE desc, A.BID_DT asc, A.BID_NO asc limit 1)
+  				 	    LEFT OUTER JOIN CUST_INTE_LOT IL ON L.SALE_NO = IL.SALE_NO AND L.LOT_NO = IL.LOT_NO AND IL.DEL_YN = 'N' AND IL.CUST_NO = #{cust_no}
+		 WHERE 1 = 1  
+		   <if test="sale_no != null">
+		      AND L.SALE_NO = #{sale_no}
+		   </if>
+   		   <if test="sale_no == null">
+		      <!-- AND L.SALE_NO = (SELECT SALE_NO FROM SALE WHERE TO_DT &gt;= NOW() ORDER BY TO_DT ASC LIMIT 1)-->
+		      AND L.SALE_NO = (SELECT SALE_NO FROM LOT WHERE LIVE_ING_YN = 'Y'  LIMIT 1)
+		   </if>   		 
+		   <if test="mid_lot_no != null">  
+   		   	  AND L.LOT_NO BETWEEN IFNULL(#{mid_lot_no} - 2 , 1) AND IFNULL(#{mid_lot_no} + 2, 1) 
+   		   </if>
+   		   <if test="mid_lot_no == null">  
+   		   	  AND L.LOT_NO BETWEEN (SELECT LOT_NO - 2 FROM LOT WHERE LIVE_ING_YN = 'Y') AND (SELECT LOT_NO + 2 FROM LOT WHERE LIVE_ING_YN = 'Y')
+   		   </if>   		   
+			<if test="fav_cds_list != null">
+				and IL.SALE_NO = #{sale_no} 
+			</if>
+   		 ORDER BY L.LOT_NO ASC;
+	</select>
+	<!-- 언론 보도 추가(2018.07.10) -->
+	<sql id="press_list">
+		select P.*				
+		  from PRESS P
+		 where P.DEL_YN = 'N'
+		 <if test="search_type == 'title' and search_keyword != null">
+            and (P.PRESS_TITLE like concat('%', #{search_keyword}, '%')
+             or P.PRESS_TITLE_EN like concat('%', #{search_keyword}, '%'))
+        </if>
+        <if test="search_type == 'press' and search_keyword != null">
+            and (P.PRESS_COMP like concat('%', #{search_keyword}, '%')
+             or P.PRESS_COMP_EN like concat('%', #{search_keyword}, '%'))
+        </if>
+        <if test="search_type == 'all' and search_keyword != null">
+            and (P.PRESS_TITLE like concat('%', #{search_keyword}, '%')
+             or P.PRESS_TITLE_EN like concat('%', #{search_keyword}, '%')
+             or P.PRESS_COMP like concat('%', #{search_keyword}, '%')
+             or P.PRESS_COMP_EN like concat('%', #{search_keyword}, '%'))
+        </if>
+        <if test="search_lang != 'en'">
+        	and P.PRESS_COMP is not null
+        </if>
+        <if test="search_lang == 'en'">
+        	and P.PRESS_COMP_EN is not null
+        </if>
+        order by P.PRESS_DATE DESC, P.PRESS_NO DESC
+	</sql>
+	<select id="pressList" resultType="Map">
+		select @rownum := @rownum - 1 as PRESS_SEQ,
+		       PL.*
+		  from (<include refid="press_list" />) PL,
+		  	   <if test="from != null and from &gt; 0" >(select @rownum := (select count(*)+1-#{from} from (<include refid="press_list" />) PTemp)) PN</if>
+		  	   <if test="from == null or from == 0" >(select @rownum := (select count(*)+1 from (<include refid="press_list" />) PTemp)) PN</if>
+		 order by PL.PRESS_DATE DESC, PL.PRESS_NO DESC
+		 limit		#{from}, #{rows}
+	</select>
+	<select id="pressListCnt" resultType="Map">
+		select count(*) CNT, SUM(IF(P1.PRESS_TITLE_EN IS NOT NULL, 1, 0)) AS CNT_EN 
+		from (
+			<include refid="press_list" />
+			) P1
+	</select>
+	
+	<select id="get_academy_reqlist" resultType="Map">
+		SELECT A.CUST_NAME , 
+		A.EMAIL , 
+		A.HP, 
+		B.REG_DT , 
+		C.ACADEMY_PAY, 
+		COLUMN_JSON(C.TITLE_BLOB) TITLE_JSON
+		FROM CUST A , ACADEMY_REQ B , ACADEMY C
+		WHERE A.CUST_NO = B.CUST_NO AND B.ACADEMY_NO = C.ACADEMY_NO AND A.CUST_NO = #{cust_no} AND B.DEL_YN = 'N'
+		order by B.REG_DT desc;
+	</select>
+	
+	<sql id="get_newletter_sql">
+		SELECT 
+		NEWSLETTER_NO
+		, COLUMN_GET(NEWSLETTER_TITLE_BLOB, 'ko' AS CHAR) NEWLETTER_TITLE_KO
+		, COLUMN_GET(NEWSLETTER_TITLE_BLOB, 'en' AS CHAR) NEWLETTER_TITLE_EN
+		,NEWSLETTER_DATE
+		,FILE_NAME
+		,FILE_PATH
+		,FILE_ORG_NAME
+		,NEWSLETTER_URL
+		,NEWSLETTER_MEMO
+		,DEL_YN
+		,REG_DT
+		,REG_EMP_NO
+		,MOD_DT
+		,MOD_EMP_NO
+		FROM NEWSLETTER WHERE DEL_YN = 'N' 
+		ORDER BY REG_DT DESC 
+	</sql>
+	
+	<select id="get_newletter_list" resultType="Map">
+	    <include refid="get_newletter_sql"/>
+		LIMIT #{from}, #{rows}
+	</select>
+	
+	<select id="get_newletter_list_count" resultType="Map">
+		SELECT  count(A.NEWSLETTER_NO) as CNT
+	    FROM (
+	    <include refid="get_newletter_sql"/>
+	    ) A
+	</select>
+	
+	<select id="get_bidLive_info" resultType="Map">
+		SELECT CU.CUST_NO, CU.LOGIN_ID, IFNULL(PAD.PADD_NO, 0) PADD_NO
+			, (select CASE WHEN max(CP.VALID_TO_DT) >= NOW() THEN "Y" ELSE "N" END 
+			from CUST_PAY CP where CU.cust_no = CP.cust_no) MEMBERSHIP_YN
+		FROM CUST CU LEFT OUTER JOIN (SELECT * FROM SALE_PADD WHERE SALE_NO = #{sale_no} AND PADD_NO > 600) PAD ON CU.CUST_NO = PAD.CUST_NO
+		WHERE CU.JOIN_KIND_CD = 'online'
+		AND CU.STAT_CD = 'normal'
+		AND CU.CUST_NO = #{action_user_no}
+	</select>
+	
+	<select id="get_bidMy_history" resultType="Map">
+		SELECT	SP.PADD_NO
+		,	L.LOT_NO
+		,	COLUMN_JSON(L.TITLE_BLOB)						AS LOT_TITLE_JSON
+		,	COLUMN_JSON(A.ARTIST_NAME_BLOB)					AS ARTIST_NAME_JSON
+		,	BO.LAST_BID_PRICE								AS LAST_BID_PRICE
+		,	BOH.HAMMER_BID_PRICE							AS HAMMER_BID_PRICE
+		,	IF(BOH.HAMMER_BID_PRICE IS NULL, 'ING', 'DONE')	AS LIVE_STAT		
+		, 	IF(BOH.CUST_NO = BO.CUST_NO AND BO.LAST_BID_PRICE = BOH.HAMMER_BID_PRICE, 'hammer', 'bidding') AS HAMMER_STAT
+		 FROM	(SELECT SALE_NO, LOT_NO, CUST_NO, MAX(BID_PRICE) AS LAST_BID_PRICE FROM BID_OFFLINE WHERE SALE_NO = #{sale_no} AND CUST_NO = #{action_user_no} GROUP BY SALE_NO, LOT_NO) BO 
+						LEFT OUTER JOIN SALE_PADD SP ON SP.SALE_NO = BO.SALE_NO AND SP.CUST_NO = BO.CUST_NO
+						LEFT OUTER JOIN (SELECT SALE_NO, LOT_NO, CUST_NO, BID_PRICE AS HAMMER_BID_PRICE FROM BID WHERE SALE_NO = #{sale_no}) BOH ON BOH.SALE_NO = BO.SALE_NO AND BOH.LOT_NO = BO.LOT_NO
+						INNER JOIN (SELECT * FROM LOT WHERE SALE_NO = #{sale_no}) L ON L.SALE_NO = BO.SALE_NO AND L.LOT_NO = BO.LOT_NO
+						LEFT OUTER JOIN ARTIST A ON L.ARTIST_NO = A.ARTIST_NO
+		 WHERE	1 = 1
+	</select>
+	
+	<select id="get_lotInfo_naviation" resultType="Map">
+	SELECT L.SALE_NO
+			 , L.LOT_NO
+			 , @rownum := @rownum + 1 as LOT_IDX
+			 , COLUMN_JSON(A.ARTIST_NAME_BLOB) ARTIST_NAME_JSON
+			 , COLUMN_JSON(L.TITLE_BLOB) TITLE_JSON
+			 , COLUMN_JSON(L.EXPE_PRICE_FROM_BLOB) EXPE_PRICE_FROM_JSON
+			 , COLUMN_JSON(L.EXPE_PRICE_TO_BLOB) EXPE_PRICE_TO_JSON
+			 , CD.CD_NM_EN as MATE_NM_EN
+			 , L.EXPE_PRICE_INQ_YN 
+ 			 , LI.FILE_PATH
+ 			 , LI.FILE_NAME
+ 			 , L.STAT_CD
+ 			 , IFNULL(IL.DEL_YN, 'Y') AS INTE_LOT_DEL
+ 			 , IF(S.TO_DT &lt;= DATE_ADD(NOW(), INTERVAL -1 DAY), 'Y' , 'N')  AS IS_CLOSED
+ 			 , BD.MAX_BID_PRICE
+ 			 , IFNULL(L.CLOSE_YN, 'N') AS CLOSE_YN
+  		  FROM LOT L	LEFT OUTER JOIN ARTIST A ON L.ARTIST_NO = A.ARTIST_NO 
+  		  				LEFT OUTER JOIN CODE CD	on CD.grp_id = 'material' and CD.CD_ID = L.MATE_CD
+  				 		LEFT OUTER JOIN LOT_IMG LI ON L.SALE_NO = LI.SALE_NO AND L.LOT_NO = LI.LOT_NO
+  				 		AND LI.IMG_NO = (SELECT T.IMG_NO FROM LOT_IMG T WHERE T.SALE_NO = L.SALE_NO AND T.LOT_NO = L.LOT_NO ORDER BY T.DISP_ORD LIMIT 1)
+  				 		INNER JOIN SALE S ON S.SALE_NO = L.SALE_NO
+  				 		LEFT OUTER JOIN CUST_INTE_LOT IL ON L.SALE_NO = IL.SALE_NO AND L.LOT_NO = IL.LOT_NO AND IL.DEL_YN = 'N' AND IL.CUST_NO = #{action_user_no}
+  				 		LEFT OUTER JOIN (SELECT SALE_NO, LOT_NO, MAX(BID_PRICE) MAX_BID_PRICE FROM BID WHERE SALE_NO = #{sale_no} GROUP BY SALE_NO, LOT_NO) BD ON BD.SALE_NO = L.SALE_NO AND BD.LOT_NO = L.LOT_NO
+  				 		, (select @rownum := 0) TMP 
+		 WHERE L.SALE_NO = #{sale_no}		 	
+			<if test="cate_cds != null">
+			and L.CATE_CD in (select cd_id from CODE where grp_id = 'artwork_category' and p_cd_id in (<foreach collection="cate_cds" item="item" index="index" separator=",">'${item}'</foreach>) union
+			                select cd_id from CODE where grp_id = 'artwork_category' and p_cd_id in (select cd_id from CODE where grp_id = 'artwork_category' and p_cd_id in  (<foreach collection="cate_cds" item="item" index="index" separator=",">'${item}'</foreach>)))
+			</if>	
+			<if test="hashtag_list != null">
+			and L.LOT_TAG in (<foreach collection="hashtag_list" item="item" index="index" separator=",">'${item}'</foreach>)
+			</if>
+   		 ORDER BY L.LOT_NO ASC;
+	</select>
+	
+	<select id="get_lotInfo_favorate" resultType="Map"> <!-- 관심작품 -->
+	SELECT L.SALE_NO
+			 , L.LOT_NO
+			 , COLUMN_JSON(A.ARTIST_NAME_BLOB) ARTIST_NAME_JSON
+			 , COLUMN_JSON(L.TITLE_BLOB) TITLE_JSON
+			 , COLUMN_JSON(L.EXPE_PRICE_FROM_BLOB) EXPE_PRICE_FROM_JSON
+			 , COLUMN_JSON(L.EXPE_PRICE_TO_BLOB) EXPE_PRICE_TO_JSON
+			 , CD.CD_NM_EN as MATE_NM_EN
+			 , L.EXPE_PRICE_INQ_YN 
+ 			 , LI.FILE_PATH
+ 			 , LI.FILE_NAME
+ 			 , L.STAT_CD
+ 			 , IFNULL(IL.DEL_YN, 'Y') AS INTE_LOT_DEL
+  		  FROM LOT L	LEFT OUTER JOIN ARTIST A ON L.ARTIST_NO = A.ARTIST_NO 
+  		  				LEFT OUTER JOIN CODE CD	on CD.grp_id = 'material' and CD.CD_ID = L.MATE_CD
+  				 		LEFT OUTER JOIN LOT_IMG LI ON L.SALE_NO = LI.SALE_NO AND L.LOT_NO = LI.LOT_NO
+  				 		AND LI.IMG_NO = (SELECT T.IMG_NO FROM LOT_IMG T WHERE T.SALE_NO = L.SALE_NO AND T.LOT_NO = L.LOT_NO ORDER BY T.DISP_ORD LIMIT 1)
+  				 		INNER JOIN SALE S ON S.SALE_NO = L.SALE_NO
+  				 		INNER JOIN CUST_INTE_LOT IL ON L.SALE_NO = IL.SALE_NO AND L.LOT_NO = IL.LOT_NO AND IL.DEL_YN = 'N' AND IL.CUST_NO = #{action_user_no}
+		 WHERE L.SALE_NO = #{sale_no}
+   		 ORDER BY L.LOT_NO ASC;
+	</select>
+	
+	<select id="get_bidLive_currenInfo" resultType="Map"> <!-- 환율 -->
+		SELECT EXCH_CURR_CD, BASE_PRICE, RATE 
+		FROM SALE_EXCH_RATE
+		WHERE SALE_NO = #{sale_no}
+	</select>
+	
+	<!-- 메인슬라이드 -->
+	<select id="get_home_slide_info" resultType="Map">
+		SELECT BM.DISP_ORD AS DISP_ORD, 
+				BM.BANN_MAIN_NO AS BANN_MAIN_NO, 
+				 BM.TITLE,
+				 <!-- contents -->
+				 COLUMN_JSON(BM.SLIDE_TITLE_BLOB) AS SLIDE_TITLE_JSON,
+				 COLUMN_JSON(BM.TEXT_TITLE_BLOB) AS TEXT_TITLE_JSON,
+				 COLUMN_JSON(BM.TEXT_BLOB) AS TEXT_JSON,
+				 COLUMN_JSON(BM.SUB_TEXT_TITLE_BLOB) AS SUB_TEXT_TITLE_JSON,
+				 COLUMN_JSON(BM.SUB_TEXT_BLOB) AS SUB_TEXT_JSON,
+				 <!-- button -->
+				 COLUMN_JSON(BM.BTN1_BLOB) AS BTN1_JSON, 
+				 BM.BTN1_URL, 
+				 BM.BTN1_DISP_YN,
+				 BM.BTN1_COLOR_YN,
+				 BM.BTN1_TARGET_YN,
+				 COLUMN_JSON(BM.BTN2_BLOB) AS BTN2_JSON, 
+				 BM.BTN2_URL, 
+				 BM.BTN2_DISP_YN,
+ 				 BM.BTN2_COLOR_YN,
+				 BM.BTN2_TARGET_YN,
+				 COLUMN_JSON(BM.BTN3_BLOB) AS BTN3_JSON, 
+				 BM.BTN3_URL, 
+				 BM.BTN3_DISP_YN,
+ 				 BM.BTN3_COLOR_YN,
+				 BM.BTN3_TARGET_YN,
+		 		 COLUMN_JSON(BM.BTN4_BLOB) AS BTN4_JSON, 
+				 BM.BTN4_URL, 
+				 BM.BTN4_DISP_YN,
+ 				 BM.BTN4_COLOR_YN,
+				 BM.BTN4_TARGET_YN,
+		 		 COLUMN_JSON(BM.BTN5_BLOB) AS BTN5_JSON, 
+				 BM.BTN5_URL, 
+				 BM.BTN5_DISP_YN,
+ 				 BM.BTN5_COLOR_YN,
+				 BM.BTN5_TARGET_YN
+		FROM BANN_MAIN BM
+		WHERE BM.DEL_YN = 'N'
+		AND BM.WWW_DISP_YN = 'Y'
+		<if test="locale == 'ko'">
+		AND BM.WWW_DISP_KO_YN = 'Y'
+		</if>
+		<if test="locale == 'en'">
+		AND BM.WWW_DISP_EN_YN = 'Y'
+		</if>
+		ORDER BY BM.DISP_ORD ;
+	</select>
+	
+	<select id="get_slide_img_list" resultType="Map">
+		SELECT BMI.BANN_MAIN_NO, BMI.IMG_NO, BMI.FILE_PATH, BMI.FILE_NAME, BMI.FILE_NAME_ORG, BMI.DISP_ORD, BMI.SIZE 
+		FROM BANN_MAIN_IMG BMI
+		WHERE BMI.BANN_MAIN_NO = #{bann_main_no}
+		ORDER BY BMI.DISP_ORD;
+	</select>
+</mapper>

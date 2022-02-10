@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="message.test">test</entry>
+	<entry key="message.Choose">Choose</entry>
+		<entry key="message.Bid">Bid</entry>
+	<entry key="message.Automatic bid">Automatic bid</entry>
+	
+	<entry key="label.login">Login</entry>
+	<entry key="label.Id">Account ID</entry>
+	<entry key="label.loginId">Write your ID</entry>
+	<entry key="label.loginIdfind">Forgot your ID? </entry>
+	<entry key="label.passwordloginIdfind">Forgot your ID and Password?</entry>
+	<entry key="label.password">Password</entry> 
+	<entry key="label.putpassword">Write your password</entry>
+	<entry key="label.passwordfind">Forgot your password? </entry>
+	<entry key="label.businessMember">Business Member</entry>
+	<entry key="label.passwordre">Re-enter your password</entry>
+	<entry key="label.loginmess">Please, write your account ID and password to login.</entry>
+	<entry key="label.agree">Register</entry>
+	<entry key="label.agreenow">Register Now</entry>
+	<entry key="label.agreemessage"><![CDATA[To join auction bidding, please conduct a memebrship.<br>Please register as a member right now.]]></entry>
+	<entry key="label.submenu">Menu</entry>
+	<entry key="label.Attachments">Attachments</entry>
+	
+	<entry key="label.logcomplet"><![CDATA[In order to enjoy all of the benefits of your online account, please complete a one-time validation of your email address.<br><br>• A confirmation message will arrive in your email inbox shortly.<br>
+• Click the link within the email to activate your account.<br>
+• Get started using your online account.]]></entry>
+	<entry key="label.logcompletadd"><![CDATA[A confirmation email has been sent to you.<br>>To bid on any auction, you will need to upgrade to a verified account. <br> If you have any questions, please send us an email (info@seoulauction.com) ]]></entry>
+	<entry key="label.logcomp"><![CDATA[Thank you for your registration.<br/>In order to enjoy all of the benefits of your online account, please complete a one-time validation of your email address.<br><br>To bid on any auction, you will need to upgrade to a verified account. <br><br>• A confirmation message will arrive in your email inbox shortly. (please check your spam folder.)<br> • Click the link within the email to activate your account.<br> • Get started using your online account.<br> If you have any questions, please send us an email (info@seoulauction.com) ]]></entry>
+	<entry key="label.logerror"><![CDATA[The Account ID or password you entered does not match any account on record. Please be sure you are using the correct ID.]]></entry>
+	<entry key="label.logerrornotConfirmed">Please confirm your email to activate your seoulauction.com account</entry>
+	<entry key="label.logout"><![CDATA[You have been logged out. <br/>Please login again for use of SeoulAucion.com.]]></entry>
+	
+	<entry key="label.informationGide">How To Bid</entry> 
+	<entry key="label.biddingGide">How To Buy</entry>
+	<entry key="label.ShippingGide">Shipping Info</entry>   
+
+	<entry key="label.agree.ok" >Agree the Auction Terms</entry>
+	<entry key="label.agree.ag01" >Registration Guide and Agreement</entry>
+	<entry key="label.agree.ag02" >Basic Information</entry>
+	<entry key="label.agree.ag03" >Additional Information</entry>
+	<entry key="label.agree.ag04" >Finish Registration &#38; Additional Information</entry>
+	<entry key="label.agree.agre" >Registration Guide and Agreement</entry>	
+
+	<entry key="label.membership.info" >Guide for Members</entry>
+	<entry key="label.membership.j" >Associate Member</entry>
+	<entry key="label.membership.jtext" ><![CDATA[Provided limited service on the<br />Seoul Auction website]]></entry>
+	<entry key="label.membership.jj" >Subscription Member</entry>
+	<entry key="label.membership.jj01" >Membership fee: USD 500 (A year)</entry>
+	<entry key="label.membership.jj02" >Auction books are provided.</entry>
+	<entry key="label.membership.jj03" >Provided Website Bidding service</entry>
+	<entry key="label.membership.jj04" >The member who wants bidding through the written report or phone call, please fill the application form completely and submit at the website or the back of catalogue.</entry>
+	<entry key="label.membership.jj05" >e-mail : info@seoulauction.com</entry>
+	<entry key="label.membership.jj06" ></entry>
+	<entry key="label.membership.jja" >Bidding</entry>
+	<entry key="label.membership.jja01" >The member who wants bidding through the written report or phone call, please fill the application(Bid forms are accepted by e-mail only) form completely and submit at the website or the back of catalogue.</entry>
+	<entry key="label.membership.jja02" >The form of bidding registration is close on one day before.</entry>
+	<entry key="label.membership.jja03" >e-mail : info@seoulauction.com</entry>
+	<entry key="label.membership.jja04" ></entry>
+	<entry key="label.membership.jja05" ></entry>
+	<entry key="label.membership.jja06" ></entry>
+	<entry key="label.membership.jja07" ></entry>
+	<entry key="label.membership.jja08" ></entry>
+	<entry key="label.membership.jja09" ><![CDATA[Subscription Membership fee: USD 500 (A year)<br />Auction books are provided.<br />e-mail : info@seoulauction.com]]></entry>
+	
+	<entry key="label.mypage" >My account</entry>
+	<entry key="label.membership" >Member Type</entry>
+	<entry key="label.membership.pay" >Customer Type History</entry>
+	<entry key="label.membership.payment" >Become a Subscription Member</entry>
+	<entry key="label.membership.AccInfo">Account Info</entry>
+	<entry key="label.membership.ChangeInfo">Change Information</entry>
+	<entry key="label.membership.ChangeInfosumit">Sumit</entry>
+	<entry key="label.membership.DeleteAccount">Delete Account</entry>
+	<entry key="label.mypage.online" >Online Auction</entry>
+	<entry key="label.mypage.bidding" >Bids History</entry>
+	<entry key="message.mypage.bidding" >Lots</entry>
+	<entry key="message.mypage.interlist" >Lots</entry>
+	<entry key="label.mypage.successfulbid" >Successful Bid</entry>
+	<entry key="label.mypage.stopbid" >Automatic Bid Stop</entry>
+	<entry key="label.mypage.autobidding" >Automatic bids history</entry>
+	<entry key="label.mypage.autobidding01" >Auction</entry>
+	<entry key="label.mypage.autobidding02" >Date</entry>
+	<entry key="label.mypage.autobidding03" >Type</entry>
+	<entry key="label.mypage.autobidding04" >Bid price</entry>
+	<entry key="label.mypage.autobidding05" >Cancel</entry>
+	<entry key="label.mypage.autobidding06" >Change</entry>
+	<entry key="label.mypage.autobidding07" >Cancelled</entry>
+	<entry key="label.mypage.autobidding08" >Bid cancel</entry>
+	<entry key="label.mypage.autobidding09" >Bid change</entry>
+	<entry key="label.mypage.onlimepay" >Proceed to checkout</entry>
+	<entry key="label.mypage.onlimepaylist" >Orders</entry>
+	<entry key="label.mypage.offauction" >Offline Auction</entry>
+	<entry key="label.mypage.offbidhistory" >Online Paddle Bid History</entry> 
+	<entry key="label.mypage.offauctionlist" >Bids history</entry>
+	<entry key="label.mypage.offintelist" >Favorite Works</entry>
+	<entry key="label.mypage.onintelist" >Favorite Works</entry>		
+	<entry key="label.mypage.offcrintelist" >ConditionReport Works</entry>
+	<entry key="label.mypage.academylist" >Academy application list</entry>
+	<entry key="label.mypage.academylistlist" >Academy application</entry>
+	
+	<entry key="label.membership.inquery">1:1 Inquiry</entry>
+	<entry key="message.membership.inquery"></entry>
+	<entry key="label.membership.inqueryall">All</entry>
+	<entry key="label.membership.inquery01">Total</entry>
+	<entry key="label.membership.inquery21">Inquiries</entry>
+	<entry key="label.membership.inqueryWaiting">Waiting</entry>
+	<entry key="label.membership.inqueryAnswered">Answered</entry>
+	<entry key="label.membership.inquerydate">Date</entry>
+	<entry key="label.membership.inquerytitle">Title</entry>
+	<entry key="label.membership.inquerycontents">Contents</entry>
+	<entry key="label.membership.inqueryartwork">Artwork</entry>
+	<entry key="label.membership.inquerytype">Type</entry>
+	<entry key="label.membership.inquerynow">Processing Status</entry>
+	<entry key="label.membership.inqueryst">In Charge</entry>
+	<entry key="label.membership.inqueryendt">Answer Date</entry>
+	<entry key="label.membership.Write Inquiryt">Write Inquiry</entry>
+	<entry key="label.membership.inqueryread">Check</entry>
+	<entry key="label.membership.inquerynotread">Absence</entry>
+	<entry key="label.membership.press">Press</entry>
+	<entry key="label.membership.no">No.</entry>
+	<entry key="label.membership.inquery01">Please ask me a question.</entry>
+	
+	<entry key="label.mem.joinformperson">Individual Member</entry>
+	<entry key="label.mem.joinform">Basic Information</entry>
+	<entry key="message.mem.joinform"><![CDATA[Fill basic information below, and then be a member. You must fill the input box marked with an asterisk. (<span class="essen">*</span>) ]]></entry>
+	<entry key="label.mem.joinform01">Individual Member Additional Information</entry>
+	<entry key="message.mem.joinform01">Fill additional information below.</entry>
+	<entry key="label.mem.sumit">CREATE ACCOUNT</entry>
+	<entry key="message.mem.failed">Failde to registration. please retry.</entry>
+	<entry key="message.mem.done"><![CDATA[In order to enjoy all of the benefits of your online account,<br> please complete a one-time validation of your email address.]]></entry>
+	
+	<entry key="label.mem.01">ID Check</entry>
+	<entry key="label.mem.02">Check Availability</entry>
+	<entry key="message.mem.id">From 6 to 14 characters</entry>
+	<entry key="message.mem.password">* Password must be at least 4 characters and contain one lowercase letter, number, and a special character.</entry>
+	<entry key="message.mem.mapass">Passwords do not match.</entry>
+	<entry key="message.mem.mapassok">Passwords match.</entry>
+	<entry key="message.mem.empassword">Check Re-enter your password.</entry>
+	<entry key="message.mem.born">Please enter your date of birth in yyyymmdd. (30. December. 1998 → 19981230)</entry>
+	<entry key="message.mem.02">Check Availability</entry>
+	<entry key="message.mem.03">Please, fill in the field.</entry>	
+	<entry key="message.mem.04">This ID is available for use.</entry>
+	<entry key="message.mem.05">This ID is already in use.</entry>
+	<entry key="message.mem.06">The email address you entered is already in use.</entry>
+	<entry key="message.mem.07">Please enter your mobile number.</entry>
+	<entry key="message.mem.08">This is the correct value.</entry>
+	<entry key="label.mem.name">Name</entry>
+	<entry key="label.mem.birth">Birth Date</entry>
+	<entry key="label.mem.gender">Gender</entry>
+	<entry key="label.mem.male">Male</entry>
+	<entry key="label.mem.female">Female</entry>
+	<entry key="label.mem.mobile">Mobile Number</entry>
+	<entry key="label.mem.email">Email</entry>
+	<entry key="label.mem.email01"></entry>
+	<entry key="label.mem.email02">domain</entry>
+	<entry key="label.mem.address">Address</entry>
+	<entry key="label.mem.address01">Shipping Address</entry>
+	<entry key="label.mem.addressline1">Address Line</entry>
+	<entry key="label.mem.addressline2">Province/state, City</entry>
+	<entry key="label.mem.address02">※ Check, if your shipping address is the same with home address. (You can change it after registration, too.)</entry>
+	<entry key="label.mem.auctionin">Fill the Bidding registration</entry>
+	
+	<entry key="label.mem.receive">Receive via</entry>
+	<entry key="label.mem.noreceive">Nothing</entry>
+	<entry key="label.mem.ereceive">Email</entry>
+	<entry key="label.mem.mreceive">Text</entry>
+	<entry key="label.mem.interesting">Art Work Interest</entry>
+	<entry key="label.mem.interesting01">Non-Korean Art</entry>
+	<entry key="label.mem.interesting02">Korean Modern Art</entry>
+	<entry key="label.mem.interesting03">Pottery</entry>
+	<entry key="label.mem.interesting04">Old Painting</entry>
+	<entry key="label.mem.interesting05">Old Book</entry>
+	<entry key="label.mem.interartist">Favorite Artist</entry>
+	<entry key="label.mem.5interartist">Max 5 artists</entry>
+	<entry key="label.mem.searchart">Artist Search</entry>
+
+	<entry key="label.search">Search</entry>
+	<entry key="label.period">Period</entry>
+	<entry key="label.period.num">※ yyyymmdd</entry>
+	<entry key="label.auction.sales">Sales</entry>
+	<entry key="label.online">Online</entry>
+	<entry key="label.online_zb">ZERO BASE</entry>
+	<entry key="label.offline">Offline</entry>
+	<entry key="label.offline.hk">Offline HK</entry>
+	<entry key="label.plan">Plan</entry>
+	<entry key="label.exhibit">Exhibition</entry>
+	<entry key="label.artist.title">Artist/Title</entry>
+	<entry key="label.artist.title.ex">Artist</entry>
+		<entry key="label.artist.title.ex01">Title</entry>
+	<entry key="label.material">Material</entry>
+	<entry key="label.material.works">Material of works</entry>
+	<entry key="label.search.reset">Clear</entry>
+	<entry key="label.search.placeholder">Search</entry>
+	<entry key="label.query">Go</entry>
+	<entry key="label.query2">Go</entry>
+	<entry key="label.move.bottom">Go To Bottom</entry>
+	<entry key="label.move.top">Back To Top</entry>
+	<entry key="label.list.horizontal">Horizontal</entry>
+	<entry key="label.list.vertical">Vertical</entry>
+	<entry key="label.close">Close</entry>
+	<entry key="label.move.prev">Prev</entry>
+	<entry key="label.move.next">Next</entry>
+	<entry key="label.move.list">List</entry>
+	
+	<entry key="label.go.next">Next</entry>
+	<entry key="label.back.prev">Back</entry>
+
+	<entry key="label.view.detail">Details of Result</entry>
+	<entry key="label.sort.by">Sort by</entry>
+	<entry key="label.sort.by.latest">Latest</entry>
+	<entry key="label.sort.by.oldest">Oldest</entry>
+	<entry key="label.sort.by.price_low">Price lowest</entry>
+	<entry key="label.sort.by.price_high">Price highest</entry>
+	<entry key="label.sort.by.bid_rate_low">Bid rate lowest</entry>
+	<entry key="label.sort.by.bid_rate_high">Bid rate highest</entry>
+	<entry key="label.sitemap">Site map</entry>
+	<entry key="label.printbakery">PRINT BAKERY</entry>
+	<entry key="label.AuctionBlueonline">Auction Blue</entry>
+	
+	<entry key="label.sort.by.LOTAS">Num lowest</entry>
+	<entry key="label.sort.by.LOTDE">Num highest</entry>
+	<entry key="label.sort.by.ESTAS">Estimate lowest</entry> 
+	<entry key="label.sort.by.ESTDE">Estimate highest</entry>
+	<entry key="label.sort.by.ENDAS">Time:ending soonest</entry> 
+	<entry key="label.sort.by.BIPAS">Bid price lowest</entry>
+	<entry key="label.sort.by.BIPDE">Bid price highest</entry> 
+	<entry key="label.sort.by.BICAS">Bid time lowest</entry>
+	<entry key="label.sort.by.BICDE">Bid time highest</entry>
+
+	<entry key="label.sns.twitter">twitter</entry>
+	<entry key="label.sns.facebook">facebook</entry>
+	<entry key="label.sns.blog">blog</entry>
+	<entry key="label.sns.google">Google</entry>
+
+	<entry key="label.auction.current">Current</entry>
+	<entry key="label.auction.offlinecurrent">Mayjor Auction</entry>  
+	<entry key="label.auction.upcoming">Upcoming</entry>
+	<entry key="label.auction.result">Result</entry>
+	<entry key="label.sale.exhibit">Other Sales</entry>
+	<entry key="label.artwork.search">Search</entry>
+	<entry key="label.online.blue">Auction Blue</entry>
+	<entry key="label.howto.onbid">Online Auction Infomation</entry>
+	<entry key="label.howto.bid">Auction Infomation</entry>
+	<entry key="label.howto.buy">How To Buy</entry>
+	<entry key="label.howto.contract">How To Sell</entry>
+	<entry key="label.howto.delivery">Shipping Info</entry>
+	<entry key="label.howto.auction">Auction Infomation</entry>
+	<entry key="label.howto.PRIVATE">Private Sale</entry>
+	<entry key="label.ps.privatesale">Private Sale</entry>
+	<entry key="label.ps.gallerynetwork">Gallery Network</entry>  
+	<entry key="label.ps.privateguide">P/S Guide</entry>   
+	<entry key="label.exhibition.curation">Exhibition Curating</entry> 
+	<entry key="label.space.rental">Rental of Space</entry>
+	<entry key="label.artwork.keep">Art Storage</entry>
+	<entry key="label.artwork.keep.insa">Insa Art Storage</entry> 
+	<entry key="label.artwork.keep.jangheung">Jangheung Art Storage</entry> 
+	<entry key="label.artwork.keep.Pyeongchang">Pyeongchang Art Storage</entry>    
+	<entry key="label.company.artwork">Consulting &#38; Corporate Marketing</entry>     
+	<entry key="label.company.artwork-marketing">VIP Customer Marketing</entry>  
+	<entry key="label.company.artwork-specialauction">Special Auction</entry>
+	<entry key="label.company.artwork-artservice">Corporate Art Service</entry>
+	<entry key="label.company.artwork-artconsulting">Art Consulting</entry> 
+	<entry key="label.company.artwork-artdonation">Art Donation</entry>     
+	<entry key="label.collateral.loan">Art Collateral Loans</entry>
+	<entry key="label.newsletter">News Letter</entry> 
+	<entry key="label.academy">Academy</entry>
+	<entry key="label.academy.artculture">Art &amp; Culture</entry>
+	<entry key="label.academy.artisttalk">Artist Talk</entry>
+	<entry key="label.academy.artauction">Art &amp; Auction</entry> 
+	<entry key="label.academy.culture">The Cult of Culture</entry>
+	<entry key="label.academy.lecture">Special Lecture</entry>  
+	<entry key="label.academy.artbrunch">ART &amp; Brunch</entry>
+	<entry key="label.academy.detail">View of Detail</entry>
+	<entry key="label.academy.artbusan">ArtBusan</entry>
+	<entry key="label.china.artwork.auth">Consignment Appraisal of Chinese Art</entry>
+	<entry key="label.seoulauction.introduction">About Us</entry>
+	<entry key="label.seoulauction.introgang">Gangnam Center</entry>   
+	<entry key="label.seoulauction.introgang0">Gangnam Center Exhibition</entry>  
+	<entry key="label.seoulauction.introgang1">Gangnam Center Exhibition Ⅰ</entry>
+	<entry key="label.seoulauction.introgang2">Gangnam Center Exhibition Ⅱ</entry>
+	<entry key="label.seoulauction.introhk">Seoul Auction Hong Kong Limited</entry>     
+	<entry key="label.seoulauction.history">History</entry>
+	<entry key="label.seoulauction.invest">Investor Relations</entry>
+	<entry key="label.seoulauction.location">Location</entry>
+	<entry key="label.seoulauction.sns">Social Networking Service</entry>
+	<entry key="label.notice">Notice</entry>
+	<entry key="label.press">Press</entry>
+	<entry key="label.recruit">Recruitment</entry>   
+	<entry key="label.recruit02">Recruitment</entry>  
+	<entry key="label.recruitperiod">Recruitment period</entry>   
+	<entry key="label.faq">FAQ</entry>
+	<entry key="label.notice.nosearch">No announcements found.</entry>
+	<entry key="label.press.nosearch">No press articles found.</entry>
+	<entry key="label.recruit.nosearch">No recruitment found.</entry>
+	
+	<entry key="label.upcoming.Preview">Preview</entry>
+	<entry key="label.upcoming.Preview1">Period</entry>
+	<entry key="label.upcoming.Preview2">Venue</entry>
+	<entry key="label.upcoming.Preview3">View larger map</entry>
+
+	<entry key="label.inquiry.contract">How to Sell</entry>
+
+    <entry key="label.terms.auction01">Guide to use</entry>
+	<entry key="label.terms.auction">Terms</entry>
+	<entry key="label.terms.privacy.policy">Privacy Policy</entry>
+	<entry key="label.terms.infor.rules">Information Mgmt. Rules</entry>	
+	<entry key="label.terms.condition">Condition Report Terms</entry>
+
+	<entry key="text.footer.info"><![CDATA[
+				<li>11, Pyeongchang 31-gil, Jongno-gu, Seoul, Korea</li>
+				<li>E: info@seoulauction.com</li>
+	]]></entry>
+	
+	<entry key="message.auction.preparing">It is currently being prepared.</entry>
+	
+	<entry key="label.sale.title">Title of Auction/Sale</entry>
+	<entry key="label.sale.search.placeholder">Write Here</entry>
+	<entry key="label.sale.list.summary"><![CDATA[All <span class="txt_green">{0}</span> Results]]></entry>
+			<entry key="label.sale.extitle">Title</entry>
+	<entry key="label.sale.exsearch.placeholder">Write Here</entry>
+	<entry key="label.sale.exlist.summary"><![CDATA[총 <span class="txt_green">{0}</span> Results]]></entry>
+
+	<entry key="label.artist.name">Artist</entry>
+	<entry key="label.artist.name.search.placeholder">Write here</entry>
+	<entry key="label.artwork.title">Art Work</entry>
+	<entry key="label.artwork.title.search.placeholder">Write here</entry>
+	<entry key="label.expense.price">Estimate</entry>
+	<entry key="label.expense.start_price">Start Price</entry>
+	<entry key="label.lot.no">Number(Lot)</entry>
+	<entry key="label.total.lots"><![CDATA[All <span class="txt_green02">{0}</span>]]></entry>
+	<entry key="label.listup.lots">{0} Lots</entry>
+
+	<entry key="message.lot.status.reentry"><![CDATA[Cancellation of this artwork has been submitted and approved.]]></entry>
+	
+	<entry key="label.auction.start">Start</entry>
+	<entry key="label.auction.ongoing">Ongoing</entry>
+	<entry key="label.auction.finish">Finished</entry>
+	<entry key="label.finish.by.lot.number">Finish by Lot Number Order</entry>
+	<entry key="label.bid.count"><![CDATA[Bid Times : {0}]]></entry>
+	<entry key="label.bid.price">Current</entry>
+	<entry key="label.bid.price.sold">Hammer</entry>
+	<entry key="label.bid.mybidding">My bidding</entry>
+	<entry key="label.bid.mybidding1">times</entry>
+	<entry key="label.bid.mybidding2">hightest bid has just been made</entry>
+	<entry key="label.go.bid.request">Bidding</entry>
+	<entry key="label.go.bid.now">Bid Now</entry>
+	<entry key="label.go.bid.loginlog">login</entry>
+	<entry key="label.go.print.now">Print</entry>
+	<entry key="label.go.bid.history">Bid History</entry>
+	<entry key="label.go.inquery">Inquiry</entry>
+	<entry key="label.auction.unsold">Unsold</entry>
+	<entry key="label.auction.soldpricelog">Please login for use of SeoulAucion.com.</entry> 
+	<entry key="label.auction.loginlog">Please login for use of the detail and bidding.</entry> 
+	<entry key="label.auction.loginlog_1">The website bidding is open to bidding members only.</entry>
+	<entry key="label.auction.loginlog1">Please login for use of the detail.</entry>
+	<entry key="label.auction.membershipchk">The website bidding is open to bidding members only. After Register on the website, try log in again.</entry> 
+	
+	<entry key="label.auction.detail.Request">Estimate on Request</entry>
+	<entry key="label.auction.detail.explain">Explain</entry>
+	<entry key="label.auction.detail.literature">LITERATURE</entry>
+	<entry key="label.auction.detail.exhibited">EXHIBITED</entry>
+	<entry key="label.auction.detail.provenance">PROVENANCE</entry>
+	<entry key="label.auction.detail.artistOtherLot">More from the Artist</entry>
+
+	<entry key="label.artwork.condition_report">Condition Report</entry>
+	<entry key="label.membership.inquerysell">1:1 Inquiry</entry>
+	<entry key="label.membership.inqueryselllog">Available after login</entry>
+</properties>

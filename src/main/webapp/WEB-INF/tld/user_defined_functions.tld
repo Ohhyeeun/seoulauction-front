@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+	version="2.0">
+	<tlibversion>2.0</tlibversion>
+	<jspversion>2.0</jspversion>
+	<shortname>udf</shortname>
+	
+	<function>
+		<name>getBuyCommHK</name>
+		<function-class>com.seoulauction.front.util.AuctionUtil</function-class>
+		<function-signature>int getBuyCommHK(java.lang.String, double)</function-signature>
+	</function>
+	<function>
+		<name>getBuyCommKo</name>
+		<function-class>com.seoulauction.front.util.AuctionUtil</function-class>
+		<function-signature>int getBuyCommKo(java.lang.String, double)</function-signature>
+	</function>
+	<function>
+		<name>getSizeString</name>
+		<function-class>com.seoulauction.front.util.AuctionUtil</function-class>
+		<function-signature>String getSizeString(double, double, double, java.lang.String, int, java.lang.String, java.lang.String, java.lang.String, java.lang.String)</function-signature>
+	</function>
+		<function>
+		<name>getSizeString2</name>
+		<function-class>com.seoulauction.front.util.AuctionUtil</function-class>
+		<function-signature>String getSizeString2(double, double, double, java.lang.String, int, java.lang.String, java.lang.String, java.lang.String, java.lang.String)</function-signature>
+	</function>
+	<function>
+		<name>addYear</name>
+		<function-class>com.seoulauction.front.util.AuctionUtil</function-class>
+		<function-signature>Date addYear(java.util.Date, int)</function-signature>
+	</function>
+	<function>
+		<name>addMonth</name>
+		<function-class>com.seoulauction.front.util.AuctionUtil</function-class>
+		<function-signature>Date addMonth(java.util.Date, int)</function-signature>
+	</function>
+	<function>
+		<name>addDate</name>
+		<function-class>com.seoulauction.front.util.AuctionUtil</function-class>
+		<function-signature>Date addDate(java.util.Date, int)</function-signature>
+	</function>
+	<function>
+		<name>addHour</name>
+		<function-class>com.seoulauction.front.util.AuctionUtil</function-class>
+		<function-signature>Date addHour(java.util.Date, int)</function-signature>
+	</function>
+	<function>
+		<name>addMinute</name>
+		<function-class>com.seoulauction.front.util.AuctionUtil</function-class>
+		<function-signature>Date addMinute(java.util.Date, int)</function-signature>
+	</function>
+	<function>
+		<name>addSecond</name>
+		<function-class>com.seoulauction.front.util.AuctionUtil</function-class>
+		<function-signature>Date addSecond(java.util.Date, int)</function-signature>
+	</function>
+	<function>
+		<name>convertLocaleEnDate</name>
+		<function-class>com.seoulauction.front.util.AuctionUtil</function-class>
+		<function-signature>String convertLocaleEnDate(java.util.Date)</function-signature>
+	</function>
+</taglib>

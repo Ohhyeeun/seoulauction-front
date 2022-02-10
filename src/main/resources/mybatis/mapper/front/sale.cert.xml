@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.front.sale.cert">
+	<insert id="sale_cert_add" parameterType="Map" useGeneratedKeys="true" keyProperty="sale_cert_no">
+		insert into SALE_CERT (SALE_NO, CUST_NO, HP, CUST_HP, DONE_CD, REG_DT, REG_EMP_NO)
+		VALUES (
+			#{sale_no}, 
+			#{action_user_no}, 
+			#{hp},
+			(select max(A.HP) from CUST A where A.CUST_NO = #{action_user_no}),
+			#{done_cd},
+			now(),
+			#{action_user_no}
+		);
+	</insert>	
+	<update id="sale_cert_hp_mod">
+		update CUST set HP = #{hp} where CUST_NO = #{action_user_no};
+		update SALE_CERT set DONE_CD='modify' where	SALE_CERT_NO = #{sale_cert_no};
+	</update>	
+	<select id="sale_cert_info" resultType="Map">
+		select 	count(*) as CNT,
+				(select max(A.HP) from CUST A where A.CUST_NO = #{action_user_no}) as HP
+		from	SALE_CERT A
+		where	A.DEL_YN = 'N' and A.SALE_NO = #{sale_no} and A.CUST_NO = #{action_user_no}
+	</select>	
+</mapper>

@@ -1,0 +1,178 @@
+
+<html>
+<head>
+<title>SeoulAuction Live</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<script language="javascript">
+<!--
+
+	function Channel(ch)
+	{
+		var svrip = "112.175.103.52";
+		var svrport = parseInt("8050");
+		var channel = parseInt(ch);
+
+		SeeLive.ChangeChannel(svrip,svrport,channel);
+	}
+
+	function FullScreen()
+	{
+		SeeLive.ToggleFullScreen();
+	}
+
+	function Mute()
+	{
+		SeeLive.ToggleMute();
+	}
+
+	function Vol_Down()
+	{
+		Cur_Vol = SeeLive.GetVolume();
+		SeeLive.SetVolume(Cur_Vol-12);
+	}
+
+	function Vol_Up()
+	{
+		Cur_Vol = SeeLive.GetVolume();
+		SeeLive.SetVolume(Cur_Vol+12);
+	}
+
+	function PlayStart(){
+		SeeLive.Start();
+	}
+
+	function PlayStop(){
+		SeeLive.Stop();
+	}
+
+	function ChangeSize(width,height)
+	{
+		SeeLive.width = width;
+		SeeLive.height = height;
+		window.self.resizeTo(width+45,height+160);
+		return;
+	}
+
+	//@@@@@@@@@@@@@@@@@화면 확대/축소@@@@@@@@@@@@@@@@@//
+	var checkNum;
+	checkNum=0;
+
+	function screenMng(add){
+		checkNum+=add
+		if(checkNum==1)
+		{
+			ChangeSize(640,480)
+			window.self.resizeTo(685,639)
+		}
+		else if(checkNum==2)
+		{
+			checkNum=1;
+		}
+		else if(checkNum==0)
+		{
+			ChangeSize(512,384)
+			window.self.resizeTo(552,545)
+		}
+		else if(checkNum==-1)
+		{
+			ChangeSize(430,322)
+			window.self.resizeTo(470,483)
+		}
+		else if(checkNum==-2)
+		{
+			checkNum=-1
+		}
+	}
+
+	function normalScreen(){
+			ChangeSize(512,384)
+			window.self.resizeTo(560,537)
+		checkNum=0;
+}
+
+//-->
+</script>
+
+<body leftmargin=0 marginheight=0 marginwidth=0 topmargin=0 bottommargin=0 bgcolor="#FFFFFF" text="#000000">
+
+<table width=952 border="0" cellspacing="0" cellpadding="0">
+	<tr><td width=552>
+		<!-- 생방송 -->
+
+		<table width="530" border="0" cellspacing="0" cellpadding="0">
+		  <tr>
+		    <td width="23" height="31"><img src="/images/live/skin_tv_00.gif" width="20" height="31"></td>
+		    <td background="/images/live/skin_tv_01_bg.gif" width="514" height="31"></td>
+		    <td width="123" height="31"><img src="/images/live/skin_tv_02.gif" width="20" height="31"></td>
+		  </tr>
+		  <tr>
+		    <td valign="middle" background="/images/live/skin_tv_03_bg.gif">&nbsp;</td>
+		    <td>
+
+					<object id="SeeLive" width="512" height="384" classid="CLSID:8EEB54D5-CC70-40E4-B015-AC478C02ECC8" codebase=" http://www.seemedia.co.kr/products/lu2/sm8459/kor/187/SLViewer.cab#version=1,2,31,187">
+						<param name="ServerIP" value="112.175.103.52">
+						<param name="BasePort" value="8050">
+						<param name="Channel" value="100">
+						<param name="UseFixedServerPort" value="1">
+						<param name="StartDelay" value="5">
+						<param name="AutoPlay" value="1">
+						<param name="ViewMode" value="2">
+						<param name="TicketMethod" value="0">				
+						<param name="NoDelay" value="3000">
+						<param name="ShowByOverlayVideo" value="0">
+						<PARAM NAME="CustomLogo" VALUE="/images/sah_logo_w200.gif">
+						<PARAM NAME="CustomLogoOnWhite" VALUE="1">
+					</object>
+
+		    </td>
+		    <td background="/images/live/skin_tv_05_bg.gif" valign="middle">&nbsp;</td>
+		  </tr>
+		  <tr>
+		    <td width="23" height="60"> <img src="/images/live/skin_tv_06.gif" width="20" height="60"></td>
+		    <td background="/images/live/skin_tv_07_bg.gif">
+		      <table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+		        <tr>
+		          <td width="214"> <img src="/images/live/skin_tv_07_1.gif" width="214" height="60" usemap="#Map4" border="0"></td>
+		          <td align="right"><img src="/images/live/skinsize.gif" width="199" height="60" usemap="#Map5" border="0"></td>
+		        </tr>
+		      </table>
+		    </td>
+		    <td width="123" height="60"><img src="/images/live/skin_tv_08.gif" width="20" height="60"></td>
+		  </tr>
+		</table>
+		
+		
+		<table width="552" border="0" cellspacing="0" cellpadding="0">
+		  <tr>
+		    <td width="552" height="8" background="/images/live/images/bg.gif"></td>
+		  </tr>
+		</table>
+        </td>
+        <td>
+       
+        </td>
+        </tr>
+        </table>
+        
+		<table width="100%" border="0" cellspacing="0" cellpadding="0" >
+		  <tr>
+		    <td align="center"><img src="/images/butn_close.gif"  border=0 vspace="5" onClick="window.close()" style=cursor:hand;></td>
+		  </tr>
+		</table>
+		
+	</td></tr>
+</table>
+		
+<map name="Map4">
+  <area shape="circle" coords="25,30,18" href="javascript:PlayStart()" onFocus=this.blur() alt="PLAY">
+  <area shape="circle" coords="71,29,17" href="javascript:PlayStop()" onFocus=this.blur() alt="STOP">
+  <area shape="circle" coords="166,30,12" href="javascript:Vol_Up()" onFocus=this.blur() alt="VOLUME Up">
+  <area shape="circle" coords="194,30,12" href="javascript:Vol_Down()" onFocus=this.blur() alt="VOLUME Down">
+</map>
+<map name="Map5">
+  <area shape="circle" coords="175,30,18" href="javascript:FullScreen()" onFocus=this.blur() alt="FULL SCREEN">
+</map>
+</body>
+</html>

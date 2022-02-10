@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.front.sale_test">
+	<sql id="sale_list_test">
+		select 	S.SALE_NO
+		<if test="for_count == null">
+			  , IF(S.SALE_TH_DSP_YN = 'N', '', S.SALE_TH) SALE_TH, COLUMN_JSON(S.TITLE_BLOB) TITLE_JSON
+			  , S.FROM_DT, S.TO_DT, COLUMN_JSON(S.PLACE_BLOB) PLACE_JSON
+			  , S.SALE_KIND_CD
+			  , SI.FILE_PATH as SALE_IMG_PATH
+			  , SI.FILE_NAME as SALE_IMG_NAME
+			  , LI.FILE_PATH as LOT_IMG_PATH
+			  , LI.FILE_NAME as LOT_IMG_NAME
+			  , (select MAX(L.TO_DT) from LOT L where L.SALE_NO = S.SALE_NO GROUP BY L.SALE_NO) END_DT
+			  , S.LIVE_BID_YN
+			  , S.LIVE_BID_DT 
+			  , S.SALE_OUTSIDE_YN
+		</if>
+		from 	SALE S
+		<if test="for_count == null">
+				left outer join SALE_IMG SI
+					on SI.SALE_NO = S.SALE_NO
+						and SI.IMG_NO = (select A.IMG_NO from SALE_IMG A where A.SALE_NO = S.SALE_NO order by A.IMG_NO limit 1)
+				left outer join LOT_IMG LI
+					on LI.SALE_NO = S.SALE_NO
+						and LI.LOT_NO = (select A.LOT_NO from LOT A, LOT_IMG B where A.SALE_NO = S.SALE_NO and A.SALE_NO = B.SALE_NO and A.LOT_NO = B.LOT_NO order by A.LOT_NO, B.DISP_ORD limit 1)
+						and LI.IMG_NO = (select B.IMG_NO from LOT A, LOT_IMG B where A.SALE_NO = S.SALE_NO and A.SALE_NO = B.SALE_NO and A.LOT_NO = B.LOT_NO order by A.LOT_NO, B.DISP_ORD limit 1)
+		</if>
+		where DEL_YN ='N' 
+		<if test='sale_outside_yn == "N"'>
+			and S.SALE_OUTSIDE_YN = 'N'
+		</if>	
+		<if test='sale_outside_yn == "Y"'>
+			and S.SALE_OUTSIDE_YN = 'Y'
+		</if>
+		<choose>
+			<when test='sale_kind_cd == "other"'>
+				and S.SALE_KIND_CD not in ('main', 'hongkong', 'online', 'exhibit', 'exhibit_sa')
+			</when>
+			<when test='sale_kind_cd == "online_only"'>
+				and S.SALE_KIND_CD = 'online'
+			</when>
+			<when test='sale_kind_cd == "offline_only"'>
+				and S.SALE_KIND_CD not in ('online', 'exhibit', 'exhibit_sa')
+			</when>	
+			<when test='sale_kind_cd == "exhibit_only"'>
+				and S.SALE_KIND_CD in ('exhibit', 'exhibit_sa')
+			</when>
+			<when test='sale_kind_cd == "zerobase_only"'>
+				and S.SALE_KIND_CD = 'online_zb'
+			</when>
+			<when test='sale_kind_cd != null and sale_kind_cd != "" and sale_kind_cd != "online_only" and sale_kind_cd != "offline_only" and sale_kind_cd != "exhibit_only"'>
+				and S.SALE_KIND_CD = #{sale_kind_cd}
+			</when>
+		</choose>
+		<choose>
+		    <when test="status == 'END'">
+		        and S.STAT_CD = 'open'
+		        and now() &gt; case when S.SALE_KIND_CD in ('online','online_zb') then (select MAX(L.TO_DT) from LOT L where L.SALE_NO = S.SALE_NO GROUP BY L.SALE_NO) 
+		        					when S.SALE_KIND_CD IN ('exhibit', 'exhibit_sa') then S.TO_DT
+		        					else (<![CDATA[select LC.TO_DT from LOT LC where LC.SALE_NO = S.SALE_NO AND LC.LOT_NO = (SELECT MAX(LC1.LOT_NO) FROM LOT LC1 WHERE LC1.SALE_NO = S.SALE_NO AND LC1.STAT_CD <> 'reentry')]]>)  end
+		    </when>
+		    <when test="status == 'ING'">
+		        and S.STAT_CD = 'open'
+		        and now() &lt; case when S.SALE_KIND_CD in ('online','online_zb') then (select MAX(L.TO_DT) from LOT L where L.SALE_NO = S.SALE_NO GROUP BY L.SALE_NO) 
+		        					when S.SALE_KIND_CD IN ('exhibit', 'exhibit_sa') then S.TO_DT
+		        					else (<![CDATA[select (case when LC.CLOSE_YN = 'Y' THEN LC.TO_DT ELSE DATE_ADD(NOW(), INTERVAL 1 HOUR)  END) from LOT LC where LC.SALE_NO = S.SALE_NO AND LC.LOT_NO = (SELECT MAX(LC1.LOT_NO) FROM LOT LC1 WHERE LC1.SALE_NO = S.SALE_NO AND LC1.STAT_CD <> 'reentry')]]>) end
+		    </when>
+		    <when test="status == 'READY'">
+		         and now() &lt; case when S.SALE_KIND_CD in ('online','online_zb') then (select MAX(L.TO_DT) from LOT L where L.SALE_NO = S.SALE_NO GROUP BY L.SALE_NO) 
+		         					 when S.SALE_KIND_CD IN ('exhibit', 'exhibit_sa') then S.TO_DT
+		         					 else (<![CDATA[select (case when LC.CLOSE_YN = 'Y' THEN LC.TO_DT ELSE DATE_ADD(NOW(), INTERVAL 1 HOUR)  END) from LOT LC where LC.SALE_NO = S.SALE_NO AND LC.LOT_NO = (SELECT MAX(LC1.LOT_NO) FROM LOT LC1 WHERE LC1.SALE_NO = S.SALE_NO AND LC1.STAT_CD <> 'reentry')]]>) end
+		    </when>
+		</choose>
+		<if test="find_word != null">
+			and (COLUMN_GET(S.TITLE_BLOB, 'ko' AS CHAR) like concat('%', #{works_title}, '%')
+			 	or COLUMN_GET(S.TITLE_BLOB, 'en' AS CHAR) like concat('%', #{works_title}, '%')
+				or COLUMN_GET(S.TITLE_BLOB, 'zh' AS CHAR) like concat('%', #{works_title}, '%'))
+		</if>
+		order by
+		<choose>
+			<when test='sort_by == "DATDE"'>
+				S.FROM_DT desc
+			</when>
+			<when test='sort_by == "DATAS"'>
+				S.TO_DT asc
+			</when>
+			<!-- <when test='sort_by == "TOTAS"'>
+				TOT_PRICE asc
+			</when>
+			<when test='sort_by == "TOTDE"'>
+				TOT_PRICE desc
+			</when>
+			<when test='sort_by == "WONAS"'>
+				BID_RATE asc
+			</when>
+			<when test='sort_by == "WONDE"'>
+				BIT_RATE desc
+			</when> -->
+			<otherwise>
+				S.FROM_DT desc
+			</otherwise>
+		</choose>
+	</sql>
+	<select id="sale_list_count_test" resultType="Map">
+		select  count(A.SALE_NO) as CNT
+		from 	(
+				<include refid="sale_list_test" />
+		) A
+	</select>
+	<select id="sale_list_paging_test" resultType="Map">
+		<include refid="sale_list_test" />
+		limit		#{from}, #{rows}
+	</select>
+	
+	<select id="sale_info_test" resultType="Map">
+	    SET SESSION group_concat_max_len = 1000000;
+		select 		S.SALE_NO
+		  , S.SALE_KIND_CD
+		  , IF(S.SALE_TH_DSP_YN = 'N', '', S.SALE_TH) SALE_TH
+		  , IF(S.SALE_TH_DSP_YN = 'N', '', f_ordinal_number(S.SALE_TH)) SALE_TH_DSP
+		  , COLUMN_JSON(S.TITLE_BLOB) TITLE_JSON
+		  , COLUMN_GET(S.TITLE_BLOB, 'ko' AS CHAR) SALE_TITLE_KO
+		  , COLUMN_GET(S.TITLE_BLOB, 'en' AS CHAR) SALE_TITLE_EN
+		  , S.FROM_DT
+		  , S.TO_DT
+		  , S.CURR_CD
+		  , COLUMN_JSON(S.CMMT_BLOB) CMMT_JSON
+		  , COLUMN_JSON(S.PLACE_BLOB) PLACE_JSON
+		  , S.STAT_CD
+		  , now() as DB_NOW
+		  , concat('[',
+		  		GROUP_CONCAT('{'
+				, '"PLACE_JSON":', ifnull(CAST(COLUMN_JSON(SP.PLACE_BLOB) as char), ''), ', '
+				, '"ADDR_JSON":', ifnull(CAST(COLUMN_JSON(SP.ADDR_BLOB) as char), ''), ', '
+				, '"FROM_DT":"', SP.FROM_DT, '", '
+				, '"TO_DT":"', SP.TO_DT, '", '
+				, '"FROM_TIME":"', SP.FROM_TIME, '", '
+				, '"TO_TIME":"', SP.TO_TIME, '", '
+				, '"MAP_URL":"', ifnull(SP.MAP_URL, ''), '"'
+				, '}')
+				,']') as PREVIEW_JSON
+		  , (select MAX(L.TO_DT) from LOT L where L.SALE_NO = S.SALE_NO GROUP BY L.SALE_NO) END_DT
+		  , (select MIN(COLUMN_GET(EXPE_PRICE_FROM_BLOB, 'KRW' as integer)) from LOT L where L.SALE_NO = S.SALE_NO GROUP BY L.SALE_NO) MIN_KRW_EXPE_PRICE
+		  , (select MAX(COLUMN_GET(EXPE_PRICE_TO_BLOB, 'KRW' as integer)) from LOT L where L.SALE_NO = S.SALE_NO GROUP BY L.SALE_NO) MAX_KRW_EXPE_PRICE
+		  , (select MIN(COLUMN_GET(EXPE_PRICE_FROM_BLOB, 'HKD' as integer)) from LOT L where L.SALE_NO = S.SALE_NO GROUP BY L.SALE_NO) MIN_HKD_EXPE_PRICE
+		  , (select MAX(COLUMN_GET(EXPE_PRICE_TO_BLOB, 'HKD' as integer)) from LOT L where L.SALE_NO = S.SALE_NO GROUP BY L.SALE_NO) MAX_HKD_EXPE_PRICE
+		  , (select MIN(COLUMN_GET(EXPE_PRICE_FROM_BLOB, 'USD' as integer)) from LOT L where L.SALE_NO = S.SALE_NO GROUP BY L.SALE_NO) MIN_USD_EXPE_PRICE
+		  , (select MAX(COLUMN_GET(EXPE_PRICE_TO_BLOB, 'USD' as integer)) from LOT L where L.SALE_NO = S.SALE_NO GROUP BY L.SALE_NO) MAX_USD_EXPE_PRICE
+		  , (<![CDATA[select MAX(SALE_NO) from SALE where STAT_CD = 'open' and FROM_DT <= now() and TO_DT >=now() and SALE_NO < #{sale_no} order by  FROM_DT]]>) AS PREV_SALE_NO
+		  , (<![CDATA[select MIN(SALE_NO) from SALE where STAT_CD = 'open' and FROM_DT <= now() and TO_DT >=now() and SALE_NO > #{sale_no} order by  FROM_DT]]>) AS NEXT_SALE_NO
+		  , (<![CDATA[select LC.CLOSE_YN from LOT LC where LC.SALE_NO = S.SALE_NO AND LC.LOT_NO = (SELECT MAX(LC1.LOT_NO) FROM LOT LC1 WHERE LC1.SALE_NO = S.SALE_NO AND LC1.STAT_CD <> 'reentry')]]>) AS CLOSE_YN
+		  , SI.FILE_PATH as SALE_IMG_PATH
+		  , SI.FILE_NAME as SALE_IMG_NAME 
+		  , S.AUTO_BID_REQ_CLOSE_DT
+		  , COLUMN_JSON(S.NOTICE_BLOB) NOTICE_JSON
+		  , COLUMN_JSON(S.NOTICE_DTL_BLOB) NOTICE_DTL_JSON  
+		  , S.LIVE_BID_YN
+		  , S.LIVE_BID_DT
+		  , BW.WRITE_NO <!-- 공지사항 불러오기 -->
+		from SALE S
+			left outer join BBS_WRITE BW on S.SALE_NO = BW.SALE_NO AND BBS_ID = 'notice'
+			left outer join SALE_PREV SP on S.SALE_NO = SP.SALE_NO		
+			left outer join SALE_IMG SI
+					on SI.SALE_NO = S.SALE_NO
+						and SI.IMG_NO = (select A.IMG_NO from SALE_IMG A where A.SALE_NO = S.SALE_NO order by A.IMG_NO limit 1)
+		where S.SALE_NO = #{sale_no}
+		group by S.SALE_NO
+	</select>
+	<select id="sale_image_list_test" resultType="Map">
+		select * from SALE_IMG S
+		where	S.SALE_NO = #{sale_no}
+		order by S.DISP_ORD, S.IMG_NO
+	</select>
+	
+	<sql id="lot_list_test">
+		select 	L.SALE_NO, L.LOT_NO
+		<if test="for_count == null">
+			  , S.SALE_KIND_CD
+			  , IF(S.SALE_TH_DSP_YN = 'N', '', S.SALE_TH) SALE_TH
+			  , COLUMN_JSON(S.TITLE_BLOB) SALE_TITLE_JSON
+			  , S.FROM_DT SALE_FROM_DT
+			  , S.TO_DT SALE_TO_DT
+			  , S.CURR_CD
+			  , S.STAT_CD SALE_STAT_CD		    
+			  , L.STAT_CD, L.FROM_DT, L.TO_DT
+			  , L.START_PRICE
+			  , L.GROW_PRICE
+			  , COLUMN_JSON(L.TITLE_BLOB) TITLE_JSON 
+			  , COLUMN_JSON(L.STITLE_BLOB) STITLE_JSON
+			  , L.EDITION
+			  , COLUMN_JSON(L.MAKE_YEAR_BLOB) MAKE_YEAR_JSON
+			  , COLUMN_JSON(L.SIGN_INFO_BLOB) SIGN_INFO_JSON
+			  , COLUMN_JSON(AT.ARTIST_NAME_BLOB) ARTIST_NAME_JSON
+			  , AT.BORN_YEAR
+			  , AT.DIE_YEAR
+			  , CD.CD_NM as MATE_NM
+			  , CD.CD_NM_EN as MATE_NM_EN
+			  , CD.CD_NM_CN as MATE_NM_CN
+			  , LI.FILE_PATH as LOT_IMG_PATH
+			  , LI.FILE_NAME as LOT_IMG_NAME
+			  , IFNULL(BD.LAST_PRICE, L.DISP_SOLD_PRICE) AS LAST_PRICE	
+			  , CASE WHEN '${action_user_no}' != '' AND BD.LAST_CUST_NO = '${action_user_no}' THEN BD.LAST_CUST_ID 
+				  	ELSE concat(substr(BD.LAST_CUST_ID, 1, 2), '***') END AS LAST_CUST_ID
+			  , ifnull(BD.SOLD_YN, 'N') as SOLD_YN
+			  , if(L.TO_DT &lt; now(), 'Y', 'N') as END_YN
+			  , ifnull(BD.BID_CNT, 0) as BID_CNT
+			  , (select count(*) from BID B where B.SALE_NO = L.SALE_NO and B.LOT_NO = L.LOT_NO and B.CUST_NO = '${action_user_no}') MY_BID_CNT
+			  , (select count(*) from BID B where B.SALE_NO = L.SALE_NO and B.CUST_NO = '${action_user_no}') MY_BID_SALE_CNT
+			  , (select count(*) from AUTO_BID_REQ B where B.SALE_NO = L.SALE_NO and B.CUST_NO = '${action_user_no}') MY_BID_AUTO_CNT
+			  , ifnull(BD.IS_WIN, 'N') IS_WIN
+			  , L.EXPE_PRICE_INQ_YN as EXPE_PRICE_INQ_YN  						# YDH 2016.08.13 컬럼 추가처리
+			  , COLUMN_JSON(L.EXPE_PRICE_FROM_BLOB) EXPE_PRICE_FROM_JSON
+			  , COLUMN_JSON(L.EXPE_PRICE_TO_BLOB) EXPE_PRICE_TO_JSON 
+			  , CONCAT('['
+			  	, GROUP_CONCAT('{',
+					'"UNIT_CD":"', ifnull(LS.UNIT_CD, 'cm') ,'",',
+					'"SIZE1":', ifnull(LS.SIZE1,0) ,',',
+					'"SIZE2":', ifnull(LS.SIZE2,0) ,',',
+					'"SIZE3":', ifnull(LS.SIZE3,0) ,',',
+					'"CANVAS":', ifnull(LS.CANVAS,0) ,',',
+					'"DIAMETER_YN":"', ifnull(LS.DIAMETER_YN,'N') ,'",',
+					'"PREFIX":"', ifnull(LS.PREFIX,'') ,'",',
+					'"SUFFIX":"', ifnull(LS.SUFFIX,'') ,'",',
+					'"MIX_CD":"', ifnull(LS.MIX_CD,'h') ,'",',
+					'"CANVAS_EXT_YN":"', ifnull(LS.CANVAS_EXT_YN,'N'), '"',
+					'}')
+				,']') AS LOT_SIZE_JSON
+				, L.CLOSE_YN
+				, L.IMG_DISP_YN
+				, now() as DB_NOW
+				, IFNULL(CR.CONFIRM_YN, 'N') AS CR_INTE_LOT
+				, COLUMN_JSON(L.COND_RPT_BLOB) COND_RPT_JSON   # YDH.
+				, IFNULL(IL.DEL_YN, 'Y') AS INTE_LOT_DEL
+				, (select LOT_NO from LOT where SALE_NO = L.SALE_NO and TO_DT >= now() order by LOT_NO limit 1) CURR_LOT_NO
+				, IFNULL(L.GUARANTEE_YN, 'Y') GUARANTEE_YN
+				, L.WINE_YN
+				, L.ZEROBASE_PRICE_YN
+		</if>
+		from 	LOT L
+				left outer join (<include refid="mapper.common.sale_last_bid_infos" />) BD on BD.SALE_NO = L.SALE_NO and BD.LOT_NO = L.LOT_NO
+				left outer join ARTIST AT on AT.ARTIST_NO = L.ARTIST_NO
+				left outer join CODE CD	on CD.grp_id = 'material' and CD.CD_ID = L.MATE_CD
+				left outer join LOT_IMG LI
+					on LI.SALE_NO = L.SALE_NO and LI.LOT_NO = L.LOT_NO
+						and LI.IMG_NO = (select A.IMG_NO from LOT_IMG A where A.SALE_NO = L.SALE_NO and A.LOT_NO = L.LOT_NO order by A.DISP_ORD limit 1)
+				join SALE S ON S.SALE_NO = L.SALE_NO
+				left outer join LOT_SIZE LS ON LS.SALE_NO = L.SALE_NO AND LS.LOT_NO = L.LOT_NO
+				left outer join CUST_CR_LOT CR ON L.SALE_NO = CR.SALE_NO AND L.LOT_NO = CR.LOT_NO AND CR.DEL_YN = 'N' AND CR.CUST_NO = #{action_user_no}
+				left outer join CUST_INTE_LOT IL ON L.SALE_NO = IL.SALE_NO AND L.LOT_NO = IL.LOT_NO AND IL.DEL_YN = 'N' AND IL.CUST_NO = #{action_user_no}
+				<if test="list_type == 'SEARCH' and action_user_no != null">
+				, (select CUST_NO, EMP_GB from CUST where CUST_NO = #{action_user_no}) CU
+				</if>
+				<if test="list_type == 'SEARCH' and action_user_no == null">
+				, (select NULL AS CUST_NO, 'N' AS EMP_GB from dual) CU
+				</if>
+		where 1=1 and L.WWW_DISP_YN = 'Y'
+		<if test='sale_outside_yn == "N"'>
+			and S.SALE_OUTSIDE_YN = 'N'
+		</if>	
+		<if test='sale_outside_yn == "Y"'>
+			and S.SALE_OUTSIDE_YN = 'Y'
+		</if>
+		<if test="fav_cds_list != null">
+			and IL.SALE_NO = #{sale_no} 
+		</if>
+		<if test="sale_no != null">
+			and L.SALE_NO = #{sale_no}
+		</if>
+		<if test="lot_stat_cd != null">
+			and L.STAT_CD = #{lot_stat_cd}
+		</if>
+		<if test="lot_no != null and lot_no != ''">
+			and L.LOT_NO = #{lot_no}
+		</if>
+		<if test="artist_name != null">
+			and (	COLUMN_GET(AT.ARTIST_NAME_BLOB, 'ko' AS CHAR) 	like concat('%', #{artist_name}, '%')
+			 	or 	COLUMN_GET(AT.ARTIST_NAME_BLOB, 'en' AS CHAR)	like concat('%', #{artist_name}, '%')
+				or 	COLUMN_GET(AT.ARTIST_NAME_BLOB, 'zh' AS CHAR)	like concat('%', #{artist_name}, '%'))
+		</if>
+		<if test="works_title != null">
+			and ( COLUMN_GET(L.TITLE_BLOB, 'ko' AS CHAR) like concat('%', #{works_title}, '%')
+			 	or COLUMN_GET(L.TITLE_BLOB, 'en' AS CHAR) like concat('%', #{works_title}, '%')
+				or COLUMN_GET(L.TITLE_BLOB, 'zh' AS CHAR) like concat('%', #{works_title}, '%'))
+		</if>
+		<if test="expe_from_price != null and expe_to_price != null and s_expe_currency != null">
+			and #{expe_from_price} &lt;= (CASE WHEN EXPE_PRICE_INQ_YN = 'Y' THEN #{expe_from_price} ELSE COLUMN_GET(EXPE_PRICE_FROM_BLOB, '${s_expe_currency}' as integer) END)
+			and #{expe_to_price} &gt;= (CASE WHEN EXPE_PRICE_INQ_YN = 'Y' THEN #{expe_to_price} ELSE IFNULL(COLUMN_GET(EXPE_PRICE_TO_BLOB, '${s_expe_currency}' as integer), #{expe_to_price}) END) 
+		</if>
+		<if test="list_type == 'SEARCH'">
+		    and L.STAT_CD != 'reentry'
+	        # and S.STAT_CD = 'open'
+	        # and now() &gt; case when S.SALE_KIND_CD = 'online' then (select MAX(L.TO_DT) from LOT L where L.SALE_NO = S.SALE_NO GROUP BY L.SALE_NO) else S.TO_DT end ## YDH주석처리(2016.10.05)
+	        and now()  &lt;= case when S.SALE_KIND_CD in ('online','exhibit','exhibit_sa') then (case when CU.EMP_GB = 'Y' then now() else (select MAX(L.TO_DT) from LOT L where L.SALE_NO = S.SALE_NO GROUP BY L.SALE_NO) end) else now() end ## 온라인 경매는 진행중인것만 표시. 오프라인은 모두 표시
+	        <if test="sale_kind != null">
+	        	and S.SALE_KIND_CD in (
+		        <foreach collection="sale_kind" item="item" index="index" separator=",">
+					'${item}'
+				</foreach>
+			)
+	        </if>
+			<if test="from_dt != null and from_dt != ''">
+			    and S.TO_DT &gt;= #{from_dt}
+			</if>
+			<if test="to_dt != null and to_dt != ''">
+			    and S.TO_DT &lt;= #{to_dt}
+			</if>
+			<if test="mate_nm != null">
+			    and L.MATE_CD in (
+			    	select CD_ID from CODE CD	
+					where CD.grp_id = 'material'
+			    	and (
+			    		CD.CD_NM like concat('%', #{mate_nm}, '%')
+			    		or CD.CD_NM_EN like concat('%', #{mate_nm}, '%')
+			  			or CD.CD_NM_CN like concat('%', #{mate_nm}, '%')
+			  		)
+			  	)
+			</if>
+			<if test="keyword != null and keyword != ''">
+			<choose>
+				<when test="chk == 'all'">
+					and ( COLUMN_GET(AT.ARTIST_NAME_BLOB, 'ko' AS CHAR) 	like concat('%', #{keyword}, '%')
+				 	or 	COLUMN_GET(AT.ARTIST_NAME_BLOB, 'en' AS CHAR)	like concat('%', #{keyword}, '%')
+					or 	COLUMN_GET(AT.ARTIST_NAME_BLOB, 'zh' AS CHAR)	like concat('%', #{keyword}, '%')
+					or  COLUMN_GET(L.TITLE_BLOB, 'ko' AS CHAR) 	like concat('%', #{keyword}, '%')
+				 	or 	COLUMN_GET(L.TITLE_BLOB, 'en' AS CHAR)	like concat('%', #{keyword}, '%')
+					or 	COLUMN_GET(L.TITLE_BLOB, 'zh' AS CHAR)	like concat('%', #{keyword}, '%'))
+				</when>
+				<when test="chk == 'art'">
+					and ( COLUMN_GET(AT.ARTIST_NAME_BLOB, 'ko' AS CHAR) 	like concat('%', #{keyword}, '%')
+				 	or 	COLUMN_GET(AT.ARTIST_NAME_BLOB, 'en' AS CHAR)	like concat('%', #{keyword}, '%')
+					or 	COLUMN_GET(AT.ARTIST_NAME_BLOB, 'zh' AS CHAR)	like concat('%', #{keyword}, '%'))
+	  
+				</when>
+				<when test="chk == 'title'">
+					and (COLUMN_GET(L.TITLE_BLOB, 'ko' AS CHAR) 	like concat('%', #{keyword}, '%')
+				 	or 	COLUMN_GET(L.TITLE_BLOB, 'en' AS CHAR)	like concat('%', #{keyword}, '%')
+					or 	COLUMN_GET(L.TITLE_BLOB, 'zh' AS CHAR)	like concat('%', #{keyword}, '%'))
+				</when>
+			</choose>
+			</if>
+		</if>	
+		<if test="cate_cds != null">
+			and L.CATE_CD in (select cd_id from CODE where grp_id = 'artwork_category' and p_cd_id in (<foreach collection="cate_cds" item="item" index="index" separator=",">'${item}'</foreach>) union
+			                select cd_id from CODE where grp_id = 'artwork_category' and p_cd_id in (select cd_id from CODE where grp_id = 'artwork_category' and p_cd_id in  (<foreach collection="cate_cds" item="item" index="index" separator=",">'${item}'</foreach>)))
+		</if>		
+		<if test="scate_cds != null">
+			and L.CATE_CD in (<foreach collection="scate_cds" item="item" index="index" separator=",">'${item}'</foreach>)
+		</if>
+		<if test="mate_cds != null">
+			and L.MATE_CD in (<foreach collection="mate_cds" item="item" index="index" separator=",">'${item}'</foreach>)
+		</if>			
+		<if test="artist_nos != null">
+			and L.ARTIST_NO in (<foreach collection="artist_nos" item="item" index="index" separator=",">'${item}'</foreach>)
+		</if>
+		<if test="hashtag_list != null">
+			and L.LOT_TAG in (<foreach collection="hashtag_list" item="item" index="index" separator=",">'${item}'</foreach>)
+		</if>
+		<if test="sale_kind_cd != null">
+			and S.SALE_KIND_CD in (<foreach collection="sale_kind_cd" item="item" index="index" separator=",">'${item}'</foreach>)
+		</if>
+		group by L.SALE_NO, L.LOT_NO
+		order by 
+		<choose>
+		    <when test="sort_by == 'LOTAS'">L.LOT_NO</when>
+		    <when test="sort_by == 'LOTDE'">L.LOT_NO desc</when>
+		    <when test="sort_by == 'ESTAS'">COLUMN_GET(L.EXPE_PRICE_FROM_BLOB, 'KRW' as double), L.LOT_NO</when>
+		    <when test="sort_by == 'ESTDE'">COLUMN_GET(L.EXPE_PRICE_FROM_BLOB, 'KRW' as double) desc, L.LOT_NO</when>
+		    <when test="sort_by == 'ENDAS'">S.TO_DT, L.LOT_NO</when>
+		    <when test="sort_by == 'ENDDE'">S.TO_DT DESC, L.LOT_NO</when>
+		    <when test="sort_by == 'BIPAS'">BD.LAST_PRICE, L.LOT_NO</when>
+		    <when test="sort_by == 'BIPDE'">BD.LAST_PRICE desc, L.LOT_NO</when>
+		    <when test="sort_by == 'BICAS'">BD.BID_CNT, L.LOT_NO</when>
+		    <when test="sort_by == 'BICDE'">BD.BID_CNT desc, L.LOT_NO</when>
+		    <otherwise>L.LOT_NO</otherwise>
+		</choose>
+	</sql>
+	<select id="lot_list_count_test" resultType="Map">
+		select  count(A.LOT_NO) as CNT
+		from 	(
+				<include refid="lot_list_test" />
+				) A
+	</select>
+	<select id="lot_list_paging_test" resultType="Map">
+		<include refid="lot_list_test" />
+		limit		#{from}, #{rows}
+	</select>
+	<select id="lot_list_refresh_test" resultType="Map">
+		select 	L.LOT_NO, L.STAT_CD, L.TO_DT, BD.LAST_PRICE
+		    , CASE WHEN '${action_user_no}' != '' AND BD.LAST_CUST_NO = '${action_user_no}' THEN BD.LAST_CUST_ID 
+			  	ELSE concat(substr(BD.LAST_CUST_ID, 1, 2), '***') END AS LAST_CUST_ID
+			, ifnull(BD.IS_WIN, 'N') IS_WIN
+			, ifnull(BD.SOLD_YN, 'N') as SOLD_YN, ifnull(BD.BID_CNT, 0) as BID_CNT
+			, now() DB_NOW
+			, if(L.TO_DT &lt; now(), 'Y', 'N') as END_YN
+			, (select count(*) from BID B where B.SALE_NO = L.SALE_NO and B.LOT_NO = L.LOT_NO and B.CUST_NO = '${action_user_no}') MY_BID_CNT
+			, (select count(*) from BID B where B.SALE_NO = L.SALE_NO and B.CUST_NO = '${action_user_no}') MY_BID_SALE_CNT
+			, (select count(*) from AUTO_BID_REQ B where B.SALE_NO = L.SALE_NO and B.CUST_NO = '${action_user_no}') MY_BID_AUTO_CNT
+			, (select LOT_NO from LOT where SALE_NO = L.SALE_NO and TO_DT >= now() order by LOT_NO limit 1) CURR_LOT_NO
+			, ifnull(L.GROW_PRICE, 0) as GROW_PRICE
+		from	LOT L
+				left outer join (<include refid="mapper.common.sale_last_bid_infos" />) BD on BD.SALE_NO = L.SALE_NO and BD.LOT_NO = L.LOT_NO
+		where 	L.SALE_NO = #{sale_no}
+			and L.LOT_NO in (
+					<foreach collection="lot_nos" item="item" index="index" separator=",">
+						${item}
+					</foreach>
+			)
+		order by L.LOT_NO
+	</select>
+
+	
+</mapper>
+	

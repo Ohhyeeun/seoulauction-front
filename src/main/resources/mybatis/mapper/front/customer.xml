@@ -1,0 +1,1059 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.front.customer">
+	<select id="join_used_attr" resultType="Map"> <!-- 탈퇴자는  카운트 제외. 웹회원만 체크 -->
+		select CUST_NO from CUST where STAT_CD &lt;&gt; 'leave'  and JOIN_KIND_CD = 'online'
+		<if test="login_id != null">
+			and LOGIN_ID = #{login_id}
+		</if>
+		<if test="hp != null">
+			and HP = #{hp}  AND CUST_KIND_CD = #{cust_kind_cd}
+		</if>
+		<if test="comp_no != null">
+			and COMP_NO = #{comp_no}
+		</if>
+		<if test="fore_cert_code != null">
+			and FORE_CERT_CODE = #{fore_cert_code}
+		</if>
+		<if test="email != null">
+			and EMAIL = #{email}
+		</if>
+	</select>
+	
+	<select id="find_customer_login_id" resultType="Map">
+		select concat(rpad(substring(login_id, 1, 2), length(login_id)-1, '*'), substring(login_id, length(login_id), 1) ) LOGIN_ID
+		from CUST 
+	    where JOIN_KIND_CD = 'online'
+	    and STAT_CD = 'normal' 
+	    and CUST_NAME = #{cust_name}
+	    <if test="search_way == 'phone'">
+			and HP = #{phone}
+		</if>
+	    <if test="search_way == 'email'">
+			and EMAIL = #{email}
+		</if>
+		<!-- <if test="email != null">
+			and EMAIL = #{email}
+		</if>
+		<if test="cust_name != null">
+			and CUST_NAME = #{cust_name}
+		</if>
+		<if test="comp_no != null">
+			and COMP_NO = #{comp_no}
+		</if> -->
+	</select>
+	
+	<select id="get_customer_by_login_id" resultType="Map">
+		select * from CUST 
+		where JOIN_KIND_CD = 'online' and IFNULL(DEL_YN, 'N') = 'N' 
+		and STAT_CD = #{stat_cd} 
+		and LOGIN_ID = #{login_id}
+	</select>
+
+	<select id="get_customer_by_cust_no" resultType="Map">
+		select CU.*
+			, (select CASE WHEN max(CP.VALID_TO_DT) >= NOW() THEN "정회원" ELSE "준회원" END 
+			   from CUST_PAY CP where CU.cust_no = CP.cust_no) MEMBERSHIP_NM
+			, (select CASE WHEN max(CP.VALID_TO_DT) >= NOW() THEN "Y" ELSE "N" END 
+			    from CUST_PAY CP where CU.cust_no = CP.cust_no) MEMBERSHIP_YN
+			, (select CONCAT('[', GROUP_CONCAT('"', PW.PUSH_WAY_CD, '"'), ']')  
+				from CUST_PUSH_WAY PW where PW.CUST_NO = CU.CUST_NO) PUSH_WAY_JSON
+			, (select CONCAT('[', GROUP_CONCAT('"', IA.INTE_AREA_CD, '"'), ']') 
+				from CUST_INTE_AREA IA where IA.CUST_NO = CU.CUST_NO) INTE_AREA_JSON
+		   from CUST CU
+		   where JOIN_KIND_CD = 'online'
+		   and CU.STAT_CD = 'normal' 
+		   and CU.CUST_NO = #{action_user_no}
+	</select>
+	
+	<select id="get_customer_manager" resultType="Map">
+		SELECT E.*, D.DEPT_NAME, D.DEPT_NAME_EN
+  		  FROM CUST CU LEFT OUTER JOIN EMP E ON CU.EMP_NO = E.EMP_NO
+          		       LEFT OUTER JOIN DEPT D ON E.DEPT_NO = D.DEPT_NO	    
+ 		 WHERE CU.STAT_CD = 'normal'
+   		   AND CU.CUST_NO = #{cust_no}
+		   AND CU.JOIN_KIND_CD = 'online'      
+	</select>
+	
+	<select id="get_inte_artist_list_by_cust_no" resultType="Map">
+	    select CIA.ARTIST_NO, CIA.CUST_NO
+			, COLUMN_JSON(A.ARTIST_NAME_BLOB) ARTIST_NAME_JSON
+		from CUST_INTE_ARTIST CIA
+		join ARTIST A on A.ARTIST_NO = CIA.ARTIST_NO
+	    and CIA.CUST_NO = #{action_user_no}
+	</select>
+	<select id="get_customer_custpay_list" resultType="Map">
+		select CU.CUST_NO
+		, CP.VALID_FROM_DT, CP.VALID_TO_DT
+		, P.PAY_METHOD_CD, P.PAY_PRICE, P.PAY_DT
+		, CASE WHEN CP.VALID_TO_DT &gt;= NOW() THEN '정회원' ELSE '기간만료' END VALID 
+		, CD1.CD_NM PAY_METHOD_NM
+		from CUST CU
+		left outer join CUST_PAY CP on CU.cust_no = CP.cust_no
+		join PAY P ON P.pay_no = CP.pay_no and P.cust_no = CP.cust_no
+		join CODE CD1 on P.PAY_METHOD_CD = CD1.CD_ID and CD1.GRP_ID = 'pay_method'
+		where CU.JOIN_KIND_CD = 'online'
+		and CU.STAT_CD = 'normal'
+		and CU.CUST_NO = #{action_user_no}
+		order by P.PAY_DT desc
+	</select>
+
+	<sql id="sql_bid_list">
+		select S.SALE_NO, IF(S.SALE_TH_DSP_YN = 'N', '', CONCAT(S.SALE_TH, f_ordinal_number(S.SALE_TH))) SALE_TH, COLUMN_JSON(S.TITLE_BLOB) TITLE_JSON, S.FROM_DT, S.TO_DT, S.CURR_CD
+			, L.LOT_NO, L.ARTIST_NO, L.STAT_CD
+			, COLUMN_JSON(L.TITLE_BLOB) LOT_TITLE_JSON
+			, (select CONCAT(LI.FILE_PATH, "/", LI.FILE_NAME) from LOT_IMG LI 
+				where LI.SALE_NO = L.SALE_NO and LI.LOT_NO = L.LOT_NO limit 1) LOT_IMG
+			, CAST(COLUMN_JSON(A.ARTIST_NAME_BLOB) AS CHAR) ARTIST_NAME_JSON
+			, (select CASE WHEN MB.CUST_NO = B.CUST_NO and L.TO_DT &lt; now() THEN 'Y' ELSE 'N' END 
+				from BID MB where B.SALE_NO = MB.SALE_NO and B.LOT_NO = MB.LOT_NO order by MB.BID_PRICE desc, MB.BID_DT limit 1) SUCCESS_YN 
+			, (select MB.BID_PRICE from BID MB where B.SALE_NO = MB.SALE_NO and B.LOT_NO = MB.LOT_NO order by MB.BID_PRICE desc, MB.BID_DT limit 1) SUCCESS_PRICE
+			, (select MB.BID_DT from BID MB where B.SALE_NO = MB.SALE_NO and B.LOT_NO = MB.LOT_NO order by MB.BID_PRICE desc, MB.BID_DT limit 1) SUCCESS_BID_DT
+			, COUNT(*) BID_CNT
+			, CONCAT('['
+				, GROUP_CONCAT('{"BID_PRICE":', B.BID_PRICE, ', "BID_DT":"', B.BID_DT, '", "BID_KIND_NM":"', B.BID_KIND_NM, '"}' order by B.BID_PRICE desc, B.BID_DT)
+				, ']') BID_JSON
+	    from LOT L
+		join SALE S on L.SALE_NO = S.SALE_NO
+		left outer join ARTIST A on L.ARTIST_NO = A.ARTIST_NO
+		join (
+			select SB.*, SCD.CD_NM BID_KIND_NM from BID SB
+			join CODE SCD on SB.BID_KIND_CD = SCD.CD_ID and SCD.GRP_ID = 'bid_kind'
+			where SB.BID_KIND_CD in ('online_once', 'online_auto') 
+		) B on L.SALE_NO = B.SALE_NO and L.LOT_NO = B.LOT_NO
+		where B.CUST_NO = #{action_user_no}
+		group by L.SALE_NO, L.LOT_NO
+	</sql>
+	<select id="get_bid_count_by_cust_no" resultType="Map">
+	    select count(*) ROW_CNT from (
+			<include refid="sql_bid_list" />
+		) ROW_CNT
+	</select>
+		
+	<select id="get_bid_list_by_cust_no" resultType="Map">
+	    SET SESSION group_concat_max_len = 1000000;
+		<include refid="sql_bid_list" />
+		order by S.TO_DT desc
+		limit #{from}, #{rows}
+	</select>
+
+	<sql id="sql_autobid_list">
+		select S.SALE_NO, IF(S.SALE_TH_DSP_YN = 'N', '', CONCAT(S.SALE_TH, f_ordinal_number(S.SALE_TH))) SALE_TH, COLUMN_JSON(S.TITLE_BLOB) TITLE_JSON, S.FROM_DT, S.TO_DT, S.CURR_CD
+			, L.LOT_NO, L.ARTIST_NO
+			, COLUMN_JSON(L.TITLE_BLOB) LOT_TITLE_JSON
+			, (select CONCAT(LI.FILE_PATH, "/", LI.FILE_NAME) from LOT_IMG LI 
+				where LI.SALE_NO = L.SALE_NO and LI.LOT_NO = L.LOT_NO limit 1) LOT_IMG
+			, CAST(COLUMN_JSON(A.ARTIST_NAME_BLOB) AS CHAR) ARTIST_NAME_JSON
+			, COUNT(*) ABID_CNT
+			, AB.BID_CNT
+			, CONCAT('['
+				, GROUP_CONCAT('{'
+					, '"BID_PRICE":', AB.BID_PRICE, ', '
+					, '"REQ_DT":"', AB.REQ_DT, '", '
+					, '"BID_CNT":', AB.BID_CNT, ', '
+					, '"ABORT_YN":"', AB.ABORT_YN, '", '
+					, '"ABORT_DT":"', ifnull(ifnull(AB.ABORT_DT, LAST_AUTOBID_DT),''), '", '
+					, '"LAST_AUTOBID_PRICE":', LAST_AUTOBID_PRICE, ', '
+					, '"FIRST_AUTOBID_PRICE":', FIRST_AUTOBID_PRICE, ', '
+					, '"SUCCESS_YN":"', (CASE WHEN L.TO_DT &lt; now() and AB.MAX_BID_YN = 'Y' THEN 'Y' ELSE 'N' END), '"'
+					, '}' order by AB.BID_PRICE desc, AB.REQ_DT)
+				, ']') ABID_JSON
+				, (select MB.BID_PRICE from BID MB where L.SALE_NO = MB.SALE_NO and L.LOT_NO = MB.LOT_NO order by MB.BID_PRICE desc, MB.BID_DT limit 1) SUCCESS_PRICE
+		from LOT L
+		join SALE S on L.SALE_NO = S.SALE_NO
+		left outer join ARTIST A on L.ARTIST_NO = A.ARTIST_NO
+		join (
+			select SAB.SALE_NO, SAB.LOT_NO, SAB.REQ_NO 
+			, SAB.BID_PRICE, SAB.REQ_DT, SAB.ABORT_YN, SAB.ABORT_DT, SAB.CUST_NO
+			, (select count(*) from BID SB where SB.AUTO_BID_REQ_NO = SAB.REQ_NO) BID_CNT
+			, (select max(BID_PRICE) from BID LB 
+				where SAB.SALE_NO = LB.SALE_NO and SAB.LOT_NO = LB.LOT_NO and SAB.CUST_NO = LB.CUST_NO 
+				and LB.AUTO_BID_REQ_NO = SAB.REQ_NO) LAST_AUTOBID_PRICE
+			, (select max(LB.BID_DT) from BID LB
+				where SAB.SALE_NO = LB.SALE_NO and SAB.LOT_NO = LB.LOT_NO and SAB.CUST_NO = LB.CUST_NO 
+				and LB.AUTO_BID_REQ_NO = SAB.REQ_NO) LAST_AUTOBID_DT
+			, (select min(BID_PRICE) from BID FB 
+				where SAB.SALE_NO = FB.SALE_NO and SAB.LOT_NO = FB.LOT_NO and SAB.CUST_NO = FB.CUST_NO 
+				and FB.AUTO_BID_REQ_NO = SAB.REQ_NO) FIRST_AUTOBID_PRICE
+			, (select CASE WHEN MB.CUST_NO = SAB.CUST_NO and MB.AUTO_BID_REQ_NO = SAB.REQ_NO
+				THEN 'Y' ELSE 'N' END
+				from BID MB where SAB.SALE_NO = MB.SALE_NO and SAB.LOT_NO = MB.LOT_NO order by MB.BID_PRICE desc, MB.BID_DT limit 1) MAX_BID_YN 
+			from AUTO_BID_REQ SAB
+			where SAB.BID_KIND_CD in (
+				<foreach collection="bid_kind_cds" item="item" index="index" separator=",">
+					'${item}'
+				</foreach>
+			)
+		) AB on L.SALE_NO = AB.SALE_NO and L.LOT_NO = AB.LOT_NO
+		where AB.CUST_NO = #{action_user_no}
+		group by L.SALE_NO, L.LOT_NO
+	</sql>
+	<select id="get_autobid_count_by_cust_no" resultType="Map">
+	    select count(*) ROW_CNT from (
+			<include refid="sql_autobid_list" />
+		) ROW_CNT
+	</select>
+	
+	<select id="get_autobid_list_by_cust_no" resultType="Map">
+	    SET SESSION group_concat_max_len = 1000000;
+		<include refid="sql_autobid_list" />
+		order by AB.REQ_DT desc
+		limit #{from}, #{rows}
+	</select>
+	<!-- off auto bid -->
+	<sql id="sql_off_autobid_list">
+		from AUTO_BID_REQ AB
+		join SALE S ON AB.SALE_NO = S.SALE_NO
+		join LOT L ON AB.SALE_NO = L.SALE_NO and AB.LOT_NO = L.LOT_NO
+		join LOT_IMG LI ON LI.SALE_NO = L.SALE_NO AND LI.LOT_NO = L.LOT_NO AND LI.IMG_NO = (select A.IMG_NO from LOT_IMG A where A.SALE_NO = L.SALE_NO and A.LOT_NO = L.LOT_NO order by A.DISP_ORD limit 1)
+		join CODE CD on CD.GRP_ID='bid_kind' and AB.BID_KIND_CD = CD.CD_ID
+		where AB.BID_KIND_CD in (
+			<foreach collection="bid_kind_cds" item="item" index="index" separator=",">
+					'${item}'
+			</foreach>
+		)
+		and S.DEL_YN = 'N'
+		and AB.CUST_NO = #{action_user_no}
+		<if test="sale_no != null and sale_no > 0">
+		and S.SALE_NO = #{sale_no}
+		</if>
+	</sql>
+	
+	<select id="get_off_autobid_count_by_cust_no" resultType="Map">
+	    select count(*) ROW_CNT
+		<include refid="sql_off_autobid_list" />
+	</select>
+	
+	<select id="get_off_autobid_list_by_cust_no" resultType="Map">
+	    select *
+		    , (select CASE WHEN MB.BID_PRICE = ABL.LAST_AUTOBID_PRICE and MB.CUST_NO = ABL.CUST_NO THEN '낙찰' 
+		    	ELSE 
+		    		CASE WHEN ABL.BID_CNT > 0 THEN '낮은응찰' ELSE '' END
+		    	END 
+				from BID MB 
+				where ABL.SALE_NO = MB.SALE_NO and ABL.LOT_NO = MB.LOT_NO
+			        order by bid_price desc, bid_dt, reg_dt limit 1) SUCCESS_YN
+		from (
+			select AB.SALE_NO, AB.LOT_NO, AB.REQ_NO 
+			    , COLUMN_JSON(S.TITLE_BLOB) TITLE_JSON, S.FROM_DT, S.TO_DT, S.CURR_CD
+			    , IF(S.SALE_TH_DSP_YN = 'N', '', S.SALE_TH) SALE_TH
+		  		, IF(S.SALE_TH_DSP_YN = 'N', '', f_ordinal_number(S.SALE_TH)) SALE_TH_DSP
+		  		, LI.FILE_PATH as LOT_IMG_PATH
+			    , LI.FILE_NAME as LOT_IMG_NAME
+			    , AB.BID_PRICE, AB.REQ_DT, AB.ABORT_YN, AB.ABORT_DT, AB.ABORT_IP, AB.CUST_NO, CD.CD_NM BID_KIND_NM
+			    , COLUMN_JSON(L.TITLE_BLOB) W_TITLE_JSON
+			    , (select count(*) from BID B 
+					where B.SALE_NO = AB.SALE_NO and B.LOT_NO = AB.LOT_NO and B.CUST_NO = AB.CUST_NO and B.AUTO_BID_REQ_NO = AB.REQ_NO) BID_CNT
+			    , (select max(BID_PRICE)
+					from BID LAB 
+					where AB.SALE_NO = LAB.SALE_NO and AB.LOT_NO = LAB.LOT_NO and AB.CUST_NO = LAB.CUST_NO and LAB.AUTO_BID_REQ_NO = AB.REQ_NO) LAST_AUTOBID_PRICE
+				, (select MIN(BID_PRICE)
+					from BID FAB 
+					where AB.SALE_NO = FAB.SALE_NO and AB.LOT_NO = FAB.LOT_NO and AB.CUST_NO = FAB.CUST_NO and FAB.AUTO_BID_REQ_NO = AB.REQ_NO) FIRST_AUTOBID_PRICE
+			<include refid="sql_off_autobid_list" />
+		) ABL
+		order by ABL.REQ_DT desc
+		limit #{from}, #{rows}
+	</select>
+	
+	<sql id="get_off_bidHistory_group" >
+		SELECT S.SALE_NO, L.LOT_NO
+		FROM (SELECT PAD.PADD_NO PADDLE, BO.* FROM BID_OFFLINE BO LEFT OUTER JOIN SALE_PADD PAD ON BO.SALE_NO = PAD.SALE_NO AND BO.CUST_NO = PAD.CUST_NO) BIO
+		LEFT OUTER JOIN SALE S ON BIO.SALE_NO = S.SALE_NO 
+		LEFT OUTER JOIN LOT L ON BIO.LOT_NO = L.LOT_NO AND BIO.SALE_NO = L.SALE_NO
+		WHERE BIO.BID_KIND_CD = 'online' AND BIO.PADDLE > 600  AND BIO.CUST_NO = #{action_user_no}
+		AND S.SALE_KIND_CD IN ('main','plan','hongkong') AND S.SALE_NO >= 622 AND S.STAT_CD = 'open'
+		GROUP BY S.SALE_NO, L.LOT_NO
+		ORDER BY BIO.SALE_NO DESC, BIO.LOT_NO ASC, BIO.BID_NO DESC
+	</sql>
+
+	<select id="get_off_bidHistory_count" resultType="Map">
+		SELECT COUNT(*) as ROW_CNT FROM (<include refid="get_off_bidHistory_group" />) HIS
+	</select>
+	
+	<select id="get_off_bidHistory_paging" resultType="Map">
+		<include refid="get_off_bidHistory_group" />
+		limit #{from}, #{rows}
+	</select>
+	
+	<select id="get_off_bidHistory_saleInfo" resultType="Map">
+		SELECT S.SALE_NO, 
+				COLUMN_JSON(S.TITLE_BLOB) SALE_TITLE_JSON, 
+				SP.PADD_NO
+		FROM SALE S
+		INNER JOIN SALE_PADD SP ON S.SALE_NO = SP.SALE_NO
+								AND S.SALE_NO = #{sale_no}  AND SP.PADD_NO > 600
+								AND SP.CUST_NO = #{action_user_no}
+	</select>
+	
+	<select id="get_off_bidHistory_lotInfo" resultType="Map">
+		SELECT L.LOT_NO, L.TO_DT,
+				 COLUMN_JSON(L.TITLE_BLOB) LOT_TITLE_JSON,
+				 COLUMN_JSON(AT.ARTIST_NAME_BLOB) ARTIST_NAME_JSON,
+				 AT.BORN_YEAR, AT.DIE_YEAR,
+				 LI.FILE_PATH, LI.FILE_NAME
+		FROM LOT L
+		INNER JOIN ARTIST AT ON L.ARTIST_NO = AT.ARTIST_NO
+		INNER JOIN LOT_IMG LI ON LI.LOT_NO = L.LOT_NO AND LI.SALE_NO = L.SALE_NO
+								AND LI.SALE_NO = #{sale_no} AND LI.LOT_NO = #{lot_no}
+	</select>
+	
+	<select id="get_off_bidHistory_bidding" resultType="Map">
+		SELECT IF(BIO.CUST_NO = BID.CUST_NO AND BIO.BID_PRICE = BID.BID_PRICE, 'hammer', 'bidding') AS HAMMER_STAT,
+				 BIO.*
+		FROM (SELECT PAD.PADD_NO PADDLE, BO.* FROM BID_OFFLINE BO LEFT OUTER JOIN SALE_PADD PAD ON BO.SALE_NO = PAD.SALE_NO AND BO.CUST_NO = PAD.CUST_NO) BIO
+        LEFT OUTER JOIN BID ON BID.SALE_NO = BIO.SALE_NO AND BID.LOT_NO = BIO.LOT_NO
+							   AND BID.BID_NO = (SELECT BD.BID_NO FROM BID BD WHERE BD.SALE_NO = BIO.SALE_NO AND BD.LOT_NO = BIO.LOT_NO ORDER BY BD.BID_PRICE DESC, BD.BID_DT ASC, BD.BID_NO ASC LIMIT 1)
+		WHERE BIO.BID_KIND_CD = 'online' AND BIO.PADDLE > 600 AND BIO.CUST_NO = #{action_user_no}
+	    AND BIO.SALE_NO = #{sale_no}
+	    AND BIO.LOT_NO = #{lot_no}
+		ORDER BY BIO.SALE_NO DESC, BIO.LOT_NO ASC, BIO.BID_DT DESC;
+	</select>
+	
+	<sql id="sql_pay_list">
+	   select S.SALE_NO, IF(S.SALE_TH_DSP_YN = 'N', '', CONCAT(S.SALE_TH, f_ordinal_number(S.SALE_TH))) SALE_TH, COLUMN_JSON(S.TITLE_BLOB) TITLE_JSON
+	   	, COLUMN_GET(S.TITLE_BLOB, 'ko' AS CHAR) SALE_TITLE_KR
+	   	, S.FROM_DT, S.TO_DT, S.CURR_CD
+		, L.LOT_NO, L.ARTIST_NO, L.REAL_CUST_NO, L.PAYMENT_FEE_SET_CD
+		, COLUMN_JSON(L.TITLE_BLOB) LOT_TITLE_JSON
+		, COLUMN_GET(L.TITLE_BLOB, 'ko' AS CHAR) LOT_TITLE_KR
+		, (select CONCAT(LI.FILE_PATH, "/", LI.FILE_NAME) from LOT_IMG LI 
+			where LI.SALE_NO = L.SALE_NO and LI.LOT_NO = L.LOT_NO limit 1) LOT_IMG
+		, CAST(COLUMN_JSON(A.ARTIST_NAME_BLOB) AS CHAR) ARTIST_NAME_JSON
+		, IFNULL(COLUMN_GET(A.ARTIST_NAME_BLOB, 'ko' AS CHAR), '') ARTIST_NAME_KR
+		, CONCAT('[', GROUP_CONCAT('{"PRICE_FROM":', ifnull(LF.PRICE_FROM, 0), ', "PRICE_TO":', ifnull(LF.PRICE_TO, 0) , ', "RATE":', ifnull(LF.RATE, 0.0), '}'), ']') LOT_FEE_JSON
+		, B.BID_PRICE, B.BID_DT, B.CUST_NO BID_CUST_NO, B.RANK
+		, P.CUST_NO PAY_CUST_NO
+		, P.PAY_METHOD_NM, PAY_CNT
+		, P.PAY_PRICE
+		, case when P.CUST_NO is null then 0 else 1 end PAID_CNT
+		, if((select count(*) from CUST_BASE_FEE where CUST_NO = #{action_user_no} and FEE_KIND_CD = 'payment') = 0, 'N', 'Y') CUST_FEE_YN
+		from LOT L
+		join SALE S on L.SALE_NO = S.SALE_NO
+		left outer join ARTIST A on L.ARTIST_NO = A.ARTIST_NO
+		left outer join LOT_FEE LF on LF.SALE_NO = L.SALE_NO and LF.LOT_NO = L.LOT_NO and LF.FEE_KIND_CD = 'payment'
+		left outer join (
+			select RB.* from (
+				select
+					B.*
+					, case when @val = concat(B.SALE_NO, '_', B.LOT_NO)
+						then (@rownum:=@rownum+1) else @rownum:=1 end RANK
+				, @val:=concat(B.SALE_NO, '_', B.LOT_NO)
+				from BID B,(select @val:='', @rownum := 0) R
+				where B.BID_KIND_CD in ('online_once', 'online_auto')
+				order by B.SALE_NO desc, B.LOT_NO, B.BID_PRICE desc, B.BID_DT
+			) RB where RB.RANK = 1
+		) B on B.SALE_NO = L.SALE_NO and B.LOT_NO = L.LOT_NO
+		left outer join (
+			select SP.CUST_NO, sum(SP.PAY_PRICE) PAY_PRICE, LP.SALE_NO, LP.LOT_NO, C.CD_NM PAY_METHOD_NM, count(*) PAY_CNT
+			from PAY SP
+			join LOT_PAY LP on LP.PAY_NO = SP.PAY_NO and LP.FEE_KIND_CD = 'payment'
+			join CODE C on SP.PAY_METHOD_CD = C.CD_ID and C.GRP_ID = 'pay_method'
+			group by LP.SALE_NO, LP.LOT_NO
+		) P on P.SALE_NO = L.SALE_NO and P.LOT_NO = L.LOT_NO
+		where L.TO_DT &lt;= NOW()
+		and (B.CUST_NO = #{action_user_no} and REAL_CUST_NO is null) or REAL_CUST_NO = #{action_user_no}
+		and (P.CUST_NO = null or (B.CUST_NO = #{action_user_no} and REAL_CUST_NO is null) or REAL_CUST_NO = #{action_user_no})
+		group by L.SALE_NO, L.LOT_NO
+	</sql>
+	<select id="get_pay_count_by_cust_no" resultType="Map">
+	    select count(*) ROW_CNT, SUM(PAID_CNT) PAID_CNT from (
+			<include refid="sql_pay_list" />
+		) RESULT
+	</select>
+		
+	<select id="get_pay_list_by_cust_no" resultType="Map">
+		<include refid="sql_pay_list" />
+		order by S.SALE_NO DESC
+		limit #{from}, #{rows}
+	</select>
+	
+	<select id="get_pay_lot" resultType="Map">
+	    select * from (
+		<include refid="sql_pay_list" />
+		) PAY where PAY.SALE_NO = #{sale_no} and PAY.LOT_NO = #{lot_no}
+	</select>
+	
+	<select id="get_sale_fee" resultType="Map">
+	    select CAST(sum(FEE) AS INT) SUM_FEE from (
+		    select cast(greatest(
+						least((#{bid_price} - (ifnull(PRICE_FROM, 1) - 1))
+								, (ifnull(PRICE_TO, #{bid_price}) - (ifnull(PRICE_FROM, 1) - 1)))
+						, 0) * (RATE / 100) as int) as FEE
+			from    SALE_BASE_FEE
+			where 	SALE_NO = #{sale_no} and FEE_KIND_CD = 'payment'
+		) FEE 
+	</select>
+
+	<select id="get_lot_fee" resultType="Map">
+	    select CAST(sum(FEE) AS INT) SUM_FEE from (
+		    select IF(LCHK.STAT_CD = 'end' AND IFNULL(FEE, 0) &gt; 0, FEE, cast(greatest(
+						least((#{bid_price} - (ifnull(PRICE_FROM, 1) - 1))
+								, (ifnull(PRICE_TO, #{bid_price}) - (ifnull(PRICE_FROM, 1) - 1)))
+						, 0) * (RATE / 100) as int)) as FEE
+			from    LOT_FEE, (SELECT IF(CAST(NOW() AS DATETIME) &gt; MAX(TO_DT), 'end', 'ing') AS STAT_CD FROM LOT WHERE SALE_NO = #{sale_no}) LCHK
+			where 	SALE_NO = #{sale_no} and LOT_NO = #{lot_no} and FEE_KIND_CD = 'payment'
+		) FEE 
+	</select>
+	
+	<insert id="add_join" parameterType="Map" >
+	    INSERT INTO CUST (
+	   		MARKETING_CHK,
+	    	ADDR,
+			ADDR_DTL,
+			ADDR_OLD_YN,
+			BORN_DT,
+			COMP_MAN_NAME,
+			COMP_OWNER,
+			COMP_NO,
+			CUST_KIND_CD,
+			CUST_NAME,
+			DELI_ADDR,
+			DELI_ADDR_DTL,
+			DELI_ADDR_OLD_YN,
+			DELI_RET_YN,
+			DELI_ZIPNO,
+			EMAIL,
+			FAX,
+			HP,
+			JOIN_KIND_CD,
+			LOCAL_KIND_CD,
+			LOGIN_ID,
+			NATION_CD,
+			PASSWD,
+			REG_DT,
+			SEX_CD,
+			EMP_NO,
+			STAT_CD,
+			TEL,
+			ZIPNO,
+			SEND_WAY_CD,
+			FORE_BID_REQ_YN,
+			FORE_CERT_CODE
+		) 
+		VALUES ( 
+			#{marketing_chk},
+			#{addr},
+			#{addr_dtl},
+			#{addr_old_yn},
+			#{born_dt},
+			#{comp_man_name},
+			#{comp_owner},
+			#{comp_no},
+			#{cust_kind_cd},
+			#{cust_name},
+			#{deli_addr},
+			#{deli_addr_dtl},
+			#{deli_addr_old_yn},
+			'N',
+			#{deli_zipno},
+			#{email},
+			#{fax},
+			#{hp},
+			'online',
+			#{local_kind_cd},
+			#{login_id},
+			#{nation_cd},
+			'${@com.seoulauction.common.auth.PasswordEncoderAESforSA@saPasswdEncoding(passwd)}',
+			now(),
+			#{sex_cd},
+			( SELECT CU.EMP_NO FROM CUST CU
+				WHERE CUST_NAME = #{cust_name}
+				AND STAT_CD = 'normal'
+			 	<if test="local_kind_cd == 'korean'">
+					AND hp = #{hp}
+				</if>
+				<if test="local_kind_cd == 'foreigner'">
+					AND email = #{email}
+				</if>
+	        	ORDER BY REG_DT DESC LIMIT 1		
+        	),
+			<if test="local_kind_cd == 'korean'">
+			'normal',
+			</if>
+			<if test="local_kind_cd == 'foreigner'">
+			'not_certify',
+			</if>
+			#{tel},
+			#{zipno},
+			'normal',
+			<choose>
+			    <when test="local_kind_cd == 'foreigner'">
+			        #{fore_bid_req_yn}, UUID()
+			    </when>
+			    <otherwise>'N', null</otherwise>
+			</choose>
+		);
+	</insert>
+	
+	<select id="select_join_cust" resultType="Map">
+		SELECT CU.CUST_NO FROM CUST CU
+			WHERE LOGIN_ID = #{login_id}
+			AND STAT_CD = 'normal'
+		 	<if test="local_kind_cd == 'korean'">
+				AND hp = #{hp}
+			</if>
+			<if test="local_kind_cd == 'foreigner'">
+				AND email = #{email}
+			</if>
+        	ORDER BY REG_DT DESC LIMIT 1	
+	</select>
+	
+	<delete id="delete_add_info" parameterType="Map">
+		DELETE FROM CUST_PUSH_WAY WHERE CUST_NO = #{cust_no};
+		DELETE FROM CUST_INTE_AREA WHERE CUST_NO = #{cust_no};
+		DELETE FROM CUST_INTE_ARTIST WHERE CUST_NO = #{cust_no};
+	</delete>
+	
+	<insert id="insert_addInfo" parameterType="Map">
+		<if test="info_type == 'pushway'">
+		    INSERT INTO CUST_PUSH_WAY (
+		    	CUST_NO,
+				PUSH_WAY_CD,
+				REG_DT
+			) 
+			VALUES (
+				<if test="action_user_no != null">
+					#{action_user_no},
+				</if>
+				<if test="action_user_no == null">
+					#{cust_no},
+				</if>
+				#{push_way_cd},
+				now()
+			);
+		</if>
+		
+		<if test="info_type == 'area'">
+		    INSERT INTO CUST_INTE_AREA(
+				CUST_NO,
+				INTE_AREA_CD,
+				REG_DT
+			)
+			VALUES (
+				<if test="action_user_no != null">
+					#{action_user_no},
+				</if>
+				<if test="action_user_no == null">
+					#{cust_no},
+				</if>
+				#{inte_area_cd},
+				now()  
+			);
+		</if>
+		
+		<if test="info_type == 'artist'">
+		    INSERT INTO CUST_INTE_ARTIST(
+					ARTIST_NO,
+					CUST_NO,
+					REG_DT
+				)
+			VALUES(
+				#{artist.ARTIST_NO},
+				<if test="action_user_no != null">
+					#{action_user_no},
+				</if>
+				<if test="action_user_no == null">
+					#{cust_no},
+				</if>
+				now()
+			) ;
+		</if>
+	</insert>
+	
+	<insert id="add_join_push_ways" parameterType="Map">
+		    INSERT INTO CUST_PUSH_WAY (
+		    	CUST_NO,
+				PUSH_WAY_CD,
+				REG_DT
+			) 
+			VALUES (
+				<if test="action_user_no != null">
+					#{action_user_no},
+				</if>
+				<if test="action_user_no == null">
+					#{cust_no},
+				</if>
+				#{push_way_cd},
+				now()
+			);
+	</insert>
+	<insert id="add_join_inte_area" parameterType="Map">
+	    INSERT INTO CUST_INTE_AREA(
+			CUST_NO,
+			INTE_AREA_CD,
+			REG_DT
+		)
+		VALUES (
+			<if test="action_user_no != null">
+				#{action_user_no},
+			</if>
+			<if test="action_user_no == null">
+				#{cust_no},
+			</if>
+			#{inte_area_cd},
+			now()  
+		);
+ 	</insert>	
+	<insert id="add_join_inte_artist" parameterType="Map">
+	    INSERT INTO CUST_INTE_ARTIST(
+				ARTIST_NO,
+				CUST_NO,
+				REG_DT
+			)
+		VALUES(
+			#{ARTIST_NO},
+			<if test="action_user_no != null">
+				#{action_user_no},
+			</if>
+			<if test="action_user_no == null">
+				#{cust_no},
+			</if>
+			now()
+		) ;
+	</insert>	
+	<update id="modify_cust_pwd_reset" parameterType="Map">
+	    update CUST
+	    set 
+	    	PASSWD_RESET_YN = 'N',
+	    	PASSWD = '${@com.seoulauction.common.auth.PasswordEncoderAESforSA@saPasswdEncoding(passwd)}'
+		where CUST_NO = #{action_user_no};
+	</update>
+	<update id="modify_cust_for_fore_auth" parameterType="Map">
+	    update CUST
+	    set 
+	    	STAT_CD = 'normal'
+		where FORE_CERT_CODE = #{fore_cert_code}
+	</update>
+	<update id="modify_cust_info" parameterType="Map">
+	    UPDATE CUST 
+	    SET 
+	    	ADDR = #{addr},
+			ADDR_DTL = #{addr_dtl},
+			ADDR_OLD_YN = #{addr_old_yn},
+			BORN_DT = #{born_dt},
+			COMP_MAN_NAME = #{comp_man_name},
+			COMP_OWNER = #{comp_owner},
+			COMP_NO = #{comp_no},
+			CUST_KIND_CD = #{cust_kind_cd},
+			CUST_NAME = #{cust_name},
+			DELI_ADDR = #{deli_addr},
+			DELI_ADDR_DTL = #{deli_addr_dtl},
+			DELI_ADDR_OLD_YN = #{deli_addr_old_yn},
+			DELI_RET_YN = 'N',
+			DELI_ZIPNO = #{deli_zipno},
+			EMAIL = #{email},
+			FAX = #{fax},
+			HP = #{hp},
+			PASSWD = CASE WHEN '${passwd}' = '${re_passwd}' THEN '${passwd}' ELSE '${@com.seoulauction.common.auth.PasswordEncoderAESforSA@saPasswdEncoding(passwd)}' END,
+			SEX_CD = #{sex_cd},
+			TEL = #{tel},
+			ZIPNO = #{zipno},
+			MOD_DT = now(),
+			FORE_BID_REQ_YN = CASE WHEN #{local_kind_cd} = 'foreigner' THEN #{fore_bid_req_yn} ELSE 'N' END,
+			MARKETING_CHK = #{marketing_chk},
+			MARKETING_CHK_MOD_DT = now(),
+			MARKETING_CHK_MOD_EMP_NO = #{action_user_no}
+		WHERE CUST_NO = #{action_user_no};
+		
+		DELETE FROM CUST_PUSH_WAY WHERE CUST_NO = #{action_user_no};
+		DELETE FROM CUST_INTE_AREA WHERE CUST_NO = #{action_user_no};
+		DELETE FROM CUST_INTE_ARTIST WHERE CUST_NO = #{action_user_no};
+	</update>
+	
+	<update id="modify_auto_bid_req_for_abort" parameterType="Map">
+	    UPDATE AUTO_BID_REQ
+	    SET ABORT_YN = 'Y'
+	    	, ABORT_DT = NOW()
+	    	, ABORT_IP = #{action_user_ip}
+	    WHERE SALE_NO = #{sale_no}
+	    AND LOT_NO = #{lot_no}
+	    AND REQ_NO = #{req_no}
+	</update>
+
+	<update id="modify_auto_bid_req_for_price" parameterType="Map">
+	    UPDATE AUTO_BID_REQ
+	    SET BID_PRICE = #{bid_price}
+	    	, BID_KIND_CD = #{bid_kind_cd}
+	    WHERE SALE_NO = #{sale_no}
+	    AND LOT_NO = #{lot_no}
+	    AND REQ_NO = #{req_no}
+	</update>
+		
+	<select id="get_auto_bid_req_info" resultType="Map">
+	    select S.SALE_NO, L.LOT_NO, AB.REQ_NO
+		, AB.REQ_DT, AB.BID_PRICE, AB.BID_KIND_CD, CD.CD_NM BID_KIND_NM
+		, S.SALE_KIND_CD, IF(S.SALE_TH_DSP_YN = 'N', '', S.SALE_TH) SALE_TH, COLUMN_JSON(S.TITLE_BLOB) TITLE_JSON
+		, S.FROM_DT, S.TO_DT, S.CURR_CD
+		, COLUMN_JSON(L.TITLE_BLOB) W_TITLE_JSON, COLUMN_JSON(A.ARTIST_NAME_BLOB) ARTIST_NAME_JSON
+		from AUTO_BID_REQ AB
+		join SALE S on AB.SALE_NO = S.SALE_NO
+		join LOT L on AB.SALE_NO = L.SALE_NO and AB.LOT_NO = L.LOT_NO
+		join ARTIST A on A.ARTIST_NO = L.ARTIST_NO
+		join CODE CD on CD.GRP_ID='bid_kind' and AB.BID_KIND_CD = CD.CD_ID
+	    where AB.SALE_NO = #{sale_no} and AB.LOT_NO = #{lot_no} and AB.REQ_NO = #{req_no}
+	</select>
+	
+	<select id="temp" resultType="Map">
+	    SET SESSION group_concat_max_len = 1000000;
+		select 
+			S.SALE_NO, IF(S.SALE_TH_DSP_YN = 'N', '', S.SALE_TH) SALE_TH, S.TITLE_BLOB, S.FROM_DT, S.TO_DT, S.CURR_CD
+			, CONCAT('['
+				, GROUP_CONCAT('{'
+					, 'LOT_NO:', L.LOT_NO, ', '
+					, 'LOT_TITLE:', L.LOT_TITLE, ', '
+					, 'ARTIST_NAME:', L.ARTIST_NAME_JSON, ', '
+					, 'MAX_BID_PRICE:', L.MAX_BID_PRICE, ', '
+					, 'BID:', L.BID_JSON
+					,'}' order by L.LOT_NO)
+				, ']') LOT_JSON
+		from SALE S
+		join (
+			select L.SALE_NO, L.LOT_NO, L.ARTIST_NO
+				, CAST(COLUMN_JSON(L.TITLE_BLOB) AS CHAR) LOT_TITLE
+				, (select CONCAT(LI.FILE_PATH, "/", LI.FILE_NAME) from LOT_IMG LI 
+					where LI.SALE_NO = L.SALE_NO and LI.LOT_NO = L.LOT_NO limit 1) LOT_IMG
+				, CAST(COLUMN_JSON(A.ARTIST_NAME_BLOB) AS CHAR) ARTIST_NAME_JSON
+				, B.CUST_NO
+				, (select CASE WHEN MB.BID_PRICE = B.BID_PRICE and MB.CUST_NO = B.CUST_NO THEN 'Y' ELSE 'N' END 
+					from BID MB where B.SALE_NO = MB.SALE_NO and B.LOT_NO = MB.LOT_NO order by bid_price desc, bid_dt, reg_dt limit 1) SUCCESS_YN 
+				, CONCAT('['
+					, GROUP_CONCAT('{BID_PRICE:', B.BID_PRICE, ', BID_DT:', B.BID_DT, ', BID_KIND_NM:', B.BID_KIND_NM, '}' order by B.BID_PRICE desc, B.BID_DT)
+					, ']') BID_JSON
+				, (select MB.BID_PRICE from BID MB where B.SALE_NO = MB.SALE_NO and B.LOT_NO = MB.LOT_NO order by bid_price desc, bid_dt, reg_dt limit 1) MAX_BID_PRICE
+			from LOT L
+			join ARTIST A on L.ARTIST_NO = A.ARTIST_NO
+			join (
+				select SB.*, SCD.CD_NM BID_KIND_NM from BID SB
+				join CODE SCD on SB.BID_KIND_CD = SCD.CD_ID and SCD.GRP_ID = 'bid_kind'
+			) B on L.SALE_NO = B.SALE_NO and L.LOT_NO = B.LOT_NO and B.BID_KIND_CD in ('online_once', 'online_auto') 
+			where B.CUST_NO = 57415
+			group by L.SALE_NO, L.LOT_NO
+		) L ON L.SALE_NO = S.SALE_NO
+		group by S.SALE_NO
+		order by S.TO_DT desc
+	</select>
+	
+	<update id="modify_passwd_issued" parameterType="Map">
+	    <selectKey keyProperty="passwd" resultType="String" order="BEFORE">
+		    select substring(UUID(), 1,8) passwd
+		</selectKey>
+		update CUST set
+			passwd = '${@com.seoulauction.common.auth.PasswordEncoderAESforSA@saPasswdEncoding(passwd.rows[0])}'
+		where login_id = #{login_id}
+		and cust_name = #{cust_name}
+		<if test="search_way == 'email'">
+			and email = #{email}
+		</if>
+		<if test="search_way == 'phone'">
+			and hp = #{phone}
+		</if>
+<!-- 		and email = #{email} -->
+	</update>
+	
+	<update id="modify_cust_stat_cd_for_leave" parameterType="Map">
+	    update CUST
+	    set 
+	    	STAT_CD = 'leave', LEAVE_DT = now()
+		where cust_no = #{action_user_no};
+		
+		update CUST_SEND_INFO_NEW
+		set
+			DEL_YN = 'Y', MOD_DT = now()
+		where cust_no = #{action_user_no}
+		  and DEL_YN = 'N';
+		  
+		delete from CUST_PUSH_WAY where cust_no = #{action_user_no};
+	</update>
+	
+	<insert id="add_cust_pay" parameterType="Map">
+	    insert into PAY (
+			  CUST_NO
+			, PAY_METHOD_CD
+			, PG_YN
+			, PG_CD
+			, PG_TRANS_ID
+			, PAYER
+			, PAY_PRICE
+			, PAY_DT
+			, REG_DT
+			, NO_VAT_PRICE
+			, VAT_PRICE
+			, VAT
+		) values (
+			  #{action_user_no}
+			, 'card'
+			, 'Y'
+			, 'nice'
+			, #{PG_TRANS_ID}
+			, #{PAYER}
+			, #{PAY_PRICE}
+			, now()
+			, now()
+			, #{NO_VAT_PRICE}
+			, #{VAT_PRICE}
+			, #{VAT}
+		);
+		insert into CUST_PAY (
+			  CUST_NO
+			, PAY_NO
+			, VALID_FROM_DT
+			, VALID_TO_DT
+		) values (
+			  #{action_user_no}
+			, last_insert_id()
+			, now()
+			, DATE_ADD(DATE_ADD(now(), INTERVAL 1 YEAR), INTERVAL -1 DAY)
+		);
+	</insert>
+	
+	
+	
+	<insert id="add_academy_pay" parameterType="Map">
+	    insert into PAY (
+			  CUST_NO
+			, PAY_METHOD_CD
+			, PG_YN
+			, PG_CD
+			, PG_TRANS_ID
+			, PAYER
+			, PAY_PRICE
+			, PAY_DT
+			, REG_DT
+			, NO_VAT_PRICE
+			, VAT_PRICE
+			, VAT
+		) values (
+			  #{action_user_no}
+			, 'card'
+			, 'Y'
+			, 'nice'
+			, #{PG_TRANS_ID}
+			, #{PAYER}
+			, #{PAY_PRICE}
+			, now()
+			, now()
+			, #{NO_VAT_PRICE}
+			, #{VAT_PRICE}
+			, #{VAT}
+		);
+		
+		INSERT INTO ACADEMY_PAY ( 
+	    	CUST_NO, 
+	    	PAY_NO, 
+	    	ACADEMY_NO
+		) 
+		VALUES (
+			#{action_user_no}, 
+			last_insert_id(),
+			#{ACADEMY_NO}
+		);
+		
+		INSERT INTO ACADEMY_REQ ( 
+	    	ACADEMY_NO, 
+	    	CUST_NO, 
+	    	REG_DT, 
+	    	REG_EMP_NO,
+	    	PAYER 
+		) 
+		VALUES (
+			#{ACADEMY_NO}, 
+			#{action_user_no}, 
+			now(),
+			#{action_user_no}, 
+			#{PAYER}
+		);
+	</insert>
+	
+	
+	<insert id="add_lot_pay" parameterType="Map">
+	    insert into PAY (
+			  CUST_NO
+			, PAY_METHOD_CD
+			, PG_YN
+			, PG_CD
+			, PG_TRANS_ID
+			, PAYER
+			, PAY_PRICE
+			, PAY_DT
+			, REG_DT
+			, NO_VAT_PRICE
+			, VAT_PRICE
+			, VAT
+		) values (
+			  #{action_user_no}
+			, 'card'
+			, 'Y'
+			, 'nice'
+			, #{PG_TRANS_ID}
+			, #{PAYER}
+			, #{PAY_PRICE}
+			, now()
+			, now()
+			, #{NO_VAT_PRICE}
+			, #{VAT_PRICE}
+			, #{VAT}
+		);
+		
+		insert into LOT_PAY (
+			  SALE_NO
+			, LOT_NO
+			, PAY_NO
+			, FEE_KIND_CD
+		) values (
+			#{sale_no}
+			, #{lot_no}
+			, last_insert_id()
+			, 'payment'
+		);
+		
+		update LOT_FEE
+		SET 
+		 	FEE = cast(greatest(
+						least((#{bid_price} - (ifnull(PRICE_FROM, 1) - 1))
+								, (ifnull(PRICE_TO, #{bid_price}) - (ifnull(PRICE_FROM, 1) - 1)))
+						, 0) * (RATE / 100) as int)
+			, MOD_DT = now()			
+		where SALE_NO = #{sale_no} and LOT_NO = #{lot_no};
+	</insert>
+	<select id="cust_cr_lot_list" resultType="Map"> <!-- CR 관심체크. 2017.04.05 YDH -->
+		SELECT 'CR_LOT' AS GUBUN
+			 , CR.*
+		     , CU.CUST_NAME
+		     , IF(S.SALE_TH_DSP_YN = 'N', '', CONCAT(S.SALE_TH, f_ordinal_number(S.SALE_TH))) AS SALE_TH_DSP
+		     , COLUMN_GET(S.TITLE_BLOB, 'ko' AS CHAR) AS SALE_TITLE_KO
+		     , COLUMN_GET(S.TITLE_BLOB, 'en' AS CHAR) AS SALE_TITLE_EN
+		     , COLUMN_GET(L.TITLE_BLOB, 'ko' AS CHAR) AS TITLE_KO
+		     , COLUMN_GET(L.TITLE_BLOB, 'en' AS CHAR) AS TITLE_EN
+		     , COLUMN_GET(L.TITLE_BLOB, 'zh' AS CHAR) AS TITLE_ZH
+		     , COLUMN_GET(A.ARTIST_NAME_BLOB, 'ko' AS CHAR) AS ARTIST_NAME_KO
+		     , COLUMN_GET(A.ARTIST_NAME_BLOB, 'en' AS CHAR) AS ARTIST_NAME_EN
+		     , COLUMN_GET(A.ARTIST_NAME_BLOB, 'zh' AS CHAR) AS ARTIST_NAME_ZH	
+		     , L.CLOSE_YN	     
+		  FROM CUST_CR_LOT CR INNER JOIN CUST CU ON CR.CUST_NO = CU.CUST_NO
+		  					  INNER JOIN SALE S ON CR.SALE_NO = S.SALE_NO
+		                      INNER JOIN LOT  L ON CR.SALE_NO = L.SALE_NO AND CR.LOT_NO = L.LOT_NO
+		                      LEFT OUTER JOIN ARTIST A ON L.ARTIST_NO = A.ARTIST_NO
+	     WHERE CR.CUST_NO =  #{action_user_no}
+	       AND CR.DEL_YN = 'N'
+	     ORDER BY CR.SALE_NO DESC, CR.LOT_NO ASC  
+		limit #{from}, #{rows};
+	</select>
+	<select id="cust_cr_lot_count" resultType="Map"> <!-- CR 관심체크. 2017.04.05 YDH -->
+		SELECT COUNT(*)	     ROW_CNT
+		  FROM CUST_CR_LOT CR INNER JOIN CUST CU ON CR.CUST_NO = CU.CUST_NO
+		  					  INNER JOIN SALE S ON CR.SALE_NO = S.SALE_NO
+		                      INNER JOIN LOT  L ON CR.SALE_NO = L.SALE_NO AND CR.LOT_NO = L.LOT_NO
+		                      LEFT OUTER JOIN ARTIST A ON L.ARTIST_NO = A.ARTIST_NO
+	     WHERE CR.CUST_NO =  #{action_user_no}
+	       AND CR.DEL_YN = 'N';
+	</select>
+	<insert id="add_cust_cr_lot" parameterType="Map"> <!-- CR 관심체크. 2017.04.05 YDH -->
+	    INSERT INTO CUST_CR_LOT(
+				CUST_NO,
+				SALE_NO,
+				LOT_NO,
+				CONFIRM_YN,
+				REG_DT,
+				DEL_YN
+			)
+		VALUES(
+			#{action_user_no},
+			#{sale_no},
+			#{lot_no},
+			'Y',
+			now(),
+			'N'
+		) 
+	</insert>	
+	<update id="del_cust_cr_lot" parameterType="Map">
+	    <!--  DELETE FROM CUST_CR_LOT WHERE CUST_NO = #{action_user_no} AND SALE_NO = #{sale_no} AND LOT_NO = #{lot_no}; -->
+	    UPDATE CUST_CR_LOT 
+	       SET DEL_YN = 'Y', MOD_DT = now() 
+	    WHERE CR_SEQ = #{cr_seq} AND CUST_NO = #{action_user_no} AND SALE_NO = #{sale_no} AND LOT_NO = #{lot_no};
+	</update>	
+	<select id="cust_inte_lot_list" resultType="Map"> <!-- LOT 관심체크. 2017.04.10 YDH -->
+		SELECT 'INTE_LOT' AS GUBUN
+			 , CL.*
+		     , CU.CUST_NAME
+		     , L.STAT_CD
+		     , IF(S.SALE_TH_DSP_YN = 'N', '', CONCAT(S.SALE_TH, f_ordinal_number(S.SALE_TH))) AS SALE_TH_DSP
+		     , COLUMN_GET(S.TITLE_BLOB, 'ko' AS CHAR) AS SALE_TITLE_KO
+		     , COLUMN_GET(S.TITLE_BLOB, 'en' AS CHAR) AS SALE_TITLE_EN
+		     , COLUMN_GET(L.TITLE_BLOB, 'ko' AS CHAR) AS TITLE_KO
+		     , COLUMN_GET(L.TITLE_BLOB, 'en' AS CHAR) AS TITLE_EN
+		     , COLUMN_GET(L.TITLE_BLOB, 'zh' AS CHAR) AS TITLE_ZH
+		     , COLUMN_GET(A.ARTIST_NAME_BLOB, 'ko' AS CHAR) AS ARTIST_NAME_KO
+		     , COLUMN_GET(A.ARTIST_NAME_BLOB, 'en' AS CHAR) AS ARTIST_NAME_EN
+		     , COLUMN_GET(A.ARTIST_NAME_BLOB, 'zh' AS CHAR) AS ARTIST_NAME_ZH		
+		     <if test="sale_kind == 'online'">, if(L.TO_DT > NOW(), 'N', 'Y') AS CLOSE_YN </if>
+		     <if test="sale_kind == 'offline'">, 'N' AS CLOSE_YN </if>
+		     , S.SALE_OUTSIDE_YN  
+		  FROM CUST_INTE_LOT CL INNER JOIN CUST CU ON CL.CUST_NO = CU.CUST_NO
+		  					  INNER JOIN SALE S ON CL.SALE_NO = S.SALE_NO AND S.SALE_KIND_CD NOT IN ('exhibit', 'exhibit_sa')
+		  					  			<if test="sale_kind == 'online'">AND (S.SALE_KIND_CD = 'online' or S.SALE_KIND_CD = 'online_zb')</if>
+		  					  			<if test="sale_kind == 'offline'">AND IFNULL(S.SALE_KIND_CD, 'main') != 'online' AND IFNULL(S.SALE_KIND_CD, 'main') != 'online_zb'</if>
+		                      INNER JOIN LOT  L ON CL.SALE_NO = L.SALE_NO AND CL.LOT_NO = L.LOT_NO
+		                      LEFT OUTER JOIN ARTIST A ON L.ARTIST_NO = A.ARTIST_NO
+	     WHERE CL.CUST_NO =  #{action_user_no}
+	     ORDER BY CL.SALE_NO DESC, CL.LOT_NO ASC  
+		limit #{from}, #{rows};
+	</select>
+	<select id="cust_inte_lot_count" resultType="Map"> <!-- LOT 관심체크. 2017.04.10 YDH -->
+		SELECT COUNT(*)	     ROW_CNT
+		  FROM CUST_INTE_LOT CL INNER JOIN CUST CU ON CL.CUST_NO = CU.CUST_NO
+		  					  INNER JOIN SALE S ON CL.SALE_NO = S.SALE_NO
+		  					  			<if test="sale_kind == 'online'">AND (S.SALE_KIND_CD = 'online' or S.SALE_KIND_CD = 'online_zb')</if>
+		  					  			<if test="sale_kind == 'offline'">AND IFNULL(S.SALE_KIND_CD, 'main') != 'online' AND IFNULL(S.SALE_KIND_CD, 'main') != 'online_zb'</if>
+		                      INNER JOIN LOT  L ON CL.SALE_NO = L.SALE_NO AND CL.LOT_NO = L.LOT_NO
+		                      LEFT OUTER JOIN ARTIST A ON L.ARTIST_NO = A.ARTIST_NO
+	     WHERE CL.CUST_NO =  #{action_user_no};
+	</select>
+	<insert id="add_cust_inte_lot" parameterType="Map"> <!-- LOT 관심체크. 2017.04.10 YDH -->
+	    INSERT INTO CUST_INTE_LOT(
+				CUST_NO,
+				SALE_NO,
+				LOT_NO,
+				REG_DT
+			)
+		VALUES(
+			#{action_user_no},
+			#{sale_no},
+			#{lot_no},
+			now()
+		) 
+	</insert>	
+	
+	<update id="del_cust_inte_lot" parameterType="Map">
+	    DELETE FROM CUST_INTE_LOT WHERE CUST_NO = #{action_user_no} AND SALE_NO = #{sale_no} AND LOT_NO = #{lot_no};
+	</update>
+	
+	<update id="del_cust_inte_lotList" parameterType="Map">
+		<foreach collection="inteChkList" item="item" index="index" separator=";">
+			 DELETE FROM CUST_INTE_LOT WHERE CUST_NO = #{action_user_no} AND SALE_NO = #{item.saleno} AND LOT_NO = #{item.lotno}
+		</foreach>
+	</update>
+	
+	<select id="get_customer_admin" resultType="Map">
+			SELECT CU.CUST_NO as cust_no, CU.CUST_NAME as cust_name, CU.JOIN_KIND_CD as join_kind_cd, CU.LOGIN_ID as login_id, CU.HP as hp, CU.EMAIL as email, E.EMP_NAME as 'pid', CU.REG_DT as reg_dt
+					, (select CASE WHEN max(CP.VALID_TO_DT) >= NOW() THEN "Y" ELSE "N" END 
+		   			from CUST_PAY CP where CU.cust_no = CP.cust_no) as membership_yn
+		   			, (select MAX(CP.VALID_FROM_DT)  from CUST_PAY CP where CU.cust_no = CP.cust_no) as from_dt
+		   			, (select MAX(CP.VALID_TO_DT)  from CUST_PAY CP where CU.cust_no = CP.cust_no) as to_dt
+			FROM CUST CU
+			LEFT OUTER JOIN EMP E ON CU.EMP_NO = E.EMP_NO
+			WHERE CU.STAT_CD = 'normal'		
+			<if test="customer_name != null and customer_name != '' ">
+				AND CU.cust_name LIKE CONCAT('%', #{customer_name}, '%') 
+			</if>
+			<if test="customer_hp != null and customer_hp != '' ">
+				AND TRIM(REPLACE(CU.HP,'-','')) = #{customer_hp}
+			</if>
+			<if test="customer_email != null and customer_email != '' ">
+				AND TRIM(REPLACE(CU.EMAIL,'@','')) = #{customer_email}
+			</if>
+	<!-- 		<if test="pid_name != null and pid_name != '' "> -->
+	<!-- 			AND E.EMP_NAME LIKE CONCAT('%', #{pid_name}, '%')  -->
+	<!-- 		</if> -->
+		</select>
+</mapper>

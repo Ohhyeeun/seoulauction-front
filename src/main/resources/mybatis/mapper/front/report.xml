@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.front.report">
+	<sql id="lot_last_bid_info">
+		select 		L.SALE_NO
+				  , L.LOT_NO
+				  , BD.BID_NO as LAST_BID_NO
+				  , BD.BID_PRICE as LAST_PRICE
+				<![CDATA[
+				  , if(L.LOT_NO is null or L.STAT_CD != 'entry', null, if(BD.BID_PRICE >= 0, 'sold', if((S.SALE_KIND_CD IN ('online', 'online_zb') and L.TO_DT < now()) or (S.SALE_KIND_CD NOT IN ('online', 'online_zb') and L.CLOSE_YN = 'Y'), 'unsold', null  ))) as SOLD_STAT_CD
+				  , if(L.LOT_NO is null or L.STAT_CD != 'entry', null, if(BD.BID_PRICE >= 0, 'Y',    if((S.SALE_KIND_CD IN ('online', 'online_zb') and L.TO_DT < now()) or (S.SALE_KIND_CD NOT IN ('online', 'online_zb') and L.CLOSE_YN = 'Y'), 'N'     , null  )))  as SOLD_YN
+				  , if(L.LOT_NO is null or L.STAT_CD != 'entry', null, if((S.SALE_KIND_CD = 'online' and L.TO_DT < now()) or (S.SALE_KIND_CD != 'online' and L.CLOSE_YN = 'Y'), 'Y', 'N')) as CLOSE_YN
+				]]>
+				  , if(BD.BID_PRICE > 0, if(S.SALE_KIND_CD = 'online', L.TO_DT, BD.BID_DT), cast(null as datetime)) as LAST_BID_DT
+				  , BD.PADD_NO as LAST_PADD_NO
+				  , BD.CUST_NO as LAST_CUST_NO
+				  , CU.LOGIN_ID as LAST_CUST_ID
+				  ,	CU.CUST_NAME as LAST_CUST_NAME
+				  , CU.BORN_DT as LAST_CUST_BORN_DT
+				  , CU.TEL as LAST_CUST_TEL
+				  , CU.HP as LAST_CUST_HP
+				  , CU.EMAIL as LAST_CUST_EMAIL
+				  , EM.EMP_NO as LAST_EMP_NO
+				  , EM.EMP_NAME as LAST_EMP_NAME
+				  , EM_CR.EMP_NO as LAST_EMP_NO_CURR
+				  , EM_CR.EMP_NAME as LAST_EMP_NAME_CURR
+			  	  ,	(select count(A.BID_NO) from BID A where A.SALE_NO = L.SALE_NO and A.LOT_NO = L.LOT_NO) as BID_CNT	
+		from 		LOT L
+					inner join SALE S on S.SALE_NO = L.SALE_NO
+					left outer join BID BD on BD.SALE_NO = L.SALE_NO and BD.LOT_NO = L.LOT_NO and L.STAT_CD = 'entry'
+						and BD.BID_NO = (select A.BID_NO from BID A where A.SALE_NO = L.SALE_NO and A.LOT_NO = L.LOT_NO order by A.BID_PRICE desc, A.BID_DT asc, A.BID_NO asc limit 1)
+					left outer join CUST CU on BD.CUST_NO = CU.CUST_NO
+					left outer join EMP EM on EM.EMP_NO = BD.EMP_NO
+					left outer join EMP EM_CR on EM_CR.EMP_NO = CU.EMP_NO
+		<if test='sale_no != null'>
+		where 		L.STAT_CD = 'entry'
+				and L.SALE_NO = #{sale_no}
+				<if test='lot_no != null'>
+			    and L.LOT_NO = #{lot_no}
+				</if>
+		</if>
+	</sql>
+	<select id="rpt_lot_sold_invoice" resultType="Map">
+		select 	L.LOT_NO
+			  , column_get(AT_L.ARTIST_NAME_BLOB, 'ko' as char) as ARTIST_NAME
+			  , column_get(AT_L.ARTIST_NAME_BLOB, 'en' as char) as ARTIST_NAME_EN
+			  , column_get(L.TITLE_BLOB, 'ko' as char) as TITLE
+			  , column_get(L.TITLE_BLOB, 'en' as char) as TITLE_EN
+			  , concat(#{file_server}, LI.FILE_PATH, '/thum/', LI.FILE_NAME) as THUM_PATH
+
+			  ,	BD.LAST_PRICE
+			  , IFNULL(L.REAL_CUST_NO, BD.LAST_CUST_NO) LAST_CUST_NO
+			  ,	IFNULL(CU_RE.CUST_NAME, BD.LAST_CUST_NAME) LAST_CUST_NAME
+			  , BD.SOLD_YN
+			  
+			  , cast(ifnull(LF_C.LOT_FEE, 0) + ifnull(LE_C.EXPE_FEE, 0) + ifnull(LE_C.TAX_FEE, 0)  as int) as CONTRACT_FEE_TOT
+			  , cast(LF_C.LOT_FEE as int) as CONTRACT_FEE
+			  , cast(LE_C.ENTRY_FEE as int) as CONTRACT_ENTRY_FEE
+			  , cast(LE_C.INSU_FEE as int) as CONTRACT_INSU_FEE
+			  , cast(LE_C.TRANS_FEE as int) as CONTRACT_TRANS_FEE
+			  , cast(LE_C.TAX_FEE as int) as CONTRACT_TAX_FEE
+			  , cast(LE_C.TAX_HK_FEE as int) as CONTRACT_TAX_HK_FEE
+			  , cast(LE_C.ETC_FEE as int) as CONTRACT_ETC_FEE <!-- 순수 기타비용 -->
+			  , cast(LE_C.EXPE_FEE as int) as CONTRACT_EXPE_FEE <!-- 양도세제외 기타비용 -->
+			  , cast(ifnull(BD.LAST_PRICE, 0) - (ifnull(LF_C.LOT_FEE, 0) + ifnull(LE_C.EXPE_FEE, 0) + ifnull(LE_C.TAX_FEE, 0)) as int) as CONTRACT_TOT
+			  , cast((ifnull(LE_C.EXPE_FEE, 0) - ifnull(LE_C.TAX_HK_FEE, 0)) as int) as CONTRACT_ETC_FEE_NEW <!-- 양도세,거래세 제외한 전체 비용 -->
+			  , cast(ifnull(LF_P.LOT_FEE, 0) + ifnull(LE_P.EXPE_FEE, 0) as int) as PAYMENT_FEE_TOT
+			  , cast(ifnull(LE_P.EXPE_FEE, 0) as int) as PAYMENT_EXPE_FEE
+			  , cast(ifnull(LE_P.TAX_HK_FEE, 0) as int) as PAYMENT_TAX_HK_FEE
+
+				, ((select sum(cast(greatest(
+										least((BD.LAST_PRICE - (ifnull(A.PRICE_FROM, 1) - 1))
+												, (ifnull(A.PRICE_TO, BD.LAST_PRICE) - (ifnull(A.PRICE_FROM, 1) - 1)))
+										, 0) * (A.RATE / 100) as int))
+							from    LOT_FEE A
+							where 	A.SALE_NO = BD.SALE_NO and A.LOT_NO = BD.LOT_NO and A.FEE_KIND_CD = 'payment'
+						)) as PAYMENT_FEE
+				, ((select max(if(cast(greatest(
+									least((BD.LAST_PRICE - (ifnull(A.PRICE_FROM, 1) - 1))
+											, (ifnull(A.PRICE_TO, BD.LAST_PRICE) - (ifnull(A.PRICE_FROM, 1) - 1)))
+									, 0) * (A.RATE / 100) as int) > 0, A.RATE, 0))
+						from    LOT_FEE A
+						where 	A.SALE_NO = BD.SALE_NO and A.LOT_NO = BD.LOT_NO and A.FEE_KIND_CD = 'payment'
+					)) as PAYMENT_RATE
+				, (BD.LAST_PRICE) + ((select sum(cast(greatest(
+										least((BD.LAST_PRICE - (ifnull(A.PRICE_FROM, 1) - 1))
+												, (ifnull(A.PRICE_TO, BD.LAST_PRICE) - (ifnull(A.PRICE_FROM, 1) - 1)))
+										, 0) * (A.RATE / 100) as int))
+							from    LOT_FEE A
+							where 	A.SALE_NO = BD.SALE_NO and A.LOT_NO = BD.LOT_NO and A.FEE_KIND_CD = 'payment'
+						)) as PAYMENT_TOT
+
+
+			  , S.SALE_NO
+			  , IF(S.SALE_TH_DSP_YN = 'N', '', S.SALE_TH) SALE_TH
+			  , S.CURR_CD
+			  , S.SALE_KIND_CD
+			  , IF(S.SALE_TH_DSP_YN = 'N', '', CONCAT(CONCAT('제 ', S.SALE_TH, '회  '), column_get(S.TITLE_BLOB, 'ko' as char))) as SALE_TITLE
+			  , IF(S.SALE_TH_DSP_YN = 'N', '', CONCAT(S.SALE_TH, IF(f_ordinal_number(S.SALE_TH)='rd', 'rd', f_ordinal_number(S.SALE_TH)), ' ', column_get(S.TITLE_BLOB, 'en' as char))) as SALE_TITLE_EN
+			  , S.TO_DT as SALE_DT
+			  , S.PAY_DAYS_PRICE
+			  , date_add(S.TO_DT, interval S.PAY_DAYS_LOW day) as PAY_LOW_DT
+			  ,	date_add(S.TO_DT, interval S.PAY_DAYS_HIGH day) as PAY_HIGH_DT
+
+			  , AC.BANK_ACCT
+			  , column_get(AC.BANK_NAME_BLOB, 'ko' as char) as BANK_NAME
+			  , column_get(AC.BANK_NAME_BLOB, 'en' as char) as BANK_NAME_EN
+			  , column_get(AC.OWNER_BLOB, 'ko' as char) as BANK_OWNER
+			  , column_get(AC.OWNER_BLOB, 'en' as char) as BANK_OWNER_EN
+			  , column_get(AC.BANK_ADDR_BLOB, 'ko' as char) as BANK_ADDR
+			  , column_get(AC.BANK_ADDR_BLOB, 'en' as char) as BANK_ADDR_EN
+			  , AC.SWIFT_CODE
+			  , AC.TEL as BANK_TEL
+
+			  , AC_H.BANK_ACCT as BANK_ACCT_EN_HKD
+			  , column_get(AC_H.BANK_NAME_BLOB, 'ko' as char) as BANK_NAME_HKD
+			  , column_get(AC_H.BANK_NAME_BLOB, 'en' as char) as BANK_NAME_EN_HKD
+			  , column_get(AC_H.OWNER_BLOB, 'ko' as char) as BANK_OWNER_HKD
+			  , column_get(AC_H.OWNER_BLOB, 'en' as char) as BANK_OWNER_EN_HKD
+			  , column_get(AC_H.BANK_ADDR_BLOB, 'ko' as char) as BANK_ADDR_HKD
+			  , column_get(AC_H.BANK_ADDR_BLOB, 'en' as char) as BANK_ADDR_EN_HKD
+			  , AC_H.SWIFT_CODE as SWIFT_CODE_EN_HKD
+			  , AC_H.TEL as BANK_TEL_HKD
+
+		  	  , AW.OWN_CUST_NO
+		  	  , CU_OWN.CUST_NAME as OWN_CUST_NAME
+		  	  		  	  
+			  , concat(if(column_get(AT_L.ARTIST_NAME_BLOB, 'ko' as char) is null, '', concat(column_get(AT_L.ARTIST_NAME_BLOB, 'ko' as char), '/')), column_get(L.TITLE_BLOB, 'ko' as char)) as LOT_DESC
+			  , SA.ARTWORK_NO
+		from 					LOT L
+	 			inner join SALE S on S.SALE_NO = L.SALE_NO
+				inner join (SELECT * FROM CODE WHERE GRP_ID = 'sale_kind') CD_S on CD_S.CD_ID = S.SALE_KIND_CD
+				left outer join (<include refid="lot_last_bid_info" />) BD on BD.SALE_NO = L.SALE_NO and BD.LOT_NO = L.LOT_NO
+				left outer join CUST CU_RE on CU_RE.CUST_NO = L.REAL_CUST_NO	
+				left outer join ARTIST AT_L on AT_L.ARTIST_NO = L.ARTIST_NO			
+
+				left outer join (SELECT * FROM CODE WHERE GRP_ID = 'artwork_category') CD_C3 on CD_C3.CD_ID = L.CATE_CD
+				left outer join (SELECT * FROM CODE WHERE GRP_ID = 'artwork_category') CD_C2 on CD_C2.GRP_ID = CD_C3.P_GRP_ID and CD_C2.CD_ID = CD_C3.P_CD_ID
+				left outer join (SELECT * FROM CODE WHERE GRP_ID = 'artwork_category') CD_C1 on CD_C1.GRP_ID = CD_C2.P_GRP_ID and CD_C1.CD_ID = CD_C2.P_CD_ID
+				left outer join (SELECT * FROM CODE WHERE GRP_ID = 'material') CD_M on CD_M.CD_ID = L.MATE_CD
+
+				left outer join LOT_IMG LI
+					on LI.SALE_NO = L.SALE_NO and LI.LOT_NO = L.LOT_NO
+						and LI.IMG_NO = (select A.IMG_NO from LOT_IMG A where A.SALE_NO = L.SALE_NO and A.LOT_NO = L.LOT_NO limit 1)
+				
+				left outer join SALE_ARTWORK SA
+					on SA.SALE_NO = L.SALE_NO and SA.LOT_NO = L.LOT_NO
+						and SA.ARTWORK_NO = (select A.ARTWORK_NO from SALE_ARTWORK A where A.SALE_NO = L.SALE_NO and A.LOT_NO = L.LOT_NO limit 1)
+				left outer join ARTWORK AW on AW.ARTWORK_NO = SA.ARTWORK_NO
+				left outer join ARTIST AT_A on AT_A.ARTIST_NO = AW.ARTIST_NO
+				left outer join CUST CU_OWN on CU_OWN.CUST_NO = AW.OWN_CUST_NO
+				left outer join EMP EM_OWN on EM_OWN.EMP_NO = AW.OWN_EMP_NO
+
+				left outer join ARTWORK_INOUT IO on IO.ARTWORK_NO = AW.ARTWORK_NO
+								and IO.INOUT_NO = (select MAX(A.INOUT_NO) from ARTWORK_INOUT A where A.ARTWORK_NO = AW.ARTWORK_NO)
+
+				left outer join EMP EM_RE on EM_RE.EMP_NO = L.REAL_EMP_NO
+
+				left outer join (select LP.SALE_NO, LP.LOT_NO, sum(P.PAY_PRICE) as PAY_PRICE, max(P.PAY_DT) as PAY_DT from LOT_PAY LP inner join PAY P on P.PAY_NO = LP.PAY_NO
+			  	  				 where  LP.FEE_KIND_CD = 'contract' group by LP.SALE_NO, LP.LOT_NO) LP_C on LP_C.SALE_NO = L.SALE_NO and LP_C.LOT_NO = L.LOT_NO
+				left outer join (select LP.SALE_NO, LP.LOT_NO, sum(P.PAY_PRICE) as PAY_PRICE, max(P.PAY_DT) as PAY_DT from LOT_PAY LP inner join PAY P on P.PAY_NO = LP.PAY_NO
+			  	  				 where  LP.FEE_KIND_CD = 'payment' group by LP.SALE_NO, LP.LOT_NO) LP_P on LP_P.SALE_NO = L.SALE_NO and LP_P.LOT_NO = L.LOT_NO
+
+				left outer join (select A.SALE_NO, A.LOT_NO, sum(A.FEE) as LOT_FEE
+								 from LOT_FEE A
+			  	  				 where  A.FEE_KIND_CD = 'contract' group by A.SALE_NO, A.LOT_NO) LF_C on LF_C.SALE_NO = L.SALE_NO and LF_C.LOT_NO = L.LOT_NO
+
+				left outer join (select A.SALE_NO, A.LOT_NO, sum(A.FEE) as LOT_FEE
+								 from LOT_FEE A
+			  	  				 where  A.FEE_KIND_CD = 'payment' group by A.SALE_NO, A.LOT_NO) LF_P on LF_P.SALE_NO = L.SALE_NO and LF_P.LOT_NO = L.LOT_NO
+
+				left outer join (select A.SALE_NO, A.LOT_NO
+										, sum(if(A.FEE_ITEM_CD = 'entry', A.FEE, 0)) as ENTRY_FEE
+										, sum(if(A.FEE_ITEM_CD = 'insurance', A.FEE, 0)) as INSU_FEE
+										, sum(if(A.FEE_ITEM_CD = 'transport', A.FEE, 0)) as TRANS_FEE
+										, sum(if(A.FEE_ITEM_CD = 'transfer_tax', A.FEE, 0)) as TAX_FEE
+										, sum(if(A.FEE_ITEM_CD = 'etc', A.FEE, 0)) as ETC_FEE
+										, sum(if(A.FEE_ITEM_CD = 'transfer_tax', 0, A.FEE)) as EXPE_FEE
+										, sum(if(A.FEE_ITEM_CD = 'transfer_tax_hk', A.FEE, 0)) as TAX_HK_FEE
+								 from LOT_EXPE A
+			  	  				 where  A.FEE_KIND_CD = 'contract' group by A.SALE_NO, A.LOT_NO) LE_C on LE_C.SALE_NO = L.SALE_NO and LE_C.LOT_NO = L.LOT_NO
+				left outer join (select A.SALE_NO, A.LOT_NO
+										, sum(if(A.FEE_ITEM_CD = 'transport', A.FEE, 0)) as TRANS_FEE
+										, sum(if(A.FEE_ITEM_CD = 'etc', A.FEE, 0)) as ETC_FEE
+										, sum(A.FEE) as EXPE_FEE
+										, sum(if(A.FEE_ITEM_CD = 'transfer_tax_hk', A.FEE, 0)) as TAX_HK_FEE
+								 from LOT_EXPE A
+			  	  				 where  A.FEE_KIND_CD = 'payment' group by A.SALE_NO, A.LOT_NO) LE_P on LE_P.SALE_NO = L.SALE_NO and LE_P.LOT_NO = L.LOT_NO
+			  	left outer join (select SALE_NO, LOT_NO, GROUP_CONCAT(ARTWORK_NO) ARTWORK_NOS from SALE_ARTWORK group by SALE_NO, LOT_NO ) SA_G ON SA_G.SALE_NO = L.SALE_NO AND SA_G.LOT_NO = L.LOT_NO
+
+				left outer join SALE_ACCT AC on AC.SALE_NO = S.SALE_NO
+						and AC.ACCT_NO = (select A.ACCT_NO from SALE_ACCT A where A.CURR_CD='KRW' and A.SALE_NO = S.SALE_NO order by A.ACCT_NO limit 1)
+				left outer join SALE_ACCT AC_H on AC.SALE_NO = S.SALE_NO
+						and AC_H.ACCT_NO = (select A.ACCT_NO from SALE_ACCT A where A.CURR_CD='HKD' and A.SALE_NO = S.SALE_NO order by A.ACCT_NO limit 1)
+		where 	BD.SOLD_YN = 'Y'
+			and L.SALE_NO = #{sale_no}
+			and ifnull(L.REAL_CUST_NO, BD.LAST_CUST_NO) = ${cust_no}
+		order by L.LOT_NO
+	</select>
+</mapper>

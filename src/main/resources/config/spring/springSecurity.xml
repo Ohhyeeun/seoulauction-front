@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns:beans="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:security="http://www.springframework.org/schema/security"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+    http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+ 
+    <beans:bean id="restServicesEntryPoint" class="com.seoulauction.common.auth.RestAuthenticationEntryPoint">
+        <beans:property name="loginFormUrl" value="/login"/>
+    </beans:bean>
+    
+    <beans:bean id="authenticationProvider" class="com.seoulauction.front.auth.FrontAuthenticationProvider" />
+    
+    <beans:bean id="saCrypt" class="com.seoulauction.common.auth.PasswordEncoderAESforSA" />
+    
+	<beans:bean id="successHandler" class="org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler">
+        <beans:property name="targetUrlParameter" value="targetUrl"/>
+        <beans:property name="useReferer" value="false"/>
+    </beans:bean>
+
+    <beans:bean id="failureHandler" class="org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler">
+        <beans:property name="defaultFailureUrl" value="/login?error" />
+    </beans:bean>
+
+	<!-- nice 가상계좌 입금통보는 보안적용 제외 -->
+ 	<security:http pattern="/customer/niceVbankPaid" security="none" />
+    <security:http 
+        auto-config="true"
+        use-expressions="true"
+		create-session="never"
+        entry-point-ref="restServicesEntryPoint"
+		authentication-manager-ref="authenticationManager"
+		>
+        <security:intercept-url pattern="/customer/**" access="hasRole('ROLE_FRONT_USER')" />
+        <security:intercept-url pattern="/**" access="permitAll" />
+        <security:form-login
+            login-page="/login"
+            login-processing-url="/processLogin"
+			username-parameter="loginId"
+			password-parameter="password"
+			authentication-success-handler-ref="successHandler"
+			authentication-failure-url="/login?error"
+			authentication-failure-handler-ref="failureHandler"
+		 />
+        <security:anonymous granted-authority="ROLE_ANONYMOUS"/>
+		<security:logout 
+		    logout-url="/processLogout"
+			logout-success-url="/login?logout" />
+
+        <!-- <security:session-management >
+            <security:concurrency-control max-sessions="1"/>
+        </security:session-management> -->
+		<!-- enable csrf protection -->
+		<security:csrf/>
+    </security:http>
+    
+    <security:authentication-manager id="authenticationManager">
+        <security:authentication-provider ref="authenticationProvider" />
+    </security:authentication-manager>
+    
+</beans:beans>

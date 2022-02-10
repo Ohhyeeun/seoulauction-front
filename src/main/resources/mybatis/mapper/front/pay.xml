@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.front.pay">
+	<insert id="add_pay_wait" parameterType="Map">
+	    insert into PAY_WAIT (
+			  CUST_NO
+			, KIND_CD
+			, REF_NO
+			, REF_NO2
+			, PAY_METHOD_CD
+			, PG_CD
+			, PG_TRANS_ID
+			, PAYER
+			, PAY_PRICE
+			, STAT_CD
+			, REG_DT
+			, NO_VAT_PRICE
+			, VAT_PRICE
+			, VAT
+			, UUID
+			, VBANK_CD
+			, VBANK_NM
+			, VBANK_NUM
+			, VBANK_EXP_DT
+			, RCPT_TYPE
+		) values (
+			  #{action_user_no}
+			, #{KIND_CD}
+			, #{REF_NO}
+			, #{REF_NO2}
+			, lower(#{PAY_METHOD_CD})
+			, 'nice'
+			, #{PG_TRANS_ID}
+			, #{PAYER}
+			, #{PAY_PRICE}
+			, 'wait'
+			, now()
+			, #{NO_VAT_PRICE}
+			, #{VAT_PRICE}
+			, #{VAT}
+			, #{UUID}
+			, #{VBANK_CD}
+			, #{VBANK_NM}
+			, #{VBANK_NUM}
+			, #{VBANK_EXP_DT}
+			, #{RCPT_TYPE}
+		);
+	</insert>
+	
+	<insert id="add_wait2pay" parameterType="Map">
+		set @pay_wait_no := 0;
+		set @cust_no := 0;
+		set @kind_cd = null;
+		set @ref_no := 0;
+		set @ref_no2 := 0;
+		set @must_price := 0;
+		
+		select @pay_wait_no := max(PAY_WAIT_NO), @cust_no := max(CUST_NO), @kind_cd := max(KIND_CD), @ref_no := max(REF_NO), @ref_no2 := max(REF_NO2), @must_price := max(PAY_PRICE) from PAY_WAIT where UUID = #{UUID};
+
+	    insert into PAY (
+			  CUST_NO
+			, PAY_METHOD_CD
+			, PG_YN
+			, PG_CD
+			, PG_TRANS_ID
+			, PAYER
+			, PAY_PRICE
+			, PAY_DT
+			, REG_DT
+			, NO_VAT_PRICE
+			, VAT_PRICE
+			, VAT
+			, PAY_WAIT_NO
+			, RCPT_TYPE
+			, REAL_PAYER
+		)
+		select 	@cust_no, lower(PAY_METHOD_CD), 'Y', PG_CD, PG_TRANS_ID, (SELECT PAYER FROM PAY_WAIT WHERE PAY_WAIT_NO = @pay_wait_no), #{PAY_PRICE}, now(), now()
+				, NO_VAT_PRICE, VAT_PRICE, VAT, @pay_wait_no, #{RCPT_TYPE}, #{REAL_PAYER}
+		from	PAY_WAIT
+		where	PAY_WAIT_NO = @pay_wait_no;
+		
+		set @pay_no := last_insert_id();
+
+		insert into LOT_PAY (
+			  SALE_NO
+			, LOT_NO
+			, PAY_NO
+			, FEE_KIND_CD
+		)
+		select	@ref_no, @ref_no2, @pay_no, @kind_cd
+		from	dual
+		where	@kind_cd in ('contract', 'payment');
+		<!-- 2021.02.10 YDH. 가상계좌 입금완료시 수수료 변경건으로 주석처리함. 
+		update 		LOT_FEE
+		set 
+				 	FEE = cast(greatest(
+								least((@must_price - (ifnull(PRICE_FROM, 1) - 1))
+										, (ifnull(PRICE_TO, @must_price) - (ifnull(PRICE_FROM, 1) - 1)))
+								, 0) * (RATE / 100) as int)
+					, MOD_DT = now()			
+		where 		@kind_cd in ('contract', 'payment') and SALE_NO = @ref_no and LOT_NO = @ref_no2
+		 		and (select sum(PAY_PRICE) from PAY where PAY_WAIT_NO = @pay_wait_no) >= @must_price;
+ 		-->
+		insert into CUST_PAY (
+			  CUST_NO
+			, PAY_NO
+			, VALID_FROM_DT
+			, VALID_TO_DT
+		)
+		select	@cust_no, @pay_no
+				, if((select sum(PAY_PRICE) from PAY where PAY_WAIT_NO = @pay_wait_no) >= @must_price, now(), null)
+				, if((select sum(PAY_PRICE) from PAY where PAY_WAIT_NO = @pay_wait_no) >= @must_price, DATE_ADD(DATE_ADD(now(), INTERVAL 1 YEAR), INTERVAL -1 DAY), null)
+		from	dual
+		where	@kind_cd = 'membership';
+
+		insert into ACADEMY_PAY (
+			  CUST_NO
+			, PAY_NO
+			, ACADEMY_NO
+		)
+		select	@cust_no, @pay_no, @ref_no
+		from	dual
+		where	@kind_cd = 'academy';
+
+		insert into ACADEMY_REQ ( 
+	    	ACADEMY_NO, 
+	    	CUST_NO, 
+	    	REG_DT, 
+	    	REG_EMP_NO,
+	    	PAYER 
+		) 
+		select 	@ref_no, @cust_no, now(), @cust_no, (SELECT PAYER FROM PAY_WAIT WHERE PAY_WAIT_NO = @pay_wait_no)
+		from  	dual
+		where 	@kind_cd = 'academy' and (select sum(PAY_PRICE) from PAY where PAY_WAIT_NO = @pay_wait_no) >= @must_price;
+	</insert>
+</mapper>

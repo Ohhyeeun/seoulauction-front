@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.front.bbs">
+    <sql id="bbs_notice_list">
+        from BBS_WRITE BW where BW.BBS_ID= 'notice' and BW.STAT_CD='normal' and BW.DEL_YN = 'N'
+        <if test="search_type == 'title' and search_keyword != null">
+            and BW.TITLE like concat('%', #{search_keyword}, '%')
+        </if>
+        <if test="search_type == 'content' and search_keyword != null">
+            and BW.CONTENT like concat('%', #{search_keyword}, '%')
+        </if>
+        <if test="search_type == 'all' and search_keyword != null">
+            and (BW.TITLE like concat('%', #{search_keyword}, '%') or BW.CONTENT like concat('%', #{search_keyword}, '%'))
+        </if>
+    </sql>
+    <select id="bbs_notice_recent" resultType="Map">
+		select *
+			, case when (select count(*) from BBS_FILE BF where BW.WRITE_NO = BF.WRITE_NO) &gt; 0 then 'Y' else 'N' end FILE_YN 
+		 <include refid="bbs_notice_list" /> order by REG_DT desc, WRITE_NO desc limit #{from}, #{rows}
+	</select>
+    <select id="bbs_notice_recent_cnt" resultType="Map">
+		select count(*) CNT, SUM(IF(BW.TITLE_EN IS NOT NULL, 1, 0)) AS CNT_EN 
+		<include refid="bbs_notice_list" />
+	</select>
+    
+    <select id="bbs_notice_info" resultType="Map">
+		select * from BBS_WRITE where BBS_ID= 'notice' and STAT_CD='normal' and WRITE_NO = #{write_no}
+	</select>
+
+    <select id="bbs_file_list" resultType="Map">
+		select * from BBS_FILE where WRITE_NO = #{write_no}
+	</select>
+    
+	<select id="multi_test" resultType="Map">
+		set @bbs_id := #{test};
+		insert into tmp values(@bbs_id,@bbs_id,@bbs_id,@bbs_id,@bbs_id,@bbs_id);
+		set @test := row_count();
+		insert into tmp values(@test,@test,@test,@test,@test,@test);
+		select * from BBS_WRITE where bbs_id= @bbs_id and STAT_CD='normal' order by REG_DT desc, WRITE_NO desc limit #{rows};
+	</select>
+	
+	<sql id="sql_bbs_w_list">
+		select * from (
+		    select
+			    A.*,
+			    CASE WHEN C.P_CD_NM IS NULL THEN '' ELSE C.CD_NM END AS CATE_NM,
+			    CASE WHEN C.P_CD_NM IS NULL THEN C.CD_NM ELSE C.P_CD_NM END AS P_CATE_NM,
+				case when B.reply_cnt > 0 then 'Y' else 'N' end as REPLY_YN,
+				B.LAST_REPLY_DT, 
+				D.EMP_NAME
+			from BBS_WRITE A
+			left outer join (
+				select bbs_id, write_no, count(*) REPLY_CNT, max(reg_dt) LAST_REPLY_DT from BBS_REPLY group by bbs_id, write_no
+			) B ON A.bbs_id = B.bbs_id and A.write_no = B.write_no
+			left outer join (
+				select distinct CA.CD_ID, CA.CD_NM, CC.CD_ID P_CD_ID, CC.CD_NM P_CD_NM from CODE CA 
+				join CODE_GRP CB on CA.grp_id = CB.grp_id
+				left outer join CODE CC on CA.P_cd_id = CC.cd_id
+				where CA.grp_id = 'bbs_inquiry_category'
+				and CA.use_yn = 'Y'
+			) C on A.cate_cd = C.cd_id
+			left outer join EMP D on A.EMP_NO = D.EMP_NO
+			where A.writer_no = #{action_user_no}
+			<if test="emp_read_yn != null and emp_read_yn != ''">
+			    and A.EMP_READ_YN = #{emp_read_yn}
+		    </if>
+		) Z
+		where 1=1
+	    <if test="complet_yn != null and complet_yn != ''">
+	       and Z.reply_yn = #{complet_yn}
+	    </if>
+	</sql>
+	
+	<select id="get_bbs_inquiry_list" resultType="Map">
+	    <include refid="sql_bbs_w_list" />
+    	and	BBS_ID='inquiry' and STAT_CD='normal'
+	    order by Z.REG_DT desc limit #{from}, #{rows}
+	 </select>
+	 
+	<select id="get_bbs_inquiry_list_cnt" resultType="Map">
+	    select count(*) AS ROW_CNT from (
+		    <include refid="sql_bbs_w_list" />
+	    	and	BBS_ID='inquiry' and STAT_CD='normal'
+		) CNT
+	</select>
+	
+	<select id="bbs_inquiry_info" resultType="Map">
+		select
+		    A.*,
+		    CASE WHEN C.P_CD_NM IS NULL THEN '' ELSE C.CD_NM END AS CATE_NM,
+		    CASE WHEN C.P_CD_NM IS NULL THEN C.CD_NM ELSE C.P_CD_NM END AS P_CATE_NM,
+			case when B.reply_cnt > 0 then 'Y' else 'N' end as REPLY_YN,
+			B.LAST_REPLY_DT, 
+			D.EMP_NAME
+		from BBS_WRITE A
+		left outer join (
+			select bbs_id, write_no, count(*) REPLY_CNT, max(reg_dt) LAST_REPLY_DT from BBS_REPLY group by bbs_id, write_no
+		) B ON A.bbs_id = B.bbs_id and A.write_no = B.write_no
+		left outer join (
+			select distinct CA.CD_ID, CA.CD_NM, CC.CD_ID P_CD_ID, CC.CD_NM P_CD_NM from CODE CA 
+			join CODE_GRP CB on CA.grp_id = CB.grp_id
+			left outer join CODE CC on CA.P_cd_id = CC.cd_id
+			where CA.grp_id = 'bbs_inquiry_category'
+			and CA.use_yn = 'Y'
+		) C on A.cate_cd = C.cd_id
+		left outer join EMP D on A.EMP_NO = D.EMP_NO
+		where A.BBS_ID= 'inquiry' and A.STAT_CD='normal' and A.WRITE_NO = #{write_no}
+	</select>
+	<select id="bbs_inquiry_reply" resultType="Map">
+		select A.*, B.EMP_NAME from BBS_REPLY A
+		join EMP B on A.REG_EMP_NO = B.EMP_NO
+		where A.WRITE_NO = #{write_no} 
+		and A.REPLY_NO = (select X.REPLY_NO from BBS_REPLY X where ifnull(X.DEL_YN, 'N') = 'N' and X.BBS_ID = A.BBS_ID and X.WRITE_NO = A.WRITE_NO order by X.REG_DT desc limit 1)
+	</select>
+	<insert id="addInquiryWrite" parameterType="Map" useGeneratedKeys="true" keyProperty="write_no">
+	    INSERT INTO BBS_WRITE ( 
+	    	BBS_ID,
+			CATE_CD,
+			CONTENT,
+			EMAIL,
+			EMP_NO,
+			IP,
+			NOTICE_YN,
+			REG_DT,
+			STAT_CD,
+			TITLE,
+			VIEW_CNT,
+			WRITER,
+			WRITER_KIND_CD,
+			WRITER_NO,
+			RE_EMAIL_YN,
+			RE_SMS_YN
+		) 
+		VALUES (
+			'inquiry',
+			#{cate_cd},
+			#{contents},
+			#{email},
+			#{emp_no},
+			#{action_user_ip},
+			'N',
+			now(),
+			'normal',
+			#{title},
+			0,
+			(SELECT CUST_NAME FROM CUST WHERE CUST_NO = #{action_user_no} LIMIT 1),
+			'customer',
+			#{action_user_no},
+			#{email_yn},
+			#{sms_yn}
+		)
+	</insert>
+	<insert id="addInquiryWriteFile" parameterType="Map">
+	    INSERT INTO BBS_FILE ( 
+	    	BBS_ID, 
+	    	DOWN_CNT,
+	    	FILE_NAME,
+			FILE_NAME_ORG,
+			FILE_PATH,
+			REG_DT,
+			SIZE,
+			WRITE_NO
+		) 
+		VALUES (
+			'inquiry',
+		 	0,
+			#{file_name},
+			#{file_name_org},
+			'${@com.seoulauction.common.util.FileManager@moveTempFile(file_path, file_name, 'inquiry')}',
+			now(),
+			#{size},
+			#{write_no}
+		);
+	</insert>
+</mapper>
