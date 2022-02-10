@@ -6,7 +6,7 @@
 *.sw*
 .DS_Store
 .settings
-.springBeans
+#.springBeans
 bin
 build.sh
 integration-repo
@@ -17,7 +17,7 @@ derby.log
 spring-test/test-output/
 .gradle
 argfile*
-pom.xml
+#pom.xml
 activemq-data/
 
 classes/
@@ -31,8 +31,8 @@ buildSrc/build
 target/
 
 # Eclipse artifacts, including WTP generated manifests
-.classpath
-.project
+#.classpath
+#.project
 spring-*/src/main/java/META-INF/MANIFEST.MF
 
 # IDEA artifacts and output dirs
