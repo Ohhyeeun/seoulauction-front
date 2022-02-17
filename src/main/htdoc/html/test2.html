@@ -1,0 +1,1769 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+
+
+
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta charset="UTF-8">
+	<title>서울옥션</title>
+	<meta name="format-detection" content="telephone=no">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+	
+		
+	<link href="/css/common.css" rel="stylesheet">
+		
+		
+	
+	<!--[if lt IE 9]>
+		<link href="/css/ie8-and-down.css" rel="stylesheet">
+	<![endif]-->
+	
+		
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.js" ></script>
+	<script type="text/javascript" src="/js/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="/js/jquery.panzoom.min.js"></script>
+	<script type="text/javascript" src="/js/jquery.slides.min.js"></script>
+	<script type="text/javascript" src="/js/jquery.placeholder.min.js"></script>
+	<script type="text/javascript" src="/js/jquery.selectbox-0.2.min.js"></script>
+	<script type="text/javascript" src="/js/jquery.nicefileinput.min.js"></script>
+	<script type="text/javascript" src="/js/jquery.mousewheel.min.js"></script>
+	<script type="text/javascript" src="/js/jquery.mobile-events.js"></script>
+	<script type="text/javascript" src="/js/iscroll.js"></script>
+	<script type="text/javascript" src="/js/ui.js"></script>
+	<script type="text/javascript" src="/js/frontCommon.js"></script>
+		
+		
+	
+<script>
+	var m_aPopImages = new Array();
+	
+	function goCurrent(nSalesPlanningId) {
+		location.href = "/auction/currentList?from=R&salesPlanningId=" + nSalesPlanningId;
+	}
+	function goOthers(nSalesPlanningId) {
+		location.href = "/auction/otherSales?from=M&salesPlanningId=" + nSalesPlanningId;
+	}
+</script>
+</head>
+<body class="main">
+
+
+<script>
+var url;
+var type;
+$(document).ready(function(){
+	var blnCookie = getCookie('topLayer');  
+	
+	url = document.location.pathname;
+
+	var winWidth = $(window).width();
+	if(winWidth > 1024) {
+		type = "web";
+	}
+	else if(winWidth <= 1024 && winWidth >= 768) {
+		type = "tablet";
+	}
+	else if(winWidth < 768) {
+		type = "phone";
+	}
+	if(!blnCookie){
+		showTopLayer();
+	}
+});
+
+function closePop(name, expiredays){
+	setCookieAt00( name, "done" , expiredays);   
+   $("#kanggTopLayer").hide();
+}
+//24시간 기준 쿠키 설정하기  
+function setCookie( name, value, expiredays ) { 
+	var todayDate = new Date();
+	todayDate.setDate(todayDate.getDate() + expiredays);
+	document.cookie = name + "=" + escape(value) + "; path=/; expires=" + todayDate.toGMTString() + ";"
+}
+
+//00:00 시 기준 쿠키 설정하기  
+function setCookieAt00( name, value, expiredays ) {   
+ var todayDate = new Date();   
+ todayDate = new Date(parseInt(todayDate.getTime() / 86400000) * 86400000 + 54000000);  
+ if ( todayDate > new Date() )  
+ {  
+ expiredays = expiredays - 1;  
+ }  
+ todayDate.setDate( todayDate.getDate() + expiredays );   
+  document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + todayDate.toGMTString() + ";"   
+} 
+	
+function getCookie(name) {
+	var nameOfCookie = name + "=";
+	var x = 0;
+	while (x <= document.cookie.length) {
+		var y = (x + nameOfCookie.length);
+		if (document.cookie.substring(x, y) == nameOfCookie) {
+			if ((endOfCookie = document.cookie.indexOf(";", y)) == -1) {
+				endOfCookie = document.cookie.length;
+			}
+			return unescape(document.cookie.substring(y, endOfCookie));
+		}
+		x = document.cookie.indexOf(" ", x) + 1;
+		if (x == 0) {
+			break;
+		}
+	}
+	return "";
+}
+
+function showTopLayer() {
+	$.ajax({
+		url : "/common/topLayer",
+		async : true,
+		data : "url=" +url+"&type="+type,
+		type : "post",
+		success : function(msg, textStatus) {
+			var html = $(msg).filter("#kanggTopLayer").children().clone();
+			$('#kanggTopLayer').html(html);
+			$("#kanggTopLayer").show();
+			
+			src960 = $("#topLayerImage").attr("src");
+			src768 = $("#topLayerImage").attr("src");
+			src320 = $("#topLayerImage").attr("src");
+			
+			var winWidth = $(window).width();
+			if(winWidth > 1024){
+				$('.curtain_wrap img').attr('src', src960);
+				$('.curtain_wrap').removeClass('response01');
+				$('.curtain_wrap').removeClass('response02');
+			} else if(winWidth < 768){
+				$('.curtain_wrap img').attr('src', src320);
+				$('.curtain_wrap').removeClass('response02');
+				$('.curtain_wrap').addClass('response01');
+			} else {
+				$('.curtain_wrap img').attr('src', src768);
+				$('.curtain_wrap').removeClass('response01');
+				$('.curtain_wrap').addClass('response02');
+			}
+		},
+		error : function(request, status, error) {
+		},
+		beforeSend : function() {
+			 //alert("전송전");
+		}
+	});
+}
+</script>
+	
+		
+			
+		
+		
+	
+	<form id="frmTopSearch" action="/search" method="get">
+		<input id="topSearchContent" type="hidden" name="searchContent" />
+	</form>
+	<!-- 모바일용 -->
+	<div class="m_search">
+		<dl>
+			<dt><label for="">검색어</label></dt>
+			<dd><div><input type="text" name="" id="searchContentMob" /></div></dd>
+		</dl>
+		<button type="button" class="sp_btn btn_search" onclick="goSearch('searchContentMob', true);">
+			<span class="hidden">검색</span>
+		</button>
+		<button type="button" class="sp_btn btn_search_close">
+			<span class="hidden">닫기</span>
+		</button><!-- 20150615 -->
+	</div>
+	<!-- //모바일용 -->
+	<!-- 커튼배너 -->
+	<div id="kanggTopLayer" class="curtain_wrapper" style="display:none;"></div>
+	<!-- //커튼배너 -->
+<div class="loading"><div></div></div>
+<div id="wrap" style="overflow:hidden;">
+
+
+<script>
+	$(document).ready(function() {
+		
+		$.ajax({
+			url : "/common/latestNoticeList",
+			type : "POST",
+			data : "",
+			success : function(msg, textStatus) {
+				var html = $(msg).filter("#latestNoticeContainer").children().clone();
+				$('#latestNoticeContainer').html(html);
+			},
+			error : function(request, status, error) {
+				if(console) {
+					console.log(error);
+				}
+			}
+		});
+		
+		$.ajax({
+			url : "/common/gnbMenu",
+			type : "POST",
+			data : "",
+			success : function(msg, textStatus) {
+				var html = $(msg).find("#gnbMenuConatiner").children().clone();
+				$('#gnbMenuConatiner').html(html);
+				var isMobile = {
+					Android: function() {
+						return navigator.userAgent.match(/Android/i);
+					},
+					BlackBerry: function() {
+						return navigator.userAgent.match(/BlackBerry/i);
+					},
+					iOS: function() {
+						return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+					},
+					Opera: function() {
+						return navigator.userAgent.match(/Opera Mini/i);
+					},
+					Windows: function() {
+						return navigator.userAgent.match(/IEMobile/i);
+					},
+					any: function() {
+						return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+					}
+				};
+				
+				if(isMobile.any()) {
+					investHide();
+				}
+			},
+			error : function(request, status, error) {
+				if(console) {
+					console.log(error);
+				}
+			}
+		});
+	});
+</script>
+	<div class="header_wrap">
+		<div id="header">
+			<h1>
+			
+				
+				<a href="/" ><span class="hidden">Seoul Auction EST.1998</span></a>	
+				
+				
+			
+			</h1>
+			<div class="gnb_menu">
+				<ul class="fl_menu">
+					<li><a href="#" class="sp_txt menu01"><span class="hidden">Auction</span></a></li>
+					<li><a href="#" class="sp_txt menu02"><span class="hidden">How To</span></a></li>
+					<li><a href="#" class="sp_txt menu03"><span class="hidden">Service</span></a></li>
+					<li><a href="#" class="sp_txt menu04"><span class="hidden">About</span></a></li>
+				</ul>
+			</div>
+			<div class="gnb_menu_layer">
+				<button class="sp_btn btn_gnbmenu_close"><span class="hidden">메뉴레이어 닫기</span></button>
+				<div class="m_util_menu m_only">
+					<ul class="fl_menu">
+						
+						
+							
+						<li><a href="/eng/">Eng</a></li>
+							
+							
+						
+						
+						
+							
+							
+								
+									
+						<li><a href="/login">Login</a></li>
+									
+									
+								
+							
+						
+						
+							
+							
+						
+					</ul>
+				</div>
+				<div class="left">
+					<div class="m_scrollable">
+						<div id="gnbMenuConatiner">
+						</div>
+					</div>
+					<div class="link_menu01">
+						<ul class="fl_menu">
+						
+							
+							<li><a href="/auctionGuide/commissionGuide" class="menu02">작품위탁문의</a></li>
+							
+							
+						
+							<li><a target="_blank" href="http://www.printbakery.co.kr" class="menu03">PRINT BAKERY</a></li>
+						</ul>
+					</div>
+					
+					<div class="gnb_notice" id="latestNoticeContainer">
+						<div class="sp_txt title"><span class="hidden">NOTICE</span></div>
+						<ul>
+							<li><a href="">[경매] 공지&amp;정정사항 안내 (2014.12.17경매)</a></li>
+							<li><a href="">[채용] 기획마케팅팀 인턴모집</a></li>
+							<li><a href="">[온라인경매] 경매 결제 및 배송 안내</a></li>
+						</ul>
+					</div>
+					
+				</div>
+				
+				<div class="web_only edge"></div><!-- 20150302 수정 -->
+				<div class="m_only m_util_mask"></div><!-- 20150302 수정 -->
+			</div>
+			<div class="util_menu">
+				<ul class="fl_menu">
+				
+				
+					
+					<li><a href="/eng/" style="color:#fff;">ENG</a></li>
+					
+					
+				
+				
+					
+						
+						
+					
+						
+					<li><a href="/login" style="color:#fff;">ACCOUNT</a></li>
+						
+						
+					
+						
+					
+					
+						
+						
+						
+						
+						
+							
+							
+					
+						
+					<li><a href="/login?returnUrl=/?type=W" style="color:#fff;">LOGIN</a></li>
+						
+						
+					
+							
+						
+						
+					
+					<li><a target="_blank" href="http://www.printbakery.co.kr" style="color:#fff;">PRINT BAKERY</a></li>
+				</ul>
+				<div class="top_search">
+					<form action="">
+						<fieldset>
+						
+							
+							<legend>검색</legend>
+							<input type="text" name="" id="headerSearchContent" class="input_search" title="검색어 입력" onkeypress="searchKeyPress(event, true);" style="color:#fff;" />
+							<button type="button" class="sp_btn btn_search" onclick="goSearch('headerSearchContent', true);">
+								<span class="hidden">검색</span>
+							</button>
+							
+							
+						
+							<button type="button" class="sp_btn m_btn_search"><span class="hidden">검색</span></button><!-- 20150623 -->
+						</fieldset>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- //header_wrap -->
+<div class="container_wrap" style="min-height:0;">
+	<div class="shadow left"><!--<span class="corner"></span>--></div>
+	<div class="shadow right"><span class="sp_txt img_logo_v"><span class="hidden">&copy; SeoulAuction Corp.</span></span></div>
+	<div class="main_bot left"></div>
+	<div class="main_bot right"></div>
+
+	
+	
+	
+	
+		
+	<div class="sec sec6">
+		<div class="roll_box6">
+			<div class="roll">
+				<ul>
+				
+					
+					<li>
+						<img src="http://savm-filesvr.seoulauction.com/main/2015/08/12/201508122329463497773394954126.jpg" alt="2016 경매 위탁" />
+					</li>
+					
+					
+				
+				</ul>
+			</div><!-- //roll -->
+			<div class="cont_mask"></div>
+			<div class="thum">
+				<ul>
+				
+					
+					<li>
+						<img src="http://savm-filesvr.seoulauction.com/main/2015/08/12/201508122329463497773394954126.jpg" alt="2016 경매 위탁" />
+					</li>
+					
+					
+				
+				</ul>
+			</div><!-- //thum -->
+		</div><!-- //roll_box -->
+		
+		<div class="sec3_cont">
+			<div class="cont_tit txt_han" style="cursor: default;">
+            <!--<span>제138회</span>-->
+				<br />
+				2016 경매 위탁
+			</div>
+			<div class="cont_text">
+				
+                <!-- //green orange yellow sky deepblue deeppink deepred  -->
+				<a href="http://savm-websvr.seoulauction.com/auctionGuide/commissionGuide" class="btn_main_more green">SEE MORE</a>
+               
+				<br />
+				
+
+				<dl>
+					
+					<dt>위탁안내</dt>
+					<dd>서울옥션은 한국 근현대 및 고미술품, 해외미술품을
+<br />1:1문의 게시판 또는 이메일을 통해 위탁받고 있습니다. 
+<br />소중한 작품을 기다립니다. 
+<br /></dd>
+				</dl>
+				
+				
+                
+		   </div>
+		</div>
+	</div>
+		
+		
+	
+	
+	
+	
+		
+	<div class="sec sec5">
+		<div class="roll_box5">
+			<div class="roll">
+				<ul>
+				
+					
+					<li>
+						<img src="http://savm-filesvr.seoulauction.com/main/2016/02/23/201602231400357249718636533431.jpg" alt="PRINT BAKERY" />
+					</li>
+					
+					
+				
+				</ul>
+			</div><!-- //roll -->
+			<div class="cont_mask"></div>
+			<div class="thum">
+				<ul>
+				
+					
+					<li>
+						<img src="http://savm-filesvr.seoulauction.com/main/2016/02/23/201602231400357249718636533431.jpg" alt="PRINT BAKERY" />
+					</li>
+					
+					
+				
+				</ul>
+			</div><!-- //thum -->
+		</div><!-- //roll_box -->
+		
+		<div class="sec3_cont">
+			<div class="cont_tit txt_han" style="cursor: default;">
+            <!--<span>제138회</span>-->
+				<br />
+				PRINT BAKERY
+			</div>
+			<div class="cont_text">
+				
+                <!-- //green orange yellow sky deepblue deeppink deepred  -->
+				<a href="http://www.printbakery.net/event/index.html" class="btn_main_more green">SEE MORE</a>
+               
+				<br />
+				
+
+				<dl>
+					
+					<dt>프린트베이커리 봄 기획전 </dt>
+					<dd>2016.2.17(水)-3.31(木)
+<br />프린트베이커리 플래그샵 삼청점 
+<br />서울시 종로구 소격동 66번지 (삼청로52)
+<br />
+<br />문의 : 02-734-8800</dd>
+				</dl>
+				
+				
+                
+		   </div>
+		</div>
+	</div>
+		
+		
+	
+	
+	
+	
+		
+	<div class="sec sec4">
+		<div class="roll_box4">
+			<div class="roll">
+				<ul>
+				
+					
+					<li>
+						<img src="http://savm-filesvr.seoulauction.com/main/2016/02/18/201602180926196801262781047790.jpg" alt="가나문화포럼" />
+					</li>
+					
+					
+				
+				</ul>
+			</div><!-- //roll -->
+			<div class="cont_mask"></div>
+			<div class="thum">
+				<ul>
+				
+					
+					<li>
+						<img src="http://savm-filesvr.seoulauction.com/main/2016/02/18/201602180926196801262781047790.jpg" alt="가나문화포럼" />
+					</li>
+					
+					
+				
+				</ul>
+			</div><!-- //thum -->
+		</div><!-- //roll_box -->
+		
+		<div class="sec3_cont">
+			<div class="cont_tit txt_han" style="cursor: default;">
+            <!--<span>제138회</span>-->
+				<br />
+				가나문화포럼
+			</div>
+			<div class="cont_text">
+				
+
+				<dl>
+					
+					<dt></dt>
+					<dd>일시 : 2016년 3월 17일 - 5월 26일 
+<br />시간 : 매주 목요일 조찬모임 오전 7시-9시 (10회과정)
+<br />장소 : 가나아트센터
+<br />수강료 : 330만원 (재수강시 242만원)
+<br />모집인원 : 50명
+<br />문의 : 02-2075-4450 이지석 팀장</dd>
+				</dl>
+				
+				
+                
+                 <!-- //green orange yellow sky deepblue deeppink deepred  -->
+				<a href="http://www.seoulauction.com/service/academy?order=0" class="btn_main_more yellow">SEE MORE</a>
+				
+                <!-- <a href="http://savm-filesvr.seoulauction.com/main/PDF/534-1.pdf" class="btn_main_more" target="new" style="width:180px;margin-bottom:5px;">PDF - 근현대, 해외미술</a>
+                <a href="http://savm-filesvr.seoulauction.com/main/PDF/534-2.pdf" class="btn_main_more" target="new" style="width:180px;margin-bottom:5px;">PDF - 고미술</a>
+				<br />-->
+
+				
+		   </div>
+		</div>
+	</div>
+		
+		
+	
+	
+	
+	
+		
+	<div class="sec sec3">
+		<div class="roll_box3">
+			<div class="roll">
+				<ul>
+				
+					
+					<li>
+						<img src="http://savm-filesvr.seoulauction.com/main/2016/02/22/201602221250097159092788190552.jpg" alt="아카데미 - 특강" />
+					</li>
+					
+					
+				
+				</ul>
+			</div><!-- //roll -->
+			<div class="cont_mask"></div>
+			<div class="thum">
+				<ul>
+				
+					
+					<li>
+						<img src="http://savm-filesvr.seoulauction.com/main/2016/02/22/201602221250097159092788190552.jpg" alt="아카데미 - 특강" />
+					</li>
+					
+					
+				
+				</ul>
+			</div><!-- //thum -->
+		</div><!-- //roll_box -->
+		
+		<div class="sec3_cont">
+			<div class="cont_tit txt_han" style="cursor: default;">
+            <!--<span>제138회</span>-->
+				<br />
+				아카데미 - 특강
+			</div>
+			<div class="cont_text">
+				
+
+				<dl>
+					
+					<dt>미술시장 리얼 스토리</dt>
+					<dd>일시 : 2016년 3월 30일 
+<br />오전반 : 오전11시-오후1시 가나아트센터 3F 아카데미홀 (평창동 본사) 
+<br />오후반 : 오후5시-오후7시 S-SPACE (강남 신사동 호림아트센터)
+<br />수강료 : 60,000원
+<br />문의 : 02-2075-4466 정지영 담당</dd>
+				</dl>
+				
+				
+                
+                 <!-- //green orange yellow sky deepblue deeppink deepred  -->
+				<a href="http://www.seoulauction.com/service/academy?order=4" class="btn_main_more yellow">SEE MORE</a>
+				
+                <!-- <a href="http://savm-filesvr.seoulauction.com/main/PDF/534-1.pdf" class="btn_main_more" target="new" style="width:180px;margin-bottom:5px;">PDF - 근현대, 해외미술</a>
+                <a href="http://savm-filesvr.seoulauction.com/main/PDF/534-2.pdf" class="btn_main_more" target="new" style="width:180px;margin-bottom:5px;">PDF - 고미술</a>
+				<br />-->
+
+				
+		   </div>
+		</div>
+	</div>
+		
+		
+	
+	
+	
+	
+		
+	<div class="sec sec2">
+		<div class="roll_box2">
+			<div class="roll">
+				<ul>
+				
+					
+					
+				
+					
+				
+					
+				
+					
+						
+						
+					<li>
+ 						<img src="http://savm-filesvr.seoulauction.com/main/2016/02/11/201602111507436216946659080073.jpg" alt="" />
+						<div class="cont_artist">
+							<span style="font-size:10px;">
+
+								
+								
+									
+								
+								
+							
+							</span>
+							<span style="font-size:10px;"></span>
+							<!-- 2015.11.14. 주석처리(YDH). 작품보기 버튼 
+							<a href="javascript:showPopup(30923);">
+							<span>작품보기</span>
+							</a>
+							-->
+						</div>
+					</li>
+						
+					
+				
+					
+				
+					
+				
+				</ul>
+			</div><!-- //roll -->
+			<div class="cont_mask"></div>
+			<div class="thum">
+				<ul>
+				
+					
+					
+				
+				
+					
+				
+					
+				
+					
+						
+						
+					<li>
+						<img src="http://savm-filesvr.seoulauction.com/main/2016/02/11/201602111507436216946659080073.jpg" alt="" />
+					</li>
+						
+					
+				
+					
+				
+					
+				
+				</ul>
+			</div><!-- //thum -->
+		</div><!-- //roll_box -->
+		
+		<div class="sec3_cont">
+			<div class="cont_tit txt_han" style="cursor: default;">
+            <!--<span>제138회</span>-->
+				<br />
+				ARTIST TALK   작가와의 대화 3기
+			</div>
+			<div class="cont_text">
+				
+
+				<dl>
+					
+					<dt>3기: 오치균, 김홍주, 황재형, 황주리, 이왈종</dt>
+					<dd>일정 : 2016년 3월 22일 - 4월 19일
+<br />시간 : 매주 화요일 오전 10시30분-12시30분
+<br />장소 : 서울옥션 평창동 본사 아카데미홀
+<br />문의 : 홍보마케팅팀 정지영 담당 02-2075-4466</dd>
+				</dl>
+				
+				
+                
+                 <!-- //green orange yellow sky deepblue deeppink deepred  -->
+				<a href="http://www.seoulauction.com/service/academy?order=1" class="btn_main_more yellow">SEE MORE</a>
+				
+                <!-- <a href="http://savm-filesvr.seoulauction.com/main/PDF/534-1.pdf" class="btn_main_more" target="new" style="width:180px;margin-bottom:5px;">PDF - 근현대, 해외미술</a>
+                <a href="http://savm-filesvr.seoulauction.com/main/PDF/534-2.pdf" class="btn_main_more" target="new" style="width:180px;margin-bottom:5px;">PDF - 고미술</a>
+				<br />-->
+
+				
+		   </div>
+		</div>
+	</div>
+		
+		
+	
+	
+	
+	
+		
+		
+			
+	<div class="sec sec1">
+		<div class="roll_box1">
+			<div class="roll">
+				<ul>
+				
+					
+					
+				
+					
+						
+						
+					<li>
+ 						<img src="http://savm-filesvr.seoulauction.com/main/2016/02/26/201602262254267540949884065222.jpg" alt="목조수월관음보살불감" />
+						<div class="cont_artist">
+							<span style="font-size:10px;">
+
+								
+								
+									
+								
+								
+							
+							</span>
+							<span style="font-size:10px;">목조수월관음보살불감</span>
+							<!-- 2015.11.14. 주석처리(YDH). 작품보기 버튼 이동 안되게 처리
+							<a href="javascript:showPopup(31948);">
+							<span>작품보기</span>
+							</a>-->
+						</div>
+					</li>
+						
+					
+				
+					
+						
+						
+					<li>
+ 						<img src="http://savm-filesvr.seoulauction.com/main/2016/02/26/201602262305547541637800776798.jpg" alt="" />
+						<div class="cont_artist">
+							<span style="font-size:10px;">
+
+								
+								
+								
+									
+										
+										
+											
+										
+									
+									
+										
+										
+										천경자 (Chun KyungJa 1924 ~ 2015)
+										
+									
+								
+							
+							</span>
+							<span style="font-size:10px;"></span>
+							<!-- 2015.11.14. 주석처리(YDH). 작품보기 버튼 이동 안되게 처리
+							<a href="javascript:showPopup(31949);">
+							<span>작품보기</span>
+							</a>-->
+						</div>
+					</li>
+						
+					
+				
+					
+				
+					
+				
+					
+				
+				</ul>
+			</div><!-- //roll -->
+			<div class="cont_mask"></div>
+			<div class="thum">
+				<ul>
+				
+					
+					
+				
+					
+						
+						
+					<li>
+						<img src="http://savm-filesvr.seoulauction.com/main/2016/02/26/201602262254267540949884065222.jpg" alt="목조수월관음보살불감" />
+					</li>
+						
+					
+				
+					
+						
+						
+					<li>
+						<img src="http://savm-filesvr.seoulauction.com/main/2016/02/26/201602262305547541637800776798.jpg" alt="" />
+					</li>
+						
+					
+				
+					
+				
+					
+				
+					
+				
+				</ul>
+			</div><!-- //thum -->
+		</div><!-- //roll_box -->
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<div class="sec3_cont">
+			
+				
+					
+						
+						
+			<div class="cont_tit txt_han" style="cursor:pointer;" onclick="goCurrent(539);">
+				<span>제139회</span>
+				<br />
+				미술품경매
+			</div>
+						
+						
+					
+				
+				
+			
+			<div class="cont_text">
+				
+				
+				
+				
+				<dl>
+					
+					<dt>[Auction] </dt>
+					<dd>2016. 03. 16(水) 평창동 서울옥션스페이스 
+<br />4PM Modern and Contemparary Art 
+<br />5:30PM Korean Traditional Art 
+<br />
+<br />[Preview] 
+<br />강남 2016. 3. 4(金)-8(火) * S-space (신사동 호림아트센터 1F) 
+<br />본사 2016. 3. 11(金)-15(火) * 서울옥션스페이스 (평창동) 
+<br />* 전시 관람 시간은 10AM-7PM 입니다.
+<br />
+<br />[아트앤커피 작품설명회]
+<br />3/6(일) 오전 11시 서울옥션 S space(강남점)
+<br />3/13(일) 오전 11시 서울옥션 평창동 본사
+<br />*전화예약필수 (30명 선착순 예약)  02-2075-4480 (정태희 담당)</dd>
+				</dl>
+				
+				
+				
+								
+								 <!--국내-->
+                                <!-- //green orange yellow sky deepblue deeppink deepred  -->
+									<a href="http://www.seoulauction.com/auction/currentList" class="btn_main_more yellow">SEE MORE</a>
+                                    
+                                    <!---->
+                                    
+                                    
+                                        <a href=" http://savm-filesvr.seoulauction.com/main/PDF/539_1.pdf" class="btn_main_more green" target="new" style="width:80px;margin-top:5px;">PDF - 근현대</a>
+                                    
+                                    
+                                        <a href=" http://savm-filesvr.seoulauction.com/main/PDF/539_2.pdf" class="btn_main_more green" target="new" style="width:80px;margin-top:5px;">PDF - 고미술</a>
+                                    
+                                    
+
+
+								
+							
+				
+		   </div>
+		</div>
+	</div>
+		
+	
+	
+	
+
+	<!--<div class="cont_list">
+		<ul>
+		
+		
+			
+			
+				
+				
+			<li class="sele">
+				제139회 미술품경매
+			</li>
+				
+			
+		
+			
+			
+				
+			<li >
+				ARTIST TALK   작가와의 대화 3기
+			</li>
+				
+				
+			
+		
+			
+			
+				
+			<li >
+				아카데미 - 특강
+			</li>
+				
+				
+			
+		
+			
+			
+				
+			<li >
+				가나문화포럼
+			</li>
+				
+				
+			
+		
+			
+			
+				
+			<li >
+				PRINT BAKERY
+			</li>
+				
+				
+			
+		
+			
+			
+				
+			<li >
+				2016 경매 위탁
+			</li>
+				
+				
+			
+		
+		</ul>
+	</div>-->
+
+	<div class="main_btn_updown">
+		<button class="scroll_up"><span class="hidden">위로</span></button>
+		<button class="scroll_dn"><span class="hidden">아래로</span></button>
+	</div>
+
+	<!-- 팝업용 -->
+	
+		
+			
+			
+	<script>
+		m_aPopImages.push(31948);
+	</script>
+	<div id="pop31948" class="pop">
+		<div class="roll_boxp31948">
+			<div class="roll">
+				<ul>
+					
+					
+					<li>
+						<img src="http://savm-filesvr.seoulauction.com/main/2016/02/26/201602262254267540949884065222.jpg" alt="image1" />
+					</li>
+					
+				</ul>
+			</div><!-- //roll -->
+			<div class="cont_mask"></div>
+			<div class="thum">
+				<ul>
+					
+					
+					<li>
+						<img src="http://savm-filesvr.seoulauction.com/main/2016/02/26/201602262254267540949884065222.jpg" alt="image" />
+					</li>
+					
+				</ul>
+			</div><!-- //thum -->
+		<!-- 2015.11.14. 주석처리(YDH). 작품보기 버튼 이동 안되게 처리
+			<div class="roll_btn">
+				<button type="button" class="btn_prev"><span class="hidden">이전</span></button>
+				<button type="button" class="btn_next"><span class="hidden">다음</span></button>
+			</div>-->
+		</div>
+		 <!-- //roll_box2 -->
+		<div class="pop_cont_text">
+			<div class="author">
+				
+				
+					
+				<span>()</span>
+					
+					
+				
+			</div>
+			<div class="master">목조수월관음보살불감</div>
+		</div>
+		<button type="button" class="pop_btn_close" onclick="closePopup(31948);">
+			<span class="hidden">닫기</span>
+		</button>
+	</div>
+		
+	
+		
+			
+			
+	<script>
+		m_aPopImages.push(31949);
+	</script>
+	<div id="pop31949" class="pop">
+		<div class="roll_boxp31949">
+			<div class="roll">
+				<ul>
+					
+					
+					<li>
+						<img src="http://savm-filesvr.seoulauction.com/main/2016/02/26/201602262305547541637800776798.jpg" alt="image1" />
+					</li>
+					
+				</ul>
+			</div><!-- //roll -->
+			<div class="cont_mask"></div>
+			<div class="thum">
+				<ul>
+					
+					
+					<li>
+						<img src="http://savm-filesvr.seoulauction.com/main/2016/02/26/201602262305547541637800776798.jpg" alt="image" />
+					</li>
+					
+				</ul>
+			</div><!-- //thum -->
+		<!-- 2015.11.14. 주석처리(YDH). 작품보기 버튼 이동 안되게 처리
+			<div class="roll_btn">
+				<button type="button" class="btn_prev"><span class="hidden">이전</span></button>
+				<button type="button" class="btn_next"><span class="hidden">다음</span></button>
+			</div>-->
+		</div>
+		 <!-- //roll_box2 -->
+		<div class="pop_cont_text">
+			<div class="author">
+				천경자
+				
+					
+					
+				<span>(Chun KyungJa 1924 - 2015)</span>	
+					
+				
+			</div>
+			<div class="master"></div>
+		</div>
+		<button type="button" class="pop_btn_close" onclick="closePopup(31949);">
+			<span class="hidden">닫기</span>
+		</button>
+	</div>
+		
+	
+		
+			
+			
+	<script>
+		m_aPopImages.push(30923);
+	</script>
+	<div id="pop30923" class="pop">
+		<div class="roll_boxp30923">
+			<div class="roll">
+				<ul>
+					
+					
+					<li>
+						<img src="http://savm-filesvr.seoulauction.com/main/2016/02/11/201602111507436216946659080073.jpg" alt="image1" />
+					</li>
+					
+				</ul>
+			</div><!-- //roll -->
+			<div class="cont_mask"></div>
+			<div class="thum">
+				<ul>
+					
+					
+					<li>
+						<img src="http://savm-filesvr.seoulauction.com/main/2016/02/11/201602111507436216946659080073.jpg" alt="image" />
+					</li>
+					
+				</ul>
+			</div><!-- //thum -->
+		<!-- 2015.11.14. 주석처리(YDH). 작품보기 버튼 이동 안되게 처리
+			<div class="roll_btn">
+				<button type="button" class="btn_prev"><span class="hidden">이전</span></button>
+				<button type="button" class="btn_next"><span class="hidden">다음</span></button>
+			</div>-->
+		</div>
+		 <!-- //roll_box2 -->
+		<div class="pop_cont_text">
+			<div class="author">
+				
+				
+					
+				<span>()</span>
+					
+					
+				
+			</div>
+			<div class="master"></div>
+		</div>
+		<button type="button" class="pop_btn_close" onclick="closePopup(30923);">
+			<span class="hidden">닫기</span>
+		</button>
+	</div>
+		
+	
+		
+			
+			
+	<script>
+		m_aPopImages.push(26821);
+	</script>
+	<div id="pop26821" class="pop">
+		<div class="roll_boxp26821">
+			<div class="roll">
+				<ul>
+					
+				</ul>
+			</div><!-- //roll -->
+			<div class="cont_mask"></div>
+			<div class="thum">
+				<ul>
+					
+				</ul>
+			</div><!-- //thum -->
+		<!-- 2015.11.14. 주석처리(YDH). 작품보기 버튼 이동 안되게 처리
+			<div class="roll_btn">
+				<button type="button" class="btn_prev"><span class="hidden">이전</span></button>
+				<button type="button" class="btn_next"><span class="hidden">다음</span></button>
+			</div>-->
+		</div>
+		 <!-- //roll_box2 -->
+		<div class="pop_cont_text">
+			<div class="author">
+				
+				
+					
+				<span>()</span>
+					
+					
+				
+			</div>
+			<div class="master"></div>
+		</div>
+		<button type="button" class="pop_btn_close" onclick="closePopup(26821);">
+			<span class="hidden">닫기</span>
+		</button>
+	</div>
+		
+	
+
+	<div class="blockUi"></div>
+
+	<script type="text/javascript">
+		var secNum = 1;
+		var winW    = $(window).width();
+		var winH    = $(window).height();
+	
+		var isMobile = {
+			Android: function() {
+				return navigator.userAgent.match(/Android/i);
+			},
+			BlackBerry: function() {
+				return navigator.userAgent.match(/BlackBerry/i);
+			},
+			iOS: function() {
+				return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+			},
+			Opera: function() {
+				return navigator.userAgent.match(/Opera Mini/i);
+			},
+			Windows: function() {
+				return navigator.userAgent.match(/IEMobile/i);
+			},
+			any: function() {
+				return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+			}
+		};
+		
+		function showPopup(nIndex) {
+			$("#pop" + nIndex).css("z-index", 1);
+			$("#pop" + nIndex).fadeIn("fast");
+			clearInterval(pageTimer);//20150721
+		}
+		function closePopup(nIndex) {
+			$("#pop" + nIndex).fadeOut();
+			$("#pop" + nIndex).css("z-index", 0);
+			setInterval(setTimeout('mainBanner()',5000));//20150721
+		}
+		
+		imgMResize();
+	
+		$(window).resize(function(){
+			//$(".loading").fadeIn("fast");
+			//location.reload();
+			
+			var winWidth = $(window).innerWidth();
+			if(winWidth < 768) {
+				location.href = "/?homeType=M";
+			}
+			
+			imgMResize();
+			$('.roll ul').css('left', '0');
+			$(".roll ul").each(function(){
+				var rollWidth = $(this).children('li').length * $(window).width();
+				$(this).css('width', rollWidth);
+			});
+			$('.thum li').removeClass('selected');
+			$('.thum li:first-child').addClass('selected');
+			
+			var nTotalCount = isNaN(6) ? 0 : 6;
+			for(var i=0; i<nTotalCount; i++) {
+				$(".roll_box" + (i+1)).slideFunc();
+			}
+			
+			for(var i=0; i<m_aPopImages.length; i++) {
+				$(".roll_boxp" + m_aPopImages[i]).slideFunc();
+			}
+			
+			/*
+			$(".roll_box").slideFunc();
+			$(".roll_box2").slideFunc();
+			$(".roll_box3").slideFunc();
+			*/
+			/*$('.sec').css({'display':'none', 'top':'0px'});
+			$('.sec1').css('display','block');
+			init();*/
+
+		});
+	
+		$(window).load(function(){
+
+			// 이미지 사이즈 조절을 위해 display:block으로 설정
+			$(".sec, .pop").css("display", "block");	
+
+			imgMResize();
+
+			$(".sec1, .sec2, .sec3, .sec4, .sec5, .pop").css("display", "none");
+			$(".loading").fadeOut("slow");
+			$(".sec1, .main_frame_top, .main_frame_middle, .main_frame_bottom, .sec1_cont, .scroll_dn").fadeIn("fast");  
+
+		});
+		
+		function imgMResize(){
+			var winW    = $(window).width();
+			var winH    = $(window).height();
+			var mainContH = winH - 55;
+
+			$('.main .container_wrap').css('height', mainContH + 'px');
+		
+			// 이미지 사이즈 변경
+			$(".roll, .roll li, .sec").css({
+				"width":winW,
+				"height":winH,
+				"overflow":"hidden"
+			});
+
+			var divs = $('.roll li, .sec, .thum li');
+			/*for (var i = 0; i < divs.length; ++i) {
+				var div = divs[i];
+				var divAspect = div.offsetHeight / div.offsetWidth;
+				div.style.overflow = 'hidden';
+
+				var img = div.querySelector('img');
+				var imgAspect = img.height / img.width;
+
+				if (imgAspect <= divAspect) {
+				  // 이미지가 div보다 납작한 경우 세로를 div에 맞추고 가로는 잘라낸다
+				  var imgWidthActual = div.offsetHeight / imgAspect;
+				  var imgWidthToBe = div.offsetHeight / divAspect;
+				  var marginLeft = -Math.round((imgWidthActual - imgWidthToBe) / 2)
+				  img.style.cssText = 'width: auto; height: 100%; margin-left: '
+								  + marginLeft + 'px;'
+				} else {
+				  // 이미지가 div보다 길쭉한 경우 가로를 div에 맞추고 세로를 잘라낸다
+				  img.style.cssText = 'width: 100%; height: auto; margin-left: 0;';
+				}
+			}*/
+			divs.each(function(){
+				var divAspect = this.offsetHeight / this.offsetWidth;
+				this.style.overflow = 'hidden';
+
+				var img = this.querySelector('img');
+				if(img) {
+					var imgAspect = img.height / img.width;
+				}
+
+				if (imgAspect <= divAspect) {
+				  // 이미지가 div보다 납작한 경우 세로를 div에 맞추고 가로는 잘라낸다
+				  var imgWidthActual = this.offsetHeight / imgAspect;
+				  var imgWidthToBe = this.offsetHeight / divAspect;
+				  var marginLeft = -Math.round((imgWidthActual - imgWidthToBe) / 2)
+				  img.style.cssText = 'width: auto; height: 100%; margin-left: '
+								  + marginLeft + 'px;'
+				} else if(imgAspect > divAspect) {
+				  // 이미지가 div보다 길쭉한 경우 가로를 div에 맞추고 세로를 잘라낸다
+				  img.style.cssText = 'width: 100%; height: auto; margin-left: 0;';
+				}
+			});
+
+		}
+	
+	
+		$(window).ready(function(){
+			var winHeight = $(window).height();
+			var mainContH = winHeight - 55;
+			$('.main .container_wrap').css('height', mainContH + 'px');
+	
+			// 위 아래로 이동
+			$(".scroll_up").on("click", function(){
+					secNum--;
+					imgMove2(secNum);
+					$('.cont_list li').removeClass('sele');
+					$('.cont_list li:nth-child(' + secNum + ')').addClass('sele');
+			});
+			$(".scroll_dn").on("click", function(){
+					imgMove(secNum);
+					secNum++;
+					$('.cont_list li').removeClass('sele');
+					$('.cont_list li:nth-child(' + secNum + ')').addClass('sele');
+			});
+	
+			$(".scroll_up, .scroll_dn").hover(function(){
+				$(this).addClass('hover');
+			}, function(){
+				$(this).removeClass('hover');
+			});
+	
+			/* 20150625 */
+			if( isMobile.any() ){
+				$('.sec').bind('swipeup', function(){
+					if(secNum == $(".sec").length){
+						
+					} else {
+						imgMove(secNum);
+						secNum++;
+						$('.cont_list li').removeClass('sele');
+						$('.cont_list li:nth-child(' + secNum + ')').addClass('sele');
+					}
+				});
+				
+				$('.sec').bind('swipedown', function(){
+					if(secNum == 1){
+						
+					} else {
+						secNum--;
+						imgMove2(secNum);
+						$('.cont_list li').removeClass('sele');
+						$('.cont_list li:nth-child(' + secNum + ')').addClass('sele');
+					}
+				});
+			}
+			/* //20150625 */
+			
+			var nTotalCount = isNaN(6) ? 0 : 6;
+			for(var i=0; i<nTotalCount; i++) {
+				$(".roll_box" + (i+1)).slideFunc();
+			}
+			
+			for(var i=0; i<m_aPopImages.length; i++) {
+				$(".roll_boxp" + m_aPopImages[i]).slideFunc();
+			}
+			
+			var wheelAmount = 0; 
+			$(window).bind('mousewheel', function(event) {
+				var secLength = $(".sec").length;
+				if(event.deltaY < 0){
+					wheelAmount--;
+					if(wheelAmount < -secLength){
+						wheelAmount = 0;
+						
+						if(secNum > secLength-1){
+							secNum = secLength;
+						}else{
+							imgMove(secNum);
+							secNum++;
+						}
+					}
+					$('.cont_list li').removeClass('sele');
+					$('.cont_list li:nth-child(' + secNum + ')').addClass('sele');
+				}else{
+					wheelAmount++;
+					if(wheelAmount > secLength){
+						wheelAmount = 0;
+						if(secNum < 2){
+							secNum = 1;
+						}else{
+							secNum--;
+							imgMove2(secNum);
+							
+						}
+					}
+					$('.cont_list li').removeClass('sele');
+					$('.cont_list li:nth-child(' + secNum + ')').addClass('sele');
+				}
+			});
+	
+			init();
+		});
+	
+		$(document).keydown(function(e){
+			switch(e.keyCode){
+				case 38: {
+					if(secNum == 1){
+						secNum = 1;
+					}else{
+						secNum--;
+						imgMove2(secNum);
+					}
+					break;
+				}
+				case 40 : {
+					if(secNum == $(".sec").length){
+						secNum = $(".sec").length;
+					}else{
+						imgMove(secNum);
+						secNum++;
+					}
+					break;
+				}
+			}
+		});
+	
+		function init(){
+			$(".sec .cont_tit").css("margin-top", "100px");
+			$(".sec .cont_text").css("margin-top", "100px");
+			$(".sec .cont_artist").css("bottom", "100px");
+			$(".sec .thum").css("bottom", "100px");
+			$(".cont_list").css("bottom", "200px");
+	
+			$(".sec1 .cont_tit").stop().animate({'margin-top':'0'}, {duration:1500, easing:"easeInOutQuint"});
+			$(".sec1 .cont_text").stop().animate({'margin-top':'0'}, {duration:1500, easing:"easeInOutQuint"});
+			$(".sec1 .cont_artist").stop().animate({'bottom':'73px'}, {duration:1500, easing:"easeInOutQuint"});
+			$(".sec1 .thum").stop().animate({'bottom':'67px'}, {duration:1500, easing:"easeInOutQuint"});
+			$(".cont_list").stop().animate({'bottom':'100px'}, {duration:1500, easing:"easeInOutQuint"});// 20150621
+		}
+	
+		//20150721
+		function mainBanner(){
+			var secLength = $(".sec").length;
+
+			if(secNum >= secLength) {
+				$(".sec2, .sec3, .sec4, .sec5, .pop").css("display", "none");
+				$(".scroll_up").fadeOut();
+				$(".scroll_dn").fadeIn();
+				$(".sec").css('top', '0');
+				$('.cont_list li').removeClass('sele');
+				$('.cont_list li:first-child').addClass('sele');
+				init();
+				secNum = 1;
+			} else {
+				imgMove(secNum);
+				secNum++;
+				$('.cont_list li').removeClass('sele');
+				$('.cont_list li:nth-child(' + secNum + ')').addClass('sele');
+			}
+			clearTimeout(pageTimer);
+			pageTimer = setTimeout('mainBanner()',15000);  // 9000 => 15000 Delay Time 변경(YDH. 2015.11.14)
+		} 
+		pageTimer = setTimeout('mainBanner()',15000);      // 9000 => 15000 Delay Time 변경(YDH. 2015.11.14)
+		
+
+		$(".thum li").click(function(){
+			clearInterval(pageTimer);
+		});
+		$('.scroll_up, .scroll_dn').click(function(){
+			setTimeout('mainBanner()',15000);              // 9000 => 15000 Delay Time 변경(YDH. 2015.11.14)
+		});
+		//20150721
+		
+		function imgMove(secNum){
+			//imgResize();
+			var _secNum = secNum;
+			var _secNum2 = _secNum +1;
+	
+			$(".sec"+_secNum2).css("display", "block");
+			$(".sec"+_secNum).stop().animate({'top':$(window).height()*-1}, {duration:1200, easing:"easeInOutQuint"});
+	
+			//내려오는 아이의 인터렉션
+			$(".sec"+_secNum+" .cont_tit").stop().animate({'margin-top':'300px'}, {duration:1000, easing:"easeInOutQuint"});
+			$(".sec"+_secNum+" .cont_text").stop().animate({'margin-top':'-100px'}, {duration:2000, easing:"easeInOutQuint"});
+			$(".sec"+_secNum+" .cont_artist").stop().animate({'bottom':'200px'}, {duration:1000, easing:"easeInOutQuint"});
+			$(".sec"+_secNum+" .thum").stop().animate({'bottom':'300px'}, {duration:1500, easing:"easeInOutQuint"});
+	
+			// 나타나는 아이의 인터렉션.
+			$(".sec"+_secNum2+" .cont_tit").stop().animate({'margin-top':'0'}, {duration:1000, easing:"easeInOutQuint"});
+			$(".sec"+_secNum2+" .cont_text").stop().animate({'margin-top':'0'}, {duration:1500, easing:"easeInOutQuint"});
+			$(".sec"+_secNum2+" .cont_artist").stop().animate({'bottom':'73px'}, {duration:1500, easing:"easeInOutQuint"});
+			$(".sec"+_secNum2+" .thum").stop().animate({'bottom':'67px'}, {duration:1500, easing:"easeInOutQuint"}); //20150623
+	
+			// 스크롤 버튼의 제어
+			if(secNum == $(".sec").length-1){
+				$(".scroll_dn").fadeOut();
+			}
+			$(".scroll_up").fadeIn("fast");
+	
+	
+		}
+		function imgMove2(secNum){
+			var _secNum = secNum;
+			var _secNum2 = _secNum +1;
+			$(".sec"+_secNum).css("display", "block");
+			$(".sec"+_secNum).stop().animate({'top':0}, {duration:1200, easing:"easeInOutQuint"});
+			$(".sec"+_secNum+" .cont_tit").stop().animate({'margin-top':'0'}, {duration:1500, easing:"easeInOutQuint"});
+			$(".sec"+_secNum+" .cont_text").stop().animate({'margin-top':'0'}, {duration:1500, easing:"easeInOutQuint"});
+			$(".sec"+_secNum+" .cont_list").stop().animate({'bottom':'100px'}, {duration:1500, easing:"easeInOutQuint"});// 20150621
+			$(".sec"+_secNum+" .cont_artist").stop().animate({'bottom':'73px'}, {duration:1500, easing:"easeInOutQuint"});
+			$(".sec"+_secNum+" .thum").stop().animate({'bottom':'67px'}, {duration:1500, easing:"easeInOutQuint"});//20150623
+	
+			// 나타나는 아이의 인터렉션.
+			$(".sec"+_secNum2+" .cont_tit").stop().animate({'margin-top':'300px'}, {duration:1000, easing:"easeInOutQuint"});
+			$(".sec"+_secNum2+" .cont_text").stop().animate({'margin-top':'-100px'}, {duration:2000, easing:"easeInOutQuint"});
+			$(".sec"+_secNum2+" .cont_list").stop().animate({'bottom':'200px'}, {duration:1000, easing:"easeInOutQuint"});
+			$(".sec"+_secNum2+" .cont_artist").stop().animate({'bottom':'200px'}, {duration:1000, easing:"easeInOutQuint"});
+			$(".sec"+_secNum2+" .thum").stop().animate({'bottom':'300px'}, {duration:1000, easing:"easeInOutQuint"});//20150623
+	
+			// 스크롤 버튼의 제어
+			$(".scroll_dn").fadeIn("fast");
+			 if(secNum == 1){
+				$(".scroll_up").fadeOut();
+			}
+	   }
+	
+		jQuery.fn.slideFunc = function(params){
+
+			var _slideWidth;
+			var _objNum = 0;
+			var _obj    = $(this);
+			var _leng = (_obj.find(".roll ul li").length);
+			var _rollWidth = (_obj.find(".roll ul li").length) * $(window).width();
+
+			_obj.find(".roll ul").css("width", _rollWidth)
+			
+			_slideWidth = $(window).width(); 
+			_obj.find(".thum li").eq(0).addClass("selected")
+
+			_obj.find(".thum li").bind("click keyup", function(){
+				var liNum   = $(this).index();
+				_objNum     = $(this).index();
+				slideMove(liNum);
+				//btnShowHide();20150627
+			});
+			
+			_obj.find(".btn_prev").bind("click keyup", function(){
+				if(_objNum > 0){
+					slideMove(_objNum - 1);
+					_objNum--;
+				} else if(_objNum = 0) {
+				}
+				//btnShowHide();20150627
+			});
+			_obj.find(".btn_next").bind("click keyup", function(){
+				if(_objNum < (_obj.find(".roll ul li").length-1)){
+					slideMove(_objNum +1 );
+					_objNum++;
+				}
+				//btnShowHide();20150627
+			});
+
+			/* 20150627 */
+			_obj.find(".btn_prev").hover(function(){
+				$(this).addClass('hover');
+			}, function(){
+				$(this).removeClass('hover');
+			});
+
+			_obj.find(".btn_next").hover(function(){
+				$(this).addClass('hover');
+			}, function(){
+				$(this).removeClass('hover');
+			});
+			/* //20150627 */
+			
+			/*
+			if( isMobile.any() ){
+				_obj.bind("swipeleft", function(){//next
+					if(_objNum < (_obj.find(".roll ul li").length-1)){
+						slideMove(_objNum + 1);
+						_objNum++;
+					}
+				});
+				_obj.bind("swiperight", function(){//prev
+					if(_objNum > 0){
+						slideMove(_objNum - 1);
+						_objNum--;		
+					}
+				});
+			}
+			*/
+
+			/*
+			btnShowHide();
+
+			function btnShowHide(){
+
+				if(_objNum == 0){
+					_obj.find(".btn_prev").addClass('off');
+					_obj.find(".btn_next").removeClass('off');
+				}
+				if(_objNum >= _leng-1){
+					_obj.find(".btn_prev").removeClass('off');
+					_obj.find(".btn_next").addClass('off');
+				}
+				if(_objNum > 0 && _objNum < _leng-1){
+					_obj.find(".btn_prev").removeClass('off');
+					_obj.find(".btn_next").removeClass('off');
+				}
+			}
+			*/
+			
+			function slideMove(num){
+				_slideLeft  = _slideWidth * num * -1;
+				_obj.find(".roll ul").stop().animate({'left':_slideLeft}, {duration:500, easing:"easeInOutQuint"});
+				_obj.find(".thum li").removeClass("selected");
+				_obj.find(".thum li").eq(num).addClass("selected");
+			}
+		};
+	</script>
+</div>
+</div>
+
+
+	<div class="footer_wrap">
+		<div id="footer">
+			<div class="util_menu menu">
+				<ul class="fl_menu">
+				
+					
+					<li><a href="/about/location">위치안내</a></li>
+					<li><a href="/common/terms/auction">경매약관</a></li>
+					<li><a href="/common/terms/privateInfo">개인정보취급방침</a></li>
+					<li><a href="/common/terms/infoManage">내부정보관리규정</a></li>
+					<li><a target="_blank" href="http://www.printbakery.co.kr">PRINT BAKERY</a></li>
+					<li><a href="/common/sitemap">사이트맵</a></li>
+					
+					
+				
+				</ul>
+				<div class="sns_menu">
+					<ul class="fl_menu">
+					
+						
+						<li><a href="https://twitter.com/seoulauctionkr" target="_balnk" class="sp_btn sns01"><span class="hidden">트위터</span></a></li>
+						<li><a href="https://www.facebook.com/seoulauction" target="_balnk" class="sp_btn sns02"><span class="hidden">페이스북</span></a></li>
+						<li class="last"><a href="http://blog.naver.com/PostList.nhn?blogId=s_auction" target="_balnk" class="sp_btn sns03"><span class="hidden">블로그</span></a></li>
+						
+						
+					
+					</ul>
+				</div>
+			</div>
+			<div class="util_menu address">
+				<div class="fl_menu">
+					<ul>
+					
+						
+						<li>대표이사 : 이옥경</li>
+						<li>사업자등록번호 : 101-81-46818</li>
+						<li>통신판매업신고 : 종로 제01-2173호</li>
+						<li>주소 : 서울시 종로구 평창30길 24 (평창동98번지)</li><li>02-395-0330</li>
+						
+						
+					
+					</ul>
+				</div>				
+			</div>
+		</div>
+	</div>
+	<!-- //footer_wrap -->
+</body>
+</html>

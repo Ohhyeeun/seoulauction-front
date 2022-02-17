@@ -9,8 +9,8 @@
 <jsp:include page="../include/header.jsp" flush="false"/>
 
 <link href="/css/angular/ngDialog.min.css" rel="stylesheet">
-<link href="/resources/css/angular/popup.css" rel="stylesheet">
-<script type="text/javascript" src="/resources/js/angular/paging.js?${resources.timestamp}"></script>
+<link href="/css/angular/popup.css" rel="stylesheet">
+<script type="text/javascript" src="/js/angular/paging.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ng-dialog/0.5.6/js/ngDialog.min.js"></script>
 
 <script type="text/javascript">

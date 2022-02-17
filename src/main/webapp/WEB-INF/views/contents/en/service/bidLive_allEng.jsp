@@ -23,33 +23,33 @@
 	<link rel="icon" type="image/png" href="/images/icon/favic/favicon-16x16.png" sizes="16x16"/>
 	<meta name="application-name" content="SeoulAuction" />
 	
-	<link href="<c:url value="/resources/css/old/common.css?${resources.timestamp}" />" rel="stylesheet">  
+	<link href="<c:url value="/css/old/common.css" />" rel="stylesheet">  
 	<link href="<c:url value="/css/old/onepcssgrid_live.css" />" rel="stylesheet"> 
-	<link href="<c:url value="/resources/css/sa.common.2.0.css?${resources.timestamp}" />" rel="stylesheet">  
-	<link href="<c:url value="/resources/css/bidLivepop.css?${resources.timestamp}" />" rel="stylesheet">     
+	<link href="<c:url value="/css/sa.common.2.0.css" />" rel="stylesheet">  
+	<link href="<c:url value="/css/bidLivepop.css" />" rel="stylesheet">     
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	
-	<script type="text/javascript" src="/resources/js/angular/angular.min.js"></script>
-	<script src="/resources/js/angular/angular-sanitize.js"></script>
-	<script type="text/javascript" src="<c:url value="/resources/js/angular/angular-bind-html-compile.js" />"></script>
-	<script type="text/javascript" src="<c:url value="/resources/js/angular/app.js?${resources.timestamp}" />"></script>
-	<script type="text/javascript" src="<c:url value="/resources/js/common.js?${resources.timestamp}" />"></script>
+	<script type="text/javascript" src="/js/angular/angular.min.js"></script>
+	<script src="/js/angular/angular-sanitize.js"></script>
+	<script type="text/javascript" src="<c:url value="/js/angular/angular-bind-html-compile.js" />"></script>
+	<script type="text/javascript" src="<c:url value="/js/angular/app.js" />"></script>
+	<script type="text/javascript" src="<c:url value="/js/common.js" />"></script>
 	
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.js" ></script>
-	<script type="text/javascript" src="/resources/js/jquery.easing.1.3.js"></script>
-	<script type="text/javascript" src="/resources/js/jquery.panzoom.min.js"></script>
-	<script type="text/javascript" src="/resources/js/jquery.slides.min.js"></script>
-	<script type="text/javascript" src="/resources/js/jquery.placeholder.min.js"></script>
-	<script type="text/javascript" src="/resources/js/jquery.nicefileinput.min.js"></script>
-	<script type="text/javascript" src="/resources/js/jquery.mousewheel.min.js"></script>
-	<script type="text/javascript" src="/resources/js/jquery.mobile-events.js"></script>
-	<script type="text/javascript" src="/resources/js/iscroll.js"></script>
-	<script type="text/javascript" src="/resources/js/old/ui.js?${resources.timestamp}"></script>
-	<script type="text/javascript" src="/resources/js/old/frontCommon.js"></script>  
+	<script type="text/javascript" src="/js/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="/js/jquery.panzoom.min.js"></script>
+	<script type="text/javascript" src="/js/jquery.slides.min.js"></script>
+	<script type="text/javascript" src="/js/jquery.placeholder.min.js"></script>
+	<script type="text/javascript" src="/js/jquery.nicefileinput.min.js"></script>
+	<script type="text/javascript" src="/js/jquery.mousewheel.min.js"></script>
+	<script type="text/javascript" src="/js/jquery.mobile-events.js"></script>
+	<script type="text/javascript" src="/js/iscroll.js"></script>
+	<script type="text/javascript" src="/js/old/ui.js"></script>
+	<script type="text/javascript" src="/js/old/frontCommon.js"></script>  
 </head> 
 
 <%-- YDH 추가 시작--%>
-<script type="text/javascript" src="/resources/js/angular/paging.js?${resources.timestamp}"></script>
+<script type="text/javascript" src="/js/angular/paging.js"></script>
 <!-- Expose 'llnwrtssdk' on the window global to reference in your 'subscribe' script -->
 <script type="text/javascript" src="https://llrtsprod.s.llnwi.net/v1/sdk/html/current/llnwrtssdk.min.js"></script>
 <!-- Recommended shim for cross-browser WebRTC support. -->
@@ -238,5 +238,5 @@
 		</div>
 	</div> <!--pop_wrap-->  
 </body>
-<script src="/resources/js/simple.js?${resources.timestamp}"></script>  
+<script src="/js/simple.js?ver=1.0.0"></script>  
 </html>

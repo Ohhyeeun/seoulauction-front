@@ -22,7 +22,7 @@
 	</video>
 	
 	<!-- Example script below. -->
-	<script src="/resources/js/simple.js?${resources.timestamp}"></script>
+	<script src="/js/simple.js"></script>
 
 	
 	</body>

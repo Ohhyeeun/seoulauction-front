@@ -35,7 +35,7 @@
 									<dt>이메일 접수</dt>
 									<dd>
 										<p>이메일 주소로 <strong>미술품 이미지와 작품정보</strong>를 <strong>고미술품은 고미술 이메일</strong>로,<br /><strong>근현대미술품은 근현대 이메일</strong>로 보내기</p>
-                                        <div class="txt_mail" style="margin-bottom: 10px;"><a href="mailto:eumman@seoulauction.com">eumman@seoulauction.com</a>(미술품경매팀 - 음정우 이사)</div>
+                                        <div class="txt_mail" style="margin-bottom: 10px;"><a href="mailto:jlee@seoulauction.com ">jlee@seoulauction.com </a>(미술품경매팀 - 이지희 이사)</div>
                                         <p class="txt_dark"><strong>※메일 제목 : '미술품 문의 - 보내시는분 성함'</p>
                                         <p class="txt_pale"></strong>&nbsp;(제목에 담보, 대출 단어가 들어가면 스팸 메일이 되어 확인이 어렵습니다.)</p>
                                         <!-- <div class="txt_mail"><a href="mailto:leehh@seoulauction.com">leehh@seoulauction.com</a>(미술품경매팀-근현대)</div> -->
@@ -366,13 +366,13 @@
 						</div>
 						<!-- YBK.20170331.경매대출안내추가 --> 
 						
-						<div class="box_gray type01">
+						<div class="box_gray type01">   
 							<div class="contact">
 								<div class="title">문의 Contact</div>
 								<div class="info">
-									<div class="highlight">미술품경매팀 <strong>음정우 이사</strong></div> 
-									<div class="tel"><strong class="tit">Tel</strong> <span>02-2075-4436</span></div>
-									<div class="email"><strong class="tit">E-mail</strong> <a href="mailto:eumman@seoulauction.com">eumman@seoulauction.com</a></div>
+									<div class="highlight">미술품경매팀 <strong>이지희 이사</strong></div> 
+									<div class="tel"><strong class="tit">Tel</strong><span><a href="tel:02-2075-4499">02-2075-4499</a></span></div>
+									<div class="email"><strong class="tit">E-mail</strong><a href="mailto:jlee@seoulauction.com">jlee@seoulauction.com</a></div> 
                                     <!-- <div class="highlight">미술품경매팀 근현대 <strong>이현희 팀장</strong></div>
 									<div class="tel"><strong class="tit">Tel</strong> <span>02-2075-4437</span></div>
 									<div class="email"><strong class="tit">E-mail</strong> <a href="mailto:leehh@seoulauction.com">leehh@seoulauction.com</a></div> -->

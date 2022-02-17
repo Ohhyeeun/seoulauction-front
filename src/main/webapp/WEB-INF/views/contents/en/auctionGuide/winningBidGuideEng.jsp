@@ -78,8 +78,7 @@
 										<strong>Seoul(Domestic) Auction Purchase Fee</strong>
 										<div class="list_style01">
 											<ul>
-												<li>15% of hammer price(tax excluded)</li>
-												
+												<li>18% of hammer price(tax excluded)</li>
 											</ul>
 										</div>
 									</li>
@@ -87,8 +86,7 @@
 										<strong>Hong Kong Auction Purchase Fee</strong>
 										<div class="list_style01">
 											<ul>
-												<li>18% of hammer price</li>
-												
+												<li>18% of hammer price</li> 
 											</ul>
 										</div>
 									</li>

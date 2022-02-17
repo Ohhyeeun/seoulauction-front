@@ -5,7 +5,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <jsp:include page="../include/header.jsp" flush="false"/>
-<script type="text/javascript" src="/resources/js/angular/paging.js?${resources.timestamp}"></script>
+<script type="text/javascript" src="/js/angular/paging.js"></script>
 <script>
 var page= 1;
 if (location.hash != "" && location.hash  != undefined ) {

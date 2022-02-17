@@ -151,7 +151,7 @@
 									<div class="tel"><strong class="tit">Tel</strong> <span>02-2075-4391</span></div> 
 									<div class="email"><strong class="tit">E-mail</strong> <a href="mailto:ujin0618@seoulauction.com">ujin0618@seoulauction.com</a></div>
 								</div>
-							</div>
+							</div> 
 							<div class="right">
 								<span class="btn_style01 icon02"><a href="/customer/inquiryForm" class="fix">온라인 접수</a><span class="ico next02"></span></span>
 							</div>

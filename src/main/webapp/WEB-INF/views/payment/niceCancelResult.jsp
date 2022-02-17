@@ -50,7 +50,7 @@ String tid = responseDTO.getParameter("TID");               // TID
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>NICEPAY :: 결제취소 결과</title>
 <link rel="stylesheet" href="/css/basic.css" type="text/css" />
-<link rel="stylesheet" href="/resources/css/style.css?${resources.timestamp}" type="text/css" />
+<link rel="stylesheet" href="/css/style.css" type="text/css" />
 </head>
 <body>
 <br>

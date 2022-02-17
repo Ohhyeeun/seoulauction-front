@@ -18,11 +18,25 @@
 
 	String ediDate = getyyyyMMddHHmmss(); // 전문생성일시
 	
-	// 상점 MID
-	String merchantID = "${maven.nicepay.merchant01.merchantID}";
 	// 상점서명키 (꼭 해당 상점키로 바꿔주세요). 낙찰대는 면세 아이디 입력.
-	String merchantKey = "${maven.nicepay.merchant01.merchantKey}";
+	// 테스트 키
+// 	String merchantKey = "33F49GnCMS1mFYlGXisbUDzVf2ATWCl9k3R++d5hDd3Frmuos/XLx8XhXpe+LDYAbpGKZYSwtlyyLOtS/8aD7A==";	// nictest00m Test Key
+// 	String merchantKey = "NLA1O8Rr6YevU0YOlduvHoVz00BISclF6PLhm1qzLbH7ali6BhwNN/4mNEEgijIcAJtt5VSmJDQb2KHr0IituQ==";	// nictest74m Test Key
+	// 실제 키
+//	String merchantKey = "9s7oFNUdG03jLMJ0nIYs4qwRldWVS7YUvVzNXeodXOCw/hWTsLQW64hDE7eJQ4Dui8aGGqFnqvlWSPYdlnLeBg==";
+//	String merchantKey = "4OdHwuPKRNnZcsRjaTYq9Kcli+lDk1qRUgwmpmLfTX1PeaMr9z+Y17XimrZm+/b0te6jXNr/jyxZn34Knflksw=="; //"sauction2m"키
+//@실제String merchantKey = "9s7oFNUdG03jLMJ0nIYs4qwRldWVS7YUvVzNXeodXOCw/hWTsLQW64hDE7eJQ4Dui8aGGqFnqvlWSPYdlnLeBg=="; //sauction0키(가상계좌가능키)
+	String merchantKey = "94NmaNMnYunJssu3wwIMF7bc8hCROIdZCh2WCCDPVpj052Wx99HiGh6Y6UeekOnoV+A+vxKbIwR7pKWDoPJyrA==";
 	
+	// 상점 MID
+	// 테스트 MID
+// 	String merchantID = "nictest00m";
+// 	String merchantID = "nictest74m"; 
+	// 실제 MID
+//	String merchantID = "sauction2m";  // 수정전 sauction0m
+//@실제String merchantID = "sauction0m";  // YDH수정(2018.09.05)
+	String merchantID = "sauction3m";
+
 	// 상품 가격을 기입하십시요.
 	// 하단 form값의 Amt와 동일해야 합니다.
 // 	String price = "500";
@@ -39,7 +53,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" /><!-- blueerr 2018.09.04 모바일에서 글씨가 너무 작게 나와서 추가 -->
 <title>NICEPAY :: 결제 요청</title>
 <link rel="stylesheet" href="/css/basic.css" type="text/css" />
-<link rel="stylesheet" href="/resources/css/style.css?${resources.timestamp}" type="text/css" />
+<link rel="stylesheet" href="/css/style.css" type="text/css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.js" ></script>
 
 <!-- NicePay 플러그인용 JS 
@@ -171,7 +185,7 @@ function chkPayType()
       <!-- <tr>
       	<td height="30">&nbsp;</td> 
         <td class="bold"><img src="/images/payment/bullet.gif" /><font color="red"> 낙찰 작품을 삼성카드로 결제하시면 결제금액의 1% 캐시백(일시불) <br/>&nbsp;&nbsp;&nbsp;&nbsp;또는 2-6개월 무이자 할부 혜택을 받으실 수 있습니다.</font>&nbsp;&nbsp;
-        <a href="/noticeView?write_no=2629" target="_blank"><상세보기></a>
+        <a href="https://www.seoulauction.com/noticeView?write_no=2629" target="_blank"><상세보기></a>
         <br/>&nbsp;&nbsp;&nbsp;&nbsp;8월에도 동일하게 적용됩니다.</td>
       </tr> -->
       <tr>

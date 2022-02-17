@@ -1,0 +1,92 @@
+
+.ddpanel .ddpanelcontent{ /*CSS for "content" DIV of Drop Down Panel*/
+color: #666;
+background: #e1e1e1; /*background of Drop Down Panel*/
+/*Do NOT add any "padding" or "margin" properties here! Any padding/margin should be added to your content's container within this DIV instead */
+}
+
+.ddpanel p{ /*CSS for "toggle" tab DIV of Drop Down Panel*/
+margin-top:20px;
+margin-bottom:5px;
+}
+
+.ddpanel .ddpaneltab{ /*CSS for "toggle" tab DIV of Drop Down Panel*/
+margin-right: 20px;
+font: normal 12px Arial;
+}
+
+.ddpanel .ddpaneltab a{ /*"toggle" tab related CSS*/
+float: right;
+color: #666;
+background: #e1e1e1;
+text-decoration: none;
+letter-spacing: 1px;
+}
+
+.ddpanel .ddpaneltab a span{ /*"toggle" tab related CSS*/
+float: left;
+display: block;
+background: transparent;
+padding: 1px 12px 4px 13px;
+cursor: pointer;
+}
+
+.ddpanel .ddpaneltab a span img.pointerimage{ /*CSS for pointer image within toggle tab*/
+margin-top: 2px;
+margin-left: 5px;
+}
+
+.ddpanel .ddpaneltab a:hover{ /*"toggle" tab related CSS*/
+background-color: #333; /*background of toggle tab onMouseover*/
+color: #fff;
+}
+
+.ddpanel .ddpaneltab a:active, .ddpanel .ddpaneltab a:focus{ /*"toggle" tab related CSS*/
+outline: 0;
+}
+
+.ddpanel .ddpaneltab a:hover span{ /*"toggle" tab related CSS*/
+background-color: transparent;
+}
+
+/* ######### ddpanelnav CSS ######### */
+.ddpanelnav,
+.ddpanelnav-left{
+	float: left;
+	padding: 0 0em 1.4em;
+}
+.ddpanelnav ul {
+	margin-left: 12px;
+	padding-left:12px;
+	list-style-type: none;
+	border-left:#fff 2px solid;
+}
+.ddpanelnav-left ul {
+	margin-left: 12px;
+	padding:0;
+	list-style-type: none;
+}
+.ddpanelnav li,
+.ddpanelnav-left li{
+	margin: 0;
+	padding:0;
+	list-style-type: none;
+	font-size:13px;
+}
+@media all and (max-width: 768px) {
+	.ddpanelnav ul, .ddpanelnav-left ul {
+	margin-left:32px;
+	padding:0;
+	list-style-type: none;
+	border-left:#fff 0px solid;
+}
+
+.ddpanelnav li,
+.ddpanelnav-left li{
+	margin: 0;
+	padding:0;
+	list-style-type: none;
+	font-size:15px;
+}
+
+}

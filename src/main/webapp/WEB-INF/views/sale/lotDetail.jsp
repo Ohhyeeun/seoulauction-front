@@ -5,16 +5,16 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <jsp:include page="../include/header.jsp" flush="false"/>
-<link href="/resources/css/angular/ng-animation.css" rel="stylesheet">
+<link href="/css/angular/ng-animation.css" rel="stylesheet">
 <link href="/css/angular/ngDialog.min.css" rel="stylesheet">
-<link href="/resources/css/angular/popup.css" rel="stylesheet">
+<link href="/css/angular/popup.css" rel="stylesheet">
 <link type="text/css" href="/css/imgzoom/jquery.magnify.css" rel="stylesheet">
 <link type="text/css" href="/css/imgzoom/magnify-bezelless-theme.css" rel="stylesheet"> 
  
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-duration-format/1.3.0/moment-duration-format.min.js"></script>
 <!--  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-animate.min.js"></script> -->
-<script type="text/javascript" src="/resources/js/angular/angular-animate.min.js"></script>
+<script type="text/javascript" src="/js/angular/angular-animate.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ng-dialog/0.5.6/js/ngDialog.min.js"></script>
 <script type="text/javascript" src="/js/imgzoom/jquery.magnify.js"></script>
 
@@ -86,11 +86,11 @@ app.controller('lotDetailCtl', function($scope, consts, common, bid, $interval, 
  		
  		//종료된 경매이고 로그인하지 않은 경우 메인페이지 이동(2018.06.12)
  		if($scope.sale_status == "END" && $scope.is_login == "false"){
-  	   		location.href="/"
+  	   		location.href="https://www.seoulauction.com"
   	   	}
   	   	//종료된 경매이고 로그인했지만 직원이 아닌경우 메인페이지 이동(2018.06.12)
   	  	if($scope.lot.NEXT_LOT_NO == null && $scope.sale_status == "END" && $scope.is_login == "true" && $scope.custInfo.EMP_GB != "Y"){
-  	   		location.href="/"
+  	   		location.href="https://www.seoulauction.com"
   	   	}
   	  	
  	    $scope.lot = data["tables"]["LOT"]["rows"][0];
@@ -254,7 +254,7 @@ var m_sImagePath ="";
 </script>
 
 
-<script type="text/javascript" src="/resources/js/bid.js?${resources.timestamp}"></script>
+<script type="text/javascript" src="/js/bid.js"></script>
 <script type="text/javascript">
 <!--
 function shareSns(snsType) {
@@ -854,7 +854,7 @@ function OnloadImg(){
 							</div> 
 							
 							
-                            <div class="title" > 
+                            <div class="title" >   
 								<div class="mat">  
 									<p ng-if="locale == 'ko'" class="inquiry_no_email">
 										<span ng-if="sale.SALE_NO != 422" class="inquiry_no_email_lang">     
@@ -1134,7 +1134,7 @@ Shipping : </br>
 									<button ng-if="custInfo.CUST_NO" ng-click="showBidHistoryPopup({'parent':this, 'sale':sale, 'lot':lot});" >
 										<spring:message code="label.go.bid.history" />
 									</button><!--온라인응찰기록 -->
-                                    <button ng-if="!custInfo.CUST_NO" type="button" onClick="location.href='/login'" >
+                                    <button ng-if="!custInfo.CUST_NO" type="button" onClick="location.href='https://www.seoulauction.com/login'" >
 										<spring:message code="label.go.bid.loginlog" />
 									</button>
 								</span> <!-- 온라인 / 종료 -->
@@ -1144,7 +1144,7 @@ Shipping : </br>
 									<button ng-if="custInfo.BID_FORBID == 'N' && custInfo.CUST_NO && ((custInfo.LOCAL_KIND_CD == 'foreigner' && custInfo.FORE_BID_YN == 'Y') || (custInfo.LOCAL_KIND_CD != 'foreigner'))" type="button" ng-click="showBidPopup({'parent':this, 'sale':sale, 'lot':lot});" class="btn_style01 xlarge2 green02 Online_bidbtn">
 										<spring:message code="label.go.bid.now" />
 									</button>  
-                                    <%-- <button ng-if="!custInfo.CUST_NO" type="button" onClick="location.href='/login'" >
+                                    <%-- <button ng-if="!custInfo.CUST_NO" type="button" onClick="location.href='https://www.seoulauction.com/login'" >
 										<spring:message code="label.go.bid.loginlog" />
 									</button> --%> 
 								</span> <!--온라인 / 진행중-->
@@ -1154,14 +1154,14 @@ Shipping : </br>
 									<button ng-if="custInfo.BID_FORBID == 'N' && custInfo.CUST_NO && ((custInfo.LOCAL_KIND_CD == 'foreigner' && custInfo.FORE_BID_YN == 'Y') || (custInfo.LOCAL_KIND_CD != 'foreigner'))" type="button" onClick="alert('와인 응찰은 서울옥션 담당자 또는 \n02-2075-4326으로 문의주시기 바랍니다. \n\nPlease contact ejlee@seoulauction.com for wine.')" class="btn_style01 xlarge2 green02 Online_bidbtn"> 
 										<spring:message code="label.go.bid.now" /> 
 									</button>
-                                    <%-- <button ng-if="!custInfo.CUST_NO" type="button" onClick="location.href='/login'" >
+                                    <%-- <button ng-if="!custInfo.CUST_NO" type="button" onClick="location.href='https://www.seoulauction.com/login'" >
 										<spring:message code="label.go.bid.loginlog" />  
 									</button> --%> 
 								</span> <!--온라인 / 진행중--> 
 								   
 								<span ng-show='lot.STAT_CD != "reentry"' class="btn_style01 xlarge2 green02"      
 									ng-if="!custInfo.CUST_NO">
-									<button ng-if="!custInfo.CUST_NO" type="button" onClick="location.href='/login'" >
+									<button ng-if="!custInfo.CUST_NO" type="button" onClick="location.href='https://www.seoulauction.com/login'" >
 										<spring:message code="label.go.bid.loginlog" /> 
 									</button>
 								</span> <!-- 정회원 국내 -->
@@ -1193,24 +1193,24 @@ Shipping : </br>
 									</span>
 								</a>
 								<span ng-show='lot.STAT_CD != "reentry"' class="btn_style01 xlarge2 green02 btn_bid" ng-if="lot_no==87 && lot.SALE_NO == 467">
-									<button type="button" onClick="location.href='/nas_img/front/online0467/Lot87_detail.pdf'" >
+									<button type="button" onClick="location.href='https://www.seoulauction.com/nas_img/front/online0467/Lot87_detail.pdf'" >
 										<span>세부작품보기</span>
 									</button>
 								</span> <!-- 정회원 국내 -->
 								<span ng-show='lot.STAT_CD != "reentry"' class="btn_style01 xlarge2 green02 btn_bid" ng-if="lot_no==88 && lot.SALE_NO == 467">
-									<button type="button" onClick="location.href='/nas_img/front/online0467/Lot88_detail.pdf'" >
+									<button type="button" onClick="location.href='https://www.seoulauction.com/nas_img/front/online0467/Lot88_detail.pdf'" >
 										<span>세부작품보기</span>
 									</button>
 								</span> <!-- 정회원 국내 -->
 								<span ng-show='lot.STAT_CD != "reentry"' class="btn_style01 xlarge2 green02 btn_bid" ng-if="lot_no==89 && lot.SALE_NO == 467">
-									<button type="button" onClick="location.href='/nas_img/front/online0467/Lot89_detail.pdf'" >
+									<button type="button" onClick="location.href='https://www.seoulauction.com/nas_img/front/online0467/Lot89_detail.pdf'" >
 										<span>세부작품보기</span>
 									</button>
 								</span> <!-- 정회원 국내 -->
 									
                                 
                                 <!-- VR -->
-                                <a href="/service/page?view=auction360VRPop_online1" target="_blank">
+                                <a href="https://www.seoulauction.com/service/page?view=auction360VRPop_online1" target="_blank">
 									<span class="btn_style01 xlarge2 white" ng-if="locale == 'ko' && lot.SALE_NO == 459">
 										<button type="button">
 											전시장보기
@@ -1223,7 +1223,7 @@ Shipping : </br>
 									</span>
 								</a>							
 								<!-- VR -->
-                                <a href="/service/page?view=auction360VRPop" target="_blank">
+                                <a href="https://www.seoulauction.com/service/page?view=auction360VRPop" target="_blank">
 									<span class="btn_style01 xlarge2 white" ng-if="locale == 'ko' && lot.SALE_NO == 442">
 										<button type="button">
 											전시장보기

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Seoul Auction LIVE</title>
 	<meta name="viewport" content="width=device-width, user-scalable=no">
-	<link rel="stylesheet" href="/resources/css/old/common.css?${resources.timestamp}" />
+	<link rel="stylesheet" href="/css/old/common.css" />
 	<!--  <link rel="stylesheet" href="/css/old/jquery.mCustomScrollbar.css" rel="stylesheet" /> -->
 	<script type="text/javascript" src="/html/live/jquery/jquery-2.1.1.min.js"></script>
 	<!--  <script type="text/javascript" src="/js/selectbox-min.js"></script> -->	

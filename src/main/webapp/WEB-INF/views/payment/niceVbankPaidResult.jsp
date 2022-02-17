@@ -9,7 +9,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
 <title>NICEPAY :: 결제 요청 결과</title>
 <link rel="stylesheet" href="/css/basic.css" type="text/css" />
-<link rel="stylesheet" href="/resources/css/style.css?${resources.timestamp}" type="text/css" />
+<link rel="stylesheet" href="/css/style.css" type="text/css" />
 </head>
 <body>
 <script>

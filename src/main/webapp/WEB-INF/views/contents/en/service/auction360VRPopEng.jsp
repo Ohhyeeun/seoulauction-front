@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Seoul Auction</title>
 
-   <link rel="stylesheet" href="/resources/css/sa.common.2.1.css?${resources.timestamp}" type="text/css"/>    
+   <link rel="stylesheet" href="/css/sa.common.2.1.css" type="text/css"/>    
    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" /> 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <!-- <link rel="stylesheet" type="text/css" href="/images/3DVR/style.css" /> -->

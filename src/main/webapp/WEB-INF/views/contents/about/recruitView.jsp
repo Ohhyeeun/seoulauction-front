@@ -6,7 +6,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <jsp:include page="../../include/header.jsp" flush="false"/>
 
-<script type="text/javascript" src="/resources/js/angular/paging.js?${resources.timestamp}"></script>
+<script type="text/javascript" src="/js/angular/paging.js"></script>
 <script>
 
 app.value('locale', 'ko');
@@ -69,7 +69,7 @@ app.controller("recuitListCtl", function($scope, consts, common, locale) {
 						<div class="title" ng-bind="recuitDetail.recruitment_title"></div>
 						<div class="info" ng-if="recuitDetail.recruitment_form_file_name_org != ''">
 							<strong>입사지원서 :</strong> 
-							<a class="recruit_btn" href="/nas_img/{{recuitDetail.recruitment_form_file_path}}/{{recuitDetail.recruitment_form_file_name}}">
+							<a class="recruit_btn" href="https://www.seoulauction.com/nas_img/{{recuitDetail.recruitment_form_file_path}}/{{recuitDetail.recruitment_form_file_name}}">
 								<strong>다운받기</strong>    
 							</a>  
 						</div>
@@ -85,7 +85,7 @@ app.controller("recuitListCtl", function($scope, consts, common, locale) {
                         	</p>
                         	<br>
                         	<br>
-                        	<img ng-if="recuitDetail.recruitment_img_file_path" src="/nas_img/{{recuitDetail.recruitment_img_file_path}}/{{recuitDetail.recruitment_img_file_name}}" alt="서울옥션 채용공고 이미지" title="서울옥션 채용공고 이미지" style="max-width: 100%; max-height: 100%;"> 
+                        	<img ng-if="recuitDetail.recruitment_img_file_path" src="https://www.seoulauction.com/nas_img/{{recuitDetail.recruitment_img_file_path}}/{{recuitDetail.recruitment_img_file_name}}" alt="서울옥션 채용공고 이미지" title="서울옥션 채용공고 이미지" style="max-width: 100%; max-height: 100%;"> 
 						</div> 
 					</div> 
 				</div>

@@ -23,32 +23,32 @@
 	<link rel="icon" type="image/png" href="/images/icon/favic/favicon-16x16.png" sizes="16x16"/>
 	<meta name="application-name" content="SeoulAuction" />
 	
-	<link href="<c:url value="/resources/css/old/common.css?${resources.timestamp}" />" rel="stylesheet">  
+	<link href="<c:url value="/css/old/common.css" />" rel="stylesheet">  
 	<link href="<c:url value="/css/old/onepcssgrid_live.css" />" rel="stylesheet"> 
-	<link href="<c:url value="/resources/css/sa.common.2.0.css?${resources.timestamp}" />" rel="stylesheet"> 
-	<link href="<c:url value="/resources/css/bidLivepop.css?${resources.timestamp}" />" rel="stylesheet"> 
+	<link href="<c:url value="/css/sa.common.2.0.css" />" rel="stylesheet"> 
+	<link href="<c:url value="/css/bidLivepop.css" />" rel="stylesheet"> 
 	
-	<script type="text/javascript" src="/resources/js/angular/angular.min.js"></script>
-	<script src="/resources/js/angular/angular-sanitize.js"></script>
-	<script type="text/javascript" src="<c:url value="/resources/js/angular/angular-bind-html-compile.js" />"></script>
-	<script type="text/javascript" src="<c:url value="/resources/js/angular/app.js?${resources.timestamp}" />"></script>
-	<script type="text/javascript" src="<c:url value="/resources/js/common.js?${resources.timestamp}" />"></script>
+	<script type="text/javascript" src="/js/angular/angular.min.js"></script>
+	<script src="/js/angular/angular-sanitize.js"></script>
+	<script type="text/javascript" src="<c:url value="/js/angular/angular-bind-html-compile.js" />"></script>
+	<script type="text/javascript" src="<c:url value="/js/angular/app.js" />"></script>
+	<script type="text/javascript" src="<c:url value="/js/common.js" />"></script>
 	
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.js" ></script>
-	<script type="text/javascript" src="/resources/js/jquery.easing.1.3.js"></script>
-	<script type="text/javascript" src="/resources/js/jquery.panzoom.min.js"></script>
-	<script type="text/javascript" src="/resources/js/jquery.slides.min.js"></script>
-	<script type="text/javascript" src="/resources/js/jquery.placeholder.min.js"></script>
-	<script type="text/javascript" src="/resources/js/jquery.nicefileinput.min.js"></script>
-	<script type="text/javascript" src="/resources/js/jquery.mousewheel.min.js"></script>
-	<script type="text/javascript" src="/resources/js/jquery.mobile-events.js"></script>
-	<script type="text/javascript" src="/resources/js/iscroll.js"></script>
-	<script type="text/javascript" src="/resources/js/old/ui.js?${resources.timestamp}"></script>
-	<script type="text/javascript" src="/resources/js/old/frontCommon.js"></script>
+	<script type="text/javascript" src="/js/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="/js/jquery.panzoom.min.js"></script>
+	<script type="text/javascript" src="/js/jquery.slides.min.js"></script>
+	<script type="text/javascript" src="/js/jquery.placeholder.min.js"></script>
+	<script type="text/javascript" src="/js/jquery.nicefileinput.min.js"></script>
+	<script type="text/javascript" src="/js/jquery.mousewheel.min.js"></script>
+	<script type="text/javascript" src="/js/jquery.mobile-events.js"></script>
+	<script type="text/javascript" src="/js/iscroll.js"></script>
+	<script type="text/javascript" src="/js/old/ui.js"></script>
+	<script type="text/javascript" src="/js/old/frontCommon.js"></script>
 </head>
 
 <%-- YDH 추가 시작--%>
-<script type="text/javascript" src="/resources/js/angular/paging.js?${resources.timestamp}"></script>
+<script type="text/javascript" src="/js/angular/paging.js"></script>
 
 <script>
 	app.value('locale', 'ko');
@@ -650,12 +650,12 @@
 							
 							<!-- 경매 시작/마감 & 경매 문구 입력(직원용)-->		 			
 						  	<div ng-if="!custInfo.CUST_NO" class="clearfix bid_live_edit_login_box">   
-					  			<button type="button" onClick="location.href='/login'">  
+					  			<button type="button" onClick="location.href='https://www.seoulauction.com/login'">  
 									<spring:message code="label.go.bid.loginlog" />
 								</button> 
 						  	</div> 
-						  	<!-- 김소정 선임 : foggywish -->
-						  	<div ng-if="custInfo.CUST_NO != null && custInfo.EMP_GB == 'Y' && (['ynjang', 'yeeun0210', 'hajenuri', 'cotndus3', 'eunmi1235', 'jeonghyhy', 'rpa2080','tlfk5745', 'foggywish'].indexOf(custInfo.LOGIN_ID) > -1)">
+						  	<!-- 김소정 선임 : foggywish, 서희륜 선임 : hanasuh -->
+						  	<div ng-if="custInfo.CUST_NO != null && custInfo.EMP_GB == 'Y' && (['ynjang', 'yeeun0210', 'hajenuri', 'cotndus3', 'eunmi1235', 'jeonghyhy', 'rpa2080','tlfk5745', 'foggywish', 'hanasuh'].indexOf(custInfo.LOGIN_ID) > -1)">
 								<div class="col7 last" style="width: auto; text-align:center; margin-top: 20px;">   
 									<!-- Lot동기화는 LOT의 시작과 마감을 모두 처리. -->
 									<div style="padding-bottom:10px;"> 

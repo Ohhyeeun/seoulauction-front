@@ -7,8 +7,8 @@
 <jsp:include page="../include/header.jsp" flush="false"/>
 
 <link href="/css/angular/ngDialog.min.css" rel="stylesheet">
-<link href="/resources/css/angular/popup.css" rel="stylesheet">
-<script type="text/javascript" src="/resources/js/angular/paging.js?${resources.timestamp}"></script>
+<link href="/css/angular/popup.css" rel="stylesheet">
+<script type="text/javascript" src="/js/angular/paging.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ng-dialog/0.5.6/js/ngDialog.min.js"></script>
 
 <script type="text/javascript">  
@@ -118,10 +118,10 @@ app.controller('offlineBidHistoryCtl', function($scope, common, locale) {
 											<!-- <div class="customer_bidlist_img" oncontextmenu="return false" ondragstart="return false" style="text-align: center;"> -->
 											<div class="customer_bidlist_img" style="text-align: center;">  
 												<a ng-if="bid.lot.TO_DT > dbDate || custInfo.EMP_GB == 'Y'" ng-href="/lotDetail?sale_no={{bid.sale.SALE_NO}}&lot_no={{bid.lot.LOT_NO}}&view_type=GRID" target="_blank">
-													<img src="{{'/nas_img'+bid.lot.FILE_PATH+'/'+bid.lot.FILE_NAME}}" alt="{{bid.lot.LOT_TITLE_JSON[locale]}}" style="max-width:100px; max-height: 100px;" ondragstart="return false" />
+													<img src="{{'https://www.seoulauction.com/nas_img'+bid.lot.FILE_PATH+'/'+bid.lot.FILE_NAME}}" alt="{{bid.lot.LOT_TITLE_JSON[locale]}}" style="max-width:100px; max-height: 100px;" ondragstart="return false" />
 												</a>
 												<a ng-if="bid.lot.TO_DT < dbDate && custInfo.EMP_GB == 'N'"  target="_blank">
-													<img src="{{'/nas_img'+bid.lot.FILE_PATH+'/'+bid.lot.FILE_NAME}}" alt="{{bid.lot.LOT_TITLE_JSON[locale]}}" style="max-width:100px; max-height: 100px;" ondragstart="return false" />
+													<img src="{{'https://www.seoulauction.com/nas_img'+bid.lot.FILE_PATH+'/'+bid.lot.FILE_NAME}}" alt="{{bid.lot.LOT_TITLE_JSON[locale]}}" style="max-width:100px; max-height: 100px;" ondragstart="return false" />
 												</a>
 											</div>         
 										</div>    
@@ -164,7 +164,7 @@ app.controller('offlineBidHistoryCtl', function($scope, common, locale) {
 													<col width="*" />    
 													<col width="*" /> 
 													<col width="80px" />  
-												</colgroup>  
+												</colgroup> 
 												<thead style="position: sticky; top: 0;">  
 													<tr>   
 														<th scope="col">

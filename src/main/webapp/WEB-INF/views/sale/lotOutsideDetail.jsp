@@ -5,16 +5,16 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <jsp:include page="../include/header.jsp" flush="false"/>
-<link href="/resources/css/angular/ng-animation.css" rel="stylesheet">
+<link href="/css/angular/ng-animation.css" rel="stylesheet">
 <link href="/css/angular/ngDialog.min.css" rel="stylesheet">
-<link href="/resources/css/angular/popup.css" rel="stylesheet">
+<link href="/css/angular/popup.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-duration-format/1.3.0/moment-duration-format.min.js"></script>
 <link type="text/css" href="/css/imgzoom/jquery.magnify.css" rel="stylesheet">
 <link type="text/css" href="/css/imgzoom/magnify-bezelless-theme.css" rel="stylesheet">
 
 <!--  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-animate.min.js"></script> -->
-<script type="text/javascript" src="/resources/js/angular/angular-animate.min.js"></script>
+<script type="text/javascript" src="/js/angular/angular-animate.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ng-dialog/0.5.6/js/ngDialog.min.js"></script>
 <script type="text/javascript" src="/js/imgzoom/jquery.magnify.js"></script>  
 
@@ -86,11 +86,11 @@ app.controller('lotDetailCtl', function($scope, consts, common, bid, $interval, 
  		}
  		//종료된 경매이고 로그인하지 않은 경우 메인페이지 이동(2018.06.12)
  		if($scope.sale_status == "END" && $scope.is_login == "false"){
-  	   		location.href="/"
+  	   		location.href="https://www.seoulauction.com"
   	   	}
   	   	//종료된 경매이고 로그인했지만 직원이 아닌경우 메인페이지 이동(2018.06.12)
   	  	if($scope.sale_status == "END" && $scope.is_login == "true" && $scope.custInfo.EMP_GB != "Y"){
-  	   		location.href="/"
+  	   		location.href="https://www.seoulauction.com"
   	   	}
   	  	
  	    $scope.lot = data["tables"]["LOT"]["rows"][0];
@@ -254,7 +254,7 @@ var m_sImagePath =""; */
 </script>
 
 
-<script type="text/javascript" src="/resources/js/bid.js?${resources.timestamp}"></script>
+<script type="text/javascript" src="/js/bid.js"></script>
 <script type="text/javascript">
 <!--
 function shareSns(snsType) {
@@ -760,7 +760,7 @@ function OnloadImg(){
                             </div> -->
 							
                             <div class="title"> 
-								<div class="mat"> 
+								<div class="mat">  
                                     <p ng-if="locale == 'ko'" class="inquiry_no_email"> 
                                     	<span ng-if="sale.SALE_NO == '669'" class="inquiry_no_email_lang">  
                                     		<!-- <span>
@@ -781,7 +781,7 @@ function OnloadImg(){
 												<a href="tel:02-2075-4391">02-2075-4391</a> / <a href="mailto:ujin0618@seoulauction.com">ujin0618@seoulauction.com</a>
 											</span> 
 	                                    	<!-- <span style="margin-top: 20px;">    
-		                                    	<a href="/" target="_blank">  
+		                                    	<a href="https://www.seoulauction.com" target="_blank">  
 		                                        	<strong><span style="color:#62c3bc;">▶ 아트시 응찰하기</span></strong> 
 		                                        </a>
 		                                    </span> -->  
@@ -809,7 +809,7 @@ function OnloadImg(){
 												<a href="mailto:ujin0618@seoulauction.com">ujin0618@seoulauction.com</a> / <a href="tel:02-2075-4391">02-2075-4391</a>
 											</span> 
 	                                    	<!-- <span style="margin-top: 20px;">    
-		                                    	<a href="/" target="_blank">   
+		                                    	<a href="https://www.seoulauction.com" target="_blank">   
 		                                        	<strong><span style="color:#62c3bc;">▶ Bid on Artsy</span></strong> 
 		                                        </a>
 		                                    </span> --> 

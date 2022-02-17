@@ -50,7 +50,7 @@
 									<span class="sp_icon bul_answer"><span class="hidden">A</span></span>
 									<div>art@seoulauction.com<br/>Please send the types of information listed below to art@seoulauction.com. The information you provide will be conveyed to the respective specialist, who will provide you with the relevant details.<br/>
                                     1. Name 2. Phone number 3. Title of artwork 4. Size of artwork 5. Description of how the artwork came into your possession 6. Photos of artwork (full and partial views, showing the signature, important parts, etc.) <br/>
-                                    Please refer to the consignment guidelines page for further information. &nbsp;&nbsp;<a href="/auctionGuide/page?view=commissionGuide&lang=en" style="border:solid 1px #999999; color:#666; padding:3px;">Consignment</a></div>   
+                                    Please refer to the consignment guidelines page for further information. &nbsp;&nbsp;<a href="https://www.seoulauction.com/auctionGuide/page?view=commissionGuide&lang=en" style="border:solid 1px #999999; color:#666; padding:3px;">Consignment</a></div>   
 								</div>  
 							</li>					
 							

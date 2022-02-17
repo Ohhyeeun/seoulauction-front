@@ -6,9 +6,9 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <jsp:include page="../include/header.jsp" flush="false"/>
 <link href="/css/angular/rzslider.css" rel="stylesheet">
-<link href="/resources/css/angular/ngDialog.css" rel="stylesheet">
-<link href="/resources/css/angular/popup.css" rel="stylesheet">
-<script type="text/javascript" src="/resources/js/angular/paging.js?${resources.timestamp}"></script>
+<link href="/css/angular/ngDialog.css" rel="stylesheet">
+<link href="/css/angular/popup.css" rel="stylesheet">
+<script type="text/javascript" src="/js/angular/paging.js"></script>
 <script type="text/javascript" src="/js/angular/rzslider.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-duration-format/1.3.0/moment-duration-format.min.js"></script>
@@ -177,7 +177,7 @@ app.controller('lotListCtl', function($scope, consts, common, bid, $interval, is
  		$("body, html").stop().animate({scrollTop : 0}, 0);  
  		<c:choose>
 	 		<c:when test="${VIEW_ID == 'CURRENT_EXHIBIT'}">   
- 				$scope.sale_status = "ING";      
+ 				$scope.sale_status = "ING";   
 	 			$scope.loadSaleMenuList();  
 	 		</c:when> 
  			<c:when test="${VIEW_ID == 'RESULT_LOT_LIST'}">
@@ -786,7 +786,7 @@ app.controller('lotListCtl', function($scope, consts, common, bid, $interval, is
 	});
 });
 </script>
-<script type="text/javascript" src="/resources/js/bid.js?${resources.timestamp}"></script>
+<script type="text/javascript" src="/js/bid.js"></script>
 <body>
 <jsp:include page="../include/topSearch.jsp" flush="false"/>
 <div id="wrap" class="noexhibition">
@@ -846,10 +846,10 @@ app.controller('lotListCtl', function($scope, consts, common, bid, $interval, is
 		                                            <button type="button" name="Blacklot" value="Blacklot" align="center" scrolling="no" onClick="window.open('https://www.blacklot.com')">BLACKLOT</button>   
 		                                        </span>
                                             	<%-- <span class="btn_style01 dark" ng-if="sale.SALE_NO == '485'"> 
-                                                	<button type="button" name="SA+" value="SA+" align="center" scrolling="no" onClick="window.open('/about/page?view=saplus')"; >SA+ EXHIBITION</button>
+                                                	<button type="button" name="SA+" value="SA+" align="center" scrolling="no" onClick="window.open('https://www.seoulauction.com/about/page?view=saplus')"; >SA+ EXHIBITION</button>
 	                                            </span>
 	                                           	<span class="btn_style01 dark" ng-if="sale.SALE_NO == '480'">
-													<button type="button" name="Gangnam" value="Gangnam" align="center" scrolling="no" onClick="window.open('/about/page?view=gnExhibition')"; >Gangnam Center</button> 
+													<button type="button" name="Gangnam" value="Gangnam" align="center" scrolling="no" onClick="window.open('https://www.seoulauction.com/about/page?view=gnExhibition')"; >Gangnam Center</button> 
 	                                            </span> 
 	                                           	<span class="btn_style01 orange01" ng-if="sale.SALE_NO == '485'">
 	                                                <button type="button" name="EXHIBITION" value="EXHIBITION" align="center" scrolling="no" onClick="window.open('${contextPath}/service/page?view=auction360VRPop_online2')"; >EXHIBITION-VR</button>
@@ -863,11 +863,11 @@ app.controller('lotListCtl', function($scope, consts, common, bid, $interval, is
 		                                        </span>  
                                                 <!-- 로얄샬루트 Notice -->   
 		                                        <span class="btn_style01 dark" ng-if="sale.SALE_NO == '617'">    
-		                                            <button type="button" name="EXHIBITION" value="EXHIBITION" align="center" scrolling="no" onClick="window.open('/noticeView?write_no=3926')"; >NOTICE</button>  
+		                                            <button type="button" name="EXHIBITION" value="EXHIBITION" align="center" scrolling="no" onClick="window.open('https://www.seoulauction.com/noticeView?write_no=3926')"; >NOTICE</button>  
 		                                        </span>
                                                 <!-- 도록보기 이북 --> 
                                                 <span class="btn_style01 dark" ng-if="viewId == 'CURRENT_EXHIBIT' && sale.SALE_NO == '637'"> 
-                                                    <button type="button" ng-if="viewId == 'CURRENT_EXHIBIT' && sale.SALE_NO == '637'" name=" CATALOGUE" value=" CATALOGUE" align="center" scrolling="no" onClick="window.open('/nas_img/front/homepage/e-book/mariKim/index.html')"; >CATALOGUE</button>    
+                                                    <button type="button" ng-if="viewId == 'CURRENT_EXHIBIT' && sale.SALE_NO == '637'" name=" CATALOGUE" value=" CATALOGUE" align="center" scrolling="no" onClick="window.open('https://www.seoulauction.com/nas_img/front/homepage/e-book/mariKim/index.html')"; >CATALOGUE</button>    
                                                 </span> --%> 
                                             </div>
                                         </div>
@@ -924,10 +924,10 @@ app.controller('lotListCtl', function($scope, consts, common, bid, $interval, is
                                         </span>    
                                         									 
                                         <%-- <span class="btn_style01 dark" ng-if="sale.SALE_NO == '485'">
-											<button type="button" name="SA+" value="SA+" align="center" scrolling="no" onClick="window.open('/about/page?view=saplus')"; >SA+ EXHIBITION</button>
+											<button type="button" name="SA+" value="SA+" align="center" scrolling="no" onClick="window.open('https://www.seoulauction.com/about/page?view=saplus')"; >SA+ EXHIBITION</button>
                                         </span>
                                         <span class="btn_style01 dark"  ng-if="sale.SALE_NO == '480'">
-											<button type="button" name="Gangnam" value="Gangnam" align="center" scrolling="no" onClick="window.open('/about/page?view=gnExhibition')"; >Gangnam Center</button>
+											<button type="button" name="Gangnam" value="Gangnam" align="center" scrolling="no" onClick="window.open('https://www.seoulauction.com/about/page?view=gnExhibition')"; >Gangnam Center</button>
                                         </span> 
                                         <span class="btn_style01 orange01" ng-if="sale.SALE_NO == '485'">
                                             <button type="button" name="EXHIBITION" value="EXHIBITION" align="center" scrolling="no" onClick="window.open('${contextPath}/service/page?view=auction360VRPop_online2')"; >EXHIBITION-VR</button>
@@ -941,13 +941,13 @@ app.controller('lotListCtl', function($scope, consts, common, bid, $interval, is
                                         </span>    
                                         <!-- 로얄샬루트 Notice -->   
                                         <span class="btn_style01 dark" ng-if="sale.SALE_NO == '617'">    
-                                            <button type="button" name="Royalsaluteart" value="Royalsaluteart" align="center" scrolling="no" onClick="window.open('/noticeView?write_no=3926')"; >NOTICE</button>  
+                                            <button type="button" name="Royalsaluteart" value="Royalsaluteart" align="center" scrolling="no" onClick="window.open('https://www.seoulauction.com/noticeView?write_no=3926')"; >NOTICE</button>  
                                         </span>  
                                          
                                         
                                         <!-- 도록보기 이북 -->  
                                         <span class="btn_style01 dark" ng-if="viewId == 'CURRENT_EXHIBIT' && sale.SALE_NO == '637'"> 
-                                            <button type="button" ng-if="viewId == 'CURRENT_EXHIBIT' && sale.SALE_NO == '637'" name=" CATALOGUE" value=" CATALOGUE" align="center" scrolling="no" onClick="window.open('/nas_img/front/homepage/e-book/mariKim/index.html')"; >CATALOGUE</button>    
+                                            <button type="button" ng-if="viewId == 'CURRENT_EXHIBIT' && sale.SALE_NO == '637'" name=" CATALOGUE" value=" CATALOGUE" align="center" scrolling="no" onClick="window.open('https://www.seoulauction.com/nas_img/front/homepage/e-book/mariKim/index.html')"; >CATALOGUE</button>    
                                         </span> --%> 
                                     </div> 
 								</dl> 

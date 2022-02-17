@@ -31,10 +31,11 @@
 			</td>
 		</tr>
 		<tr>
-			<th scope="row"><label><spring:message code="label.mem.interartist" /></label></th>
+			<th scope="row"><label for=""><spring:message code="label.mem.interartist" /></label></th>
 			<td>
 				<div class="fl_wrap"> 
-					<div class="Favorite_ArtistBox">
+					<div class="Favorite_ArtistBox"> 
+<%-- 						<input type="text" name="" id="interestArtist" placeholder="<spring:message code="label.mem.5interartist" />" readonly="readonly" ng-value="getInterestArtistNames();" /> --%>
 						<div id="inteArtistNames" class="Favorite_ArtistContent"></div>   
 						<input type="hidden" name="interestArtist" id="interestArtistReal" /> 
 						<span class="btn_style01 gray02">

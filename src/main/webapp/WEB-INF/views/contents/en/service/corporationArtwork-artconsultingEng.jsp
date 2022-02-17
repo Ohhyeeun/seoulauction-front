@@ -64,14 +64,14 @@
 	                            <img src="/images/img/artcon/artconsulting.jpg" alt="banner" style="width:100%;"/>
 	                        </div> 
                         </div> 
-					</div> 
+					</div>  
 					
 					<div class="box_gray type01">   
 						<div class="contact"> 
-							<div class="title">문의 Contact</div>
+							<div class="title">Contact</div>  
 							<div class="info">   
-								<div class="highlight">Associate Manager / Marketing Team <strong>H.H KIM</strong></div> 
-								<div class="tel"><strong class="tit">Tel</strong><span>+82-2-2075-4435</span></div>
+								<div class="highlight">PR & Marketing <strong>H.H KIM</strong></div>  
+								<div class="tel"><strong class="tit">Tel</strong><a href="tel:+82 (0)2-2075-4435"><span>+82 (0)2-2075-4435</span></a></div>  
 								<div class="email"><strong class="tit">E-mail</strong><a href="mailto:hyunhee@seoulauction.com">hyunhee@seoulauction.com</a></div>
 							</div> 
 						</div>

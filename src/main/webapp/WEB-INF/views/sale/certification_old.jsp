@@ -101,18 +101,18 @@
 				<td colspan="9" height="430" align="center" valign="middle">
 					<!-- <c:choose>
 						<c:when test="${fn:substring(artwork.acode, 0, 2) == 'MA'}">
-							<c:set var="url" value="/auction_works_images/auction/${artwork.acode}/${artwork.img_filename}" scope="request"/>
+							<c:set var="url" value="https://www.seoulauction.com/auction_works_images/auction/${artwork.acode}/${artwork.img_filename}" scope="request"/>
 						</c:when>
 						<c:otherwise>
-							<c:set var="url" value="/auction_works_images/artmarket/${artwork.acode}/${artwork.img_filename}" scope="request"/>
+							<c:set var="url" value="https://www.seoulauction.com/auction_works_images/artmarket/${artwork.acode}/${artwork.img_filename}" scope="request"/>
 						</c:otherwise>
 					</c:choose> -->
-					<!-- <img src="/nas_img/${artwork.img_filename}?url=${url}&maxWidth=500&maxHeight=350" align="center" valign="middle"> -->
+					<!-- <img src="https://www.seoulauction.com/nas_img/${artwork.img_filename}?url=${url}&maxWidth=500&maxHeight=350" align="center" valign="middle"> -->
 					<!--  <iframe src="https://old-office.seoulauction.com/Report/WorkReport_Warranty_Img.asp?strImg=${url}" width=500 height=400 scrolling="no" frameborder=0 z-index="-20" align="center" valign="middle"></iframe> -->
-					 <!--  <img src="/nas_img${lotInfo.LOT_IMG_PATH}/${lotInfo.LOT_IMG_NAME}" width=500 height=400 scope="request"/> -->
-					 <!--  <iframe src="/nas_img${lotInfo.LOT_IMG_PATH}/${lotInfo.LOT_IMG_NAME}" width=500 height=400 scrolling="no" frameborder=0 z-index="-20" align="center" valign="middle"></iframe> -->
+					 <!--  <img src="https://www.seoulauction.com/nas_img${lotInfo.LOT_IMG_PATH}/${lotInfo.LOT_IMG_NAME}" width=500 height=400 scope="request"/> -->
+					 <!--  <iframe src="https://www.seoulauction.com/nas_img${lotInfo.LOT_IMG_PATH}/${lotInfo.LOT_IMG_NAME}" width=500 height=400 scrolling="no" frameborder=0 z-index="-20" align="center" valign="middle"></iframe> -->
 					 
-					 <c:set var="url" value="/nas_img${lotInfo.LOT_IMG_PATH}/${lotInfo.LOT_IMG_NAME}" scope="request"/>
+					 <c:set var="url" value="https://www.seoulauction.com/nas_img${lotInfo.LOT_IMG_PATH}/${lotInfo.LOT_IMG_NAME}" scope="request"/>
 					 <iframe src="http://old-office.seoulauction.com/Report/WorkReport_Warranty_Img.asp?strImg=${url}" width=500 height=400 scrolling="no" frameborder=0 z-index="-20" align="center" valign="middle"></iframe>
 
 				</td>

@@ -520,7 +520,7 @@
                 <li><strong class="txt_impo02">[1회 응찰] 또는 [자동 응찰] 버튼을 누르시면 '확인안내 없이' 바로 응찰이 되어 취소가 불가능합니다.</strong></li>
 				<li><strong class="txt_impo02">남은 시간 1초 미만 시 응찰은 서버 반영 전 종료 될 수 있으니, 주의가 필요합니다.</strong></li>
 				<li>[자동 응찰 중지하기]는 자동 응찰 '취소가 아닙니다'. 응찰자가 자동응찰을 중지하는 경우 중지 전까지의 응찰 및 낙찰은 유효합니다. 또한 자동응찰의 중지는 서버에 반영이 되는 시점에 효력이 발생하므로, <strong class="txt_impo02">응찰자가 중지버튼을 클릭한 시점보다 더 높은 금액에 중지되고 이 금액에 낙찰 될 수 있습니다.</strong></li>
-                <li>서울옥션 경매 약관 <a href="/terms/page?view=auctionTerms" target="new" style="color:#00F">바로가기</a></li>
+                <li>서울옥션 경매 약관 <a href="https://www.seoulauction.com/terms/page?view=auctionTerms" target="new" style="color:#00F">바로가기</a></li>
 			</ul>
 			
 			<ul style="font-size:12px;" ng-if="locale != 'ko'">
@@ -533,7 +533,7 @@
                 <li><strong class="txt_impo02">If you click on the “Single Bid” or “Automatic Bid” button, your bid will be made “without confirmation” and thus cannot be cancelled.</strong></li>
 				<li><strong class="txt_impo02">If there is less than one second left before the closing time, access to the auction server may be terminated before a bid can be reflected. Please take this into account and exercise caution when making a last-minute bid.</strong></li>
 				<li>Clicking on the “Cease Automatic Bid” button does not mean to cancel an automatic bid. Even though the bidder ceases his or her automatic bid, any (successful) bid will remain valid before it reflects. The cessation of an automatic bid goes into effect the moment it is registered on the server. Therefore, <strong class="txt_impo02">automatic bidding may stop at a bid price that is higher than the bid price at the moment the “Cease Automatic Bid” button was clicked by the user, and the bid made at this higher bid price could end up being the successful bid.</strong></li>
-                <li> <a href="/terms/page?view=auctionTerms" target="new" style="color:#00F">Go to</a> Seoul Auction’s Terms</li>
+                <li> <a href="https://www.seoulauction.com/terms/page?view=auctionTerms" target="new" style="color:#00F">Go to</a> Seoul Auction’s Terms</li>
 			</ul>
 
 		</div> -->

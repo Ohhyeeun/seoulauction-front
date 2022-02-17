@@ -3,12 +3,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <jsp:include page="../include/header.jsp" flush="false" />
-<link href="<c:url value="/resources/css/sa.common.2.1.css?${resources.timestamp}" />" rel="stylesheet">
+<link href="<c:url value="/css/sa.common.2.1.css" />" rel="stylesheet">
 <%-- YDH 추가 시작--%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<script type="text/javascript" src="/resources/js/angular/paging.js?${resources.timestamp}"></script>
+<script type="text/javascript" src="/js/angular/paging.js"></script>
 <!-- script 추가 -->
 <style>
 	body, html{
@@ -127,7 +127,7 @@
 						<div class="zero_subimg_txtwrap"> 
 							<span style="line-height:20px; color:#00acac;">  
 									<c:if test="${locale == 'ko'}">서울옥션</c:if> 
-									<span><c:if test="${locale != 'ko'}">SeoulAuction</c:if></span> 
+									<span><c:if test="${locale != 'ko'}">SeoulAuction</c:if></span>
 							</span>
 								<div class="zero_h1">
 									<c:if test="${locale == 'ko'}">ZERO BASE</c:if>

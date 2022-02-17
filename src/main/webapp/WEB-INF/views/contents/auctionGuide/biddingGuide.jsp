@@ -186,7 +186,7 @@
                                 </p>
 							</div>
 							<div class="list_style01" style="color:#F60;">
-								<ul> 
+								<ul>
 									<li>당사는 경매물품을 있는 그대로 출품합니다.</li>
 									<li>경매되는 작품상태에 대한 보증은 경매 시점의 상태에 준합니다.</li>
 									<li>전시를 통해 작품의 실물을 확인하였음을 전제로 진행합니다. </li>
@@ -271,7 +271,7 @@
 								<h3>오프라인 응찰예약 안내</h3>
 								<p style="line-height:30px; font-size:16px;">오프라인 경매 참여 시, 미리 경매참여 예약을 하실 수 있습니다.</p>
 							</div>
-							<div class="list_style03" style="line-height:30px; font-size:16px;">
+							<div class="list_style03" style="line-height:30px; font-size:16px;"> 
 								<ul>
 									<li>
 										<div class="tit">응찰등록신청서 제출</div>									
@@ -327,8 +327,7 @@
                                             <strong>국내 경매</strong>
                                             <div class="list_style01">
                                                 <ul>
-                                                    <li>일괄 15% (부가세 별도)
-    </li>
+                                                    <li>일괄 18% (부가세 별도)</li> 
                                                     
                                                 </ul>
                                             </div>										
@@ -336,7 +335,7 @@
                                         <li>
                                             <strong>홍콩 경매</strong>
                                             <div class="list_style01">
-                                                <ul>
+                                                <ul> 
                                                     <li>일괄 18%</li>
                                                 </ul>
                                             </div>										

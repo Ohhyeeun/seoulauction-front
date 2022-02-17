@@ -137,15 +137,15 @@
 						<div class="num_cont">
 							<div class="num odd">3</div>
 							<div class="tit_h3">
-								<h3>심의</h3>
+								<h3>심의</h3> 
 								<p style="line-height:30px; font-size:16px;">접수된 작품은 각 파트별 스페셜리스트를 통해 서면심의가 진행되며 접수일로부터 7일정도에 보내주신 이메일 또는 1대1문의로 결과를 통보하게 됩니다.</p>
-							</div>
+							</div> 
 							<div class="list_style03 type03">
 								<ul>
 									<li><strong>위탁문의 이메일</strong><span> : <a href="mailto:art@seoulauction.com">art@seoulauction.com</a></span></li>
-									<li><strong>대표전화</strong><span> : 02-395-0330 미술품경매팀</span></li>
+									<li><strong>대표전화</strong><span> : <a href="tel:02-395-0330">02-395-0330</a> 미술품경매팀</span></li>  
                                     <!-- <li><strong>미술경매팀 근현대 이현희 팀장</strong><span> : 02-2075-4437 / <a href="mailto:leehh@seoulauction.com">leehh@seoulauction.com</a></span></li> -->
-                                    <li><strong>미술경매팀 음정우 이사</strong><span> : 02-2075-4436 / <a href="mailto:eumman@seoulauction.com">eumman@seoulauction.com</a></span></li>
+                                    <li><strong>미술경매팀 경매1팀 정태희 팀장</strong><span> : <a href="tel:02-2075-4480">02-2075-4480</a> / <a href="mailto:jth2319@seoulauction.com">jth2319@seoulauction.com</a></span></li> 
 								</ul>  
 							</div> 
 						</div>

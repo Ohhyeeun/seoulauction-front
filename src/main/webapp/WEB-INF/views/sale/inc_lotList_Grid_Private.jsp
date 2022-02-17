@@ -10,7 +10,7 @@
 											<div class="img" align="center"> 
 												<div class="img_w">
                                 					<a ng-href="/lotDetailPrivate?SALE_AS_NO={{asList.SALE_AS_NO}}">  
-														<img ng-src="/nas_img/{{asList.AS_IMG_PATH}}/{{asList.AS_IMG_NAME}}" / style="max-width: 100%; max-height: 300px;">
+														<img ng-src="https://www.seoulauction.com/nas_img/{{asList.AS_IMG_PATH}}/{{asList.AS_IMG_NAME}}" / style="max-width: 100%; max-height: 300px;">
 													</a>
 												</div>
 											</div><!-- //img -->      

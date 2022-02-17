@@ -1,0 +1,156 @@
+@CHARSET "UTF-8";
+*{
+	font-family: 'Malgun Gothic' !important;
+}
+.header-wrap{
+	position: relative;
+    top: 10;
+    max-width: 730px;
+    height: 150px;
+    clear: both;
+    background-image: url(/images/krx_imgs/img04.png);
+    background-repeat: no-repeat;
+    background-size: 110px;
+    background-position: 97% 100%;
+    font-size: 30px;
+    color: #333333;
+    font-weight: bold;
+    padding-left: 10px;
+}
+.header-wrap span{
+	font-size: 15px;
+	padding-left:10px;
+}
+
+.header-wrap .time_img{
+	padding-left:5px;
+	vertical-align: middle;
+    display: inline-table;
+    width: 15px;
+    height: 15px;
+    background-image: url(/images/krx_imgs/img05.png);
+    background-repeat: no-repeat;
+}
+
+.header-wrap #query_time {
+	padding-left: 0px;
+}
+
+.body-wrap{
+	position: relative;
+    max-width: 730px;
+    height: 80%;
+    clear: both;
+}
+
+.data-lists dl dt{
+	padding-left:5px;
+	font-weight: bold;
+}
+
+.data-lists dl dt span{
+	background-image: url(/images/krx_imgs/img03.png);
+    background-repeat: no-repeat;
+    background-size: 12px;
+    background-position: 0px 0px;
+    width: 15px;
+    height: 22px;
+    display: inline-block;
+    vertical-align: middle;
+    padding-right:5px;
+}
+
+.data-lists dl dd{
+	margin: 0;
+}
+
+#chart1{
+    margin: 0px 20px;
+}
+
+#chart1_legend{
+	margin-top:15px;
+	text-align:right;
+	padding-right:5px;
+	font-size: 93%;
+}
+
+#chart1_legend ul{
+	padding-left: 480px;
+	margin: 0px;
+}
+
+#chart1_legend ul li{
+	list-style: none;
+	display: inline;
+	padding-left: 5px
+}
+
+#chart1_legend ul li span{
+	display: inline-block;
+    position: relative;
+    width: 12px;
+    height: 12px;
+    margin-right: 5px;
+}
+
+#balance, #income_statement, #cash_flow{
+	position: relative;
+    width: 100%;
+    margin: 20px 0;
+    border-bottom: 1px solid #dbdbdb;
+    border-spacing: 0;
+    border-top: 1px solid #495776;
+    border-right: hidden;
+}
+#balance tr th, #income_statement tr th, #cash_flow tr th{
+    padding: 9px 7px;
+    font-weight: normal;
+    background-color: #495776;
+    color: #fff;
+    border-left: 1px solid #495776;
+    border-top: 1px solid #495776;
+    font-size: 93%;
+}
+
+#balance tr th span, #income_statement tr th span, #cash_flow tr th span{
+    font-size: 83%;
+}
+
+#balance tr td:first-child, #income_statement tr td:first-child, #cash_flow tr td:first-child{
+	
+	padding: 9px 10px;
+    font-weight: normal;
+    background-color: #ffffff;
+    border-left: 1px solid #dbdbdb;
+    border-top: 1px solid #dbdbdb;
+    text-align:center;
+    font-size: 93%;
+}
+#balance tr td, #income_statement tr td, #cash_flow tr td{
+	
+	padding: 9px 10px;
+    font-weight: normal;
+    background-color: #ffffff;
+    border-left: 1px solid #dbdbdb;
+    border-top: 1px solid #dbdbdb;
+    text-align:right;
+    font-size: 93%;
+
+}
+
+#balance tr:hover td, #income_statement tr:hover td, #cash_flow tr:hover td {
+	background: #f2f2f2;
+	background: -webkit-gradient(linear, left top, left bottom, from(#f2f2f2), to(#f0f0f0));
+	background: -moz-linear-gradient(top,  #f2f2f2,  #f0f0f0);	
+}
+
+#balance tr:hover td:hover, #income_statement tr:hover td:hover, #cash_flow tr:hover td:hover {
+	background: #e4e4e4;
+}
+
+.footer-wrap{
+	position: relative;
+    width: 100%;
+    clear: both;
+}

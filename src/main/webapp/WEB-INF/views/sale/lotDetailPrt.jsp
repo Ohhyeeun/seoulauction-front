@@ -5,14 +5,14 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <jsp:include page="../include/header.jsp" flush="false"/>
-<link href="/resources/css/angular/ng-animation.css" rel="stylesheet">
+<link href="/css/angular/ng-animation.css" rel="stylesheet">
 <link href="/css/angular/ngDialog.min.css" rel="stylesheet">
-<link href="/resources/css/angular/popup.css" rel="stylesheet">
+<link href="/css/angular/popup.css" rel="stylesheet">
 <link href="/css/old/detailprt.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-duration-format/1.3.0/moment-duration-format.min.js"></script>
 <!--  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-animate.min.js"></script>-->
-<script type="text/javascript" src="/resources/js/angular/angular-animate.min.js"></script>
+<script type="text/javascript" src="/js/angular/angular-animate.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ng-dialog/0.5.6/js/ngDialog.min.js"></script>
 
 <script>
@@ -171,7 +171,7 @@ var m_sImagePath ="";
 
 
 </script>
-<script type="text/javascript" src="/resources/js/bid.js?${resources.timestamp}"></script>
+<script type="text/javascript" src="/js/bid.js"></script>
 
 
 
@@ -284,9 +284,9 @@ var m_sImagePath ="";
 		<div>
 			<div class="subpage">
                 <div style=" float:right">					 
-                    <span  class="noprint"><a href="javascript:window.print();"><img src="/images/icon/print.png" border="0" style="width:88px; height:auto" alt="print"></a></span>                  	
+                    <span  class="noprint"><a href="javascript:window.print();"><img src="https://www.seoulauction.com/images/icon/print.png" border="0" style="width:88px; height:auto" alt="print"></a></span>                  	
 				</div>
-                <div class="fontlarge"><img src="/images/icon/print_logo.png" border="0" style="width:218px;" alt="SeoulAuction"></div> 
+                <div class="fontlarge"><img src="https://www.seoulauction.com/images/icon/print_logo.png" border="0" style="width:218px;" alt="SeoulAuction"></div> 
 				
 				<div style="padding-top:15px;">
                     <!-- 온라인 경매  -->
@@ -337,11 +337,11 @@ var m_sImagePath ="";
                            <p ng-if="lot.SALE_NO != '412'" class="fontlarge">{{sale.SALE_TH}}{{sale.SALE_TH_DSP}} {{sale.TITLE_JSON[locale]}}</p>
                            <p ng-if="lot.SALE_NO == '412'" class="fontlarge">{{sale.TITLE_JSON[locale]}}</p>
                             <p class="fontm">
-                                <img src="/images/icon/less1.png" border="0" style="width:12px;vertical-align: text-bottom;" alt="line">Auction :&nbsp; 
+                                <img src="https://www.seoulauction.com/images/icon/less1.png" border="0" style="width:12px;vertical-align: text-bottom;" alt="line">Auction :&nbsp; 
                                 {{sale.TO_DT | addHours : (base_currency == 'HKD' ? -1 : 0) | date:'yyyy.MM.dd(EEEE) ha' : 'UTC+9'}} {{base_timezone}}
                                 ({{sale.TO_DT | addHours : (base_currency == 'HKD' ? 0 : -1) | date:'ha' : 'UTC+9'}} {{sub_timezone}})
                                 <br/> 
-                                <img src="/images/icon/less1.png" border="0" style="width:12px;vertical-align: text-bottom;" alt="line">{{sale.PLACE_JSON[locale]}}
+                                <img src="https://www.seoulauction.com/images/icon/less1.png" border="0" style="width:12px;vertical-align: text-bottom;" alt="line">{{sale.PLACE_JSON[locale]}}
                                 </p>
 
                         </div> 
@@ -452,10 +452,10 @@ var m_sImagePath ="";
 
 							<div style="border-top:#e4e4e4 solid 1px; margin-top:25px;">
 								<div style="margin-top:10px;" ng-if="locale == 'ko'">
-									<img src="/images/icon/print_foot.png" border="0" style="height: auto; width: 100%;">
+									<img src="https://www.seoulauction.com/images/icon/print_foot.png" border="0" style="height: auto; width: 100%;">
 								</div>  
                                 <div style="margin-top:10px;" ng-if="locale != 'ko'">
-									<img src="/images/icon/print_foot_en.png" border="0" style="height: auto; width: 100%;">
+									<img src="https://www.seoulauction.com/images/icon/print_foot_en.png" border="0" style="height: auto; width: 100%;">
 								</div>
 							</div>
 							

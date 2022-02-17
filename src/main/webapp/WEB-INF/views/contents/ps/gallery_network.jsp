@@ -6,9 +6,9 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <jsp:include page="../../include/header.jsp" flush="false"/>
 <link href="/css/angular/rzslider.css" rel="stylesheet">
-<link href="/resources/css/angular/ngDialog.css" rel="stylesheet">
-<link href="/resources/css/angular/popup.css" rel="stylesheet">
-<script type="text/javascript" src="/resources/js/angular/paging.js?${resources.timestamp}"></script>
+<link href="/css/angular/ngDialog.css" rel="stylesheet">
+<link href="/css/angular/popup.css" rel="stylesheet">
+<script type="text/javascript" src="/js/angular/paging.js"></script>
 <script type="text/javascript" src="/js/angular/rzslider.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-duration-format/1.3.0/moment-duration-format.min.js"></script>
@@ -91,7 +91,7 @@
 		                        		<ul>  
 		                        			<li class="ps_gallery_sumimg_box">   
 			                        			<a href="#"> 
-			                        				<img src="/nas_img/front/plan0563/list/85f98956-8cd9-4ada-a383-e5f8df7a73fc.jpg">
+			                        				<img src="https://www.seoulauction.com/nas_img/front/plan0563/list/85f98956-8cd9-4ada-a383-e5f8df7a73fc.jpg">
 			                        				<div class="ps_gallery_sumimg">The Gallery Staff 3</div>      
 			                        			</a> 
 		                        			</li>
@@ -101,7 +101,7 @@
 		                        		<div class="ps_gallery_sumimg_box" ng-repeat="gaList in gaList">    
 		                        			<div class="ps_gallery_sumimg_resize" >   
 			                        			<a href="{{gaList.GALLERY_URL_BLOB_EN}}"> 
-			                        				<img src="/nas_img/{{gaList.FILE_PATH}}/{{gaList.FILE_NAME}}">
+			                        				<img src="https://www.seoulauction.com/nas_img/{{gaList.FILE_PATH}}/{{gaList.FILE_NAME}}">
 			                        				<div class="ps_gallery_sumimg">{{gaList.GALLERY_NAME_BLOB_EN}}</div>
 			                        			</a> 
 		                        			</div>

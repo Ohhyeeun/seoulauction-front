@@ -49,7 +49,7 @@
 		                        		<ul>  
 		                        			<li class="ps_gallery_sumimg_box">   
 			                        			<a href="#"> 
-			                        				<img src="/nas_img/front/plan0563/list/85f98956-8cd9-4ada-a383-e5f8df7a73fc.jpg">
+			                        				<img src="https://www.seoulauction.com/nas_img/front/plan0563/list/85f98956-8cd9-4ada-a383-e5f8df7a73fc.jpg">
 			                        				<div class="ps_gallery_sumimg">The Gallery Staff 3</div>      
 			                        			</a> 
 		                        			</li>
@@ -59,7 +59,7 @@
 		                        		<div class="ps_gallery_sumimg_box">    
 		                        			<div class="ps_gallery_sumimg_resize">    
 			                        			<a href="#"> 
-			                        				<img src="/nas_img/front/hongkong0566/list/3d30780a-4fc9-41fd-bd4c-e1d2c0c0c4b7.jpg">
+			                        				<img src="https://www.seoulauction.com/nas_img/front/hongkong0566/list/3d30780a-4fc9-41fd-bd4c-e1d2c0c0c4b7.jpg">
 			                        				<div class="ps_gallery_sumimg">텍스트 최대 9자(공백포함)</div>         
 			                        			</a> 
 		                        			</div>
@@ -67,7 +67,7 @@
 		                        		<div class="ps_gallery_sumimg_box">   
 		                        			<div class="ps_gallery_sumimg_resize">   
 			                        			<a href="#">  
-			                        				<img src="/nas_img/front/hongkong0566/list/3d30780a-4fc9-41fd-bd4c-e1d2c0c0c4b7.jpg">  
+			                        				<img src="https://www.seoulauction.com/nas_img/front/hongkong0566/list/3d30780a-4fc9-41fd-bd4c-e1d2c0c0c4b7.jpg">  
 			                        				<div class="ps_gallery_sumimg">The Gallery</div>      
 			                        			</a> 
 		                        			</div>
@@ -75,7 +75,7 @@
 		                        		<div class="ps_gallery_sumimg_box">   
 		                        			<div class="ps_gallery_sumimg_resize">   
 			                        			<a href="#"> 
-			                        				<img src="/nas_img/front/hongkong0566/list/3d30780a-4fc9-41fd-bd4c-e1d2c0c0c4b7.jpg">
+			                        				<img src="https://www.seoulauction.com/nas_img/front/hongkong0566/list/3d30780a-4fc9-41fd-bd4c-e1d2c0c0c4b7.jpg">
 			                        				<div class="ps_gallery_sumimg">The Gallery</div>      
 			                        			</a> 
 		                        			</div>
@@ -83,7 +83,7 @@
 		                        		<div class="ps_gallery_sumimg_box">   
 		                        			<div class="ps_gallery_sumimg_resize">   
 			                        			<a href="#"> 
-			                        				<img src="/nas_img/front/hongkong0566/list/3d30780a-4fc9-41fd-bd4c-e1d2c0c0c4b7.jpg">  
+			                        				<img src="https://www.seoulauction.com/nas_img/front/hongkong0566/list/3d30780a-4fc9-41fd-bd4c-e1d2c0c0c4b7.jpg">  
 			                        				<div class="ps_gallery_sumimg">The Gallery</div>      
 			                        			</a> 
 		                        			</div>
@@ -91,7 +91,7 @@
 		                        		<div class="ps_gallery_sumimg_box">   
 		                        			<div class="ps_gallery_sumimg_resize">   
 			                        			<a href="#"> 
-			                        				<img src="/nas_img/front/hongkong0566/list/3d30780a-4fc9-41fd-bd4c-e1d2c0c0c4b7.jpg">
+			                        				<img src="https://www.seoulauction.com/nas_img/front/hongkong0566/list/3d30780a-4fc9-41fd-bd4c-e1d2c0c0c4b7.jpg">
 			                        				<div class="ps_gallery_sumimg">The Gallery</div>      
 			                        			</a> 
 		                        			</div>
@@ -99,7 +99,7 @@
 		                        		<div class="ps_gallery_sumimg_box">   
 		                        			<div class="ps_gallery_sumimg_resize">   
 			                        			<a href="#"> 
-			                        				<img src="/nas_img/front/hongkong0566/list/3d30780a-4fc9-41fd-bd4c-e1d2c0c0c4b7.jpg">  
+			                        				<img src="https://www.seoulauction.com/nas_img/front/hongkong0566/list/3d30780a-4fc9-41fd-bd4c-e1d2c0c0c4b7.jpg">  
 			                        				<div class="ps_gallery_sumimg">The Gallery</div>       
 			                        			</a> 
 		                        			</div>
@@ -107,7 +107,7 @@
 		                        		<div class="ps_gallery_sumimg_box">   
 		                        			<div class="ps_gallery_sumimg_resize">   
 			                        			<a href="#"> 
-			                        				<img src="/nas_img/front/hongkong0566/list/3d30780a-4fc9-41fd-bd4c-e1d2c0c0c4b7.jpg">
+			                        				<img src="https://www.seoulauction.com/nas_img/front/hongkong0566/list/3d30780a-4fc9-41fd-bd4c-e1d2c0c0c4b7.jpg">
 			                        				<div class="ps_gallery_sumimg">The Gallery</div>      
 			                        			</a> 
 		                        			</div>
@@ -115,7 +115,7 @@
 		                        		<div class="ps_gallery_sumimg_box">   
 		                        			<div class="ps_gallery_sumimg_resize">    
 			                        			<a href="#"> 
-			                        				<img src="/nas_img/front/hongkong0566/list/3d30780a-4fc9-41fd-bd4c-e1d2c0c0c4b7.jpg">  
+			                        				<img src="https://www.seoulauction.com/nas_img/front/hongkong0566/list/3d30780a-4fc9-41fd-bd4c-e1d2c0c0c4b7.jpg">  
 			                        				<div class="ps_gallery_sumimg">The Gallery</div>         
 			                        			</a> 
 		                        			</div> 

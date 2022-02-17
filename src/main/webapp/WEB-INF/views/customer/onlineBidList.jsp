@@ -6,7 +6,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <jsp:include page="../include/header.jsp" flush="false"/>
 
-<script type="text/javascript" src="/resources/js/angular/paging.js?${resources.timestamp}"></script>
+<script type="text/javascript" src="/js/angular/paging.js"></script>
 
 <script type="text/javascript">
 app.requires.push.apply(app.requires, ["bw.paging"]);
@@ -102,7 +102,7 @@ app.controller('onlineBidListCtl', function($scope, consts, common) {
 								<div class="customer_bidlist_captionbox clearfix">       
 									<div class="cancel auction_grid_cancel" ng-show='lot.STAT_CD == "reentry"'>
 										<p class="notice_style03 tac"><spring:message code="message.lot.status.reentry" /></p>
-									</div> 
+									</div>  
 									<div class="customer_bidlist_caption clearfix txt-over" ng-if="lot.STAT_CD != 'reentry'">    
 										<p class="customer_bidlist_txt txt-over"> 
 											<!-- <div class="txt_dark"><strong>Lot. {{lot.LOT_NO}}</strong></div> -->

@@ -1,0 +1,456 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- head.jsp Begin -->
+
+
+
+<!DOCTYPE html>
+<html lang="ko" ng-app="myApp">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta charset="UTF-8">
+<title>서울옥션</title>
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+
+<link href="/css/common.css" rel="stylesheet">
+<!-- <link href="/css/custom.css" rel="stylesheet"> -->
+<!--[if lt IE 9]>
+	<link href="/css/ie8-and-down.css" rel="stylesheet">
+<![endif]-->
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-sanitize.js"></script>
+<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.4.9/angular-locale_ko-kr.min.js"></script> -->
+<script type="text/javascript" src="/js/angular/angular-bind-html-compile.js"></script>
+<script type="text/javascript" src="/js/angular/app.js"></script>
+<script type="text/javascript" src="/js/common.js"></script>
+<!-- head.jsp End -->
+
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.js" ></script>
+	<script type="text/javascript" src="//www.seoulauction.com/js/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="//www.seoulauction.com//js/jquery.panzoom.min.js"></script>
+	<script type="text/javascript" src="//www.seoulauction.com//js/jquery.slides.min.js"></script>
+	<script type="text/javascript" src="//www.seoulauction.com//js/jquery.placeholder.min.js"></script>
+	<script type="text/javascript" src="//www.seoulauction.com//js/jquery.selectbox-0.2.min.js"></script>
+	<script type="text/javascript" src="//www.seoulauction.com//js/jquery.nicefileinput.min.js"></script>
+	<script type="text/javascript" src="//www.seoulauction.com//js/jquery.mousewheel.min.js"></script>
+	<script type="text/javascript" src="//www.seoulauction.com//js/jquery.mobile-events.js"></script>
+	<script type="text/javascript" src="//www.seoulauction.com//js/iscroll.js"></script>
+	<script type="text/javascript" src="//www.seoulauction.com//js/ui.js"></script>
+	<script type="text/javascript" src="//www.seoulauction.com//js/frontCommon.js"></script>
+
+
+</head>
+<body class="main">
+<!-- header.jsp Begin -->
+<script type="text/javascript">
+app.value('locale', 'ko');
+app.value('is_login', 'false');
+app.value('_csrf', '1af48179-d6f1-49dc-a08d-93ee23f301c6');
+app.value('_csrf_header', 'X-CSRF-TOKEN');	// default header name is X-CSRF-TOKEN
+
+//최근공지가져오기
+app.controller("recentNoticeCtl", function($scope, consts, common) {
+  	$scope.loadRecentNotice = function(){
+  	   	$d = {"actionList":[
+  	   	     	{"actionID":"bbs_notice_recent", "actionType":"select" , "tableName": "WRITES", "parmsList":[{"rows":consts.NOTICE_RECENT_ROWS}]}
+  	   	     ]};
+  	    	        		
+  	   	var $s = function(data, status) { $scope.recentList = data["tables"]["WRITES"]["rows"]; };
+  		
+  	  	common.callActionSet($d, $s);
+	}
+});
+
+/********************/
+$(document).ready(function(){
+	//var blnCookie = getCookie('topLayer');  
+	
+	url = document.location.pathname;
+
+	var winWidth = $(window).width();
+	if(winWidth > 1024) {
+		type = "web";
+	}
+	else if(winWidth <= 1024 && winWidth >= 768) {
+		type = "tablet";
+	}
+	else if(winWidth < 768) {
+		type = "phone";
+	}
+	
+	showTopLayer();
+	mobileGnb();
+});
+
+function mobileGnb(){
+	var isMobile = {
+		Android: function() {
+			return navigator.userAgent.match(/Android/i);
+		},
+		BlackBerry: function() {
+			return navigator.userAgent.match(/BlackBerry/i);
+		},
+		iOS: function() {
+			return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+		},
+		Opera: function() {
+			return navigator.userAgent.match(/Opera Mini/i);
+		},
+		Windows: function() {
+			return navigator.userAgent.match(/IEMobile/i);
+		},
+		any: function() {
+			return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+		}
+	};
+	
+	if(isMobile.any()) {
+		investHide();
+	}
+
+}
+function showTopLayer() {
+	//var html = $(msg).filter("#kanggTopLayer").children().clone();
+	//$('#kanggTopLayer').html(html);
+	$("#kanggTopLayer").show();
+	
+	src960 = $("#topLayerImage").attr("src");
+	src768 = $("#topLayerImage").attr("src");
+	src320 = $("#topLayerImage").attr("src");
+	
+	var winWidth = $(window).width();
+	if(winWidth > 1024){
+		$('.curtain_wrap img').attr('src', src960);
+		$('.curtain_wrap').removeClass('response01');
+		$('.curtain_wrap').removeClass('response02');
+	} else if(winWidth < 768){
+		$('.curtain_wrap img').attr('src', src320);
+		$('.curtain_wrap').removeClass('response02');
+		$('.curtain_wrap').addClass('response01');
+	} else {
+		$('.curtain_wrap img').attr('src', src768);
+		$('.curtain_wrap').removeClass('response01');
+		$('.curtain_wrap').addClass('response02');
+	}
+}
+
+</script>
+
+	<form id="frmTopSearch" action="/search" method="get">
+		<input id="topSearchContent" type="hidden" name="searchContent" />
+	</form>
+	<!-- 모바일용 -->
+	<div class="m_search">
+		<dl>
+			<dt><label for="">검색어</label></dt>
+			<dd><div><input type="text" name="" id="searchContentMob" /></div></dd>
+		</dl>
+		<button type="button" class="sp_btn btn_search" onclick="goSearch('searchContentMob', true);">
+			<span class="hidden">검색</span>
+		</button>
+		<button type="button" class="sp_btn btn_search_close">
+			<span class="hidden">닫기</span>
+		</button><!-- 20150615 -->
+	</div>
+	<!-- //모바일용 -->
+	<!-- 커튼배너 -->
+	<div id="kanggTopLayer" class="curtain_wrapper" style="display:none;"></div>
+	<!-- //커튼배너 -->
+<div class="loading"><div></div></div>
+<div id="wrap" style="overflow:hidden;"> <!--  -->
+
+<div class="header_wrap">
+	<div id="header">
+		<h1><a href="/" ><span class="hidden">Seoul Auction EST.1998</span></a></h1>
+		<div class="gnb_menu">
+			<ul class="fl_menu">
+				<li><a href="#" class="sp_txt menu01"><span class="hidden">Auction</span></a></li>
+				<li><a href="#" class="sp_txt menu02"><span class="hidden">How To</span></a></li>
+				<li><a href="#" class="sp_txt menu03"><span class="hidden">Service</span></a></li>
+				<li><a href="#" class="sp_txt menu04"><span class="hidden">About</span></a></li>
+			</ul>
+		</div>
+		<div class="gnb_menu_layer">
+			<button class="sp_btn btn_gnbmenu_close"><span class="hidden">메뉴레이어 닫기</span></button>
+			<div class="m_util_menu m_only">
+				<ul class="fl_menu">
+					<li><a href="/eng/">Eng</a></li>
+					<li><a href="/login">Login</a></li>
+				</ul>
+			</div>
+			<div class="left">
+				<div class="m_scrollable">
+					<div id="gnbMenuConatiner">
+						<div class="gnb_menu">
+							<ul id="gnbMenuList">
+								<li>
+									<span class="sp_txt menu01"><span class="hidden">Auction</span></span>
+									<ul>
+										<li><a href="/currentAuction">진행경매</a></li>
+										<li><a href="/upcomingAuction">예정경매</a></li>
+										<li><a href="/pastAuction">경매결과</a></li>
+										<li><a href="/otherSales">전시판매</a></li>
+										<li><a href="http://www.seoulauction.com/search">작품검색</a></li>
+									</ul>
+								</li>
+								<li>
+									<span class="sp_txt menu02"><span class="hidden">How To</span></span>
+									<ul>
+										<li><a href="/auctionGuide/biddingGuide">응찰안내</a></li>
+										<li><a href="/auctionGuide/winningBidGuide">낙찰안내</a></li>
+										<li><a href="/auctionGuide/commissionGuide">위탁안내</a></li>
+										<li><a href="/auctionGuide/deliveryGuide">배송안내</a></li>
+									</ul>
+								</li>
+								<li>
+									<span class="sp_txt menu03"><span class="hidden">Service</span></span>
+									<ul>
+										<li><a href="/service/displayPlan">전시기획</a></li>
+										<li><a href="/service/rentExhibitionCenter">전시장대여</a></li>
+										<li><a href="/service/storageInsa">미술품보관</a></li>
+										<li><a href="/service/corporationArtwork">기업미술품</a></li>
+										<li><a href="/service/securedLoan">담보대출</a></li>
+										<li><a href="/service/academy">아카데미</a></li>
+										<li><a href="/service/chinaArtwork">중국미술품감정</a></li>
+									</ul>
+								</li>
+								<li>
+									<span class="sp_txt menu04"><span class="hidden">About</span></span>
+									<ul>
+										<li><a href="/about/introduction">서울옥션소개</a></li>
+										<li><a href="/about/history">연혁</a></li>
+										<li><a href="/about/investInformation">투자정보</a></li>
+										<li><a href="/about/location">위치안내</a></li>
+										<li><a href="/about/snsChannels">SNS채널</a></li>
+										
+											
+												<li><a href="/about/noticeList">공지사항</a></li>
+											
+										
+										<li class="full"><a href="/about/faq">FAQ</a></li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="link_menu01">
+					<ul class="fl_menu">
+						<li><a href="/auctionGuide/commissionGuide" class="menu02">작품위탁문의</a></li>
+						<li><a target="_blank" href="http://www.printbakery.co.kr" class="menu03">PRINT BAKERY</a></li>
+					</ul>
+				</div>
+				
+				<!-- 한국어에서만 공지사항을 표시한다. -->
+				<div class="gnb_notice" id="latestNoticeContainer">
+					<div class="sp_txt title"><span class="hidden">NOTICE</span></div>
+					<ul>
+						<li ng-repeat="row in recentList"><a href="/bbs/view?bid=notice&wno={{row.WRITE_NO}}">{{row.TITLE}}</a></li>
+					</ul>
+				</div>
+				
+			</div>
+			<div class="web_only edge"></div><!-- 20150302 수정 -->
+			<div class="m_only m_util_mask"></div><!-- 20150302 수정 -->
+		</div>
+		<div class="util_menu">
+			<ul class="fl_menu">
+				
+					
+					
+						
+							
+								<li><a href="/?lang=en" style="color:#fff;">ENG</a></li>
+							
+							
+						
+						<li><a href="/login" style="color:#fff;">ACCOUNT</a></li>
+						
+						
+						
+							
+							
+								<li><a href="/login?returnUrl=/" style="color:#fff;">LOGIN</a></li>
+							
+						
+					
+				
+				<li><a target="_blank" href="http://www.printbakery.co.kr" style="color:#fff;">PRINT BAKERY</a></li>
+			</ul>
+			<div class="top_search">
+				<form action="">
+					<fieldset>
+						<legend>검색</legend>
+						<input type="text" name="" id="headerSearchContent" class="input_search" title="검색어 입력" onkeypress="searchKeyPress(event, true);" style="color:#fff;" />
+						<button type="button" class="sp_btn btn_search" onclick="goSearch('headerSearchContent', true);">
+							<span class="hidden">검색</span>
+						</button>
+						<button type="button" class="sp_btn m_btn_search"><span class="hidden">검색</span></button><!-- 20150623 -->
+					</fieldset>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- //header_wrap -->
+<!-- header.jsp End -->
+<link href="/css/angular/ng-animation.css" rel="stylesheet">
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-animate.min.js"></script>
+<script>
+
+app.requires.push.apply(app.requires, ["ngAnimate"]);
+
+app.controller('bannerListCtl', function($scope, consts, common) {
+	$scope.ani_effect = "slide-down";
+	
+	$scope.loadBannerList = function(){
+ 		$d = {"baseParms":{"bann_id":"main"}, 
+ 			  "actionList":[
+ 				{"actionID":"banner_list", "actionType":"select" , "tableName": "BANNERS"},
+ 				{"actionID":"banner_image_list", "actionType":"select" , "tableName": "IMAGES"}
+ 			 ]};
+
+ 	   	common.callActionSet($d, $s);
+	}
+ 		
+ 	var $s = function(data, status) {
+ 		$scope.bannerList = data["tables"]["BANNERS"]["rows"];
+ 		$scope.imageList = data["tables"]["IMAGES"]["rows"];
+		$scope.banner = 1;			
+		$scope.banner_sub = 1;
+	};
+
+ 	$scope.setBannerArticle = function($n){
+ 		if($n < 1){
+ 			
+ 		}else if($n > $scope.bannerList.length){
+ 			
+ 		}else{
+ 			if($scope.banner < $n){
+ 				$scope.ani_effect = "slide-up"
+ 			}else{
+ 				$scope.ani_effect = "slide-down"
+ 			}
+
+			$scope.banner = $n
+			$scope.banner_sub = 1;
+		}
+ 	}
+ 		
+	$scope.setBannerArticleSub = function($n){
+		if($scope.banner_sub < $n){
+			$scope.ani_effect = "slide-left"
+		}else{
+			$scope.ani_effect = "slide-right"
+		}
+
+		$scope.banner_sub = $n;
+ 	}
+});
+
+</script>
+<div class="container_wrap" style="min-height:0;">
+	<div class="shadow left"><!--<span class="corner"></span>--></div>
+	<div class="shadow right"><span class="sp_txt img_logo_v"><span class="hidden">&copy; SeoulAuction Corp.</span></span></div>
+
+	<div class="well" ng-controller="bannerListCtl" data-ng-init="loadBannerList();">
+		<div style="position:relative;" class="switch" ng-switch on="banner" ng-animate="'animate'" ng-repeat="item in bannerList">
+			<!-- ng-switch-when="($index + 1) == banner" ng-switch-when 안에 문법사용이 안되므로 ng-if로 처리 -->
+			<div ng-if="($index + 1) == banner" ng-class="ani_effect" style="position:absolute; width:100%;" >
+				<div>
+					<div>
+						<div ng-switch on="banner_sub" ng-animate="'animate'" ng-repeat="image in imageList | filter:{ITEM_NO:item.ITEM_NO, LANG_CD:'ko'}:true">
+							<div ng-if="($index + 1) == banner_sub" ng-class="ani_effect" style="position:absolute; width:100%; height:400px; background-position: center center; background-image:url({{image.FILE_PATH}}); background-size:cover; background-repeat: no-repeat;">
+								<div class="cont_artist">
+									<span style="font-size:10px;">
+									</span>
+									<span style="font-size:10px;color:white">{{image.TITLE}}</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div>
+						<div class="cont_tit txt_han">
+							<span>{{item.SALE_TH | localeOrdinal}}</span>
+							<br />
+							<div bind-html-compile='"TITLE" | localeValue : item'></div>
+						</div>
+						<div class="cont_text">
+							<div bind-html-compile='"CONTENT" | localeValue : item'></div>
+							<a href="/sale/pastLotList?salesPlanningId={{item.SALE_NO}}" class="btn_main_more yellow">SEE MORE</a>
+					   </div>
+					</div>
+					<div style="position:relative;">
+						<ul style="overflow: auto;">
+							<li ng-repeat='image in imageList | filter:{ITEM_NO:item.ITEM_NO, LANG_CD:"ko:true"}' style="float:left; display: inline;">
+								<img style="width:50px;height:20px;" ng-click="setBannerArticleSub($index + 1);" ng-src="{{image.FILE_PATH}}" alt="{{image.TITLE}}"/>
+							</li>
+						</ul>
+					</div><!-- //thum -->
+				</div><!-- //roll_box -->
+			</div>
+		</div>
+		<div style="position:relative;" >
+			<button class="scroll_up" ng-click="setBannerArticle(banner - 1);" ng-hide="banner <= 1"><span>이전</span></button>
+			<button class="scroll_dn" ng-click="setBannerArticle(banner + 1);" ng-hide="banner >= bannerList.length"><span>다음</span></button>
+		</div>
+	</div>
+</div>
+</div><!-- id wrap -->
+
+
+
+
+
+
+<div class="footer_wrap">
+	<div id="footer">
+		<div class="util_menu menu">
+			<ul class="fl_menu">
+				<li><a href="/about/location">위치안내</a></li>
+				<li><a href="/common/terms/auction">경매약관</a></li>
+				<li><a href="/common/terms/privateInfo">개인정보취급방침</a></li>
+				<li><a href="/common/terms/infoManage">내부정보관리규정</a></li>
+				<li><a target="_blank" href="http://www.printbakery.co.kr">PRINT BAKERY</a></li>
+				<li><a href="/common/sitemap">사이트맵</a></li>
+			</ul>
+			<div class="sns_menu">
+				<ul class="fl_menu">
+					<li><a href="https://twitter.com/seoulauctionkr" target="_balnk" class="sp_btn sns01"><span class="hidden">트위터</span></a></li>
+					<li><a href="https://www.facebook.com/seoulauction" target="_balnk" class="sp_btn sns02"><span class="hidden">페이스북</span></a></li>
+					<li class="last"><a href="http://blog.naver.com/PostList.nhn?blogId=s_auction" target="_balnk" class="sp_btn sns03"><span class="hidden">블로그</span></a></li>
+				</ul>
+			</div>
+		</div>	
+		<div class="util_menu address">
+			<div class="fl_menu">
+				<ul>
+					
+				<li>대표이사 : 이옥경</li>
+				<li>사업자등록번호 : 101-81-46818</li>
+				<li>통신판매업신고 : 종로 제01-2173호</li>
+				<li>주소 : 서울시 종로구 평창30길 24 (평창동 98번지)</li>
+				<li>02-395-0330</li>
+	
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- //footer_wrap -->
+</body>
+</html>
+

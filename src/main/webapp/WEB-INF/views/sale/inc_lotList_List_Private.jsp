@@ -188,7 +188,7 @@
 										            </span>
 										        </button> 
 											</div> 
-										</div>
+										</div> 
 									
 										<div class="name auction_workartist">
 											<span ng-bind="lot.ARTIST_NAME_JSON[locale]"></span>

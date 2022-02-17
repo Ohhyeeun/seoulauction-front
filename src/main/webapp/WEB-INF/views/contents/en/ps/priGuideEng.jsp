@@ -46,7 +46,7 @@
 									<div class="highlight">Seoul Auction Partner Group <strong>S.Y Kim</strong></div>       
 									<div class="tel"><strong class="tit">Tel</strong> <span>82-2-2075-4426</span></div>
 									<div class="email"><strong class="tit">E-mail</strong> <a href="mailto:rinda@seoulauction.com">syk@seoulauction.com</a></div>
-								</div> 
+								</div>  
 							</div>
 							<!-- <div class="right">
 								<span class="btn_style01 icon02"><a href="/customer/inquiryForm" class="fix">1:1 Inquiry</a><span class="ico next02"></span></span>

@@ -3,10 +3,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <jsp:include page="../../include/header.jsp" flush="false"/>
 <link href="<c:url value="/css/old/onepcssgrid.css" />" rel="stylesheet">
-<link href="/resources/css/jquery.bxslider.min.css" rel="stylesheet">           
-<link href="/resources/css/main_bxslider.css" rel="stylesheet"> 
+<link href="/css/jquery.bxslider.min.css" rel="stylesheet">           
+<link href="/css/main_bxslider.css" rel="stylesheet"> 
 
-<script type="text/javascript" src="/resources/js/jquery.bxslider.js"></script> 
+<script type="text/javascript" src="/js/jquery.bxslider.js"></script> 
 
 <body>
 <jsp:include page="../../include/topSearch.jsp" flush="false"/>
@@ -145,7 +145,7 @@
 								<div class="title">서울옥션 강남센터</div>
 								<!-- 20150608 -->
 								<div class="cont">
-									<dl> 
+									<dl>
 										<dt>지번주소</dt>
 										<dd>서울특별시 강남구 신사동 636-4<span style="display: block; line-height: 1.5;">(주차장 이용 시, 신사동 636-6)<span></dd>   
 									</dl>

@@ -55,8 +55,8 @@
                                 서울옥션 강남센터 6층    
 							</p>      
 	                        <!--<a href="/currentExhibit?sale_kind=exhibit_only&sale_no=637" class="btn_main_more green exhibiton_listbtn">작품보기</a>   
-                            <a href="/nas_img/front/homepage/e-book/mariKim/index.html" class="btn_main_more green exhibiton_listbtn" target="_blank" >도록보기</a>     
-	                         <a href="/service/page?view=auction360VRPop_ex"  class="btn_main_more green" style="margin-top:15px;margin-bottom:15px; padding: 15px 45px 17px;font-size: 18px; font-weight:700; color:#FFF; width:120px;" target="new" >전시장 보기</a>  -->
+                            <a href="https://www.seoulauction.com/nas_img/front/homepage/e-book/mariKim/index.html" class="btn_main_more green exhibiton_listbtn" target="_blank" >도록보기</a>     
+	                         <a href="https://www.seoulauction.com/service/page?view=auction360VRPop_ex"  class="btn_main_more green" style="margin-top:15px;margin-bottom:15px; padding: 15px 45px 17px;font-size: 18px; font-weight:700; color:#FFF; width:120px;" target="new" >전시장 보기</a>  -->
 	                    </div>   
                         <div style="border-top: #CCC solid 1px; padding-top: 20px;">                
                         	<div style="line-height:30px; text-align: justify;">    
@@ -118,7 +118,7 @@
 								<div class="title">서울옥션 강남센터</div>
 								<!-- 20150608 -->
 								<div class="cont">
-									<dl>  
+									<dl> 
 										<dt>지번주소</dt>
 										<dd>서울특별시 강남구 신사동 636-4<span style="display: block; line-height: 1.5;">(주차장 이용 시, 신사동 636-6)<span></dd>   
 									</dl>

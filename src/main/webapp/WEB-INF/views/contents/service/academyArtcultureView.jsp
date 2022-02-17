@@ -7,7 +7,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<script type="text/javascript" src="/resources/js/angular/paging.js?${resources.timestamp}"></script>
+<script type="text/javascript" src="/js/angular/paging.js"></script>
 
 <script>
 $(document).ready(function(){
@@ -70,7 +70,7 @@ app.controller('academyListCtl', function($scope, consts, common, is_login) {
 		                                {{art.TITLE_JSON[locale]}}<br>
 		                                {{art.FROM_DT}} ~ {{art.TO_DT}}	<br>
 		                                	{{art.ACADEMY_TIME}} 
-		                            </p>  
+		                            </p>   
 		                            <p ng-bind-html="art.CONTENTS_JSON[locale]">
 		                            </p>    
 			                        <div class="academy_btn">       

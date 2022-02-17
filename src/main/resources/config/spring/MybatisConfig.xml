@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//ibatis.apache.org//DTD Config 3.0//EN"
+"http://ibatis.apache.org/dtd/ibatis-3-config.dtd">
+<configuration>
+    <settings>
+    	<setting name="callSettersOnNulls" value="true"/>
+    	<!-- <setting name="logImpl" value="LOG4J"/>-->
+	</settings>
+    <!-- <typeHandlers>
+        <typeHandler handler="com.seoulauction.common.mybatis.LongTypeHandler" javaType="String" jdbcType="LONGVARCHAR"/>
+        <typeHandler handler="com.seoulauction.common.mybatis.VarcharTypeHandler" javaType="String" jdbcType="VARCHAR"/>
+    </typeHandlers> -->
+	<plugins>
+    	<plugin interceptor="com.seoulauction.common.mybatis.AddMetaDataPlugin"/>
+    	<!-- <plugin interceptor="com.seoulauction.common.mybatis.SqlLogPlugin"/>-->
+	</plugins>
+</configuration>

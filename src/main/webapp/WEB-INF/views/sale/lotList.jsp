@@ -6,10 +6,10 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <jsp:include page="../include/header.jsp" flush="false"/>
 <link href="/css/angular/rzslider.css" rel="stylesheet">
-<link href="/resources/css/angular/ngDialog.css" rel="stylesheet">  
-<link href="/resources/css/angular/popup.css" rel="stylesheet">
+<link href="/css/angular/ngDialog.css" rel="stylesheet">  
+<link href="/css/angular/popup.css" rel="stylesheet">
 <link href="/css/jquery.modally.css" rel="stylesheet">
-<script type="text/javascript" src="/resources/js/angular/paging.js?${resources.timestamp}"></script>
+<script type="text/javascript" src="/js/angular/paging.js"></script>
 <script type="text/javascript" src="/js/jquery.modally.js"></script>
 <script type="text/javascript" src="/js/angular/rzslider.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment.min.js"></script>
@@ -1009,7 +1009,7 @@ app.controller('lotListCtl', function($scope, consts, common, bid, $interval, is
 
 });
 </script>
-<script type="text/javascript" src="/resources/js/bid.js?${resources.timestamp}"></script>
+<script type="text/javascript" src="/js/bid.js?ver=20211013"></script>
 <body>
 <jsp:include page="../include/topSearch.jsp" flush="false"/>
 <div id="wrap" class="noexhibition">
@@ -1136,7 +1136,7 @@ app.controller('lotListCtl', function($scope, consts, common, bid, $interval, is
                                                     
                                                 <!-- Notice 버튼 표시 
                                                 <span class="btn_style01 dark" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_KIND_CD == '000'">
-                                                    <button type="button" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_KIND_CD == '000'" name="NOTICE" value="NOTICE" align="center" scrolling="no" onClick="window.open('/noticeView?write_no=2895')"; >NOTICE</button>
+                                                    <button type="button" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_KIND_CD == '000'" name="NOTICE" value="NOTICE" align="center" scrolling="no" onClick="window.open('https://www.seoulauction.com/noticeView?write_no=2895')"; >NOTICE</button>
                                                 </span>
                                                 
                                                 <span class="btn_style01 dark" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_NO == '643'"> 
@@ -1151,18 +1151,13 @@ app.controller('lotListCtl', function($scope, consts, common, bid, $interval, is
                                                 
                                                 <!-- 제로베이스 작가 보기 -->       
                                                 <span class="btn_style01 dark" ng-if="sale.SALE_NO == '679'">   
-                                                    <button type="button" ng-if="viewId == 'CURRENT_AUCTION'" name="ARTIST VIEW" value="ARTIST VIEW" align="center" scrolling="no" onClick="window.open('/zerobaseArtist')"; >ARTIST VIEW</button>    
-                                                </span> 
+                                                    <button type="button" ng-if="viewId == 'CURRENT_AUCTION'" name="ARTIST VIEW" value="ARTIST VIEW" align="center" scrolling="no" onClick="window.open('https://www.seoulauction.com/zerobaseArtist')"; >ARTIST VIEW</button>    
+                                                </span>  
                                                  
-                                                <!-- e-book 도록 보기 (버튼 4개일시 빼기) -->   
-                                                <span class="btn_style01 dark" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_NO == '675'"> 
-                                                    <button type="button" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_NO == '675'" name=" CATALOGUE" value=" CATALOGUE" align="center" scrolling="no" onClick="window.open('/nas_img/front/homepage/e-book/zerobase/zerobase.pdf')"; >CATALOGUE</button>        
+                                                <!-- e-book 도록 보기 (버튼 4개일시 빼기) -->     
+                                                <span class="btn_style01 dark" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_NO == '690'"> 
+                                                    <button type="button" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_NO == '690'" name=" CATALOGUE" value=" CATALOGUE" align="center" scrolling="no" onClick="window.open('https://www.seoulauction.com/nas_img/front/homepage/e-book/165th/index.html')"; >CATALOGUE</button>        
                                                 </span>   
-                                                
-                                                <!-- e-book 도록 보기 (버튼 4개일시 빼기) -->  
-                                                <span class="btn_style01 dark" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_NO == '681'"> 
-                                                    <button type="button" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_NO == '681'" name=" CATALOGUE" value=" CATALOGUE" align="center" scrolling="no" onClick="window.open('/nas_img/front/homepage/e-book/164th/index.html')"; >CATALOGUE</button>         
-                                                </span>    
                                                 
 												<span class="btn_style01 green" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_NO == '679'"> 
                                                     <button type="button" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_NO == '679'" name="NOTICE" value="NOTICE" align="center" scrolling="no" onClick="window.open('/noticeView?write_no=5313')"; >EVENT</button>              
@@ -1172,17 +1167,17 @@ app.controller('lotListCtl', function($scope, consts, common, bid, $interval, is
                                                 <!-- EXHIBITION 버튼 표시(VR) -->  
                                                  <!-- 홍콩 EXHIBITION 
                                                 <span class="btn_style01 dark" ng-if="sale.SALE_NO == '566'"> 
-                                                    <button type="button" ng-if="viewId == 'CURRENT_AUCTION'" name="EXHIBITION" value="EXHIBITION" align="center" scrolling="no" onClick="window.open('/nas_img/front/homepage/VR/')"; >EXHIBITION</button>   
+                                                    <button type="button" ng-if="viewId == 'CURRENT_AUCTION'" name="EXHIBITION" value="EXHIBITION" align="center" scrolling="no" onClick="window.open('https://www.seoulauction.com/nas_img/front/homepage/VR/')"; >EXHIBITION</button>   
                                                 </span> -->  
                                                 
                                                 <!--  전시장 EXHIBITION  --> 
                                                 <span class="btn_style01 dark" ng-if="sale.SALE_NO == '681'">   
-                                                    <button type="button" ng-if="viewId == 'CURRENT_AUCTION'" name="EXHIBITION" value="EXHIBITION" align="center" scrolling="no" onClick="window.open('/nas_img/front/homepage/VR/164th/index.html')"; >EXHIBITION</button>     
+                                                    <button type="button" ng-if="viewId == 'CURRENT_AUCTION'" name="EXHIBITION" value="EXHIBITION" align="center" scrolling="no" onClick="window.open('https://www.seoulauction.com/nas_img/front/homepage/VR/164th/index.html')"; >EXHIBITION</button>     
                                                 </span>   
                                                 
                                                 <!-- 경매 건물 EXHIBITION     
                                                 <span class="btn_style01 dark" ng-if="sale.SALE_NO == '562'">
-                                                    <button type="button" ng-if="viewId == 'CURRENT_AUCTION'" name="EXHIBITION" value="EXHIBITION" align="center" scrolling="no" onClick="window.open('/nas_img/front/homepage/VR/')"; >VR Video</button>
+                                                    <button type="button" ng-if="viewId == 'CURRENT_AUCTION'" name="EXHIBITION" value="EXHIBITION" align="center" scrolling="no" onClick="window.open('https://www.seoulauction.com/nas_img/front/homepage/VR/')"; >VR Video</button>
                                                 </span> -->   
                                                 
                                                 <!-- 아트시 응찰버튼 -->   
@@ -1206,10 +1201,10 @@ app.controller('lotListCtl', function($scope, consts, common, bid, $interval, is
                                             </span>
                                             <br/><br/>
                                             <span class="btn_style01 orange01" ng-if="sale.SALE_NO == '454' && locale=='ko'">
-                                                    <button type="button" ng-if="viewId == 'CURRENT_AUCTION'" name="EXHIBITION" value="EXHIBITION" align="center" scrolling="no" onClick="window.open('/currentAuction?sale_kind=online_only&sale_no=455')"; >김기홍 박사 컬렉션 바로가기</button>
+                                                    <button type="button" ng-if="viewId == 'CURRENT_AUCTION'" name="EXHIBITION" value="EXHIBITION" align="center" scrolling="no" onClick="window.open('https://www.seoulauction.com/currentAuction?sale_kind=online_only&sale_no=455')"; >김기홍 박사 컬렉션 바로가기</button>
                                                 </span>
                                                 <span class="btn_style01 orange01" ng-if="sale.SALE_NO == '455' && locale=='ko'">
-                                                    <button type="button" ng-if="viewId == 'CURRENT_AUCTION'" name="EXHIBITION" value="EXHIBITION" align="center" scrolling="no" onClick="window.open('/currentAuction?sale_kind=online_only&sale_no=454')"; >7회 블랙랏 바로가기</button>
+                                                    <button type="button" ng-if="viewId == 'CURRENT_AUCTION'" name="EXHIBITION" value="EXHIBITION" align="center" scrolling="no" onClick="window.open('https://www.seoulauction.com/currentAuction?sale_kind=online_only&sale_no=454')"; >7회 블랙랏 바로가기</button>
                                                 </span>
                                             </div> -->  
                                         </div>  
@@ -1365,7 +1360,7 @@ app.controller('lotListCtl', function($scope, consts, common, bid, $interval, is
                                               
                                            <!-- Notice 버튼 표시 -->       
                                            <!--  <span class="btn_style01 dark" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_KIND_CD == '000'">
-                                                <button type="button" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_KIND_CD == '000'" name="NOTICE" value="NOTICE" align="center" scrolling="no" onClick="window.open('/noticeView?write_no=2895')"; >NOTICE</button>
+                                                <button type="button" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_KIND_CD == '000'" name="NOTICE" value="NOTICE" align="center" scrolling="no" onClick="window.open('https://www.seoulauction.com/noticeView?write_no=2895')"; >NOTICE</button>
                                             </span> 
                                             
                                             <span class="btn_style01 dark" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_NO == '643'">
@@ -1380,27 +1375,23 @@ app.controller('lotListCtl', function($scope, consts, common, bid, $interval, is
                                             
                                             <!-- 제로베이스 작가 보기 -->      
                                              <span class="btn_style01 dark" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_NO == '679'">    
-                                                <button type="button" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_NO == '679'" name="ARTIST VIEW" value="ARTIST VIEW" align="center" scrolling="no" onClick="window.open('/zerobaseArtist')"; >ARTIST VIEW</button>    
+                                                <button type="button" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_NO == '679'" name="ARTIST VIEW" value="ARTIST VIEW" align="center" scrolling="no" onClick="window.open('https://www.seoulauction.com/zerobaseArtist')"; >ARTIST VIEW</button>    
                                             </span>  
                                             
-                                            <!-- e-book 도록 보기 -->        
-                                            <span class="btn_style01 dark" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_NO == '675'">  
-                                                <button type="button" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_NO == '675'" name=" CATALOGUE" value=" CATALOGUE" align="center" scrolling="no" onClick="window.open('/nas_img/front/homepage/e-book/zerobase/zerobase.pdf')";>CATALOGUE</button>                    
-                                            </span>     
                                             <!-- e-book 도록 보기 -->       
-                                            <span class="btn_style01 dark" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_NO == '681'">  
-                                                <button type="button" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_NO == '681'" name=" CATALOGUE" value=" CATALOGUE" align="center" scrolling="no" onClick="window.open('/nas_img/front/homepage/e-book/164th/index.html')";>CATALOGUE</button>                     
+                                            <span class="btn_style01 dark" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_NO == '690'">  
+                                                <button type="button" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_NO == '690'" name=" CATALOGUE" value=" CATALOGUE" align="center" scrolling="no" onClick="window.open('https://www.seoulauction.com/nas_img/front/homepage/e-book/165th/index.html')";>CATALOGUE</button> 
                                             </span>     
                                             
                                             <!-- EXHIBITION 버튼 표시(VR) -->  
                                             <!-- 홍콩 EXHIBITION ->    
                                             <span class="btn_style01 dark" ng-if="sale.SALE_NO == '566'">
-                                                <button type="button" ng-if="viewId == 'CURRENT_AUCTION'" name="EXHIBITION" value="EXHIBITION" align="center" scrolling="no" onClick="window.open('/nas_img/front/homepage/VR/')"; >EXHIBITION</button> 
+                                                <button type="button" ng-if="viewId == 'CURRENT_AUCTION'" name="EXHIBITION" value="EXHIBITION" align="center" scrolling="no" onClick="window.open('https://www.seoulauction.com/nas_img/front/homepage/VR/')"; >EXHIBITION</button> 
                                             </span> -->   
                                              
                                             <!-- 전시장 EXHIBITION -->   
                                             <span class="btn_style01 dark" ng-if="sale.SALE_NO == '681'">  
-                                                <button type="button" ng-if="viewId == 'CURRENT_AUCTION'" name="EXHIBITION" value="EXHIBITION" align="center" scrolling="no" onClick="window.open('/nas_img/front/homepage/VR/164th/index.html')"; >EXHIBITION</button>       
+                                                <button type="button" ng-if="viewId == 'CURRENT_AUCTION'" name="EXHIBITION" value="EXHIBITION" align="center" scrolling="no" onClick="window.open('https://www.seoulauction.com/nas_img/front/homepage/VR/164th/index.html')"; >EXHIBITION</button>       
                                             </span>    
                                             
                                             <span class="btn_style01 green" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_NO == '679'">
@@ -1409,7 +1400,7 @@ app.controller('lotListCtl', function($scope, consts, common, bid, $interval, is
                                              
                                             <!-- 경매 건물 EXHIBITION ->
                                            	<span class="btn_style01 dark" ng-if="sale.SALE_NO == '562'">
-                                                <button type="button" ng-if="viewId == 'CURRENT_AUCTION'" name="EXHIBITION" value="EXHIBITION" align="center" scrolling="no" onClick="window.open('/nas_img/front/homepage/VR/')"; >VR Video</button>     
+                                                <button type="button" ng-if="viewId == 'CURRENT_AUCTION'" name="EXHIBITION" value="EXHIBITION" align="center" scrolling="no" onClick="window.open('https://www.seoulauction.com/nas_img/front/homepage/VR/')"; >VR Video</button>     
                                             </span> -->  
                                             
                                             <!-- 아트시 응찰버튼 -->        
@@ -1544,8 +1535,8 @@ app.controller('lotListCtl', function($scope, consts, common, bid, $interval, is
 											</li>  
 											<li>  
 												<input type="checkbox" name="agree_checkbox" id="EX03" class="auctionagree_checkinput" />            
-												<label for="EX03" class="auctionagree_check" style="cursor:pointer;">
-													<span ng-if="locale=='ko'" class="auctionagree_check_contents">낙찰자는 후 7일 이내(낙찰가 3억원 이상인 경우 21일 이내)에 구매수수료를 포함한 금액을 입금하여야 합니다. 구매수수료는 낙찰금액의 15%(부가세 별도)입니다.</span> 
+												<label for="EX03" class="auctionagree_check" style="cursor:pointer;">  
+													<span ng-if="locale=='ko'" class="auctionagree_check_contents">낙찰자는 후 7일 이내(낙찰가 3억원 이상인 경우 21일 이내)에 구매수수료를 포함한 금액을 입금하여야 합니다. 구매수수료는 낙찰금액의 18%(부가세 별도)입니다.</span> 
 													<span ng-if="locale!='ko'" class="auctionagree_check_contents">A Successful Bidder shall make full payments, including the amount of the Hammer Price, Buyer’s Premium and any applicable taxes within 7 days after the sale.(within 21 days if the Hammer Price is higher than or equal to KRW300,000,000)</span>
 												</label> 
 											</li> 
@@ -1614,14 +1605,14 @@ app.controller('lotListCtl', function($scope, consts, common, bid, $interval, is
                            <span ng-if="sale.SALE_NO == '423' && viewId == 'CURRENT_AUCTION'">
                                	<!--PREVIEW (상시 노출금지. 2020.12.12 임2지시사항)-->
                                	
-                            	<!--  <a href="/upcomingAuction" target="_parent" style="width:65px;margin-top:5px;">
+                            	<!--  <a href="https://www.seoulauction.com/upcomingAuction" target="_parent" style="width:65px;margin-top:5px;">
                                   <span style="width:65px;" ><img src="/images/bg/bg_img32_s.png" alt="Preview"><br/><p style="color:#ccc; font-size:11px; font-weight:600; padding-top:3px; padding-bottom:3px;">PREVIEW</p></span>   
                             	</a><br /> -->
                             	<!---->
                             	<!--PREVIEW-->
                                 <!--3D VR
                                	
-                            	<a href="/service/page?view=auction360VRPop" target="new" style="width:65px;margin-top:5px;">
+                            	<a href="https://www.seoulauction.com/service/page?view=auction360VRPop" target="new" style="width:65px;margin-top:5px;">
                                   <span style="width:65px;" ><img src="/images/bg/bg_img32_s.png" alt="Preview"><br/><p style="color:#ccc; font-size:11px; font-weight:600; padding-top:3px; padding-bottom:3px;">EXHIBITION</p></span>   
                             	</a><br />-->
 
@@ -1638,10 +1629,10 @@ app.controller('lotListCtl', function($scope, consts, common, bid, $interval, is
 	                            </a>
 	                            <br />  -->
 	                           
-	                           <!--  <span ng-if="locale == 'ko'" style="width:65px;" ><a href="/noticeList" target="_parent" style="width:80px;margin-top:5px;"> 
+	                           <!--  <span ng-if="locale == 'ko'" style="width:65px;" ><a href="https://www.seoulauction.com/noticeList" target="_parent" style="width:80px;margin-top:5px;"> 
 	                            	<img src="/images/bg/bg_img09_s.png" alt="CATALOG"><br/><p style="color:#ccc; font-size:11px;font-weight:600; padding-top:3px; padding-bottom:3px;">공지사항</p>
 	                            </a></span> 
-	                            <span ng-if="locale != 'ko'" style="width:65px;" ><a href="/noticeList" target="_parent" style="width:80px;margin-top:5px;">
+	                            <span ng-if="locale != 'ko'" style="width:65px;" ><a href="https://www.seoulauction.com/noticeList" target="_parent" style="width:80px;margin-top:5px;">
 	                            	<img src="/images/bg/bg_img09_s.png" alt="CATALOG"><br/><p style="color:#ccc; font-size:11px;font-weight:600; padding-top:3px; padding-bottom:3px;">NOTICE</p>
 	                            </a></span> -->
                         	</span>

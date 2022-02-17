@@ -4,7 +4,7 @@
 <jsp:include page="../../../include/header.jsp" flush="false"/>
 
 <body>
-<jsp:include page="../../../include/topSearch.jsp" flush="false"/>
+<jsp:include page="../../../include/topSearch.jsp" flush="false"/> 
 
 <div id="wrap">
 	<jsp:include page="../../../include/topMenu.jsp" flush="false"/>
@@ -54,7 +54,7 @@
                         <br/>
                         <!-- <a href="/currentExhibit?sale_kind=exhibit_only&sale_no=538"  class="btn_main_more green" style="margin-top:15px;margin-bottom:15px; padding: 15px 45px 17px;font-size: 18px; font-weight:700; color:#FFF;" >LIST</a> 
                         &nbsp;&nbsp; 
-                        <!-- <a href="/service/page?view=auction360VRPop_online2"  class="btn_main_more green" style="margin-top:15px;margin-bottom:15px; padding: 15px 30px 17px;font-size: 18px; font-weight:700; color:#FFF; width:150px;"  target="new" >EXHIBITION-VR</a> 
+                        <!-- <a href="https://www.seoulauction.com/service/page?view=auction360VRPop_online2"  class="btn_main_more green" style="margin-top:15px;margin-bottom:15px; padding: 15px 30px 17px;font-size: 18px; font-weight:700; color:#FFF; width:150px;"  target="new" >EXHIBITION-VR</a> 
                         <br/><br/><br/> -->
                         <p style="border-top: #CCC solid 1px; line-height:30px; font-size:16px;"><br/><br/> 
 		                    Hong Kong Limited is pleased to present <Winter Collection>, a group exhibition of iconic artists who pushed the boundary of Modern and Contemporary Art. Featuring the works of Pierre-Auguste Renoir, Tom Wesselmann, YunHyongKeun, Yoshitomo Nara and the pioneer of video art Paik NamJune.

@@ -11,10 +11,10 @@
 
 <script type="text/javascript" src="/js/live/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="/js/selectbox-min.js"></script>	
-<script type="text/javascript" src="/resources/js/jquery.placeholder.min.js"></script>	
+<script type="text/javascript" src="/js/jquery.placeholder.min.js"></script>	
 <script type="text/javascript" src="/js/jquery.mCustomScrollbar.concat.min.js"></script>
 <script type="text/javascript" src="/js/ui.js"></script> 
-<link rel="stylesheet" href="/resources/css/old/common.css?${resources.timestamp}" />
+<link rel="stylesheet" href="/css/old/common.css" />
 
 
 

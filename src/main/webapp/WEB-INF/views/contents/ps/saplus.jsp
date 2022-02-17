@@ -52,7 +52,7 @@
                         <br/>
                         <!-- <a href="/currentExhibit?sale_kind=exhibit_only&sale_no=538"  class="btn_main_more green" style="margin-top:15px;margin-bottom:15px; padding: 15px 45px 17px;font-size: 18px; font-weight:700; color:#FFF;" >작품 보기</a>
                          &nbsp;&nbsp;
-                        <!-- <a href="/service/page?view=auction360VRPop_online2"  class="btn_main_more green" style="margin-top:15px;margin-bottom:15px; padding: 15px 30px 17px;font-size: 18px; font-weight:700; color:#FFF; width:120px;"  target="new" >전시장보기</a>
+                        <!-- <a href="https://www.seoulauction.com/service/page?view=auction360VRPop_online2"  class="btn_main_more green" style="margin-top:15px;margin-bottom:15px; padding: 15px 30px 17px;font-size: 18px; font-weight:700; color:#FFF; width:120px;"  target="new" >전시장보기</a>
                         <br/<br/><br/> -->
 						<p style="border-top: #CCC solid 1px; line-height:30px; font-size:16px;"><br/><br/>
                          2020년을 맞이하여 SA+에서는 피에르 오귀스트 르누아르, 탐 웨슬만, 윤형근, 줄리안 오피, 요시토모 나라 등 미술계의 스펙트럼을 넓힌 유명 작가들의 작품들로 구성된 Winter Collection 전시와 더불어, 플럭서스 운동의 핵심 멤버이자 비디오아트의 창시자인 백남준의 작품세계를 재조명한다.

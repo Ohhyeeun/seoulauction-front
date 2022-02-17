@@ -60,7 +60,7 @@
 
 	<entry key="label.informationGide">참여안내</entry> 
 	<entry key="label.biddingGide">낙찰안내</entry>
-	<entry key="label.ShippingGide">배송안내</entry>
+	<entry key="label.ShippingGide">배송안내</entry> 
 	
 	<entry key="label.mypage" >마이페이지</entry>
 	<entry key="label.membership" >고객유형</entry>

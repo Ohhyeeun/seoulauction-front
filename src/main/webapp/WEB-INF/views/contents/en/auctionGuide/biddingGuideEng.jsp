@@ -154,7 +154,7 @@
 										</div>
 									</div>
 									<div>
-										<div class="inner"> 
+										<div class="inner">
 											<div class="bg_img bg21">
 												<div class="title">Absentee(Telephone) Bidding</div>
 												<p>You can place the bid in real live by phone call with Seoul Auction staff.
@@ -267,8 +267,7 @@
                                             <strong>Seoul(Domestic) Auction Purchase Fee</strong>
                                             <div class="list_style01">
                                                 <ul>
-                                                    <li>15% of hammer price(tax excluded)
-    </li>
+                                                    <li>18% of hammer price(tax excluded)</li> 
                                                     
                                                 </ul>
                                             </div>										

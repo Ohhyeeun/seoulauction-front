@@ -53,13 +53,13 @@
 		                <p>ZEROBASE ＜The Painters＞</p>  
 					</div>          
                     <!--<a href="/currentAuction?sale_kind=zerobase_only&page=1" class="btn_main_more green"style="width:80px;margin-top:5px;">SEE MORE</a>    
-                    <a href="/zerobaseArtist" class="btn_main_more green"style="width:80px;margin-top:5px;" target="_blank";>ARTIST VIEW</a>   
+                    <a href="https://www.seoulauction.com/zerobaseArtist" class="btn_main_more green"style="width:80px;margin-top:5px;" target="_blank";>ARTIST VIEW</a>   
 					<a href="https://www.youtube.com/watch?v=Nvf_Zg9aitQ" class="btn_main_more green" style="width:80px;margin-top:5px; padding: 0;" target="_blank"> 
                         <i class="material-icons" style="padding: 0;">   
                             play_circle  
                         </i> 
                     </a>   
-					<a href="/nas_img/front/homepage/e-book/ZEROBASE/zerobase.pdf" class="btn_main_more green" target="_blank" style="width:80px;margin-top:5px;">CATALOGUE</a> -->
+					<a href="https://www.seoulauction.com/nas_img/front/homepage/e-book/ZEROBASE/zerobase.pdf" class="btn_main_more green" target="_blank" style="width:80px;margin-top:5px;">CATALOGUE</a> -->
 					<div class="info">       
 						<span>
 							<dl style="padding-bottom: 10px;"> 
@@ -121,7 +121,7 @@
 		    <!---------------------------------------------------CONSIGN--------------------------------------------------->	
 			<div class="main_sd">   
 				<div class="img">
-					<img src="//nas_img/front/homepage/main_banner_sm/2018070501.jpg" alt="2018 Consignment"  style="width:100%; height:auto;"/>
+					<img src="https://www.seoulauction.com//nas_img/front/homepage/main_banner_sm/2018070501.jpg" alt="2018 Consignment"  style="width:100%; height:auto;"/>
 				</div>
 				<div class="txt">
 					<div class="title txt_han">
@@ -151,7 +151,7 @@
             <!----------------------------------------  10월 아트시 경매 ---------------------------------------------------->     
 		    <!-- <div class="main_sd">  
 				<div class="img">     
-					<img src="//nas_img/front/homepage/main_banner_sm/ARTSY_01.jpg" alt="AUCTION"  style="width:100%; height:auto;"/> 
+					<img src="https://www.seoulauction.com//nas_img/front/homepage/main_banner_sm/ARTSY_01.jpg" alt="AUCTION"  style="width:100%; height:auto;"/> 
 				</div>    
 				<div class="txt">     
 					<div class="title txt_han">    
@@ -162,7 +162,7 @@
 		            <a href="https://www.artsy.net/auction/seoul-auction-crossroad" class="btn_main_more yellow"style="width:80px;margin-top:5px;" target="new">Artsy Bid</a>  
 		           <a href="/noticeView?write_no=3833" class="btn_main_more green"style="width:80px;margin-top:5px;">Notice</a>  
 		            <a href="/service/page?view=auction360VRPop_online2" class="btn_main_more green" target="new" style="width:80px;margin-top:5px;" >EXHIBITION</a> 
-		            <a href="/zerobaseArtist" class="btn_main_more green"style="width:80px;margin-top:5px;" target="_blank";>작가 보기</a> 
+		            <a href="https://www.seoulauction.com/zerobaseArtist" class="btn_main_more green"style="width:80px;margin-top:5px;" target="_blank";>작가 보기</a> 
 		            <a href="/upcomingAuction?sale_kind=offline_only" class="btn_main_more green"style="width:80px;margin-top:5px;">Detail</a>  
 		            <a href="/service/page?view=auction360VRPop_online1" class="btn_main_more green" target="new" style="width:80px;margin-top:5px;" >전시장보기</a>
 		            <a href="/nas_img/front/homepage/zerobase.pdf" class="btn_main_more yellow" target="new" style="width:80px;margin-top:5px;">CATALOGUE</a> 
@@ -192,7 +192,7 @@
             <!--------------------------------------------------------  오프라인 경매 (근현대)----------------------------------------------------> 
 			 <!--<div class="main_sd">  
 				<div class="img"> 
-					<img src="//nas_img/front/homepage/main_banner_sm/2021101401.jpg" alt="AUCTION"  style="width:100%; height:auto;"/>
+					<img src="https://www.seoulauction.com//nas_img/front/homepage/main_banner_sm/2021101401.jpg" alt="AUCTION"  style="width:100%; height:auto;"/>
 				</div>        
 				<div class="txt">     
 					<div class="title txt_han">      
@@ -201,7 +201,7 @@
 					</div>     
 					<a href="/currentAuction?sale_kind=offline_only&sale_no=670&kind=con&page=1" class="btn_main_more green" style="width:80px;margin-top:5px;">SEE MORE</a>           
                     <a href="/nas_img/front/homepage/e-book/163rd/index.html" class="btn_main_more green" target="_blank" style="margin-top:5px;">CATALOGUE</a>
-                    <a href="/nas_img/front/homepage/VR/163rd/index.html" class="btn_main_more green" target="_blank" style="width:80px;margin-top:5px;" >EXHIBITION</a>
+                    <a href="https://www.seoulauction.com/nas_img/front/homepage/VR/163rd/index.html" class="btn_main_more green" target="_blank" style="width:80px;margin-top:5px;" >EXHIBITION</a>
 					<a href="/currentAuction?sale_kind=offline_only&sale_no=670&page=1" class="btn_main_more yellow" style="width:80px;margin-top:5px;">Live Bidding</a>   
                    <a href="/nas_img/front/homepage/e-book/163rd/163rd_CONTEMPORARY_ART.pdf" class="btn_main_more green" target="_blank" style="margin-top:5px;">Contemporary Art</a>      
                 	<a href="/nas_img/front/homepage/e-book/163rd/163rd_Traditional_Art.pdf" class="btn_main_more green" target="_blank" style="width:80px;margin-top:5px;">Traditional Art</a>  
@@ -230,7 +230,7 @@
             <!--------------------------------------------------------  오프라인 경매 (고미술)----------------------------------------------------> 
 			<!--<div class="main_sd"> 
 				<div class="img">  
-					<img src="//nas_img/front/homepage/main_banner_sm/2021101301.jpg" alt="AUCTION"  style="width:100%; height:auto;"/>
+					<img src="https://www.seoulauction.com//nas_img/front/homepage/main_banner_sm/2021101301.jpg" alt="AUCTION"  style="width:100%; height:auto;"/>
 				</div>         
 				<div class="txt">     
 					<div class="title txt_han">        
@@ -239,7 +239,7 @@
 					</div>     
 					<a href="/currentAuction?sale_kind=offline_only&sale_no=670&kind=trad&page=1" class="btn_main_more green" style="width:80px;margin-top:5px;">SEE MORE</a>       
                     <a href="/nas_img/front/homepage/e-book/163rd/index.html" class="btn_main_more green" target="_blank" style="width:80px;margin-top:5px;">CATALOGUE</a>  
-                    <a href="/nas_img/front/homepage/VR/163rd/index.html" class="btn_main_more green" target="_blank" style="width:80px;margin-top:5px;" >EXHIBITION</a>
+                    <a href="https://www.seoulauction.com/nas_img/front/homepage/VR/163rd/index.html" class="btn_main_more green" target="_blank" style="width:80px;margin-top:5px;" >EXHIBITION</a>
                     <a href="/currentAuction?sale_kind=offline_only&sale_no=670&page=1" class="btn_main_more yellow" style="width:80px;margin-top:5px;">Live Bidding</a>    
                     <a href="/nas_img/front/homepage/e-book/163rd/163rd_CONTEMPORARY_ART.pdf" class="btn_main_more green" target="_blank" style="margin-top:5px;">Contemporary Art</a>      
 	                <a href="/nas_img/front/homepage/e-book/163rd/163rd_Traditional_Art.pdf" class="btn_main_more green" target="_blank" style="width:80px;margin-top:5px;">Traditional Art</a>  
@@ -309,7 +309,7 @@
             <!--------------------------------------------------- 강남 전시 ---------------------------------------------------->    
 			<!--<div class="main_sd">  
 				<div class="img">   
-					<img src="//nas_img/front/homepage/main_banner_sm/2021082701.jpg" alt="Gang Name Exhibition"  style="width:100%; height:auto;"/>
+					<img src="https://www.seoulauction.com//nas_img/front/homepage/main_banner_sm/2021082701.jpg" alt="Gang Name Exhibition"  style="width:100%; height:auto;"/>
 				</div>    
 				<div class="txt">   
 					<div class="title txt_han">   
@@ -319,9 +319,9 @@
                         </p>  
 					</div>      
 		            <a href="/about/page?view=gnExhibition" class="btn_main_more green" style="width:80px;margin-top:5px;">DETAIL</a>    
-                    <a href="/nas_img/front/homepage/e-book/mariKim/index.html" class="btn_main_more green" target="_blank" style="width:80px;margin-top:5px;">CATALOGUE</a>
+                    <a href="https://www.seoulauction.com/nas_img/front/homepage/e-book/mariKim/index.html" class="btn_main_more green" target="_blank" style="width:80px;margin-top:5px;">CATALOGUE</a>
                		<a href="/currentExhibit?sale_kind=exhibit_only&sale_no=637" class="btn_main_more green" style="width:80px;margin-top:5px;">SEE MORE</a> 
-		            <a href="/currentExhibit?sale_kind=exhibit_only&sale_no=585" class="btn_main_more green" style="width:80px;margin-top:5px;" target="_blank">SEE MORE</a>  
+		            <a href="https://www.seoulauction.com/currentExhibit?sale_kind=exhibit_only&sale_no=585" class="btn_main_more green" style="width:80px;margin-top:5px;" target="_blank">SEE MORE</a>  
 		            <a href="/service/page?view=auction360VRPop_ex" class="btn_main_more green" target="new" style="width:80px;margin-top:5px;" >EXHIBITION</a>
 					<div class="info">    
 						<span>      
@@ -368,7 +368,7 @@
             <!--------------------------------------------------- 로얄살루트 경매 ---------------------------------------------------> 
            	<!--<div class="main_sd">   
                <div class="img">      
-               		<img src="//nas_img/front/homepage/main_banner_sm/20201224.jpg" alt="AUCTION"  style="width:100%; height:auto;"/> 
+               		<img src="https://www.seoulauction.com//nas_img/front/homepage/main_banner_sm/20201224.jpg" alt="AUCTION"  style="width:100%; height:auto;"/> 
                </div>    
                <div class="txt">            
                     <div class="title txt_han">     
@@ -439,11 +439,11 @@
                         <p>Seoul Auction Busan Sale</p>             
                     </div>      
                     <a href="/currentAuction?sale_kind=offline_only&sale_no=582&page=1" class="btn_main_more green"style="width:80px;margin-top:5px;">SEE MORE</a>   
-                    <a href="/nas_img/front/homepage/e-book/202010_01/index.html" class="btn_main_more green" target="new" style="width:80px;margin-top:5px;">CATALOGUE</a> 
+                    <a href="https://www.seoulauction.com/nas_img/front/homepage/e-book/202010_01/index.html" class="btn_main_more green" target="new" style="width:80px;margin-top:5px;">CATALOGUE</a> 
                     <a href="/currentAuction?sale_kind=offline_only&sale_no=582&page=1" class="btn_main_more yellow"style="width:80px;margin-top:5px;">Live Bidding</a>
                     <a href="/noticeView?write_no=3323" class="btn_main_more green"style="width:80px;margin-top:5px;">Notice</a>   
                     <a href="/service/page?view=auction360VRPop_online2" class="btn_main_more green" target="new" style="width:80px;margin-top:5px;" >EXHIBITION</a> 
-                    <a href="/nas_img/front/homepage/e-book/202004_01/index.html" class="btn_main_more green" target="new" style="width:80px;margin-top:5px;">CATALOGUE</a>
+                    <a href="https://www.seoulauction.com/nas_img/front/homepage/e-book/202004_01/index.html" class="btn_main_more green" target="new" style="width:80px;margin-top:5px;">CATALOGUE</a>
                     <a href="https://www.artsy.net/auction/seoul-auction-spring-online-auction-goat" class="btn_main_more yellow"style="width:80px;margin-top:5px;" target="new">Artsy Bid</a>
                     <a href="/upcomingAuction?sale_kind=offline_only" class="btn_main_more green"style="width:80px;margin-top:5px;">Detail</a>  
                     <div class="info">   
@@ -679,8 +679,8 @@
                         <p style="font-size:12px;">Winter Collection with Special Section of</p>
                         <p>PAIK NAMJUNE</p>
                       </div> 
-                      <a href="/about/page?view=saplus" class="btn_main_more green" style="width:80px;margin-top:5px;">DETAIL</a>
-                      <a href="/currentExhibit?sale_kind=exhibit_only&sale_no=538" class="btn_main_more green" style="width:80px;margin-top:5px;">SEE MORE</a>
+                      <a href="https://www.seoulauction.com/about/page?view=saplus" class="btn_main_more green" style="width:80px;margin-top:5px;">DETAIL</a>
+                      <a href="https://www.seoulauction.com/currentExhibit?sale_kind=exhibit_only&sale_no=538" class="btn_main_more green" style="width:80px;margin-top:5px;">SEE MORE</a>
                       <a href="/service/page?view=auction360VRPop_online2" class="btn_main_more green" target="new" style="width:80px;margin-top:5px;" >EXHIBITION</a> ->
                       <div class="info">   
                           <span> 

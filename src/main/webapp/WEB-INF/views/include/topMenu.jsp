@@ -15,8 +15,8 @@
 <c:set var="is_login" scope="session" value="${pageContext.request.userPrincipal.name != null}" />
 
 <!-- 모바일메뉴 --> 
-<link rel="stylesheet" href="/resources/css/topmenu02.css?${resources.timestamp}" type="text/css">          
-<script src="/resources/js/topmenu02.js"></script>   
+<link rel="stylesheet" href="/css/topmenu02.css" type="text/css">          
+<script src="/js/topmenu02.js"></script>   
 
 <script type="text/javascript">
 app.value('locale', '${locale}');
@@ -296,7 +296,7 @@ function showTopLayer() {
                                                 <a href="https://www.blacklot.com/" ng-if="locale!='ko'" target="_blank">BLACKLOT<img src="/images/icon/now_icon.png"/></a>    
                                             </li> 
                                             <li>      
-	                                            <span ng-if="outsideIng > 0"><a href="/currentAuction?sale_outside_yn=Y&lang={{locale}}">
+	                                            <span ng-if="outsideIng > 0"><a href="https://www.seoulauction.com/currentAuction?sale_outside_yn=Y&lang={{locale}}">
                                                 <span ng-if="locale=='ko'">아트시 경매</span><span ng-if="locale!='ko'">ARTSY Auction</span><img src="/images/icon/now_icon.png" /></a></span> 
                                                 <span ng-if="outsideIng == 0 || outsideIng == null" id="outsideIngBtn"><span ng-if="locale=='ko'">아트시 경매</span><span ng-if="locale!='ko'">ARTSY Auction</span></span>   
 											</li>                 
@@ -308,7 +308,7 @@ function showTopLayer() {
 	                                            <span ng-if="zerobaseIng == 0 || zerobaseIng == null" id="zerobaseBtn"><span ng-if="locale=='ko'">제로베이스 경매</span><span ng-if="locale!='ko'">Zero base</span></span> 
 											</li>
 	                                        <li>
-	                                            <a href="/zerobaseArtist?page=1&lang={{locale}}"><span ng-if="locale=='ko'">제로베이스 작가</span><span ng-if="locale!='ko'">Zero base Artist</span><span ng-if="zerobaseIng > 0"><img src="/images/icon/now_icon.png" /></a></span>
+	                                            <a href="https://www.seoulauction.com/zerobaseArtist?page=1&lang={{locale}}"><span ng-if="locale=='ko'">제로베이스 작가</span><span ng-if="locale!='ko'">Zero base Artist</span><span ng-if="zerobaseIng > 0"><img src="/images/icon/now_icon.png" /></a></span>
 	                                            <!-- <span ng-if="zerobaseIng == 0 || zerobaseIng == null" id="zerobaseBtn"><span ng-if="locale=='ko'">제로베이스 작가</span><span ng-if="locale!='ko'">Zero base Artist</span></span> --> 
 	                                        </li>
 											<!--<li><a href="/resultAuction"><spring:message code="label.auction.result" /></a></li>-->
@@ -652,7 +652,7 @@ function showTopLayer() {
                             </li> 
 
                             <li>      
-	                           <span ng-if="outsideIng > 0"><a href="/currentAuction?sale_outside_yn=Y&lang={{locale}}"><span ng-if="locale=='ko'">아트시 경매</span><span ng-if="locale!='ko'">ARTSY Auction</span><img src="/images/icon/now_icon.png" style="vertical-align: text-bottom; margin-left: 2px;"/></a></span>    
+	                           <span ng-if="outsideIng > 0"><a href="https://www.seoulauction.com/currentAuction?sale_outside_yn=Y&lang={{locale}}"><span ng-if="locale=='ko'">아트시 경매</span><span ng-if="locale!='ko'">ARTSY Auction</span><img src="/images/icon/now_icon.png" style="vertical-align: text-bottom; margin-left: 2px;"/></a></span>    
 	                           <span ng-if="outsideIng == 0 || outsideIng == null" id="M_Only_OutsideEnd"><span ng-if="locale=='ko'">아트시 경매</span><span ng-if="locale!='ko'">ARTSY Auction</span></span> 
 							</li>    
 	                        <!-- <li> 
@@ -685,7 +685,7 @@ function showTopLayer() {
 		                        <span ng-if="zerobaseIng == 0 || zerobaseIng == null" id="M_Only_ZeroEnd"><span ng-if="locale=='ko'">제로베이스 경매</span><span ng-if="locale!='ko'">Zero base</span></span> 
 							</li> 
 		                    <li> 
-		                        <a href="/zerobaseArtist?lang={{locale}}"><span ng-if="locale=='ko'">제로베이스 작가</span><span ng-if="locale!='ko'">Zero base Artist</span><span ng-if="zerobaseIng > 0"><img src="/images/icon/now_icon.png" style="vertical-align: text-bottom; margin-left: 2px;"/></span></a>  
+		                        <a href="https://www.seoulauction.com/zerobaseArtist?lang={{locale}}"><span ng-if="locale=='ko'">제로베이스 작가</span><span ng-if="locale!='ko'">Zero base Artist</span><span ng-if="zerobaseIng > 0"><img src="/images/icon/now_icon.png" style="vertical-align: text-bottom; margin-left: 2px;"/></span></a>  
 		                        <!-- <span ng-if="zerobaseIng == 0 || zerobaseIng == null" id="zerobaseBtn"><span ng-if="locale=='ko'">제로베이스 작가</span><span ng-if="locale!='ko'">Zero base Artist</span></span> --> 
 		                    </li> 
 		                </ul>

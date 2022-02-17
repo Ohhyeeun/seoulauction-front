@@ -5,18 +5,18 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <jsp:include page="../include/header.jsp" flush="false"/> 
-<link href="/resources/css/angular/ng-animation.css" rel="stylesheet">
+<link href="/css/angular/ng-animation.css" rel="stylesheet">
 <link href="/css/angular/ngDialog.min.css" rel="stylesheet">
-<link href="/resources/css/angular/popup.css" rel="stylesheet">
+<link href="/css/angular/popup.css" rel="stylesheet">
 <link type="text/css" href="/css/imgzoom/jquery.magnify.css" rel="stylesheet">
 <link type="text/css" href="/css/imgzoom/magnify-bezelless-theme.css" rel="stylesheet">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-duration-format/1.3.0/moment-duration-format.min.js"></script>
-<script type="text/javascript" src="/resources/js/angular/paging.js?${resources.timestamp}"></script>
+<script type="text/javascript" src="/js/angular/paging.js"></script>
 <script type="text/javascript" src="/js/angular/rzslider.min.js"></script>
 <!--  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-animate.min.js"></script> -->
-<script type="text/javascript" src="/resources/js/angular/angular-animate.min.js"></script>  
+<script type="text/javascript" src="/js/angular/angular-animate.min.js"></script>  
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ng-dialog/0.5.6/js/ngDialog.min.js"></script>
 <script type="text/javascript" src="/js/imgzoom/jquery.magnify.js"></script> 
 
@@ -190,8 +190,8 @@ function OnloadImg(){
 								<div id="rolling123" class="hidden_box rolling" >
 									<ul style="width: 500px;">  
 										<li ng-repeat="asImg in asImg" on-finish-render-filters>
-											<a class="imgzoom_a" data-magnify="gallery" href="/nas_img/{{asImg.FILE_PATH}}/{{asImg.FILE_NAME}}" title="이미지 확대보기"> 
-												<img ng-src="/nas_img/{{asImg.FILE_PATH}}/{{asImg.FILE_NAME}}" alt="프라이빗 이미지 디테일" style="max-width: 100%; max-height: 100%;"> 
+											<a class="imgzoom_a" data-magnify="gallery" href="https://www.seoulauction.com/nas_img/{{asImg.FILE_PATH}}/{{asImg.FILE_NAME}}" title="이미지 확대보기"> 
+												<img ng-src="https://www.seoulauction.com/nas_img/{{asImg.FILE_PATH}}/{{asImg.FILE_NAME}}" alt="프라이빗 이미지 디테일" style="max-width: 100%; max-height: 100%;"> 
 											</a> 
 										</li> 
 									</ul>
@@ -202,7 +202,7 @@ function OnloadImg(){
 								<ul>
 									<li style="text-align: center;" class="sele" ng-repeat="asImg in asImg" on-finish-render-filters>  
 										<span>
-											<img ng-src="/nas_img/{{asImg.FILE_PATH}}/{{asImg.FILE_NAME}}" /> 
+											<img ng-src="https://www.seoulauction.com/nas_img/{{asImg.FILE_PATH}}/{{asImg.FILE_NAME}}" /> 
 											<span class="masking"></span> 
 										</span>
 									</li> 
@@ -263,12 +263,12 @@ function OnloadImg(){
 								</div>
 							</div> 
 							<div class="title">  
-								<div class="mat"> 
+								<div class="mat">  
 									<p ng-if="locale == 'ko'" class="inquiry_no_email">
                                     	<span class="inquiry_no_email_lang"> 
-                                            서울옥션 파트너 그룹  정선정 선임
+                                            서울옥션 파트너 그룹 김승엽 선임
                                             <span>
-                                                작품문의: <a href="tel:02-2075-4423">02-2075-4423</a> / <a href="mailto:jsj@seoulauction.com">jsj@seoulauction.com</a>
+                                                작품문의: <a href="tel:02-2075-4426">02-2075-4426</a> / <a href="mailto:syk@seoulauction.com">syk@seoulauction.com</a> 
                                             </span>
                                             또는, 로그인 뒤 1:1 문의를 하실 수 있습니다.
                                         <span>
@@ -276,12 +276,12 @@ function OnloadImg(){
                                     <p ng-if="locale != 'ko'" class="inquiry_no_email">    
                                     	<span class="inquiry_no_email_lang">   
                                             <!--E-mail: (Hong Kong) saplus@seoulauction.com --> 
-                                            Partner Group Jung sunjung
+                                            Partner Group Kim seungyeob
                                             <span>
-                                                <a href="tel: +82 (0)2-2075-4423">Tel. +82 (0)2-2075-4423</a>
+                                                <a href="tel: +82 (0)2-2075-4426">Tel. +82 (0)2-2075-4426</a>
                                             </span>   
                                             <span>
-                                                <a href="mailto:jsj@seoulauction.com">jsj@seoulauction.com</a> 
+                                                <a href="mailto:syk@seoulauction.com">syk@seoulauction.com</a>   
                                             </span> 
                                         </span>
                                     </p> 

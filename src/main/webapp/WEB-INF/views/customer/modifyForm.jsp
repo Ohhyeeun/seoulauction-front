@@ -6,12 +6,12 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <jsp:include page="../include/header.jsp" flush="false"/>
 
-<link href="/resources/css/angular/ngDialog.css" rel="stylesheet">
-<link href="/resources/css/angular/popup.css" rel="stylesheet">
+<link href="/css/angular/ngDialog.css" rel="stylesheet">
+<link href="/css/angular/popup.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ng-dialog/0.5.6/js/ngDialog.min.js"></script>
-<script src="/resources/js/angular/checklist-model.js"></script>
-<script type="text/javascript" src="/resources/js/join.js?${resources.timestamp}"></script>
+<script src="/js/angular/checklist-model.js"></script>
+<script type="text/javascript" src="/js/join.js"></script>
 <script type="text/javascript">
 
 app.requires.push.apply(app.requires, ["checklist-model", "ngDialog"]);
@@ -22,7 +22,7 @@ app.controller("joinCtl", function($scope, consts, common, join, joinService, ng
 	joinService.setScope($scope);
 
 	$scope.init = function(){
-
+		
  		$d = {"baseParms":{},
  				"actionList":[
 				{"actionID":"code_list", "actionType":"select" , "tableName": "CODES", "parmsList":[{"grp_ids":["push_way", "interest_area" , "nation"]}]},
@@ -34,6 +34,7 @@ app.controller("joinCtl", function($scope, consts, common, join, joinService, ng
 	 	    $scope.codeList = data["tables"]["CODES"]["rows"];
 	 		var custInfo = data["tables"]["CUST_INFO"]["rows"][0];
 	 		$scope.interest_artists = data["tables"]["INTE_ARTIST_LIST"]["rows"];
+	 		
 	 		$scope.form_data = convertKeysToCamelCase(custInfo);
 	 		console.log("=====");
 			console.log(custInfo);
@@ -43,19 +44,19 @@ app.controller("joinCtl", function($scope, consts, common, join, joinService, ng
 			 		$scope.form_data.hp2 = $scope.form_data.hp.split("-")[1];
 			 		$scope.form_data.hp3 = $scope.form_data.hp.split("-")[2];
 		 		}
-
+		 		
 		 		if($scope.isValidString($scope.form_data.tel)){
 			 		$scope.form_data.tel1 = $scope.form_data.tel.split("-")[0];
 			 		$scope.form_data.tel2 = $scope.form_data.tel.split("-")[1];
 			 		$scope.form_data.tel3 = $scope.form_data.tel.split("-")[2];
 		 		}
-
+		 		
 		 		if($scope.isValidString($scope.form_data.fax)){
 			 		$scope.form_data.fax1 = $scope.form_data.fax.split("-")[0];
 			 		$scope.form_data.fax2 = $scope.form_data.fax.split("-")[1];
 			 		$scope.form_data.fax3 = $scope.form_data.fax.split("-")[2];
 		 		}
-
+		 		
 		 		if($scope.isValidString($scope.form_data.zipno)){
 			 		$scope.form_data.zipno1 = $scope.form_data.zipno.split("-")[0];
 			 		$scope.form_data.zipno2 = $scope.form_data.zipno.split("-")[1];
@@ -66,7 +67,7 @@ app.controller("joinCtl", function($scope, consts, common, join, joinService, ng
 			 		$scope.form_data.deli_zipno2 = $scope.form_data.deli_zipno.split("-")[1];
 		 		}
 	 		}
-
+	 		
 
 	 		if($scope.isValidString($scope.form_data.email)){
 		 		$scope.form_data.email1 = $scope.form_data.email.split("@")[0];
@@ -83,7 +84,7 @@ app.controller("joinCtl", function($scope, consts, common, join, joinService, ng
 			$scope.interest_areas = $scope.isValidString($scope.form_data.inte_area_json) ? $scope.form_data.inte_area_json : [];
 			$scope.bindArtistNamesHtml();
 			//$scope.form_data.re_passwd = $scope.form_data.passwd2 = $scope.form_data.passwd = data.passwd;
-
+			
 			$scope.checkDupId.valid = true;
 	 		$scope.checkDupId.check = "ok";
 	 		$scope.checkConfirmPwd.check = "ok";
@@ -93,24 +94,25 @@ app.controller("joinCtl", function($scope, consts, common, join, joinService, ng
 	 		$scope.checkHp.check = "ok";
 	 		$scope.checkHpAuth.check = "ok";
 	 		$scope.checkHpAuth.valid = true;
-
+	 		
  		}, null);
 	}
-
+	
+    
 	$scope.save = function(){
-
-
+		
+		
 		var chbReceiveChK = $("#chbReceiveChk input:checkbox[name=is_check]:checked").length;
-
+		
 		if ( chbReceiveChK > 0 ) {
 			$scope.form_data.marketing_chk = "Y";
 		} else {
 			$scope.form_data.marketing_chk = "N";
 		};
-
+		
 		if(!$scope.validationBasic($scope)) return;
         $scope.setFormData($scope);
-
+        
         $scope.param_addInfoList = [];
         $scope.setParamInfoList("pushway", $scope.push_ways, "push_way_cd");
 	    $scope.setParamInfoList("area", $scope.interest_areas, "inte_area_cd");
@@ -119,11 +121,15 @@ app.controller("joinCtl", function($scope, consts, common, join, joinService, ng
 		$d = {"baseParms":{},
  				"actionList":[
  		    	{"actionID":"modify_cust_info", "actionType":"update", "tableName": "CUST", "parmsList":[$scope.form_data]},
+//  		    	{"actionID":"delete_add_info", "actionType":"delete", "tableName":"DEL_ADD_INFO", "parmsList": [{}]},
 		    	{"actionID":"insert_addInfo", "actionType":"insert", "tableName":"INS_ADD_INFO", "parmsList": $scope.param_addInfoList},
+//  		    	{"actionID":"add_join_push_ways", "actionType":"insert", "tableName": "CUST_PUSH_WAY", "parmsList": $scope.push_way_cds},
+//  		    	{"actionID":"add_join_inte_area", "actionType":"insert", "tableName": "CUST_INTE_AREA", "parmsList": $scope.interest_areas_cds},
+//  		    	{"actionID":"add_join_inte_artist", "actionType":"insert", "tableName": "CUST_INTE_ARTIST", "parmsList": $scope.interest_artists}
  			]};
 
 		console.log($d);
-
+   	   	
 		common.callActionSet($d,
    	   		function(data, status) {
    	   			console.log("====>" + data);
@@ -151,7 +157,7 @@ app.controller("joinCtl", function($scope, consts, common, join, joinService, ng
    		    }
    		);
 	}
-
+	
 	$scope.showAddressFinderPopup = join.showAddressFinderPopup;
 	$scope.showArtistFinderPopup = join.showArtistFinderPopup;
 
@@ -166,7 +172,7 @@ app.controller("joinCtl", function($scope, consts, common, join, joinService, ng
 	<jsp:include page="../include/topMenu.jsp" flush="false"/>
 
 <div class="container_wrap">
-
+	
 	<div id="container" ng-controller="joinCtl" data-ng-init="init();">
 		<div class="sub_menu_wrap menu05">
 			<div class="sub_menu">
@@ -198,7 +204,7 @@ app.controller("joinCtl", function($scope, consts, common, join, joinService, ng
 						</div>
 						<div class="btn_wrap">
 							<span class="btn_style01 white xlarge"><a ng-click="save();"><spring:message code="label.membership.ChangeInfosumit" /></a></span>
-						</div>
+						</div>						
 					</fieldset>
 
 				</form>

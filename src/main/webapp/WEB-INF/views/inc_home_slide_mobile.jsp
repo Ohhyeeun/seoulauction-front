@@ -111,7 +111,7 @@
 	       				<span ng-if="locale=='ko'">AR앱다운로드</span>
 	       				<span ng-if="locale!='ko'">AR App</span> 
 	       			</a>   
-	            </span> 
+	            </span>
                 
 	             <!-- contents -->
 	             <div class="info">

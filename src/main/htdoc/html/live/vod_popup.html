@@ -1,0 +1,58 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<!-- A minimal Flowplayer setup to get you started -->
+  
+
+	<!-- 
+		include flowplayer JavaScript file that does  
+		Flash embedding and provides the Flowplayer API.
+	-->
+	<script type="text/javascript" src="flowplayer-3.2.13.min.js"></script>
+	<script type="text/javascript" src="flowplayer.ipad-3.2.13.min.js"></script>
+	
+	<!-- some minimal styling, can be removed -->
+	<link rel="stylesheet" type="text/css" href="style.css">
+	 
+	<!-- page title -->
+	<title>SeoulAuction Live</title>
+
+</head><body> 
+
+	<div id="page">
+		 
+		<!-- this A tag is where your Flowplayer will be placed. it can be anywhere -->
+		 <div class="rtmp"
+			 style="display:block;width:680px;height:380px"  
+			 id="player"> 
+		</div>
+	
+		<!-- this will install flowplayer inside previous A- tag. -->
+		<script>
+		$f("player", "flowplayer-3.2.18.swf", {
+			 
+			// configure both players to use rtmp plugin
+	        clip: {
+	            provider: 'rtmp',
+	            //url:'hobbit_vp6.flv'//,
+	            //live:true
+	            url:'livestream',
+	            live:true,
+	            bufferLength:1,
+	            bufferTime: 1, 
+	            autoPlay: true 
+	        },
+	 
+	        plugins: {
+	          rtmp: {
+	                url: "flowplayer.rtmp-3.2.13.swf",
+	                netConnectionUrl: 'rtmp://14.63.173.187/live'
+	          }
+	        }
+		});
+		</script>
+	
+	
+	</div>
+	
+	
+</body></html>

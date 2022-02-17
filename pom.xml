@@ -1,34 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.seoulauction.legacy</groupId>
-	<artifactId>front-alpha1</artifactId>
-	<name>front-ALPHA1</name>
-	<version>1.0.0-SNAPSHOT</version>
+	<groupId>com.seoulauction</groupId>
+	<artifactId>sa-front</artifactId>
+	<name>seoulauction.front</name>
+	<version>4.0.0</version>
 	<packaging>war</packaging>
-
-	<parent>
-		<groupId>com.seoulauction</groupId>
-		<artifactId>super</artifactId>
-		<version>0.0.2-SNAPSHOT</version>
-	</parent>
-
 	<properties>
 		<java-version>1.7</java-version>
-		<maven.compiler.source>1.7</maven.compiler.source>
-		<maven.compiler.target>1.7</maven.compiler.target>
 		<org.springframework-version>3.2.8.RELEASE</org.springframework-version>
 		<spring-security-version>3.2.3.RELEASE</spring-security-version>
 		<org.aspectj-version>1.6.9</org.aspectj-version>
 		<org.slf4j-version>1.7.13</org.slf4j-version>
+		<!-- <org.apache.cxf-version>2.7.18</org.apache.cxf-version> -->
+		<org.apache.cxf-version>3.1.4</org.apache.cxf-version>
 		<org.apache.cxf-version>3.1.4</org.apache.cxf-version>
 		<spring.batch.version>2.2.0.RELEASE</spring.batch.version>
 		<quartz.version>1.8.6</quartz.version>
-		<m2eclipse.wtp.contextRoot>/</m2eclipse.wtp.contextRoot>
-		<resources.timestamp>${project.version}.${maven.build.timestamp}</resources.timestamp>
-		<maven.build.timestamp.format>ddHHmmss</maven.build.timestamp.format>
 	</properties>
 	<dependencies>
 		<!-- Servlet -->
@@ -64,13 +53,8 @@
 				<exclusion>
 					<groupId>commons-logging</groupId>
 					<artifactId>commons-logging</artifactId>
-				</exclusion>
+				 </exclusion>
 			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.21</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -88,10 +72,10 @@
 			<version>${org.springframework-version}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-core</artifactId>
-			<version>${spring-security-version}</version>
-		</dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+            <version>${spring-security-version}</version>
+        </dependency>
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-web</artifactId>
@@ -108,31 +92,31 @@
 			<artifactId>spring-security-taglibs</artifactId>
 			<version>${spring-security-version}</version>
 		</dependency>
-
+				
 		<!-- AspectJ -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjrt</artifactId>
 			<version>${org.aspectj-version}</version>
-		</dependency>
+		</dependency>	
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjweaver</artifactId>
 			<version>${org.aspectj-version}</version>
 		</dependency>
-
+		
 		<!-- fileupload -->
 		<dependency>
-			<groupId>commons-fileupload</groupId>
-			<artifactId>commons-fileupload</artifactId>
-			<version>1.2.1</version>
+           <groupId>commons-fileupload</groupId>
+           <artifactId>commons-fileupload</artifactId>
+           <version>1.2.1</version>
 		</dependency>
-		<dependency>
-			<groupId>commons-io</groupId>
-			<artifactId>commons-io</artifactId>
-			<version>2.0.1</version>
-		</dependency>
-
+        <dependency>
+           <groupId>commons-io</groupId>
+           <artifactId>commons-io</artifactId>
+           <version>2.0.1</version>
+        </dependency>
+        	
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>jcl-over-slf4j</artifactId>
@@ -150,35 +134,35 @@
 			<artifactId>javax.inject</artifactId>
 			<version>1</version>
 		</dependency>
-
-		<dependency>
+				
+        <dependency>
 			<groupId>org.codehaus.jackson</groupId>
 			<artifactId>jackson-jaxrs</artifactId>
 			<version>1.9.13</version>
 		</dependency>
-		<!-- Mybatis -->
-		<dependency>
-			<groupId>org.mybatis</groupId>
-			<artifactId>mybatis</artifactId>
-			<version>3.3.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.mybatis</groupId>
-			<artifactId>mybatis-spring</artifactId>
-			<version>1.2.3</version>
-		</dependency>
-		<dependency>
+        <!-- Mybatis-->
+        <dependency>
+        	<groupId>org.mybatis</groupId>
+        	<artifactId>mybatis</artifactId>
+        	<version>3.3.0</version>
+        </dependency>
+        <dependency>
+        	<groupId>org.mybatis</groupId>
+        	<artifactId>mybatis-spring</artifactId>
+        	<version>1.2.3</version>
+        </dependency>
+        <dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-dbcp2</artifactId>
 			<version>2.1.1</version>
 		</dependency>
-
-		<dependency>
-			<groupId>commons-net</groupId>
-			<artifactId>commons-net</artifactId>
-			<version>3.3</version>
-		</dependency>
-		<dependency>
+        
+        <dependency>
+        	<groupId>commons-net</groupId>
+        	<artifactId>commons-net</artifactId>
+        	<version>3.3</version>
+        </dependency>
+        <dependency>
 			<groupId>commons-lang</groupId>
 			<artifactId>commons-lang</artifactId>
 			<version>2.6</version>
@@ -203,20 +187,14 @@
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-bundle-jaxrs</artifactId>
 			<version>2.1.2</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.slf4j</groupId>
-					<artifactId>slf4j-jdk14</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
-
+		
 		<dependency>
 			<groupId>cglib</groupId>
 			<artifactId>cglib</artifactId>
 			<version>3.2.2</version>
 		</dependency>
-
+		
 		<dependency>
 			<groupId>com.mortennobel</groupId>
 			<artifactId>java-image-scaling</artifactId>
@@ -229,21 +207,21 @@
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
-
+		
 		<!-- QuartzJobBean in spring-context-support.jar -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context-support</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
-
+	
 		<!-- Quartz framework -->
 		<dependency>
 			<groupId>org.quartz-scheduler</groupId>
 			<artifactId>quartz</artifactId>
 			<version>${quartz.version}</version>
 		</dependency>
-
+	
 		<!-- Spring Batch dependencies -->
 		<dependency>
 			<groupId>org.springframework.batch</groupId>
@@ -256,31 +234,25 @@
 			<version>${spring.batch.version}</version>
 		</dependency>
 
-		<!-- <dependency> <groupId>javax.mail</groupId> <artifactId>mail</artifactId> 
-			<version>1.4.7</version> </dependency> -->
-		<dependency>
-			<groupId>org.apache.geronimo.javamail</groupId>
-			<artifactId>geronimo-javamail_1.4_mail</artifactId>
-			<version>1.8.4</version>
+      	<!-- 
+      	<dependency>
+      		<groupId>javax.mail</groupId>
+      		<artifactId>mail</artifactId>
+      		<version>1.4.7</version>
+      	</dependency>
+		 -->
+      	<dependency>
+		    <groupId>org.apache.geronimo.javamail</groupId>
+		    <artifactId>geronimo-javamail_1.4_mail</artifactId>
+		    <version>1.8.4</version>
 		</dependency>
 		<dependency>
-			<groupId>org.apache.velocity</groupId>
-			<artifactId>velocity</artifactId>
-			<version>1.7</version>
+		    <groupId>org.apache.velocity</groupId>
+		    <artifactId>velocity</artifactId>
+		    <version>1.7</version>
 		</dependency>
 
-		<!-- Seoulauction Common -->
-		<dependency>
-			<groupId>com.seoulauction.legacy</groupId>
-			<artifactId>webservice-alpha1</artifactId>
-			<version>1.0.0-SNAPSHOT</version>
-		</dependency>
 		
-		<dependency>
-			<groupId>kr.co.nicepay</groupId>
-			<artifactId>nicepay_tx</artifactId>
-			<version>0.9.9.33-20211222</version>
-		</dependency>
 	</dependencies>
 	<repositories>
 		<!-- For testing against latest Spring snapshots -->
@@ -288,158 +260,29 @@
 			<id>org.springframework.maven.snapshot</id>
 			<name>Spring Maven Snapshot Repository</name>
 			<url>http://maven.springframework.org/snapshot</url>
-			<releases>
-				<enabled>false</enabled>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
+			<releases><enabled>false</enabled></releases>
+			<snapshots><enabled>true</enabled></snapshots>
 		</repository>
 		<!-- For developing against latest Spring milestones -->
 		<repository>
 			<id>org.springframework.maven.milestone</id>
 			<name>Spring Maven Milestone Repository</name>
 			<url>http://maven.springframework.org/milestone</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
+			<snapshots><enabled>false</enabled></snapshots>
 		</repository>
 	</repositories>
 	<build>
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-compiler-plugin</artifactId>
-					<version>3.8.1</version>
-					<configuration>
-						<compilerVersion>${maven.compiler.target}</compilerVersion>
-						<encoding>UTF-8</encoding>
-					</configuration>
-				</plugin>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-war-plugin</artifactId>
-					<version>3.3.2</version>
-					<configuration>
-						<filters>
-							<filter>src/main/resources/profiles/${project.profile.id}/config.properties</filter>
-						</filters>
-						<nonFilteredFileExtensions>
-							<nonFilteredFileExtension>pdf</nonFilteredFileExtension>
-							<nonFilteredFileExtension>swf</nonFilteredFileExtension>
-							<nonFilteredFileExtension>ico</nonFilteredFileExtension>
-							<nonFilteredFileExtension>jpg</nonFilteredFileExtension>
-							<nonFilteredFileExtension>jpeg</nonFilteredFileExtension>
-							<nonFilteredFileExtension>png</nonFilteredFileExtension>
-							<nonFilteredFileExtension>gif</nonFilteredFileExtension>
-						</nonFilteredFileExtensions>
-						<webResources>
-							<resource>
-								<directory>src/main/webapp/WEB-INF</directory>
-								<targetPath>WEB-INF</targetPath>
-								<filtering>true</filtering>
-								<includes>
-									<include>**/*.properties</include>
-									<include>**/*.xml</include>
-									<include>**/*.html</include>
-									<include>**/*.jsp</include>
-									<include>**/*.tld</include>
-									<include>**/*.css</include>
-									<include>**/*.js</include>
-								</includes>
-								<excludes>
-									<exclude>**/*.jar</exclude>
-								</excludes>
-							</resource>
-						</webResources>
-					</configuration>
-				</plugin>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-resources-plugin</artifactId>
-					<version>3.1.0</version>
-					<configuration>
-						<encoding>UTF-8</encoding>
-						<nonFilteredFileExtensions>
-							<nonFilteredFileExtension>pdf</nonFilteredFileExtension>
-							<nonFilteredFileExtension>swf</nonFilteredFileExtension>
-							<nonFilteredFileExtension>ico</nonFilteredFileExtension>
-							<nonFilteredFileExtension>jpg</nonFilteredFileExtension>
-							<nonFilteredFileExtension>jpeg</nonFilteredFileExtension>
-							<nonFilteredFileExtension>png</nonFilteredFileExtension>
-							<nonFilteredFileExtension>gif</nonFilteredFileExtension>
-						</nonFilteredFileExtensions>
-						<useDefaultDelimiters>true</useDefaultDelimiters>
-					</configuration>
-				</plugin>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-dependency-plugin</artifactId>
-					<version>3.2.0</version>
-					<configuration>
-						<artifactItems>
-							<artifactItem>
-								<groupId>com.seoulauction.legacy</groupId>
-								<artifactId>webservice-alpha1</artifactId>
-								<version>1.0.0-SNAPSHOT</version>
-								<type>jar</type>
-								<includes>**/**</includes>
-								<overWrite>true</overWrite>
-								<outputDirectory>${project.build.outputDirectory}</outputDirectory>
-							</artifactItem>
-						</artifactItems>
-					</configuration>
-				</plugin>
-			</plugins>
-		</pluginManagement>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-war-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-resources-plugin</artifactId>
+				<configuration>
+					<source>7</source>
+					<target>7</target>
+				</configuration>
 			</plugin>
 		</plugins>
-		<resources>
-			<resource>
-				<directory>src/main/resources</directory>
-				<filtering>true</filtering>
-				<includes>
-					<include>**/*.properties</include>
-					<include>**/*.yaml</include>
-					<include>**/*.yml</include>
-					<include>**/*.html</include>
-					<include>**/*.xml</include>
-				</includes>
-				<excludes>
-					<exclude>profiles/**</exclude>
-				</excludes>
-			</resource>
-		</resources>
-		<filters>
-			<filter>src/main/resources/profiles/${project.profile.id}/config.properties</filter>
-		</filters>
 	</build>
 	<modules>
 	</modules>
-	<profiles>
-		<profile>
-			<id>local</id>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-dependency-plugin</artifactId>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-	</profiles>
 </project>

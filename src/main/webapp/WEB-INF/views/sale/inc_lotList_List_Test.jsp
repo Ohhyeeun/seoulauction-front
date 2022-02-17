@@ -352,7 +352,7 @@
 									<div class="estimate auction_list_estimate" ng-show='lot.STAT_CD != "reentry"'>
 										<div class="es_price">
 	                                        <p class="krw Price_inqury" ng-if="lot.EXPE_PRICE_INQ_YN == 'Y'"><spring:message code="label.auction.detail.Request" /></p>   
-                                       		<!-- 추정가 -->  
+                                       		<!-- 추정가 -->
                                       		<ul ng-if="lot.EXPE_PRICE_INQ_YN != 'Y' && (lot.EXPE_PRICE_TO_JSON[base_currency]) != 0 && (lot.EXPE_PRICE_FROM_JSON[base_currency]) != 0 && (lot.EXPE_PRICE_TO_JSON[base_currency]) != null && (lot.EXPE_PRICE_FROM_JSON[base_currency]) != null">
                                       			<li class="es_price_left"> 
                                       				<spring:message code="label.expense.price" />  
@@ -704,7 +704,7 @@
 									<button ng-if="custInfo.BID_FORBID == 'N' && custInfo.CUST_NO && ((custInfo.LOCAL_KIND_CD == 'foreigner' && custInfo.FORE_BID_YN == 'Y') || (custInfo.LOCAL_KIND_CD != 'foreigner'))" type="button" ng-click="showBidHistoryPopup({'parent':this, 'sale':sale, 'lot':lot});" >
 										<spring:message code="label.go.bid.history" /><!-- 온라인응찰기록 ->
 									</button>
-                                       <button ng-if="!custInfo.CUST_NO" type="button" onClick="location.href='/login'" >
+                                       <button ng-if="!custInfo.CUST_NO" type="button" onClick="location.href='https://www.seoulauction.com/login'" >
 										<spring:message code="label.go.bid.loginlog" /><!-- 온라인응찰기록 ->
 									</button>
 								</span><!-- 온라인 / 종료 ->
@@ -714,7 +714,7 @@
 									<button type="button">
 		                                <spring:message code="label.go.bid.now" />
 		                            </button>
-                                       <%-- <button ng-if="!custInfo.CUST_NO" type="button" onClick="location.href='/login'" >
+                                       <%-- <button ng-if="!custInfo.CUST_NO" type="button" onClick="location.href='https://www.seoulauction.com/login'" >
 										<spring:message code="label.go.bid.loginlog" />
 									</button> --%>
 								</span><!-- 온라인 / 진행중 ->
@@ -725,7 +725,7 @@
 									<button ng-if="custInfo.BID_FORBID == 'N' && custInfo.CUST_NO && ((custInfo.LOCAL_KIND_CD == 'foreigner' && custInfo.FORE_BID_YN == 'Y') || (custInfo.LOCAL_KIND_CD != 'foreigner'))" type="button" ng-click="showBidPopup({'parent':this, 'sale':sale, 'lot':lot});" >
 										<spring:message code="label.go.bid.now" />
 									</button>
-                                       <%-- <button ng-if="!custInfo.CUST_NO" type="button" onClick="location.href='/login'" >
+                                       <%-- <button ng-if="!custInfo.CUST_NO" type="button" onClick="location.href='https://www.seoulauction.com/login'" >
 										<spring:message code="label.go.bid.loginlog" />
 									</button> --%>
 								</span><!-- 온라인 / 진행중 ->

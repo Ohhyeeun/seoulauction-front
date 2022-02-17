@@ -85,7 +85,7 @@
                     
                      <div class="storage_cont">	 
 						<div class="tit_h3 through">
-							<h3>Location</h3> 
+							<h3>Location</h3>
 						</div> 
 						
 						<div class="map_area">

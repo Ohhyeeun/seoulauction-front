@@ -7,7 +7,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<script type="text/javascript" src="/resources/js/angular/paging.js?${resources.timestamp}"></script>
+<script type="text/javascript" src="/js/angular/paging.js"></script>
 
 <script>
 $(document).ready(function(){
@@ -49,7 +49,7 @@ app.controller('academyListCtl', function($scope, consts, common, is_login) {
 			<div class="sub_menu_wrap menu03">
 				<div class="sub_menu">
 					<jsp:include page="../include/serviceSubMenu.jsp" flush="false"/>
-				</div>
+				</div> 
 				<button type="button" class="m_only btn_submenu"><span class="hidden">메뉴보기</span></button>
 			</div>
 			<!-- //sub_menu_wrap -->

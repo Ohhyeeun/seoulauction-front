@@ -32,13 +32,13 @@
     <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/images/icon/favic/apple-touch-icon-120x120.png" />
     <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/images/icon/favic/apple-touch-icon-152x152.png" />
     <link rel="icon" type="image/png" href="/images/icon/favic/favicon-32x32.png" sizes="32x32"/>
-    <link rel="icon" type="image/png" href="/images/icon/favic/favicon-16x16.png" sizes="16x16"/>
+    <link rel="icon" type="image/png" href="/images/icon/favic/favicon-16x16.png" sizes="16x16"/> 
     <meta name="application-name" content="SeoulAuction" />
  
-    <link href="<c:url value="/resources/css/old/common.css?${resources.timestamp}" />" rel="stylesheet">  
-    <link href="<c:url value="/resources/css/sa.common.2.0.css?${resources.timestamp}" />" rel="stylesheet">   
-    <link href="<c:url value="/resources/css/sa.common.2.1.css?${resources.timestamp}" />" rel="stylesheet">          
-    <link type="text/css" href="/resources/css/imgzoom/magnific-popup.css" rel="stylesheet">
+    <link href="<c:url value="/css/old/common.css?ver=20220207" />" rel="stylesheet">     
+    <link href="<c:url value="/css/sa.common.2.0.css?ver=20210901" />" rel="stylesheet">   
+    <link href="<c:url value="/css/sa.common.2.1.css?ver=20211220" />" rel="stylesheet">           
+    <link type="text/css" href="/css/imgzoom/magnific-popup.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"><!-- 아트컨실팅 및 후원 기증 페이지 웹아이콘 -->
     
     <!-- <link href="<c:url value="/css/custom.css" />" rel="stylesheet"> -->
@@ -47,27 +47,28 @@
     <![endif]-->
 <!--     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-sanitize.js"></script> -->
-	<script type="text/javascript" src="/resources/js/angular/angular.min.js"></script>
-	<script src="/resources/js/angular/angular-sanitize.js"></script>
+	<script type="text/javascript" src="/js/angular/angular.min.js"></script>
+	<script src="/js/angular/angular-sanitize.js"></script>
     <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.4.9/angular-locale_ko-kr.min.js"></script> -->
-    <script type="text/javascript" src="<c:url value="/resources/js/angular/angular-bind-html-compile.js" />"></script>
-    <script type="text/javascript" src="<c:url value="/resources/js/angular/app.js?${resources.timestamp}" />"></script>
-    <script type="text/javascript" src="/resources/js/common.js?${resources.timestamp}"></script>
+    <script type="text/javascript" src="<c:url value="/js/angular/angular-bind-html-compile.js" />"></script>
+    <script type="text/javascript" src="<c:url value="/js/angular/app.js?ver=202111041" />"></script>
+    <script type="text/javascript" src="<c:url value="/js/common.js" />"></script>
 
 <!--      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.js" ></script> -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.js" ></script> 
-	<script type="text/javascript" src="/resources/js/jquery.easing.1.3.js"></script> 
-	<script type="text/javascript" src="/resources/js/jquery.panzoom.min.js"></script>
-	<script type="text/javascript" src="/resources/js/jquery.slides.min.js"></script>
-	<script type="text/javascript" src="/resources/js/jquery.placeholder.min.js"></script>
+	<script type="text/javascript" src="/js/jquery.easing.1.3.js"></script> 
+	<script type="text/javascript" src="/js/jquery.panzoom.min.js"></script>
+	<script type="text/javascript" src="/js/jquery.slides.min.js"></script>
+	<script type="text/javascript" src="/js/jquery.placeholder.min.js"></script>
 	<!-- <script type="text/javascript" src="/js/old/jquery.selectbox-0.2.js"></script>-->
-	<script type="text/javascript" src="/resources/js/jquery.nicefileinput.min.js"></script>
-	<script type="text/javascript" src="/resources/js/jquery.mousewheel.min.js"></script>
-	<script type="text/javascript" src="/resources/js/jquery.mobile-events.js"></script> 
-	<script type="text/javascript" src="/resources/js/iscroll.js"></script>
-	<script type="text/javascript" src="/resources/js/old/ui.js?${resources.timestamp}"></script>
-	<script type="text/javascript" src="/resources/js/old/frontCommon.js"></script>
-	<script type="text/javascript" src="/resources/js/imgzoom/jquery.magnific-popup.min.js"></script>
+	<script type="text/javascript" src="/js/jquery.nicefileinput.min.js"></script>
+	<script type="text/javascript" src="/js/jquery.mousewheel.min.js"></script>
+	<script type="text/javascript" src="/js/jquery.mobile-events.js"></script> 
+	<script type="text/javascript" src="/js/iscroll.js"></script>
+	<script type="text/javascript" src="/js/old/ui.js"></script>
+	<script type="text/javascript" src="/js/old/frontCommon.js"></script>
+    <script type="text/javascript" src="/js/rightClick.js"></script> 
+	<script type="text/javascript" src="/js/imgzoom/jquery.magnific-popup.min.js"></script> 
 	<script type="application/ld+json">
 	 {
 		"@context": "http://schema.org",

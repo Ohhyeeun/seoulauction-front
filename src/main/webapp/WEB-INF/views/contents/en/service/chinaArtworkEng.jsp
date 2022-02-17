@@ -16,7 +16,7 @@
 				<div class="sub_menu">
 					<jsp:include page="../../include/serviceSubMenu.jsp" flush="false"/> 
 				</div>
-				<button type="button" class="m_only btn_submenu"><span class="hidden">메뉴보기</span></button>
+				<button type="button" class="m_only btn_submenu"><span class="hidden">메뉴보기</span></button> 
 			</div>
 			<!-- //sub_menu_wrap -->
 

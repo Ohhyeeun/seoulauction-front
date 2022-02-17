@@ -1,0 +1,103 @@
+@CHARSET "UTF-8";
+*{
+	font-family: 'Malgun Gothic' !important;
+}
+
+.header-wrap{
+	position: relative;
+    top: 10;
+    max-width: 730px;
+    height: 150px;
+    clear: both;
+    background-image: url(/images/krx_imgs/img01.png);
+    background-repeat: no-repeat;
+    background-size: 100px;
+    background-position: 97% 100%;
+    font-size: 30px;
+    color: #333333;
+    font-weight: bold;
+    padding-left: 10px;
+}
+.header-wrap span{
+	font-size: 15px;
+	padding-left:10px;
+}
+
+.header-wrap #query_time {
+	padding-left: 0px;
+}
+
+.header-wrap .time_img{
+	padding-left:5px;
+	vertical-align: middle;
+    display: inline-table;
+    width: 15px;
+    height: 15px;
+    background-image: url(/images/krx_imgs/img05.png);
+    background-repeat: no-repeat;
+}
+
+.body-wrap{
+	position: relative;
+    max-width: 730px;
+    height: 80%;
+    clear: both;
+}
+.footer-wrap{
+	position: relative;
+    max-width: 730px;
+    clear: both;
+}
+table{
+	position: relative;
+    width: 100%;
+    margin: 20px 0;
+    border-bottom: 1px solid #dbdbdb;
+    border-spacing: 0;
+    border-top: 1px solid #495776;
+    border-right: hidden;
+}
+table tr th{
+    padding: 9px 10px;
+    font-weight: normal;
+    background-color: #495776;
+    color: #fff;
+    border-left: 1px solid #495776;
+    border-top: 1px solid #495776;
+    font-size: 93%;
+}
+table tr td:first-child, table tr td:nth-child(2), table tr td:last-child{
+	
+	padding: 9px 10px;
+    font-weight: normal;
+    background-color: #ffffff;
+    border-left: 1px solid #dbdbdb;
+    border-top: 1px solid #dbdbdb;
+    text-align:center;
+    font-size: 93%;
+}
+table tr td{
+	
+	padding: 9px 10px;
+    font-weight: normal;
+    background-color: #ffffff;
+    border-left: 1px solid #dbdbdb;
+    border-top: 1px solid #dbdbdb;
+    text-align:left;
+    font-size: 93%;
+
+}
+
+table tr:hover td {
+	background: #f2f2f2;
+	background: -webkit-gradient(linear, left top, left bottom, from(#f2f2f2), to(#f0f0f0));
+	background: -moz-linear-gradient(top,  #f2f2f2,  #f0f0f0);	
+}
+
+table tr td a{
+	text-decoration: none;
+	color:#333333;
+}
+
+
+

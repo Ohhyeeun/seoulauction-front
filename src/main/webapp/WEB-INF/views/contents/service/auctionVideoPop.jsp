@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<title>VIDEO</title>
 	<meta name="viewport" content="width=device-width, user-scalable=no">
-	<link rel="stylesheet" href="/resources/css/old/common.css?${resources.timestamp}" />
+	<link rel="stylesheet" href="/css/old/common.css" />
 	<!--  <link rel="stylesheet" href="/css/old/jquery.mCustomScrollbar.css" rel="stylesheet" /> -->
 	<script type="text/javascript" src="/html/live/jquery/jquery-2.1.1.min.js"></script>
 	<!--  <script type="text/javascript" src="/js/selectbox-min.js"></script> -->	
@@ -41,7 +41,7 @@
 				<p>AUCTION :  2018.12.13(木)4:00 PM KST   <br/>서울옥션 스페이스 (종로구 평창 31길 11)  <br/><br/></p>
 			<div class="video_area web_only" oncontextmenu="return false" ondragstart="return false">
 				
-				<video src="/nas_img/front/homepage/20181207_SeoulAuction_interview_web.mp4" controls width="720" height="480" autoplay>
+				<video src="https://www.seoulauction.com/nas_img/front/homepage/20181207_SeoulAuction_interview_web.mp4" controls width="720" height="480" autoplay>
 				<p><br/><br/>동영상을 재생 할 수 없는 브라우저 입니다.<br/>일부 브라우저에서는 최신 동영상 형식 또는 화질 옵션을 지원하지 않습니다.<br/>최적의 시청 환경을 위해 브라우저 또는 <b>운영체제를 업그레이드</b>하는 것이 좋습니다.<br/>고화질 동영상 형식을 지원하는 브라우저와 운영체제의 조합은 다음과 같습니다.<br/>•Chrome(모든 운영체제)<br/>
 •MS Edge <br/>
 •Mac OS X 10.10 이상의 Safari<br/>
@@ -50,7 +50,7 @@
 			</div>
             <div class="video_area m_only" oncontextmenu="return false" ondragstart="return false">
 				
-				<video src="/nas_img/front/homepage/20181207_SeoulAuction_interview_mo.mp4" controls width="480" height="270" autoplay>
+				<video src="https://www.seoulauction.com/nas_img/front/homepage/20181207_SeoulAuction_interview_mo.mp4" controls width="480" height="270" autoplay>
 				<p><br/><br/>동영상을 재생 할 수 없는 브라우저 입니다.<br/>일부 브라우저에서는 최신 동영상 형식 또는 화질 옵션을 지원하지 않습니다.<br/>최적의 시청 환경을 위해 브라우저 또는 <b>운영체제를 업그레이드</b>하는 것이 좋습니다.<br/>고화질 동영상 형식을 지원하는 브라우저와 운영체제의 조합은 다음과 같습니다.<br/>•Chrome(모든 운영체제)<br/>
 •MS Edge <br/>
 •Mac OS X 10.10 이상의 Safari<br/>

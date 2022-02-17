@@ -1,0 +1,48 @@
+.magnify-modal {
+  box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.3);
+}
+
+.magnify-header .magnify-toolbar {
+  background-color: rgba(19, 172, 172, .7);   
+}
+.magnify-header > .magnify-toolbar > .magnify-button { 
+	width: 50px;  
+	height: 50px;  
+}
+.magnify-header .magnify-toolbar .magnify-button:hover {
+	border-radius: 7px 0 0 7px; 
+} 
+.magnify-stage {
+  top: 0;
+  left: 0;
+  bottom: 0; 
+  right: 0;
+  border-width: 0;
+}
+
+.magnify-footer .magnify-toolbar {
+  background-color: rgba(19, 172, 172, .8);      
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px; 
+}
+
+.magnify-header,
+.magnify-footer { 
+  pointer-events: none; 
+} 
+ 
+.magnify-button {
+  pointer-events: auto;
+}
+.imgzoom_a {   
+	cursor: zoom-in;  
+}  
+
+@media all and (max-width:767px) { 
+.magnify-header > .magnify-toolbar > .magnify-button {
+	min-width: auto;     
+	width: auto;   
+	height: auto;      
+} 
+} 
+

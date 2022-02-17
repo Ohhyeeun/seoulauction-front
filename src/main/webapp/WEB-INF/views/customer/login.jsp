@@ -18,12 +18,12 @@
 <body>
 <jsp:include page="../include/topSearch.jsp" flush="false"/>
 
-<link href="/resources/css/angular/ngDialog.css" rel="stylesheet">
-<link href="/resources/css/angular/popup.css" rel="stylesheet">
-<script src="/resources/js/LoginSave.js"></script> 
+<link href="/css/angular/ngDialog.css" rel="stylesheet">
+<link href="/css/angular/popup.css" rel="stylesheet">
+<script src="/js/LoginSave.js"></script> 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ng-dialog/0.5.6/js/ngDialog.min.js"></script>
-<script src="/resources/js/angular/checklist-model.js"></script>
+<script src="/js/angular/checklist-model.js"></script>
  
 <script type="text/javascript">
 var search_kind = "";
@@ -222,7 +222,7 @@ app.controller('searchAccountPopCtl', function($scope, consts, common, locale) {
 												<fieldset> 
 													<input type="checkbox" name="checkedID" id="checkedID" />    
 													<label for="checkedID">
-														<span ng-if="locale == 'ko'">ID 저장하기</span>
+														<span ng-if="locale == 'ko'">ID 저장</span>  
 														<span ng-if="locale != 'ko'">Save ID</span>   
 													</label>   
 												</fieldset>  

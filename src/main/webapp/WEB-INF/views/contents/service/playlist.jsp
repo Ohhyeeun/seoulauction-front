@@ -3,17 +3,17 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <jsp:include page="../../include/header.jsp" flush="false"/>
- <link rel="stylesheet" type="text/css" href="/js/playlist/jquery.mCustomScrollbar.css" media="all" /><!-- scroll -->
+ <link rel="stylesheet" type="text/css" href="https://www.seoulauction.com/js/playlist/jquery.mCustomScrollbar.css" media="all" /><!-- scroll -->
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"><!-- icons -->
-        <link rel="stylesheet" type="text/css" href="/js/playlist/ivag_dark3.css" /> 
+        <link rel="stylesheet" type="text/css" href="https://www.seoulauction.com/js/playlist/ivag_dark3.css" /> 
           
   
-        <script type="text/javascript" src="/js/playlist/captionator.js"></script><!-- captions -->
-        <script type="text/javascript" src="/js/playlist/jquery.address.js"></script><!-- deeplink -->
-        <script type="text/javascript" src="/js/playlist/jquery.mCustomScrollbar.concat.min.js"></script><!-- scroll -->
-        <script type="text/javascript" src="/js/playlist/id3-minimized.js"></script><!-- id3 tags -->
-        <script type="text/javascript" src="/js/playlist/jquery.dotdotdot.min.js"></script><!-- text overflow ellipsis -->
-        <script type="text/javascript" src="/js/playlist/new.js"></script>
+        <script type="text/javascript" src="https://www.seoulauction.com/js/playlist/captionator.js"></script><!-- captions -->
+        <script type="text/javascript" src="https://www.seoulauction.com/js/playlist/jquery.address.js"></script><!-- deeplink -->
+        <script type="text/javascript" src="https://www.seoulauction.com/js/playlist/jquery.mCustomScrollbar.concat.min.js"></script><!-- scroll -->
+        <script type="text/javascript" src="https://www.seoulauction.com/js/playlist/id3-minimized.js"></script><!-- id3 tags -->
+        <script type="text/javascript" src="https://www.seoulauction.com/js/playlist/jquery.dotdotdot.min.js"></script><!-- text overflow ellipsis -->
+        <script type="text/javascript" src="https://www.seoulauction.com/js/playlist/new.js"></script>
 
        <script type="text/javascript">
         var ivag_player;  
@@ -124,22 +124,22 @@
                         <div style="border-bottom:1px #CCCCCC solid; padding-top:5px;"></div>
                         <div style="padding-top:0px;">
                             <a href="https://twitter.com/seoulauctionkr" target="_balnk"><!-- YBK. 상 우 하 좌 -->
-                                <img src="/nas_img/front/homepage/icon_twitter.jpg" style="margin:10px 5px 0px 0px; width:30px;" alt="Twitter" />
+                                <img src="https://www.seoulauction.com/nas_img/front/homepage/icon_twitter.jpg" style="margin:10px 5px 0px 0px; width:30px;" alt="Twitter" />
                             </a>  
                             <a href="https://www.facebook.com/seoulauction" target="_balnk">
-                                <img src="/nas_img/front/homepage/icon_facebook.jpg" style="margin:10px 5px 0px 0px; width:30px;" alt="Facebook" />
+                                <img src="https://www.seoulauction.com/nas_img/front/homepage/icon_facebook.jpg" style="margin:10px 5px 0px 0px; width:30px;" alt="Facebook" />
                             </a>
                             <a href="http://blog.naver.com/PostList.nhn?blogId=s_auction" target="_balnk">
-                                <img src="/nas_img/front/homepage/icon_blog.jpg" style="margin:10px 5px 0px 0px; width:30px;" alt="Blog" />
+                                <img src="https://www.seoulauction.com/nas_img/front/homepage/icon_blog.jpg" style="margin:10px 5px 0px 0px; width:30px;" alt="Blog" />
                             </a>
                             <a href="https://www.instagram.com/seoulauction" target="_balnk">
-                                <img src="/nas_img/front/homepage/icon_instagram.jpg" style="margin:10px 5px 0px 0px; width:30px;" alt="Instagram" />
+                                <img src="https://www.seoulauction.com/nas_img/front/homepage/icon_instagram.jpg" style="margin:10px 5px 0px 0px; width:30px;" alt="Instagram" />
                             </a>
                             <a href="https://appsto.re/kr/hAMKu.i" target="_balnk">
-                                <img src="/nas_img/front/homepage/icon_appstore.jpg" style="margin:10px 5px 0px 0px; width:30px;" alt="AppStore" />
+                                <img src="https://www.seoulauction.com/nas_img/front/homepage/icon_appstore.jpg" style="margin:10px 5px 0px 0px; width:30px;" alt="AppStore" />
                             </a> 
                             <a href="https://play.google.com/store/apps/details?id=seoulacution.seoulauction" target="_balnk">
-                                <img src="/nas_img/front/homepage/icon_playstore.jpg" style="margin:10px 5px 0px 0px; width:30px;" alt="PlayStore" /> 
+                                <img src="https://www.seoulauction.com/nas_img/front/homepage/icon_playstore.jpg" style="margin:10px 5px 0px 0px; width:30px;" alt="PlayStore" /> 
                             </a>
                         </div>
                     </div><!-- play description -->
@@ -303,7 +303,7 @@
                                     <li class="ivag-context-play"><span>Play</span></li>
                                     <li class="ivag-context-mute"><span>Mute</span></li>
                                     <li class="ivag-context-fs"><span>Fullscreen</span></li>
-                                    <li class="ivag-context-copyright"><span><a href="/" target="_blank">@SeoulAuction</a></span></li>
+                                    <li class="ivag-context-copyright"><span><a href="https://www.seoulauction.com" target="_blank">@SeoulAuction</a></span></li>
                                 </ul>   
                             </div>    
             

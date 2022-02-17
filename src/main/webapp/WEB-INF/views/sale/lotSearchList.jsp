@@ -6,10 +6,10 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <jsp:include page="../include/header.jsp" flush="false"/>
 <link href="/css/angular/rzslider.css" rel="stylesheet">
-<link href="/resources/css/angular/ngDialog.css" rel="stylesheet">
-<link href="/resources/css/angular/popup.css" rel="stylesheet">
-<script type="text/javascript" src="/resources/js/angular/checklist-model.js"></script>
-<script type="text/javascript" src="/resources/js/angular/paging.js?${resources.timestamp}"></script>
+<link href="/css/angular/ngDialog.css" rel="stylesheet">
+<link href="/css/angular/popup.css" rel="stylesheet">
+<script type="text/javascript" src="/js/angular/checklist-model.js"></script>
+<script type="text/javascript" src="/js/angular/paging.js"></script>
 <script type="text/javascript" src="/js/angular/rzslider.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-duration-format/1.3.0/moment-duration-format.min.js"></script>
@@ -251,7 +251,7 @@ app.controller('lotListCtl', function($scope, consts, common, is_login, locale, 
 	/* 관심작품 End */ 
 });
 </script> 
-<script type="text/javascript" src="/resources/js/bid.js?${resources.timestamp}"></script>
+<script type="text/javascript" src="/js/bid.js"></script>
 <body> 
 <jsp:include page="../include/topSearch.jsp" flush="false"/>
 <div id="wrap" class="noexhibition">
@@ -642,8 +642,11 @@ app.controller('lotListCtl', function($scope, consts, common, is_login, locale, 
 													</div>     
                                       			</li>
                                       			<li class="es_price_right" ng-if="!custInfo.CUST_NO">      
-                                      				<span style="font-size: 12px; font-weight: bold;">        
+                                      				<span ng-if="locale=='ko'" style="font-size: 12px; font-weight: bold;">        
 														낙찰가는 로그인 후 확인할 수 있습니다.      
+													</span>  
+                                                    <span ng-if="locale!='ko'" style="font-size: 12px; font-weight: bold;">         
+														You can check the winning bid after logging in. 
 													</span>  
                                       			</li>
 											</ul>
@@ -655,11 +658,13 @@ app.controller('lotListCtl', function($scope, consts, common, is_login, locale, 
 												<!-- 진행경매보기 / 경매결과보기 btn -->  
 												<!--  YDH 추가 Start.(2016.10.05) -->
 												<span ng-show='lot.STAT_CD != "reentry"' class="btn_style01 xlarge white btn_bid" ng-if="['online','online_zb'].indexOf(lot.SALE_KIND_CD) > -1 && custInfo.CUST_NO && is_login && lot.END_YN == 'N'">
-										        	<a target="_blank" href="/saleDetail?view_id=CURRENT_AUCTION&sale_no={{lot.SALE_NO}}">진행경매 보기</a> 
+										        	<a ng-if="locale=='ko'" target="_blank" href="/saleDetail?view_id=CURRENT_AUCTION&sale_no={{lot.SALE_NO}}">진행경매 보기</a> 
+                                                    <a ng-if="locale!='ko'" target="_blank" href="/saleDetail?view_id=CURRENT_AUCTION&sale_no={{lot.SALE_NO}}">View Auction</a> 
 										        </span>    
 										        <span ng-show='lot.STAT_CD != "reentry"' class="btn_style01 xlarge white btn_bid" ng-if="custInfo.CUST_NO && is_login && lot.END_YN == 'Y'">
-										        	<a target="_blank" href="/saleDetail?view_id=RESULT_AUCTION&sale_no={{lot.SALE_NO}}">경매결과 보기</a> 
-										        </span>     
+										        	<a ng-if="locale=='ko'" target="_blank" href="/lotDetail?view_id=RESULT_AUCTION&sale_no={{lot.SALE_NO}}&lot_no={{lot.LOT_NO}}&view_type=GRID">경매결과 보기</a> 
+                                                    <a ng-if="locale!='ko'" target="_blank" href="/lotDetail?view_id=RESULT_AUCTION&sale_no={{lot.SALE_NO}}&lot_no={{lot.LOT_NO}}&view_type=GRID">See the result</a> 
+										        </span> 
 										        <!--  YDH 추가 End.(2016.10.05) -->      
 											</div>    
 										</div>  

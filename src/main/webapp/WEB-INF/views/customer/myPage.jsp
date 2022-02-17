@@ -7,11 +7,11 @@
 <jsp:include page="../include/topSearch.jsp" flush="false"/>
 
 <link href="/css/angular/ngDialog.min.css" rel="stylesheet">
-<link href="/resources/css/angular/popup.css" rel="stylesheet">
+<link href="/css/angular/popup.css" rel="stylesheet">
 <link href="<c:url value="/css/old/onepcssgrid.css" />" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ng-dialog/0.5.6/js/ngDialog.min.js"></script>
-<script src="/resources/js/angular/checklist-model.js"></script>
+<script src="/js/angular/checklist-model.js"></script>
 
 <script>
 app.requires.push.apply(app.requires, ["checklist-model", "ngDialog"]);

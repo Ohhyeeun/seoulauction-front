@@ -262,7 +262,7 @@ function showTopLayer() {
                                             <span ng-if="onlineIng == 0 || onlineIng == null" id="onlineCurrBtn"><spring:message code="label.auction.current" /></span> 
 										</li>      
                                         <li>      
-                                            <span ng-if="offlineIng > 0"><a href="/currentAuction?sale_kind=offline_only&sale_no=563" style="color:#ff0000; font-weight:bold;"><span ng-if="locale=='ko'">아트시 경매</span><span ng-if="locale!='ko'">ARTSY Auction</span><img src="/images/icon/now_icon.png" /></a></span> 
+                                            <span ng-if="offlineIng > 0"><a href="https://www.seoulauction.com/currentAuction?sale_kind=offline_only&sale_no=563" style="color:#ff0000; font-weight:bold;"><span ng-if="locale=='ko'">아트시 경매</span><span ng-if="locale!='ko'">ARTSY Auction</span><img src="/images/icon/now_icon.png" /></a></span> 
                                             <span ng-if="offlineIng == 0 || offlineIng == null" id="offlineCurrBtn"><span ng-if="locale=='ko'">아트시 경매</span><span ng-if="locale!='ko'">ARTSY Auction</span></span> 
 										</li>        
 										<li>
@@ -278,7 +278,7 @@ function showTopLayer() {
                                             <span ng-if="zerobaseIng == 0 || zerobaseIng == null" id="zerobaseBtn"><span ng-if="locale=='ko'">제로베이스 경매</span><span ng-if="locale!='ko'">Zero base</span></span> 
 										</li>
                                         <li>
-                                            <a href="/zerobaseArtist"><span ng-if="locale=='ko'">제로베이스 작가</span><span ng-if="locale!='ko'">Zero base Artist</span><span ng-if="zerobaseIng > 0"><img src="/images/icon/now_icon.png" /></a></span>
+                                            <a href="https://www.seoulauction.com/zerobaseArtist"><span ng-if="locale=='ko'">제로베이스 작가</span><span ng-if="locale!='ko'">Zero base Artist</span><span ng-if="zerobaseIng > 0"><img src="/images/icon/now_icon.png" /></a></span>
                                             <!-- <span ng-if="zerobaseIng == 0 || zerobaseIng == null" id="zerobaseBtn"><span ng-if="locale=='ko'">제로베이스 작가</span><span ng-if="locale!='ko'">Zero base Artist</span></span> --> 
                                         </li>
 										<!--<li><a href="/resultAuction"><spring:message code="label.auction.result" /></a></li>-->
@@ -358,7 +358,7 @@ function showTopLayer() {
                 <div class="link_menu03"><!-- new 오픈시 주석처리 -->     
 					<ul>
                     	<!-- <li style="padding-top:10px;"><a href="/about/page?view=gnExhibition" ><spring:message code="label.seoulauction.introgang0" /></a></li> -->  
-	                    <!-- 강남전시 1,2 -->  
+	                    <!-- 강남전시 1,2 -->   
                         <!-- <li style="padding-top:10px;"><a href="/about/page?view=gnExhibition" ><spring:message code="label.seoulauction.introgang1" /></a></li>
                         <li style="padding-top:10px;"><a href="/about/page?view=gnExhibition02" ><spring:message code="label.seoulauction.introgang2" /></a></li>  
                         <li><a target="_blank" href="http://www.auctionblue.com" ><spring:message code="label.AuctionBlueonline" /></a></li>   

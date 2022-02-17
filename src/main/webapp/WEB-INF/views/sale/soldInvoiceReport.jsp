@@ -452,11 +452,11 @@ app.controller('soldInvoiceCtl', function($scope, consts, common, is_login, loca
 					<td></td>		    
                     <td ng-if="locale=='ko'" class="cs50FD41EE" colspan="25" style="width:335px;height:17px;line-height:1.5;text-align:left;vertical-align:middle; padding: 10px 0; padding-left: 20px;">   
                     <span style="font-weight: bold;">*결제방법</span><br>     
-                    1) 신용카드 및 가상계좌 : https://www.seoulauction.com 접속 후 →로그인→ACCOUNT→온라인경매거래목록→구매내역→결제하기(가상계좌/신용카드선택)  
+                    1) 신용카드 및 가상계좌 : http://www.seoulauction.com 접속 후 →로그인→ACCOUNT→온라인경매거래목록→구매내역→결제하기(가상계좌/신용카드선택)  
                     <span style="display: block; padding-top:7px;">2) 계좌입금 : {{INFO.BANK_NAME}}&nbsp;{{INFO.BANK_ACCT}}&nbsp;{{INFO.BANK_OWNER}}</span></td>            
                     <td ng-if="locale!='ko'" class="cs50FD41EE" colspan="25" style="width:335px;height:17px;line-height:1.5;text-align:left;vertical-align:middle; padding: 10px 0; padding-left: 20px;">   
                     <span style="font-weight: bold;">*How to pay</span><br>      
-                    1) Credit card / Virtual account : https://www.seoulauction.com →ID Login→Account Menu→Online Auction→Orders→Payment    
+                    1) Credit card / Virtual account : http://www.seoulauction.com →ID Login→Account Menu→Online Auction→Orders→Payment    
                     <span style="display: block; padding-top:7px;">2) Deposit account : {{INFO.BANK_NAME_EN}}&nbsp;{{INFO.BANK_ACCT}}&nbsp;{{INFO.BANK_OWNER_EN}}</span>      
 					<!-- <td class="cs259368EE" colspan="25" style="width:335px;height:17px;line-height:16px;text-align:left;vertical-align:middle;"><nobr>&nbsp;&nbsp;&nbsp;&nbsp;{{INFO.BANK_NAME}}&nbsp;&nbsp;&nbsp;&nbsp;{{INFO.BANK_ACCT}}&nbsp;&nbsp;{{INFO.BANK_OWNER}}</nobr></td> -->
 				</tr>  
@@ -551,7 +551,7 @@ app.controller('soldInvoiceCtl', function($scope, consts, common, is_login, loca
 					<td></td>
 					<td class="cs9315CC20" colspan="9" style="width:179px;height:41px;text-align:left;vertical-align:top;"><div style="overflow:hidden;width:179px;height:41px;">
 						<div style="margin-top:6px;overflow:hidden;">
-							<!--[if lt IE 7]><img alt="" src="경매결과통보서_files/4133685977.gif" style="width:179px;height:29px;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='경매결과통보서_files/3394370369.png',sizingMethod='scale');" /><div style="display:none"><![endif]--><img alt="" src="/nas_img/front/homepage/3394370369.png" style="width:179px;height:29px;" /><!--[if lt IE 7]></div><![endif]--></div>
+							<!--[if lt IE 7]><img alt="" src="경매결과통보서_files/4133685977.gif" style="width:179px;height:29px;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='경매결과통보서_files/3394370369.png',sizingMethod='scale');" /><div style="display:none"><![endif]--><img alt="" src="https://www.seoulauction.com/nas_img/front/homepage/3394370369.png" style="width:179px;height:29px;" /><!--[if lt IE 7]></div><![endif]--></div>
 					</div>
 					</td>
 					<td></td>

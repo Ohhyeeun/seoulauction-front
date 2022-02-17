@@ -8,7 +8,7 @@
     
 	<!-- <link rel="stylesheet" href="/images/3DVR_Online1/style.css"> --> 
 	 
-    <link rel="stylesheet" href="/resources/css/sa.common.2.1.css?${resources.timestamp}" type="text/css"/>    
+    <link rel="stylesheet" href="/css/sa.common.2.1.css" type="text/css"/>    
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" /> 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script> 
 </head>

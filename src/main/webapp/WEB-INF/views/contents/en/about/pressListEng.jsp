@@ -6,7 +6,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <jsp:include page="../../../include/header.jsp" flush="false"/>
 
-<script type="text/javascript" src="/resources/js/angular/paging.js?${resources.timestamp}"></script>
+<script type="text/javascript" src="/js/angular/paging.js"></script>
 <script>
 
 app.requires.push.apply(app.requires, ["bw.paging"]);
@@ -119,7 +119,24 @@ app.controller("pressListCtl", function($scope, consts, common) {
 								</tr>
 							</tbody>
 						</table>
-					</div>
+					</div>  
+                    
+                    <div>
+						<div class="box_gray type01">
+							<div class="contact">
+								<div class="title">Contact</div>  
+								<div class="info"> 
+									<div class="highlight">Seoul Auction Manager / Marketing Team<strong> S.Y Kim</strong></div>    
+									<div class="tel"><strong class="tit">Tel</strong><span><a href="tel:82+ (0)2-2075-4434">82+ (0)2-2075-4434</a></span></div>           
+									<div class="email"><strong class="tit">E-mail</strong> <a href="mailto:kmj714@seoulauction.com">kmj714@seoulauction.com</a></div>  
+								</div> 
+							</div>
+							<div class="right"> 
+								<span class="btn_style01 icon02"><a href="/customer/inquiryForm" class="fix">1대1 문의</a><span class="ico next02"></span></span>
+							</div>
+						</div>  
+					</div> 
+                    
 					<div class="wrap_paging">
 						<paging page="currentPage"
 							page-size="pageRows"

@@ -8,10 +8,10 @@
 <!-- PC용 커튼 배너 호출. YDH  
 >--> 
 <!-- PC용 커튼 배너 호출 . YDH -->   
-<link href="/resources/css/angular/ng-animation.css" rel="stylesheet">
+<link href="/css/angular/ng-animation.css" rel="stylesheet">
 
 <!--  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-animate.min.js"></script>-->
-<script type="text/javascript" src="/resources/js/angular/angular-animate.min.js"></script>
+<script type="text/javascript" src="/js/angular/angular-animate.min.js"></script>
 
 <script>
 var screenType = "P";

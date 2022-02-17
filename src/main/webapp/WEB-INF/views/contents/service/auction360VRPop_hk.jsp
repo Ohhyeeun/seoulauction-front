@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>32nd Hong Kong Sale</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="/images/3DVR_hk/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>

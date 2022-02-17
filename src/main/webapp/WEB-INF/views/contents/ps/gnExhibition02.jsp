@@ -51,7 +51,7 @@
                         <br/>
                         <!-- <a href="/currentExhibit?sale_kind=exhibit_only&sale_no=539"  class="btn_main_more green" style="margin-top:15px;margin-bottom:15px; padding: 15px 45px 17px;font-size: 18px; font-weight:700; color:#FFF;" >작품 보기</a>
                         <!-- &nbsp;&nbsp;-->
-                        <!-- <a href="/service/page?view=auction360VRPop_ex"  class="btn_main_more green" style="margin-top:15px;margin-bottom:15px; padding: 15px 45px 17px;font-size: 18px; font-weight:700; color:#FFF; width:120px;" target="new" >전시장 보기</a>  -->
+                        <!-- <a href="https://www.seoulauction.com/service/page?view=auction360VRPop_ex"  class="btn_main_more green" style="margin-top:15px;margin-bottom:15px; padding: 15px 45px 17px;font-size: 18px; font-weight:700; color:#FFF; width:120px;" target="new" >전시장 보기</a>  -->
                         <br/><br/><br/>  
 						<p style="border-top: #CCC solid 1px; line-height:30px; font-size:16px;"><br/><br/>
                             몇 년 전부터 세계적으로 이슈화 된 로컬리티에 대한 관심 덕분으로 지역에 온전하게 뿌리를 둔 '공예'가 재조명 받기 시작하였고,

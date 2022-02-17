@@ -20,11 +20,11 @@
 			
 			// 모바일 앱에서 버전으로 링크거는 방법이 아닌 호출하는 url에서 Re-Direction 처리함.
 			// 기본적으로 홈페이지 링크. 경매가 있을경우 경매 사이트로 바로 링크처리.		
-			location.href = '/';	
+			location.href = 'https://www.seoulauction.com';	
 			//location.href = 'popupMSG.jsp';
 			
 			// 경매가 있을경우 경매 사이트로 바로 링크처리.
-			//location.href = '/servlet/auction/upcomingArtworkList?acode=MA013536';
+			//location.href = 'http://www.seoulauction.com/servlet/auction/upcomingArtworkList?acode=MA013536';
 		}
 	</script>
 </head>

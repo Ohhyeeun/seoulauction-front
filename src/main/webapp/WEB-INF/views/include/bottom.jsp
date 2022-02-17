@@ -38,7 +38,7 @@ app.controller("bottomCtl", function($scope, consts, common, locale) {
 		<ul>
 			<li ng-repeat="featured in featuredList" ng-if="featured.STAT_CD == 'entry'">
 				<a ng-href="{{is_login ? '/lotDetail?sale_no=' + featured.SALE_NO + '&lot_no=' + featured.LOT_NO : '#'}}">
-					<!-- <img ng-if="featured.LOT_NO == 139" ng-src="/nas_img/front/main0460/thum/no_image.jpg" alt="{{featured.TITLE_JSON[locale]}}" style="height: 100%; width:100%; overflow:hidden;"/> -->
+					<!-- <img ng-if="featured.LOT_NO == 139" ng-src="https://www.seoulauction.com/nas_img/front/main0460/thum/no_image.jpg" alt="{{featured.TITLE_JSON[locale]}}" style="height: 100%; width:100%; overflow:hidden;"/> -->
 					<img ng-src="<spring:eval expression="@configure['img.root.path']" />{{featured.LOT_IMG_NAME | imagePath : featured.LOT_IMG_PATH : true}}" alt="{{featured.TITLE_JSON[locale]}}" />    
 				</a> 
 				<div> 

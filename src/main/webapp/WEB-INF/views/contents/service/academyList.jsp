@@ -5,9 +5,9 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <jsp:include page="../include/header.jsp" flush="false"/>
-<link href="<c:url value="/resources/css/old/onepcssgrid_new.css" />" rel="stylesheet">
+<link href="<c:url value="/css/old/onepcssgrid_new.css" />" rel="stylesheet">
 
-<script type="text/javascript" src="/resources/js/angular/paging.js?${resources.timestamp}"></script>
+<script type="text/javascript" src="/js/angular/paging.js"></script>
 <script>
 
 app.requires.push("bw.paging");

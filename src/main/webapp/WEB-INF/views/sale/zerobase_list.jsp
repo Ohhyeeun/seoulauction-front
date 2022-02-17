@@ -6,9 +6,9 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <jsp:include page="../include/header.jsp" flush="false"/>
 <link href="/css/angular/rzslider.css" rel="stylesheet">
-<link href="/resources/css/angular/ngDialog.css" rel="stylesheet">
-<link href="/resources/css/angular/popup.css" rel="stylesheet">
-<script type="text/javascript" src="/resources/js/angular/paging.js?${resources.timestamp}"></script>
+<link href="/css/angular/ngDialog.css" rel="stylesheet">
+<link href="/css/angular/popup.css" rel="stylesheet">
+<script type="text/javascript" src="/js/angular/paging.js"></script>
 <script type="text/javascript" src="/js/angular/rzslider.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-duration-format/1.3.0/moment-duration-format.min.js"></script>
@@ -100,7 +100,7 @@ app.controller('artDetailListCtl', function($scope, consts, common) {
 });
 
 </script>
-<script type="text/javascript" src="/resources/js/bid.js?${resources.timestamp}"></script>
+<script type="text/javascript" src="/js/bid.js"></script>
 
 
 <body>
@@ -154,7 +154,7 @@ app.controller('artDetailListCtl', function($scope, consts, common) {
 								<div class="tit zero_tit">
 									<span class="num"></span>
 									<!-- // num -->
-                                        <img src="/nas_img/{{artList.FILE_PATH}}/{{artList.FILE_NAME}}" width="170px" height="170px" style="margin: 20px 0; background-size: contain;">   
+                                        <img src="https://www.seoulauction.com/nas_img/{{artList.FILE_PATH}}/{{artList.FILE_NAME}}" width="170px" height="170px" style="margin: 20px 0; background-size: contain;">   
                                         <span ng-if="locale == 'ko'" style="font-weight: 600; text-align:center;"> {{artList.ARTIST_NAME_BLOB_KO}} </span>  
                                         <span ng-if="locale != 'ko'" style="font-weight: 600; text-align:center;"> {{artList.ARTIST_NAME_BLOB_EN}} </span>
 									<!-- <span ng-if="viewId == 'CURRENT_AUCTION' && sale_status == 'ING' && sale.SALE_KIND_CD == 'online' && sale_status = 'END'">진행 LOT : <span ng-bind="curr_lot_no"></span></span> -->

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/aop
+		http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/util
+		http://www.springframework.org/schema/util/spring-util-3.0.xsd
+		http://www.springframework.org/schema/tx
+		http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+	
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"/>
+    </bean>
+
+	<!-- <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close"> -->
+	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="${jdbc.driverClassName}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+	    <property name="poolPreparedStatements" value="${jdbc.poolPreparedStatements}"/>
+        <property name="initialSize" value="${jdbc.initialSize}"/>
+        <property name="maxTotal" value="${jdbc.maxTotal}"/>
+        <property name="minIdle" value="${jdbc.minIdle}"/>
+        <property name="maxIdle" value="${jdbc.maxIdle}"/>
+        <property name="maxWaitMillis" value="${jdbc.maxWaitMillis}"/>
+        <property name="defaultAutoCommit" value="false" /> 
+	</bean>
+        <!-- <property name="maxActive" value="${jdbc.maxActive}"/>-->
+        <!-- <property name="maxWait" value="${jdbc.maxWait}"/>--> 
+		
+	  <!-- 톰캣 JNDI를 사용하는 경우 -->
+	<!-- 
+	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+	    <property name="jndiName" value="java:/comp/env/{Tomcat jndi name}"/>
+	</bean>
+	 -->
+	<!-- WebLogic JNDI를 사용하는 경우 -->
+	<!-- 
+	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+	    <property name="jndiEnvironment">
+		<props>
+		    <prop key="java.naming.factory.initial">weblogic.jndi.WLInitialContextFactory</prop>
+		    <prop key="java.naming.provider.url">t3://locahost:7001</prop>
+		</props>
+		</property>
+		<property name="jndiName" value="{WebLogic jndi Name}"/>
+	</bean>
+	 -->
+
+	<!-- Mybatis begin -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+    	<property name="dataSource" ref="dataSource"/>
+    	<!-- <property name="transactionFactory">
+			<bean class="org.apache.ibatis.transaction.managed.ManagedTransactionFactory" />
+		</property>--> 
+    	<property name="configLocation" value="classpath:config/spring/MybatisConfig.xml"/>
+	    <property name="mapperLocations"> 
+			<list> 
+				<value>classpath:mybatis/mapper/**/*.xml</value> 
+			</list> 
+		</property>
+    </bean>
+    
+    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate"> 
+		<constructor-arg index="0" ref="sqlSessionFactory" /> 
+	</bean>
+
+    <!-- <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+    	<property name="basePackage" value="com.seoulauction.ws.dao"/>
+    	<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+    </bean> -->
+    
+    
+</beans>

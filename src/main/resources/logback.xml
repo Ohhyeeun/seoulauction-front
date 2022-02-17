@@ -52,7 +52,7 @@
 		<appender-ref ref="console" />
 	</logger>-->
 
-	<logger name="mapper" level="info" additivity="false">
+	<logger name="mapper" level="error" additivity="false">
 		<appender-ref ref="console.mapper" />
 	</logger>
 
@@ -77,7 +77,7 @@
 		<appender-ref ref="console" />
 	</logger>-->
 	
-	<root level="info">
+	<root level="error">
 		<appender-ref ref="console" />
 	</root>
 	

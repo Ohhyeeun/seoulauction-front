@@ -2,15 +2,15 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <jsp:include page="../../../include/header.jsp" flush="false"/>
-<link href="<c:url value="/resources/css/sa.common.2.1.css?${resources.timestamp}" />" rel="stylesheet">
-<link href="/resources/css/jquery.bxslider.min.css" rel="stylesheet">           
-<link href="/resources/css/main_bxslider.css" rel="stylesheet">
+<link href="<c:url value="/css/sa.common.2.1.css" />" rel="stylesheet">
+<link href="/css/jquery.bxslider.min.css" rel="stylesheet">           
+<link href="/css/main_bxslider.css" rel="stylesheet">
 <%-- YDH 추가 시작--%> 
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<script type="text/javascript" src="/resources/js/angular/paging.js?${resources.timestamp}"></script>
-<script type="text/javascript" src="/resources/js/jquery.bxslider.js"></script> 
+<script type="text/javascript" src="/js/angular/paging.js"></script>
+<script type="text/javascript" src="/js/jquery.bxslider.js"></script> 
 
 <!------------- 아카데미 메뉴 js ----------->
     <script>
@@ -288,7 +288,7 @@ app.controller('academyNowListCtl', function($scope, consts, common, is_login ) 
 									<div class="tel"><strong class="tit">Tel</strong> <span>82+ (0)2-2075-4442</span></div> 
 									<div class="email"><strong class="tit">E-mail</strong> <a href="mailto:jej@seoulauction.com">jej@seoulauction.com</a></div>
 								</div>
-							</div>  
+							</div> 
 							<div class="right">
 								<span class="btn_style01 icon02"><a href="/customer/inquiryForm" class="fix">1:1 Inquiry</a><span class="ico next02"></span></span>
 							</div>

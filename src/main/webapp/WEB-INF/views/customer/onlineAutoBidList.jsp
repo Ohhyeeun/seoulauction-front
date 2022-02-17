@@ -6,7 +6,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <jsp:include page="../include/header.jsp" flush="false"/>
 
-<script type="text/javascript" src="/resources/js/angular/paging.js?${resources.timestamp}"></script>
+<script type="text/javascript" src="/js/angular/paging.js"></script>
 
 <script type="text/javascript">
 app.requires.push.apply(app.requires, ["bw.paging"]);
@@ -74,7 +74,7 @@ app.controller('onlineAutoBidListCtl', function($scope, common) {
 									<div class="customer_bidlist_img clearfix" oncontextmenu="return false" ondragstart="return false" style="text-align: center;">  
 										<!--  <img oncontextmenu="return false" src="<spring:eval expression="@configure['img.root.path']" />{{lot.LOT_IMG}}" alt="{{lot.TITLE_JSON[locale]}}" style="width: auto; height: 100%; margin-top: 0px;"> -->
 										<img ng-src="<spring:eval expression="@configure['img.root.path']" />{{lot.LOT_IMG}}" alt="{{lot.TITLE_JSON[locale]}}" style="max-width:100px; max-height: 100px;" /> 
-									</div>  
+									</div>   
 								</div><!-- //customer_bidlist_imgbox --> 
 								
 								<div class="customer_bidlist_captionbox clearfix">  

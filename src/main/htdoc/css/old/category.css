@@ -1,0 +1,77 @@
+@charset "utf-8";
+/* @import url(https://fonts.googleapis.com/earlyaccess/nanumgothic.css); */
+/* 
+ * Nanum Gothic (Korean) http://www.google.com/fonts/earlyaccess
+ */
+@font-face {
+    font-family: 'Nanum Gothic';
+    font-style: normal;
+    font-weight: 400;
+    src: url(../../font/NanumGothic-Regular.eot);
+    src: url(../../font/NanumGothic-Regular.eot?#iefix) format('embedded-opentype'), url(../../font/NanumGothic-Regular.woff2) format('woff2'), url(../../font/NanumGothic-Regular.woff) format('woff'), url(../../font/NanumGothic-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Nanum Gothic';
+    font-style: normal;
+    font-weight: 700;
+    src: url(../../font/NanumGothic-Bold.eot);
+    src: url(../../font/NanumGothic-Bold.eot?#iefix) format('embedded-opentype'), url(../../font/NanumGothic-Bold.woff2) format('woff2'), url(../../font/NanumGothic-Bold.woff) format('woff'), url(../../font/NanumGothic-Bold.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Nanum Gothic';
+    font-style: normal;
+    font-weight: 800;
+    src: url(../../font/NanumGothic-ExtraBold.eot);
+    src: url(../../font/NanumGothic-ExtraBold.eot?#iefix) format('embedded-opentype'), url(../../font/NanumGothic-ExtraBold.woff2) format('woff2'), url(../../font/NanumGothic-ExtraBold.woff) format('woff'), url(../../font/NanumGothic-ExtraBold.ttf) format('truetype');
+}
+
+/* YBK. 20170313. incCategory.jsp 추가 */
+.side-toggle-menu a {
+	cursor:pointer;
+	display: block;
+	line-height:28px;
+	font-size:14px; 
+	margin-left:5px;
+}
+.side-toggle-menu .hide {
+	display:none;
+	line-height:28px;
+}
+
+/* YBK. 20170317. incCategory.jsp 추가*/
+
+.side-scroll{
+	overflow-y:scroll; 
+	height: 336px;	/* .side-option의 height와 동일하게 유지 */
+}
+.side-option{
+	direction: ltr;
+	text-align: left;
+	position: fixed;
+	background:#eaeaea;
+	height: 336px;
+	right: 0;
+	top:142px;
+	padding: 20px 10px;
+	z-index: 1200;
+	border: solid 1px #ccc;
+	width: 300px; /* 270px */
+	margin-left: 0px;
+	margin-right: -322px;
+	border-radius:  2px 0px 0px 2px;
+
+}
+.side-option .side-toggle{
+	/*border-radius:  2px 0px 0px 2px;*/
+	cursor: pointer;
+	/* background: #eaeaea;
+	padding: 3px 6px;*/
+	left: -67px;	/* open&close btn 위치 */
+	top: -1px;
+	position: absolute; 
+	/* border: solid 1px #ccc;*/
+	border-right: 0;
+} 
+

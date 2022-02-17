@@ -6,9 +6,9 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <jsp:include page="../include/header.jsp" flush="false"/>
 <link href="/css/angular/rzslider.css" rel="stylesheet">
-<link href="/resources/css/angular/ngDialog.css" rel="stylesheet">
-<link href="/resources/css/angular/popup.css" rel="stylesheet">
-<script type="text/javascript" src="/resources/js/angular/paging.js?${resources.timestamp}"></script>
+<link href="/css/angular/ngDialog.css" rel="stylesheet">
+<link href="/css/angular/popup.css" rel="stylesheet">
+<script type="text/javascript" src="/js/angular/paging.js"></script>
 <script type="text/javascript" src="/js/angular/rzslider.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-duration-format/1.3.0/moment-duration-format.min.js"></script>
@@ -68,12 +68,32 @@
 				<div class="contents private_pd">   
 					<div class="type02" style="min-height: auto;"> 
 						<div class="title">    
-							<div class="private_subimg">  
+							<div class="private_subimg">   
 								<c:if test="${locale == 'ko'}">  
-									<img src="/images/img/ps/pb_sumko.jpg" alt="서울옥션 프라이빗 세일 이미지" style="max-width: 100%;"> 
+									<img src="/images/img/ps/Private_subimg.jpg" alt="서울옥션 프라이빗 세일 이미지" style="max-width: 100%;">     
+									<div class="box_gray type01" style="margin-top:10px;"> 
+										<div class="contact"> 
+											<div class="title">문의 Contact</div>
+											<div class="info">
+												<div class="highlight">서울옥션 파트너그룹<strong> 김승엽 선임</strong></div>  
+												<div class="tel"><strong class="tit">Tel</strong> <span><a href="tel:02-2075-4426">02-2075-4426</a></span></div>      
+												<div class="email"><strong class="tit">E-mail</strong> <a href="mailto:syk@seoulauction.com">syk@seoulauction.com</a></div>   
+											</div> 
+										</div>
+									</div>
 								</c:if>
-								<c:if test="${locale != 'ko'}">   	
-									<img src="/images/img/ps/pb_sumen.jpg" alt="seoulauction private sale image" style="max-width: 100%;">
+								<c:if test="${locale != 'ko'}">  
+									<img src="/images/img/ps/Private_subimgen.jpg" alt="서울옥션 프라이빗 세일 이미지" style="max-width: 100%;">     
+									<div class="box_gray type01" style="margin-top:10px;"> 
+										<div class="contact">   
+											<div class="title">Contact</div> 
+											<div class="info"> 
+												<div class="highlight">Partner Group<strong> Kim seungyeob</strong></div>
+												<div class="tel"><strong class="tit">Tel</strong> <span><a href="tel:+82 (0)2-2075-4426">+82 (0)2-2075-4426</a></span></div> 
+												<div class="email"><strong class="tit">E-mail</strong> <a href="mailto:syk@seoulauction.com">syk@seoulauction.com</a></div>   
+											</div> 
+										</div> 
+									</div> 
 								</c:if>  
 							</div>
 						</div> 

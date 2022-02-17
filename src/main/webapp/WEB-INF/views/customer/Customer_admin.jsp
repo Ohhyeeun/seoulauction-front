@@ -6,13 +6,13 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <jsp:include page="../include/header.jsp" flush="false"/>
 
-<link href="/resources/css/angular/ngDialog.css" rel="stylesheet">
-<link href="/resources/css/angular/popup.css" rel="stylesheet"> 
+<link href="/css/angular/ngDialog.css" rel="stylesheet">
+<link href="/css/angular/popup.css" rel="stylesheet"> 
   
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ng-dialog/0.5.6/js/ngDialog.min.js"></script>
-<script src="/resources/js/angular/checklist-model.js"></script>
-<script type="text/javascript" src="/resources/js/join.js?${resources.timestamp}"></script>   
+<script src="/js/angular/checklist-model.js"></script>
+<script type="text/javascript" src="/js/join.js"></script>   
 
 <style>
 .required{

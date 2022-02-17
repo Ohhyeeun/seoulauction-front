@@ -2,12 +2,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <jsp:include page="../../../include/header.jsp" flush="false"/>
-<link href="<c:url value="/resources/css/old/common.css?${resources.timestamp}" />" rel="stylesheet">
+<link href="<c:url value="/css/old/common.css" />" rel="stylesheet">
 <%-- YDH 추가 시작--%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<script type="text/javascript" src="/resources/js/angular/paging.js?${resources.timestamp}"></script>
+<script type="text/javascript" src="/js/angular/paging.js"></script>
 
 <script>
 app.value('locale', 'ko');
@@ -77,10 +77,10 @@ app.value('locale', 'ko');
 					<div class="newsletter_contentsbox">
 						<div class="newsletter_gridwrap" style="cursor:pointer;" ng-repeat="newletterList in newletterList" ng-if="newletterList.NEWLETTER_TITLE_EN"> 
 							<div class="newsletter_gridbox" ng-if=" date == newletterList.NEWSLETTER_DATE">
-								<a href="/nas_img/front/homepage/newsletter/{{newletterList.NEWSLETTER_DATE}}/{{newletterList.NEWSLETTER_DATE}}.html">
+								<a href="https://www.seoulauction.com/nas_img/front/homepage/newsletter/{{newletterList.NEWSLETTER_DATE}}/{{newletterList.NEWSLETTER_DATE}}.html">
 									<div class="newsletter_gridbox_imgbox"> 
 										<div class="newsletter_gridbox_img"> 
-											<img src="/nas_img/{{newletterList.FILE_PATH}}/{{newletterList.FILE_NAME}}" alt="뉴스레터 이미지사진"/>
+											<img src="https://www.seoulauction.com/nas_img/{{newletterList.FILE_PATH}}/{{newletterList.FILE_NAME}}" alt="뉴스레터 이미지사진"/>
 											<!-- img 예시 --> 
 										</div> 
 									</div>    
@@ -101,10 +101,10 @@ app.value('locale', 'ko');
 							</div>
 							
 							<div class="newsletter_gridbox" ng-if=" date != newletterList.NEWSLETTER_DATE">
-								<a href="/nas_img/front/homepage/newsletter/{{newletterList.NEWSLETTER_DATE}}/ENG/{{newletterList.NEWSLETTER_DATE}}_ENG.html">
+								<a href="https://www.seoulauction.com/nas_img/front/homepage/newsletter/{{newletterList.NEWSLETTER_DATE}}/ENG/{{newletterList.NEWSLETTER_DATE}}_ENG.html">
 									<div class="newsletter_gridbox_imgbox"> 
 										<div class="newsletter_gridbox_img"> 
-											<img src="/nas_img/{{newletterList.FILE_PATH}}/{{newletterList.FILE_NAME}}" alt="뉴스레터 이미지사진"/>
+											<img src="https://www.seoulauction.com/nas_img/{{newletterList.FILE_PATH}}/{{newletterList.FILE_NAME}}" alt="뉴스레터 이미지사진"/>
 											<!-- img 예시 --> 
 										</div> 
 									</div>    

@@ -53,7 +53,7 @@
 			1. 서울옥션 홈페이지(www.seoulauction.com)에서 온라인 경매에 참여하실 수 있습니다.<br/>
             2. 모바일 앱에서는 응찰하기가 원활하지 않을 수 있습니다. <br/>
                                         모바일에서 응찰하실때는 모바일 전용 웹브라우저에서 "서울옥션"을 검색해서 응찰 부탁합니다.<br/>
-            <a href="/"><p style="color:white; text-align:right">계속</p></a>
+            <a href="https://www.seoulauction.com"><p style="color:white; text-align:right">계속</p></a>
            </span>
         </div>
     </div>

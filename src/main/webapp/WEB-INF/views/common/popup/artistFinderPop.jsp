@@ -35,9 +35,9 @@
 				<div class="form">
 					<label for="">작가명</label>
 					<input type="text" ng-model="find_word" name="" id="artistName" placeholder="작가명을 입력하세요." do-enter="findArtist();" autofocus="autofocus" />
-					<span class="btn_style01 gray02"><button type="button" ng-click="findArtist();">검색</button></span>
-				</div>
-			</div>
+					<span class="btn_style01 gray02"><button type="button" ng-click="findArtist();" style="height:16px;">검색</button></span>
+				</div> 
+			</div> 
 		</div>
 		<div class="tbl_top">
 			<div class="left">

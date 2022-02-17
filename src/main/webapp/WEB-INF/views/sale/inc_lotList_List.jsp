@@ -712,7 +712,7 @@
 										<button ng-if="custInfo.BID_FORBID == 'N' && custInfo.CUST_NO && ((custInfo.LOCAL_KIND_CD == 'foreigner' && custInfo.FORE_BID_YN == 'Y') || (custInfo.LOCAL_KIND_CD != 'foreigner'))" type="button" ng-click="showBidHistoryPopup({'parent':this, 'sale':sale, 'lot':lot});" >
 											<spring:message code="label.go.bid.history" /><!-- 온라인응찰기록 ->
 										</button>
-                                        <button ng-if="!custInfo.CUST_NO" type="button" onClick="location.href='/login'" >
+                                        <button ng-if="!custInfo.CUST_NO" type="button" onClick="location.href='https://www.seoulauction.com/login'" >
 											<spring:message code="label.go.bid.loginlog" /><!-- 온라인응찰기록 ->
 										</button>
 									</span><!-- 온라인 / 종료 ->
@@ -722,7 +722,7 @@
 										<button type="button">
 			                                <spring:message code="label.go.bid.now" />
 			                            </button>
-                                        <%-- <button ng-if="!custInfo.CUST_NO" type="button" onClick="location.href='/login'" >
+                                        <%-- <button ng-if="!custInfo.CUST_NO" type="button" onClick="location.href='https://www.seoulauction.com/login'" >
 											<spring:message code="label.go.bid.loginlog" />
 										</button> --%>
 									</span><!-- 온라인 / 진행중 ->
@@ -733,7 +733,7 @@
 										<button ng-if="custInfo.BID_FORBID == 'N' && custInfo.CUST_NO && ((custInfo.LOCAL_KIND_CD == 'foreigner' && custInfo.FORE_BID_YN == 'Y') || (custInfo.LOCAL_KIND_CD != 'foreigner'))" type="button" ng-click="showBidPopup({'parent':this, 'sale':sale, 'lot':lot});" >
 											<spring:message code="label.go.bid.now" />
 										</button>
-                                        <%-- <button ng-if="!custInfo.CUST_NO" type="button" onClick="location.href='/login'" >
+                                        <%-- <button ng-if="!custInfo.CUST_NO" type="button" onClick="location.href='https://www.seoulauction.com/login'" >
 											<spring:message code="label.go.bid.loginlog" />
 										</button> --%>
 									</span><!-- 온라인 / 진행중 ->

@@ -59,7 +59,7 @@ app.controller('saleCtl', function($scope, consts, common, $interval, $sce, is_l
 	    console.log("${SALE_NO}");
 	    console.log(saleNoArray.toString().indexOf("${SALE_NO}"));
 	    if (saleNoArray.toString().indexOf("${SALE_NO}") < 0){
- 	    	window.location.href = '/';
+ 	    	window.location.href = 'https://www.seoulauction.com/';
  	    }
 	    
 	    if($scope.saleMenuList.length == 0){
@@ -109,7 +109,7 @@ app.controller('saleCtl', function($scope, consts, common, $interval, $sce, is_l
 			</div> -->  
 			
 			<div align="center" class="UpComing_img_auto">    
-				<img oncontextmenu="return false" ng-src="<spring:eval expression="@configure['img.root.path']" />{{saleImgList[0].FILE_PATH+'/'+saleImgList[0].FILE_NAME}}" alt="작품1" class="img_master" style="max-height: 780px;"/>  
+				<img oncontextmenu="return false" ng-src="<spring:eval expression="@configure['img.root.path']" />{{saleImgList[0].FILE_PATH+'/'+saleImgList[0].FILE_NAME}}" alt="작품1" class="img_master" style="max-height: 780px;"/> 
 			</div>   
 		</div> 
 		

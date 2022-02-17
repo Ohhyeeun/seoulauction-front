@@ -5,9 +5,9 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <jsp:include page="../include/header.jsp" flush="false"/>
-<link href="/resources/css/angular/ng-animation.css" rel="stylesheet">
+<link href="/css/angular/ng-animation.css" rel="stylesheet">
 <link href="/css/angular/ngDialog.min.css" rel="stylesheet">
-<link href="/resources/css/angular/popup.css" rel="stylesheet">
+<link href="/css/angular/popup.css" rel="stylesheet">
 
 <style type="text/css">
    @media print {
@@ -99,7 +99,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-duration-format/1.3.0/moment-duration-format.min.js"></script>
 <!-- <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-animate.min.js"></script> -->
-<script type="text/javascript" src="/resources/js/angular/angular-animate.min.js"></script>
+<script type="text/javascript" src="/js/angular/angular-animate.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ng-dialog/0.5.6/js/ngDialog.min.js"></script>
 <script src="https://code.angularjs.org/1.4.9/angular.js"></script>
   
@@ -207,7 +207,7 @@ app.controller('lotDetailCtl', function($scope, consts, common, bid, $interval, 
 });
 
 </script>
-<script type="text/javascript" src="/resources/js/bid.js?${resources.timestamp}"></script>
+<script type="text/javascript" src="/js/bid.js"></script>
 
 
 
@@ -278,9 +278,9 @@ app.controller('lotDetailCtl', function($scope, consts, common, bid, $interval, 
 		<div>
 			<div class="subpage">
 				<div style=" float:right">					 
-                     <span  class="noprint"><a href="javascript:window.print();"><img src="/images/icon/print.png" border="0" style="width:88px; height:auto" alt="print"></a></span>                 	
+                     <span  class="noprint"><a href="javascript:window.print();"><img src="https://www.seoulauction.com/images/icon/print.png" border="0" style="width:88px; height:auto" alt="print"></a></span>                 	
 				</div> 
-                <div><img src="/images/icon/print_logo.png" border="0" style="width:200px;" alt="SeoulAuction"></div>
+                <div><img src="https://www.seoulauction.com/images/icon/print_logo.png" border="0" style="width:200px;" alt="SeoulAuction"></div>
 				<div style="padding-top:10px;"> 
                     <div>
                        <div style="font-size:18px;line-height:28px; font-weight:600;">

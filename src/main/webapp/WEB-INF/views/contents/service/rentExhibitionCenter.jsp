@@ -2,10 +2,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <jsp:include page="../../include/header.jsp" flush="false"/>
-<link href="/resources/css/jquery.bxslider.min.css" rel="stylesheet">           
-<link href="/resources/css/main_bxslider.css" rel="stylesheet">
+<link href="/css/jquery.bxslider.min.css" rel="stylesheet">           
+<link href="/css/main_bxslider.css" rel="stylesheet">
 
-<script type="text/javascript" src="/resources/js/jquery.bxslider.js"></script> 
+<script type="text/javascript" src="/js/jquery.bxslider.js"></script> 
 <body>
 <jsp:include page="../../include/topSearch.jsp" flush="false"/> 
  
@@ -48,12 +48,12 @@
 						<!-- 20150519 -->
 						<div class="btns mt10">
 							<span class="btn_style01"><a href="/about/page?view=location" target="_blank" title="새창">서울옥션 위치안내</a></span>&nbsp;&nbsp;
-                            <span class="btn_style01"><a href="/service/page?view=auction360VRPop_ex01" target="new" title="VR">서울옥션 강남센터 전시장 VR보기</a></span>&nbsp;&nbsp;
+                            <span class="btn_style01"><a href="https://www.seoulauction.com/service/page?view=auction360VRPop_ex01" target="new" title="VR">서울옥션 강남센터 전시장 VR보기</a></span>&nbsp;&nbsp;
                             <span class="btn_style01"><a href="/nas_img/front/homepage/ganam_brochure.pdf" target="_blank" title="강남센터 대관 브로셔">강남센터 대관 브로셔</a></span>
 						</div>
 						<!-- //20150519 -->
 
-						<div class="box_gray type01"> 
+						<div class="box_gray type01">
 							<div class="contact">
 								<div class="title">문의 Contact</div>
 								<div class="info">

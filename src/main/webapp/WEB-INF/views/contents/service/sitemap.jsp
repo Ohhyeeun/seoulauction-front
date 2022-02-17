@@ -44,7 +44,7 @@
 							</div>
                             
                             <div>
-								<div class="tit_h3 through"> 
+								<div class="tit_h3 through">
 									<h3>온라인 경매</h3>
 								</div>
 								<ul>
@@ -55,7 +55,7 @@
                                     <li style="border-bottom: 1px solid #333; height: 10px;"><li>  
                                     <li style="padding-top: 10px;"><a href="/currentAuction?sale_kind=zerobase_only"><span ng-if="locale=='ko'">제로베이스 경매</span><span ng-if="locale!='ko'">Zero base</span></a> 
                               </li>
-                              <li><a href="/zerobaseArtist"><span ng-if="locale=='ko'">제로베이스 작가</span><span ng-if="locale!='ko'">Zero base Artist</span></a></li>  
+                              <li><a href="https://www.seoulauction.com/zerobaseArtist"><span ng-if="locale=='ko'">제로베이스 작가</span><span ng-if="locale!='ko'">Zero base Artist</span></a></li>  
 									<!--<li><a href="/otherSales">전시판매</a></li>-->
 								</ul>
 							</div>

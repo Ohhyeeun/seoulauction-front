@@ -53,8 +53,8 @@
                         <br/>
                         <!-- <a href="/currentExhibit?sale_kind=exhibit_only&sale_no=538"  class="btn_main_more green" style="margin-top:15px;margin-bottom:15px; padding: 15px 45px 17px;font-size: 18px; font-weight:700; color:#FFF;" >작품 보기</a>
                          &nbsp;&nbsp;
-                        <!-- <a href="/service/page?view=auction360VRPop_online2"  class="btn_main_more green" style="margin-top:15px;margin-bottom:15px; padding: 15px 30px 17px;font-size: 18px; font-weight:700; color:#FFF; width:120px;"  target="new" >전시장보기</a>
-                        <br/<br/><br/> -->
+                        <!-- <a href="https://www.seoulauction.com/service/page?view=auction360VRPop_online2"  class="btn_main_more green" style="margin-top:15px;margin-bottom:15px; padding: 15px 30px 17px;font-size: 18px; font-weight:700; color:#FFF; width:120px;"  target="new" >전시장보기</a>
+                        <br/<br/><br/> --> 
 						<p style="border-top: #CCC solid 1px; line-height:30px; font-size:16px;"><br/><br/> 
                          2020년을 맞이하여 서울옥션 홍콩 리미티드 에서는 피에르 오귀스트 르누아르, 탐 웨슬만, 윤형근, 줄리안 오피, 요시토모 나라 등 미술계의 스펙트럼을 넓힌 유명 작가들의 작품들로 구성된 Winter Collection 전시와 더불어, 플럭서스 운동의 핵심 멤버이자 비디오아트의 창시자인 백남준의 작품세계를 재조명한다.
 						기술과학에 바탕을 둔 첨단 매체에 큰 관심을 가졌던 백남준의 다양한 작품들을 한자리에 모은 스페셜 섹션은, 서커스 단원의 모습을 로봇으로 재현한 대형 설치작품부터 영감의 원천이었던 존 케이지의 퍼포먼스 영상을 활용한 작품 그리고 1998년부터 2000년까지의 드로잉을 모니터 영상으로 나타낸 평면 미디어작품까지 백남준의 창조적 발상이 돋보이는 다양한 작품들로 구성되었다. 또한 1963년 3월 독일에서 첫 개인전 당시 소의 머리를 전시해 놓았던 파격적인 현장이 고스란히 담긴 판화들과 생전 백남준의 모습을 그대로 담아낸 임영균의 사진작품들은 다양한 표현과 전위적인 실험정신이 깃든 백남준 예술의 진면목을 살펴볼 수 있는 기회를 제공한다.

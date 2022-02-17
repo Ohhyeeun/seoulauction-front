@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Seoul Auction LIVE</title>
 	<meta name="viewport" content="width=device-width, user-scalable=no">
-	<link rel="stylesheet" href="/resources/css/old/common.css?${resources.timestamp}" />
+	<link rel="stylesheet" href="/css/old/common.css" />
 	<!--  <link rel="stylesheet" href="/css/old/jquery.mCustomScrollbar.css" rel="stylesheet" /> -->
 	<script type="text/javascript" src="/html/live/jquery/jquery-2.1.1.min.js"></script>
 	<!--  <script type="text/javascript" src="/js/selectbox-min.js"></script> -->	
@@ -31,8 +31,8 @@
 			<div class="video_area">
 				<!-- 기존 RED5스트리밍 방식 소스(2018.02.19이전. YDH)  
 				<div class="web_only" align="center">
-                    <iframe src="/html/live/vod_popup.html" scrolling="no" width="720" height="500"  frameborder="0"/> 
-					<object data="/html/live/vod_popup.html" width="710" height="510"><param name="movie" value="/html/live/vod_popup.html" /></object>
+                    <iframe src="https://www.seoulauction.com/html/live/vod_popup.html" scrolling="no" width="720" height="500"  frameborder="0"/> 
+					<object data="https://www.seoulauction.com/html/live/vod_popup.html" width="710" height="510"><param name="movie" value="https://www.seoulauction.com/html/live/vod_popup.html" /></object>
 				</div>
 				<div class="m_only">
 					<video id="youtube1" > -->

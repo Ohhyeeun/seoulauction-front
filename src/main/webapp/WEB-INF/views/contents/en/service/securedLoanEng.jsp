@@ -36,7 +36,7 @@
 									<dt>Send Email</dt>
 									<dd>
 										 <p>A client sends images and information of artworks<br>to Seoul Auction's e-mail address.</p>
-										 <div class="txt_mail" style="margin-bottom: 10px;"><a href="mailto:eumman@seoulauction.com">eumman@seoulauction.com</a></div>
+										 <div class="txt_mail" style="margin-bottom: 10px;"><a href="mailto:jlee@seoulauction.com">jlee@seoulauction.com</a></div> 
                                         <!-- <div class="txt_mail"><a href="mailto:leehh@seoulauction.com">leehh@seoulauction.com</a><br/> -->
 										<p class="txt_dark"><strong>Title of an e-mail : 'Inquiry of Artwork - the sender's name' </strong></p> 
 										<p class="txt_pale">※ Do not use the word ‘mortgage’ or<br>‘loan’ at the title of email. If you use the word,<br>email can be classified as spam.</p>
@@ -332,8 +332,8 @@
 											<td>12% per year</td>
 											<td>12% per year</td>
 											<td>12% per year</td>
-										</tr>
-										<tr>
+										</tr> 
+										<tr> 
 											<th>Overdue interest rate</th>
 											<td>15% per year</td>
 											<td>15% per year</td>
@@ -351,9 +351,9 @@
 							<div class="contact">
 								<div class="title">Contact</div>
 								<div class="info">
-									<div class="highlight"><strong>Eum J.W</strong></div>
-									<div class="tel"><strong class="tit">Tel</strong> <span>+82-2-2075-4436</span></div>
-									<div class="email"><strong class="tit">E-mail</strong> <a href="mailto:eumman@seoulauction.com">eumman@seoulauction.com</a></div>
+									<div class="highlight"><strong>Lee J.H</strong></div> 
+									<div class="tel"><strong class="tit">Tel</strong> <span><a href="tel:+82 (0)2-2075-4499">+82 (0)2 2075 4499</a></span></div> 
+									<div class="email"><strong class="tit">E-mail</strong> <a href="mailto:jlee@seoulauction.com">jlee@seoulauction.com</a></div>
                                     <!-- <div class="highlight"><strong>Lee H.H</strong></div>
 									<div class="tel"><strong class="tit">Tel</strong> <span>+82-2-2075-4437</span></div>
 									<div class="email"><strong class="tit">E-mail</strong> <a href="mailto:leehh@seoulauction.com">leehh@seoulauction.com</a></div> -->

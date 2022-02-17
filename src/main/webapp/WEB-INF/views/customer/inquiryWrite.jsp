@@ -32,7 +32,7 @@
 
 </style>
 
-<script type="text/javascript" src="/resources/js/inquiry.js?${resources.timestamp}"></script>
+<script type="text/javascript" src="/js/inquiry.js?ver=20210804"></script>
 
 <script>
 
@@ -348,7 +348,8 @@
 										<tr>
 											<th scope="row"><label for="">첨부파일 File</label> <span class="ico_essen"><span class="hidden">필수입력</span></span></th>
 											<td>
-												<span style="color:#F30; font-weight:600;">※ 위탁문의시 작품 이미지가 첨부 되어야 정확한 답변이 가능합니다.</span></br>
+												<span ng-if="locale == 'ko'" style="color:#F30; font-weight:600; display:block; padding-bottom: 10px;">※ 위탁문의시 작품 이미지가 첨부 되어야 정확한 답변이 가능합니다.</span>
+												<span ng-if="locale != 'ko'" style="color:#F30; font-weight:600; display:block; padding-bottom: 10px;">※ Please attach the image file to get a prompt accurate answer. Choose the File</span>    
 												<input type="file" name="attach_file" id="attachFile" class="uploadify"
 													ng-model="form_file_data.files" /><br>
 													<!-- onchange="angular.element(this).scope().uploadFile(this);"  -->

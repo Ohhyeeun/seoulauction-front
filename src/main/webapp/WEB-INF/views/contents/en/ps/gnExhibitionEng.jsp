@@ -53,7 +53,7 @@
                         <br/>
                        <!-- <a href="/currentExhibit?sale_kind=exhibit_only&sale_no=539"  class="btn_main_more green" style="margin-top:15px;margin-bottom:15px; padding: 15px 45px 17px;font-size: 18px; font-weight:700; color:#FFF;" >LIST</a>
                         <!--&nbsp;&nbsp;-->
-                        <!-- <a href="/service/page?view=auction360VRPop_ex"  class="btn_main_more green" style="margin-top:15px;margin-bottom:15px; padding: 15px 45px 17px;font-size: 18px; font-weight:700; color:#FFF; width:120px;" target="new" >EXHIBITION</a> -->
+                        <!-- <a href="https://www.seoulauction.com/service/page?view=auction360VRPop_ex"  class="btn_main_more green" style="margin-top:15px;margin-bottom:15px; padding: 15px 45px 17px;font-size: 18px; font-weight:700; color:#FFF; width:120px;" target="new" >EXHIBITION</a> -->
                         <br/><br/><br/>
                      	<p style="border-top: #CCC solid 1px; line-height:30px; font-size:16px;"><br/><br/>
                            <strong>Artists</strong><br/> 

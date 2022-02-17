@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:cxf="http://cxf.apache.org/core"
+    xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+    xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/util 
+		http://www.springframework.org/schema/util/spring-util-3.0.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-3.0.xsd
+		http://cxf.apache.org/core
+		http://cxf.apache.org/schemas/core.xsd
+		http://cxf.apache.org/jaxrs
+		http://cxf.apache.org/schemas/jaxrs.xsd
+		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd"
+       default-autowire="byName">
+    	
+    <!-- <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+        	<list>
+        		<value>classpath:config/properties/config.properties</value>
+        	</list>
+        </property>
+    </bean> -->
+    
+    <!-- <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+    	<property name="targetClass" value="org.springframework.util.Log4jConfigurer"/>
+    	<property name="targetMethod" value="initLogging"/>
+    	<property name="arguments">
+        	<list>
+            	<value>classpath:/config/log4j.xml</value>
+        	</list>
+    	</property>
+	</bean>-->
+    
+    <!-- <bean id="fileEncoding" class="java.lang.String">
+    	<constructor-arg value="UTF-8"/>
+	</bean>
+    <context:property-placeholder location="classpath:config/properties/config.properties" file-encoding="fileEncoding" />--> 
+    
+    <!-- <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    	<property name="locations" value="classpath:config/properties/config.properties"/>
+    	<property name="fileEncoding" value="UTF-8"/>
+	</bean>-->
+
+    <context:property-placeholder location="classpath:config/properties/config.properties" />
+    <util:properties id="configure" location="classpath:config/properties/config.properties" />
+    
+    <!-- enable autowire -->
+	<context:annotation-config/>
+		
+	<import resource="classpath:config/spring/datasourceContext.xml"/>
+
+	<task:annotation-driven />
+		
+    <context:component-scan base-package="com.seoulauction">
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Component" />
+	   	<context:include-filter type="annotation" expression="org.springframework.stereotype.Repository" />
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Service" />
+	</context:component-scan>
+    
+	<!-- <import resource="classpath:config/spring/servletContext.xml"/>-->
+	<import resource="classpath:config/spring/job-quartz.xml"/>
+	
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<!-- <property name="host" value="smtp.worksmobile.com" />
+		<property name="port" value="465" />
+		<property name="username" value="debugger@aroute.co.kr" />
+		<property name="password" value="ybjung12" />-->
+		<property name="host" value="${email.smtp.host}" />
+		<property name="port" value="${email.smtp.port}" />
+		<property name="username" value="${email.smtp.user}" />
+		<property name="password" value="${email.smtp.passwd}" />
+		<!-- <property name="defaultEncoding" value="UTF-8" />-->
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.transport.protocol">${email.transport.protocol}</prop>
+				<prop key="mail.smtp.auth">${email.smtp.auth}</prop>
+				<prop key="mail.smtp.starttls.enable">${email.smtp.starttls}</prop>
+				<prop key="mail.debug">true</prop>
+				<prop key="mail.smtp.localhost"></prop>
+				
+        	</props>
+		</property>
+	</bean>
+	
+	<bean id="velocityEngine" class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
+	    <property name="resourceLoaderPath" value="classpath:mail-template/"/>
+		<!-- <property name="velocityProperties">
+		    <props>
+	            <prop key="input.encoding">UTF-8</prop>
+	            <prop key="output.encoding">UTF-8</prop>
+	        </props>-->
+			<!-- <value>
+				resource.loader=class
+				class.resource.loader.class=org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+			</value>-->
+		<!-- </property>-->
+	</bean>
+		
+</beans>

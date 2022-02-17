@@ -25,7 +25,7 @@
 						<h2>연혁</h2>
 						<p>한국 최초의 경매회사로 시작하여, 고객과 함께 성장해온 서울옥션의 역사를 소개합니다.</p>
 					</div>
-					<div class="history_step"> 
+					<div class="history_step">
 						<ol> 
 							<li class="year02 sele"><a href="#history02"><span style="margin: 0 auto;">이우환 ‘동풍’ 국내생존작가 첫 30억 돌파</span></a></li> 
 							<li class="year03"><a href="#history03"><span style="margin: 0 auto;">강남센터 오픈</span></a></li>   

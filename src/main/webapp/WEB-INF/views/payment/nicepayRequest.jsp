@@ -13,11 +13,11 @@
 
 	String ediDate = getyyyyMMddHHmmss(); // 전문생성일시
 	
-	// 상점 MID
-	String merchantID = "${maven.nicepay.merchant01.merchantID}";
 	// 상점서명키 (꼭 해당 상점키로 바꿔주세요)
-	String merchantKey = "${maven.nicepay.merchant01.merchantKey}";
-	
+	String merchantKey = "33F49GnCMS1mFYlGXisbUDzVf2ATWCl9k3R++d5hDd3Frmuos/XLx8XhXpe+LDYAbpGKZYSwtlyyLOtS/8aD7A==";
+	// 상점 MID
+	String merchantID = "nictest00m";
+	// 상품 가격을 기입하십시요.
 	// 하단 form값의 Amt와 동일해야 합니다.
 	String price = "1004";
 	//위변조 처리 
@@ -31,7 +31,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
 <title>NICEPAY :: 결제 요청</title>
 <link rel="stylesheet" href="/css/basic.css" type="text/css" />
-<link rel="stylesheet" href="/resources/css/style.css?${resources.timestamp}" type="text/css" />
+<link rel="stylesheet" href="/css/style.css" type="text/css" />
 
 <!-- NicePay 플러그인용 JS 
 	 head 태그 안에 넣어주십시요. -->

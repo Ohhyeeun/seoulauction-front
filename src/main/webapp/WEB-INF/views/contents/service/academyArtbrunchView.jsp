@@ -7,7 +7,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<script type="text/javascript" src="/resources/js/angular/paging.js?${resources.timestamp}"></script>
+<script type="text/javascript" src="/js/angular/paging.js"></script>
 
 <script>
 $(document).ready(function(){
@@ -72,7 +72,7 @@ app.controller('academyListCtl', function($scope, consts, common, is_login) {
 		                                	{{art.ACADEMY_TIME}} 
 		                            </p>  
 		                            <p ng-bind-html="art.CONTENTS_JSON[locale]"> 
-		                            </p>    
+		                            </p>     
 			                        <div class="academy_btn">     
 				                        <span class="btn_style01 white" ng-if="art.ACADEMY_COMPLETE == 0 && is_login=='true' && art.CLOSE_YN != 'Y' && (art.ACADEMY_PAY !=null && art.ACADEMY_PAY != 0) && art.TO_DT.substring(0,10) > db_now">  
 											<a href="/service/page?view=academyApplication&academy_no={{art.ACADEMY_NO}}"><span>결제하기</span></a>       

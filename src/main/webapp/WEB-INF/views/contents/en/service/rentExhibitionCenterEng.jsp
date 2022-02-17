@@ -2,10 +2,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <jsp:include page="../../../include/header.jsp" flush="false"/>
-<link href="/resources/css/jquery.bxslider.min.css" rel="stylesheet">           
-<link href="/resources/css/main_bxslider.css" rel="stylesheet">   
+<link href="/css/jquery.bxslider.min.css" rel="stylesheet">           
+<link href="/css/main_bxslider.css" rel="stylesheet">   
 
-<script type="text/javascript" src="/resources/js/jquery.bxslider.js"></script> 
+<script type="text/javascript" src="/js/jquery.bxslider.js"></script> 
 <body>
 <jsp:include page="../../../include/topSearch.jsp" flush="false"/> 
 
@@ -49,7 +49,7 @@
 							<span class="btn_style01">
 								<a href="/about/page?view=location" target="_blank" title="Location">Seoul Auction Location</a>
 							</span>
-                            <span class="btn_style01"><a href="/service/page?view=auction360VRPop_ex01" target="new" title="VR">Seoul Auction Gangnam Center VR</a></span>
+                            <span class="btn_style01"><a href="https://www.seoulauction.com/service/page?view=auction360VRPop_ex01" target="new" title="VR">Seoul Auction Gangnam Center VR</a></span>
                             <span class="btn_style01"><a href="/nas_img/front/homepage/ganam_brochure.pdf" target="new" title="brochure">Venue Rental PDF</a></span>
 						</div>
 
@@ -58,7 +58,7 @@
 								<div class="title">Contact</div>
 								<div class="info">  
 									<div class="highlight">Exhbition & Operations <strong>JISeok Lee</strong></div>   
-									<div class="tel"><strong class="tit">Tel</strong> <span>+82-2-2075-4450</span></div>          
+									<div class="tel"><strong class="tit">Tel</strong> <span>+82-2-2075-4450</span></div>       
 									<div class="email"><strong class="tit">E-mail</strong> <a href="mailto:a7885@seoulauction.com">a7885@seoulauction.com</a></div>
 								</div>
 							</div>

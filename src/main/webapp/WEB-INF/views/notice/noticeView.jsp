@@ -53,11 +53,12 @@
                         <div class="title" ng-if="locale == 'ko' && noticeInfo.WRITE_NO == '3304'" style="color:#ff0000;">{{noticeInfo.TITLE}}</div>
 						<div class="title" ng-if="locale != 'ko' && noticeInfo.WRITE_NO == '3304'" style="color:#ff0000;">{{noticeInfo.TITLE_EN}}</div>
 						<div class="info" ng-show="noticeFileList != undefined && noticeFileList != null && noticeFileList.length > 0">
-							<dl>  
-								<dt><spring:message code="label.Attachments" /></dt>
-								<dd class="bar_space02" ng-repeat="file in noticeFileList">
-									<a href="/fileDownload?fileName={{file.FILE_NAME}}&path={{file.FILE_PATH}}/&orgName={{file.FILE_NAME_ORG}}">{{file.FILE_NAME_ORG}}</a>
-								</dd>
+							<!-- <di> 국내경매 수수료 인상 영문 첨부 나누어 질 시 다시 원복 -->              
+							<dl ng-if="locale == 'ko' || (locale != 'ko' && noticeInfo.WRITE_NO != '5507')"> 
+								<dt><spring:message code="label.Attachments" /></dt> 
+								<dd class="bar_space02" ng-repeat="file in noticeFileList">  
+									<a href="/fileDownload?fileName={{file.FILE_NAME}}&path={{file.FILE_PATH}}/&orgName={{file.FILE_NAME_ORG}}">{{file.FILE_NAME_ORG}}</a>  
+								</dd>  
 							</dl>
 						</div>
 						<div class="cont" style="line-height:28px;">

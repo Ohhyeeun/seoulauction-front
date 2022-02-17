@@ -230,10 +230,10 @@
 								<span ng-if="locale!='ko'" class="auctionagree_check_contents">The Bidder shall be responsible for conducting his/her own research and satisfying himself/herself of the condition of the lots, including, but not limited to, damage and/or restoration of the lots and in respect of any entries provided in the Auction Catalogue or elsewhere.</span>  
 							</label>  
 						</li>  
-						<li>  
+						<li>   
 							<input type="checkbox" name="agreePop_checkbox" id="agree_ex03" class="auctionagree_checkinput" />            
 							<label for="agree_ex03" class="auctionagree_check" style="cursor:pointer;">
-								<span ng-if="locale=='ko'" class="auctionagree_check_contents">낙찰자는 후 7일 이내(낙찰가 3억원 이상인 경우 21일 이내)에 구매수수료를 포함한 금액을 입금하여야 합니다. 구매수수료는 낙찰금액의 15%(부가세 별도)입니다.</span>      
+								<span ng-if="locale=='ko'" class="auctionagree_check_contents">낙찰자는 후 7일 이내(낙찰가 3억원 이상인 경우 21일 이내)에 구매수수료를 포함한 금액을 입금하여야 합니다. 구매수수료는 낙찰금액의 18%(부가세 별도)입니다.</span>       
 								<span ng-if="locale!='ko'" class="auctionagree_check_contents">A Successful Bidder shall make full payments, including the amount of the Hammer Price, Buyer’s Premium and any applicable taxes within 7 days after the sale.(within 21 days if the Hammer Price is higher than or equal to KRW300,000,000)</span>
 							</label> 
 						</li> 

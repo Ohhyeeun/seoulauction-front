@@ -7,8 +7,8 @@
 <jsp:include page="../include/header.jsp" flush="false"/>
 
 <link href="/css/angular/ngDialog.min.css" rel="stylesheet">
-<link href="/resources/css/angular/popup.css" rel="stylesheet">
-<script type="text/javascript" src="/resources/js/angular/paging.js?${resources.timestamp}"></script>
+<link href="/css/angular/popup.css" rel="stylesheet">
+<script type="text/javascript" src="/js/angular/paging.js?"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ng-dialog/0.5.6/js/ngDialog.min.js"></script>
 
 <script type="text/javascript">
@@ -264,11 +264,9 @@ app.controller('bidRequestCtl', function($scope, common, input) {
 								</tr>
 								<tr ng-repeat="bid in autoBidList">  
 									<td style="text-align: left; padding-left: 5px;">
-										<a ng-if="bid.TO_DT > dbDate" ng-href="/lotDetail?sale_no={{bid.SALE_NO}}&lot_no={{bid.LOT_NO}}&view_type=GRID" >{{bid.SALE_TH | localeOrdinal}} {{bid.TITLE_JSON[locale]}}<br/>
+										<a ng-href="/lotDetail?sale_no={{bid.SALE_NO}}&lot_no={{bid.LOT_NO}}&view_type=GRID" >{{bid.SALE_TH | localeOrdinal}} {{bid.TITLE_JSON[locale]}}<br/>
 										lot.{{bid.LOT_NO}} | {{bid.W_TITLE_JSON[locale]}}</a>
-										<a ng-if="bid.TO_DT < dbDate" onClick="javasciprt:alert('종료된 경매입니다.');" style="cursor:pointer">{{bid.TITLE_JSON[locale]}}<br/>
-										lot.{{bid.LOT_NO}} | {{bid.W_TITLE_JSON[locale]}}</a>
-									</td> 
+									</td>
 									<td>{{bid.REQ_DT | date:'yyyy-MM-dd HH:mm:ss'}} </td>
 									<td>{{bid.BID_KIND_NM}} </td>
 									<td style="text-align: right; padding-right: 5px;"> 

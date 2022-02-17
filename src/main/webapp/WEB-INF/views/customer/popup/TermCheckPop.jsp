@@ -3,10 +3,10 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <head>
-<script type="text/javascript" src="/resources/js/angular/angular.min.js"></script>
+<script type="text/javascript" src="/js/angular/angular.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.js" ></script> 
-<link rel="stylesheet" href="/resources/css/old/common.css?${resources.timestamp}" type="text/css" />   
-<link rel="stylesheet" href="/resources/css/sa.common.2.1.css?${resources.timestamp}" type="text/css" />
+<link rel="stylesheet" href="/css/old/common.css?ver=20210902" type="text/css" />   
+<link rel="stylesheet" href="/css/sa.common.2.1.css?ver=20210902" type="text/css" />
 </head>
 <script>
 $(function() {

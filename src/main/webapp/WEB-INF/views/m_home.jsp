@@ -8,12 +8,12 @@
 <!-- 모바일용 커튼 배너 호출. YDH 
 --> 
 <!-- 모바일용 커튼 배너 호출 . YDH -->
-<link href="/resources/css/angular/ng-animation.css" rel="stylesheet">  
-<link href="/resources/css/jquery.bxslider.min.css" rel="stylesheet">           
-<link href="/resources/css/main_bxslider.css" rel="stylesheet">            
+<link href="/css/angular/ng-animation.css" rel="stylesheet">  
+<link href="/css/jquery.bxslider.min.css" rel="stylesheet">           
+<link href="/css/main_bxslider.css" rel="stylesheet">            
 
 <!-- <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-animate.min.js"></script> -->
-<script type="text/javascript" src="/resources/js/angular/angular-animate.min.js"></script> 
+<script type="text/javascript" src="/js/angular/angular-animate.min.js"></script> 
 <script type="text/javascript" src="/js/jquery.bxslider.min.js"></script>      
 
 <script>

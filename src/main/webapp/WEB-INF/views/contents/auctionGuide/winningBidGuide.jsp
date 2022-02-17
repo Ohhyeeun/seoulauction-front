@@ -76,9 +76,7 @@
 										<strong>국내 오프라인 경매</strong>
 										<div class="list_style01">
 											<ul>
-												<li>일괄 15% (부가세 별도)
-</li>
-                                                
+												<li>일괄 18% (부가세 별도)</li>  
 											</ul>
 										</div>										
 									</li>
@@ -86,11 +84,9 @@
 										<strong>온라인경매</strong>
 										<div class="list_style01">
 											<ul>
-												<li>일괄 18% (부가세 별도)
-</li>
-                                                
+												<li>일괄 18% (부가세 별도)</li> 
 											</ul>
-										</div>										
+										</div>	 									
 									</li>
 									<li>
 										<strong>홍콩경매 구매수수료</strong>

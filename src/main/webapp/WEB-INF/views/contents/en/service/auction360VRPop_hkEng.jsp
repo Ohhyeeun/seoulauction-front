@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>32nd Hong Kong Sale</title> 
+    <title>32nd Hong Kong Sale</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="/images/3DVR_hk/style.css">

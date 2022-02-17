@@ -55,7 +55,7 @@
                                     <li style="border-bottom: 1px solid #333; height: 10px;"><li>  
                                     <li style="padding-top: 10px;"><a href="/currentAuction?sale_kind=zerobase_only">Zero base</a> 
                               </li>
-                              <li><a href="/zerobaseArtist">Zero base Artist</a></li>   
+                              <li><a href="https://www.seoulauction.com/zerobaseArtist">Zero base Artist</a></li>   
                                     <!--<li><a href="/otherSales">전시판매</a></li>-->  
                                 </ul>
                             </div>                    	
@@ -172,7 +172,7 @@
                           <div>
 								<div class="tit_h3 through">
 									<h3>Family Site</h3>
-								</div> 
+								</div>
 								<ul>
                                     <li><a target="_blank" href="http://www.auctionblue.com ">Auction Blue</a></li>
                                     <li><a target="_blank" href="http://www.printbakery.co.kr">PRINT BAKERY</a></li>

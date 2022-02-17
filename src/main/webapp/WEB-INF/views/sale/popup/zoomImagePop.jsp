@@ -5,17 +5,17 @@
 	<meta charset="UTF-8">
 	<title>서울옥션 통합관리자시스템</title>
 	<meta name="viewport" content="width=device-width, user-scalable=no">
-	<link rel="stylesheet" href="/resources/css/common.css?${resources.timestamp}" />
+	<link rel="stylesheet" href="/css/common.css" />
 <!-- 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script type="text/javascript" src="/resources/js/jquery.panzoom.min.js"></script>
-	<script type="text/javascript" src="/resources/js/jquery.placeholder.min.js"></script>
+	<script type="text/javascript" src="/js/jquery.panzoom.min.js"></script>
+	<script type="text/javascript" src="/js/jquery.placeholder.min.js"></script>
 	<script type="text/javascript" src="/js/jquery.selectbox-0.2.min.js"></script>
-	<script type="text/javascript" src="/resources/js/jquery.nicefileinput.min.js"></script>
+	<script type="text/javascript" src="/js/jquery.nicefileinput.min.js"></script>
 	<script type="text/javascript" src="/js/jquery.modal.min.js"></script>
-	<script type="text/javascript" src="/resources/js/iscroll.js"></script>
+	<script type="text/javascript" src="/js/iscroll.js"></script>
 	<script type="text/javascript" src="/js/ui.js"></script>
-    <script type="text/javascript" src="/resources/js/jquery.mousewheel.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.mousewheel.min.js"></script>
     
     <div class="pop_wrap masterview">
 		<style type="text/css">

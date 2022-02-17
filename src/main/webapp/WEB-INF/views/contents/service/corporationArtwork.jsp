@@ -2,12 +2,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <jsp:include page="../../include/header.jsp" flush="false"/>
-<link href="<c:url value="/resources/css/old/common.css?${resources.timestamp}" />" rel="stylesheet">
+<link href="<c:url value="/css/old/common.css" />" rel="stylesheet">
 <%-- YDH 추가 시작--%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<script type="text/javascript" src="/resources/js/angular/paging.js?${resources.timestamp}"></script>  
+<script type="text/javascript" src="/js/angular/paging.js"></script>  
 <body>
 <jsp:include page="../../include/topSearch.jsp" flush="false"/> 
 
@@ -114,10 +114,10 @@
 					
 					<div class="box_gray type01">
 						<div class="contact"> 
-							<div class="title">문의 Contact</div> 
-							<div class="info">  
-								<div class="highlight">서울옥션 전시마케팅팀 <strong>김현희 팀장</strong></div>  
-								<div class="tel"><strong class="tit">Tel</strong><span>02-2075-4435</span></div>
+							<div class="title">문의 Contact</div>  
+							<div class="info"> 
+								<div class="highlight">서울옥션 홍보마케팅팀 <strong>김현희 팀장</strong></div>   
+								<div class="tel"><strong class="tit">Tel</strong><a href="tel:02-2075-4435"><span>02-2075-4435</span></a></div> 
 								<div class="email"><strong class="tit">E-mail</strong><a href="mailto:hyunhee@seoulauction.com">hyunhee@seoulauction.com</a></div> 
 							</div>
 						</div> 

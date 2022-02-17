@@ -43,7 +43,7 @@
 					</dd>  
 				</dl>  
                 <!-- //green orange yellow sky deepblue deeppink deepred  --> 
-                <a href="/auctionGuide/page?view=commissionGuide" class="btn_main_more green" style="width: 80px;">SEE MORE</a> 
+                <a href="https://www.seoulauction.com/auctionGuide/page?view=commissionGuide" class="btn_main_more green" style="width: 80px;">SEE MORE</a> 
 		   </div>
 		</div>      
 	</div>  
@@ -135,13 +135,13 @@
                     </dd> 
                 </dl>      
                 <!--<a href="/currentAuction?sale_kind=zerobase_only&page=1" class="btn_main_more green"style="width:80px;margin-top:5px;">SEE MORE</a>    
-                <a href="/zerobaseArtist" class="btn_main_more green"style="width:80px;margin-top:5px;" target="_blank";>ARTIST VIEW</a>   
+                <a href="https://www.seoulauction.com/zerobaseArtist" class="btn_main_more green"style="width:80px;margin-top:5px;" target="_blank";>ARTIST VIEW</a>   
 				<a href="https://www.youtube.com/watch?v=Nvf_Zg9aitQ" class="btn_main_more green" style="width:80px;margin-top:5px; padding: 0;" target="_blank"> 
 					<i class="material-icons" style="padding: 0;">   
 						play_circle  
 					</i> 
 				</a>   
-				<a href="/nas_img/front/homepage/e-book/ZEROBASE/zerobase.pdf" class="btn_main_more green" target="_blank" style="width:80px;margin-top:5px;">CATALOGUE</a>-->   
+				<a href="https://www.seoulauction.com/nas_img/front/homepage/e-book/ZEROBASE/zerobase.pdf" class="btn_main_more green" target="_blank" style="width:80px;margin-top:5px;">CATALOGUE</a>-->   
 		   </div>     
 		</div>
 	</div>
@@ -299,7 +299,7 @@
                 <a href="/noticeView?write_no=3833" class="btn_main_more green"style="width:80px;margin-top:5px;">Notice</a> 
                 <a href="/upcomingAuction?sale_kind=online_only" class="btn_main_more green"style="width:80px;margin-top:5px;">Detail</a>
                 <a href="/service/page?view=auction360VRPop_online1" class="btn_main_more green" target="new" style="width:80px;margin-top:5px;" >EXHIBITION</a> 
-                <a href="/nas_img/front/homepage/e-book/202003_02/index.html" class="btn_main_more yellow" target="new" style="width:80px;margin-top:5px;">CATALOGUE</a> 
+                <a href="https://www.seoulauction.com/nas_img/front/homepage/e-book/202003_02/index.html" class="btn_main_more yellow" target="new" style="width:80px;margin-top:5px;">CATALOGUE</a> 
 			</div>
 		</div>
 	</div> -->	 
@@ -375,7 +375,7 @@
                 </dl>   
                 <a href="/currentAuction?sale_kind=offline_only&sale_no=670&kind=trad&page=1" class="btn_main_more green" style="width:80px;margin-top:5px;">SEE MORE</a>        
                 <a href="/nas_img/front/homepage/e-book/163rd/index.html" class="btn_main_more green" target="_blank" style="margin-top:5px;">CATALOGUE</a>       
-                <a href="/nas_img/front/homepage/VR/163rd/index.html" class="btn_main_more green" target="_blank" style="width:80px;margin-top:5px;" >EXHIBITION</a>      
+                <a href="https://www.seoulauction.com/nas_img/front/homepage/VR/163rd/index.html" class="btn_main_more green" target="_blank" style="width:80px;margin-top:5px;" >EXHIBITION</a>      
                 <a href="/currentAuction?sale_kind=offline_only&sale_no=670&page=1" class="btn_main_more yellow" style="width:80px;margin-top:5px; ">Live Bidding</a> 
                 <a href="/nas_img/front/homepage/e-book/163rd/163rd_CONTEMPORARY_ART.pdf" class="btn_main_more green" target="_blank" style="margin-top:5px;">Contemporary Art</a>      
                 <a href="/nas_img/front/homepage/e-book/163rd/163rd_Traditional_Art.pdf" class="btn_main_more green" target="_blank" style="width:80px;margin-top:5px;">Traditional Art</a>  
@@ -456,7 +456,7 @@
                 </dl>     
                 <a href="/currentAuction?sale_kind=offline_only&sale_no=670&kind=con&page=1" class="btn_main_more green" style="width:80px;margin-top:5px;">SEE MORE</a>   
                 <a href="/nas_img/front/homepage/e-book/163rd/index.html" class="btn_main_more green" target="_blank" style="margin-top:5px;">CATALOGUE</a>        
-                <a href="/nas_img/front/homepage/VR/163rd/index.html" class="btn_main_more green" target="_blank" style="width:80px;margin-top:5px;" >EXHIBITION</a>      
+                <a href="https://www.seoulauction.com/nas_img/front/homepage/VR/163rd/index.html" class="btn_main_more green" target="_blank" style="width:80px;margin-top:5px;" >EXHIBITION</a>      
                 <a href="/currentAuction?sale_kind=offline_only&sale_no=670&page=1" class="btn_main_more yellow" style="width:80px;margin-top:5px;">Live Bidding</a>    
 				<a href="/nas_img/front/homepage/e-book/163rd/163rd_CONTEMPORARY_ART.pdf" class="btn_main_more green" target="_blank" style="margin-top:5px;">Contemporary Art</a>       
                 <a href="/nas_img/front/homepage/e-book/163rd/163rd_Traditional_Art.pdf" class="btn_main_more green" target="_blank" style="width:80px;margin-top:5px;">Traditional Art</a>  
@@ -578,7 +578,7 @@
 				</dl>         
                 <a href="/about/page?view=gnExhibition" class="btn_main_more green" style="width:80px;margin-top:5px;">DETAIL</a>     
 				<a href="/currentExhibit?sale_kind=exhibit_only&sale_no=640" class="btn_main_more green" style="width:80px;margin-top:5px;">SEE MORE</a> 
-				<a href="/nas_img/front/homepage/e-book/mariKim/index.html" class="btn_main_more green" target="_blank" style="width:80px;margin-top:5px;">CATALOGUE</a>
+				<a href="https://www.seoulauction.com/nas_img/front/homepage/e-book/mariKim/index.html" class="btn_main_more green" target="_blank" style="width:80px;margin-top:5px;">CATALOGUE</a>
                 <a href="/service/page?view=auction360VRPop_ex" class="btn_main_more green" target="new" style="width:80px;margin-top:5px;" >EXHIBITION</a>  
 		   </div>
 		</div>  
@@ -630,7 +630,7 @@
                 </dl>   
                 <a href="/about/page?view=gnExhibition" class="btn_main_more green" style="width:80px;margin-top:5px;" >전시 소개</a>  
                 <a href="/currentExhibit?sale_kind=exhibit_only&sale_no=615" class="btn_main_more green" style="width:80px;margin-top:5px;" >작품 보기</a>
-                <a href="/currentExhibit?sale_kind=exhibit_only&sale_no=585" class="btn_main_more green" style="width:80px;margin-top:5px;" >작품 보기</a> 
+                <a href="https://www.seoulauction.com/currentExhibit?sale_kind=exhibit_only&sale_no=585" class="btn_main_more green" style="width:80px;margin-top:5px;" >작품 보기</a> 
                 <a href="/service/page?view=auction360VRPop_ex" class="btn_main_more green" target="new" style="width:80px;margin-top:5px;" >전시장 보기</a>  
 		   </div>  
 		</div>  
@@ -642,7 +642,7 @@
 			<div class="roll" style="width: 1463px; height: 955px; overflow: hidden;"> 
 				<ul style="width: 1463px;">				 
                 	<li style="width: 1463px; height: 955px; overflow: hidden;">
-						<img src="//nas_img/front/homepage/20201224.jpg" alt="SEOUL AUCTION SALE" style="width: auto; height: 100%; margin-left: -120px;">
+						<img src="https://www.seoulauction.com//nas_img/front/homepage/20201224.jpg" alt="SEOUL AUCTION SALE" style="width: auto; height: 100%; margin-left: -120px;">
 					</li> 
 				</ul>    
 			</div>     
@@ -650,7 +650,7 @@
 			<div class="thum" style="bottom: 450px;">     
 				<ul>         
                 	<li class="selected" style="overflow: hidden;">   
-						<img src="//nas_img/front/homepage/main_banner_sm/20201224.jpg" alt="SEOUL AUCTION SALE" style="width: auto; height: 100%; margin-left: -13px;">
+						<img src="https://www.seoulauction.com//nas_img/front/homepage/main_banner_sm/20201224.jpg" alt="SEOUL AUCTION SALE" style="width: auto; height: 100%; margin-left: -13px;">
 					</li>
 				</ul>      
 			</div>     
@@ -787,11 +787,11 @@
                    </dd> 
                 </dl>    
                 <a href="/currentAuction?sale_kind=offline_only&sale_no=582&page=1" class="btn_main_more green"style="width:80px;margin-top:5px;">SEE MORE</a>   
-                <a href="/nas_img/front/homepage/e-book/202010_01/index.html" class="btn_main_more green" target="new" style="width:80px;margin-top:5px;">CATALOGUE</a>  
+                <a href="https://www.seoulauction.com/nas_img/front/homepage/e-book/202010_01/index.html" class="btn_main_more green" target="new" style="width:80px;margin-top:5px;">CATALOGUE</a>  
                 <a href="/currentAuction?sale_kind=offline_only&sale_no=582&page=1" class="btn_main_more yellow"style="width:80px;margin-top:5px;">Live Bidding</a> 
                 <a href="/noticeView?write_no=3323" class="btn_main_more green"style="width:80px;margin-top:5px;">Notice</a>  
                 <a href="/service/page?view=auction360VRPop_online2" class="btn_main_more green" target="new" style="width:80px;margin-top:5px;" >EXHIBITION</a> 
-                <a href="/nas_img/front/homepage/e-book/202004_01/index.html" class="btn_main_more green" target="new" style="width:80px;margin-top:5px;">CATALOGUE</a>
+                <a href="https://www.seoulauction.com/nas_img/front/homepage/e-book/202004_01/index.html" class="btn_main_more green" target="new" style="width:80px;margin-top:5px;">CATALOGUE</a>
                 <a href="/currentAuction?sale_kind=offline_only&page=1" class="btn_main_more yellow"style="width:80px;margin-top:5px;">Live Bidding</a>
                 <a href="/upcomingAuction?sale_kind=offline_only&page=1" class="btn_main_more green"style="width:80px;margin-top:5px;">Detail</a>   
 		   </div>
@@ -993,8 +993,8 @@
                         saplus@seoulauction.com
                    </dd>
 				</dl>  
-                <a href="/about/page?view=saplus" class="btn_main_more green" style="width:80px;margin-top:5px;">DETAIL</a>
-                <!-- <a href="/currentExhibit?sale_kind=exhibit_only&sale_no=538" class="btn_main_more green" style="width:80px;margin-top:5px;">SEE MORE</a>
+                <a href="https://www.seoulauction.com/about/page?view=saplus" class="btn_main_more green" style="width:80px;margin-top:5px;">DETAIL</a>
+                <!-- <a href="https://www.seoulauction.com/currentExhibit?sale_kind=exhibit_only&sale_no=538" class="btn_main_more green" style="width:80px;margin-top:5px;">SEE MORE</a>
                 <!-- <a href="/service/page?view=auction360VRPop_online2" class="btn_main_more green" target="new" style="width:80px;margin-top:5px;" >EXHIBITION</a>->
 		   </div>
 		</div> 
@@ -1179,7 +1179,7 @@
                     </dd>
 				</dl> 
 				<a href="/currentAuction?sale_kind=offline_only" class="btn_main_more green"style="width:87px;margin-top:5px;">SEE MORE</a>
-                <!-- <a href="/upcomingAuction?sale_kind=offline_only&sale_no=452" class="btn_main_more green" style="width:87px;margin-top:5px;" >SEE MORE</a><br/> 
+                <!-- <a href="https://www.seoulauction.com/upcomingAuction?sale_kind=offline_only&sale_no=452" class="btn_main_more green" style="width:87px;margin-top:5px;" >SEE MORE</a><br/> 
                 <a href="/nas_img/front/homepage/150th Modern.pdf" class="btn_main_more yellow" target="new" style="width:87px;margin-top:5px;">CATALOGUE-A</a> 
                 <a href="/service/page?view=auction360VRPop_online1" class="btn_main_more green" target="new" style="width:86px;margin-top:5px;" >EXHIBITION</a>
                 <a href="/nas_img/front/homepage/SA-2019-BUSAN-F-X.pdf" class="btn_main_more yellow" target="new" style="width:87px;margin-top:5px;">CATALOGUE</a>

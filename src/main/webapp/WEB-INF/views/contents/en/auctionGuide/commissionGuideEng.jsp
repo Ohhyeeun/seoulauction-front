@@ -144,8 +144,8 @@
 							<div class="list_style03 type03">
 								<ul>
 									<li><strong>Commission inquiry email </strong><span> : <a href="mailto:info@seoulauction.com">info@seoulauction.com</a></span></li>
-									<li><strong> HEAD OFFICE. SEOUL </strong><span> : +82 (0)2 2075 4422 (English)</span><span>  +82 (0)2 2075 4391 (中國語)</span></li>
-								</ul>
+									<li><strong> HEAD OFFICE. SEOUL </strong><span> : <a href="tel:+82 (0)2-2075-4422">+82 (0)2 2075 4422</a> (English)</span><span> <a href="tel:+82 (0)2-2075-4391">+82 (0)2 2075 4391</a> (中國語)</span></li> 
+								</ul> 
 							</div>
 						</div>
 						<!-- //num_cont -->
@@ -171,8 +171,8 @@
 							<div class="list_style03">
 								<ul>
 									<li>
-										<div class="tit">Commission Fee</div>
-										<p>Apply 10%(VAT excluded)of wining price.<br>  (Impose transfer tax: It targets the item whose transfer tax is over 60 million won from 2013. but it does not apply to the works made by living artists.<br>Please read the detail information at Terms and Conditions (Article 10).</p>
+										<div class="tit">Commission Fee</div>   
+										<p>Apply 10%(VAT excluded)of winning price.<br>  (Impose transfer tax: It targets the item whose transfer tax is over 60 million won from 2013. but it does not apply to the works made by living artists.<br>Please read the detail information at Terms and Conditions (Article 10).</p>
 									</li>
 								</ul>
 							</div>

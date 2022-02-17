@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<title>VIDEO</title>
 	<meta name="viewport" content="width=device-width, user-scalable=no">
-	<link rel="stylesheet" href="/resources/css/old/common.css?${resources.timestamp}" />
+	<link rel="stylesheet" href="/css/old/common.css" />
 	<!--  <link rel="stylesheet" href="/css/old/jquery.mCustomScrollbar.css" rel="stylesheet" /> -->
 	<script type="text/javascript" src="/html/live/jquery/jquery-2.1.1.min.js"></script>
 	<!--  <script type="text/javascript" src="/js/selectbox-min.js"></script> -->	
@@ -41,8 +41,8 @@
                <!--<p>(Sunday)27.11.2016 6PM HKT Hong Kong Grand Hyatt, Mezzanine Level (Salon)</p>-->
 			<div class="video_area"  oncontextmenu="return false" ondragstart="return false"> 
 				<!--<div class="web_only" align="center">
-                <iframe src="/html/live/vod_popup.html" scrolling="no" width="720" height="500"  frameborder="0"/> 
-					<object data="/html/live/vod_popup.html" width="710" height="510"><param name="movie" value="../../service/www.seoulauction.com/html/live/vod_popup.html" /></object>
+                <iframe src="https://www.seoulauction.com/html/live/vod_popup.html" scrolling="no" width="720" height="500"  frameborder="0"/> 
+					<object data="https://www.seoulauction.com/html/live/vod_popup.html" width="710" height="510"><param name="movie" value="../../service/www.seoulauction.com/html/live/vod_popup.html" /></object>
 				</div>
 				<div class="m_only">
 					<video id="youtube1" > -->
@@ -51,7 +51,7 @@
 					</video>
 				</div> -->
 				
-				<video src="/nas_img/front/homepage/23rd_video.mp4" controls width="480" height="270" autoplay>
+				<video src="https://www.seoulauction.com/nas_img/front/homepage/23rd_video.mp4" controls width="480" height="270" autoplay>
 				<p><br/><br/>Some browsers do not support newer video formats or quality options. <br/>We recommend upgrading your browser or operating system for the best viewing experience.<br/>Below are some browser and operating system combinations that support video formats:<br/>•Google Chrome (all operating systems)<br/>
 •MS Edge <br/>
 •Safari on Mac OS X 10.10 or newer<br/>

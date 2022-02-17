@@ -2,13 +2,9 @@
 서울 옥션 웹페이지 프로젝트 입니다.
 
 ## Getting Started
-
-> `VPN`,`권한` 등 사전에 모든 설정 부분이 완료되어 있어야 합니다.
-> 
-
 ```bash
 # 저장소를 Clone
-git clone ssh://git@gitlab.ssh.bid:10020/seoulauction-legacy/front/service_seoulauction.front.git
+git clone https://github.com/seoulauction/seoulauction-front.git
 ```
 
 ---

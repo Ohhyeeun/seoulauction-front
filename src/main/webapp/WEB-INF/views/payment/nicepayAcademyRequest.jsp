@@ -22,11 +22,22 @@
 
 	String ediDate = getyyyyMMddHHmmss(); // 전문생성일시
 	
-	// 상점 MID
-	String merchantID = "${maven.nicepay.merchant01.merchantID}";
 	// 상점서명키 (꼭 해당 상점키로 바꿔주세요) 연회비는 과세 아이디 설정. 추후 낙찰대수수료는 과세아이디로 결제할 것.
-	String merchantKey = "${maven.nicepay.merchant01.merchantKey}";
-	
+	// 테스트 키
+// 	String merchantKey = "33F49GnCMS1mFYlGXisbUDzVf2ATWCl9k3R++d5hDd3Frmuos/XLx8XhXpe+LDYAbpGKZYSwtlyyLOtS/8aD7A==";  // nictest00m Test Key
+// 	String merchantKey = "NLA1O8Rr6YevU0YOlduvHoVz00BISclF6PLhm1qzLbH7ali6BhwNN/4mNEEgijIcAJtt5VSmJDQb2KHr0IituQ==";  // nictest74m Test Key
+	// 실제 키
+//	String merchantKey = "9s7oFNUdG03jLMJ0nIYs4qwRldWVS7YUvVzNXeodXOCw/hWTsLQW64hDE7eJQ4Dui8aGGqFnqvlWSPYdlnLeBg==";
+//	String merchantKey = "f/hN/bsIGns7Tx7TNVLQb9nPEqTsnSnrOzIbe3wpA7iuwcCv1I1DetUq/u1rLjnMq9BJvV6rzPf5/vASq78XDQ==";		//2018.09.05 수정전 "sauction1m" 키
+	String merchantKey = "9s7oFNUdG03jLMJ0nIYs4qwRldWVS7YUvVzNXeodXOCw/hWTsLQW64hDE7eJQ4Dui8aGGqFnqvlWSPYdlnLeBg==";		//2018.09.05 수정전 "sauction0m" 키
+	// 상점 MID
+	// 테스트 MID
+// 	String merchantID = "nictest00m";
+//	String merchantID = "nictest74m";
+	// 실제 MID
+//	String merchantID = "sauction0m";
+//	String merchantID = "sauction1m";		//2018.09.05 수정전 MID
+	String merchantID = "sauction0m";		//2018.09.05 수정후 MID(가상계좌지원)
 	// 상품 가격을 기입하십시요.
 	// 하단 form값의 Amt와 동일해야 합니다.
 // 	String price = "500";
@@ -43,7 +54,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" /><!-- blueerr 2018.09.04 모바일에서 글씨가 너무 작게 나와서 추가 -->
 <title>NICEPAY :: 결제 요청</title>
 <link rel="stylesheet" href="/css/basic.css" type="text/css" />
-<link rel="stylesheet" href="/resources/css/style.css?${resources.timestamp}" type="text/css" />
+<link rel="stylesheet" href="/css/style.css" type="text/css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.js" ></script>
 
 <!-- NicePay 플러그인용 JS 
