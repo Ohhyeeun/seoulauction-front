@@ -47,3 +47,6 @@ atlassian-ide-plugin.xml
 
 # VS Code
 .vscode/
+
+# META-INF/*
+META-INF/MANIFEST.MF
