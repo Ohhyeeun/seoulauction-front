@@ -312,6 +312,28 @@ public class CustomerController {
    		}
    	}
 
+	// 이름 저장
+	@RequestMapping(value = "/auth/update/name", method = RequestMethod.POST, headers = {"content-type=application/json"})
+	@ResponseBody
+	public boolean modifyCustName(@RequestBody Map<String, Object> paramMap, HttpServletRequest request, HttpServletResponse response) {
+		try {
+			// 세션에 저장된 회원 ID 가져오기
+			UsernamePasswordAuthenticationToken userToken = (UsernamePasswordAuthenticationToken) request.getUserPrincipal();
+			SAUserDetails user = (SAUserDetails) userToken.getDetails();
+			int userId = user.getUserNo();
+
+			// 비밀번호 업데이트
+			Map<String, Object> params = new HashMap<>();
+			params.put("name", paramMap.get("name").toString());
+			params.put("id", userId);
+
+			int result = commonService.modifyData("updateCustName", params); // 이름 업데이트
+			return result > 0;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
    	@RequestMapping(value="/join/clear_auth_num", method=RequestMethod.POST, headers = {"content-type=application/json"})
     @ResponseBody
     public boolean clearAuthNumber(@RequestBody Map<String, Object> paramMap, HttpServletRequest request, HttpServletResponse response){

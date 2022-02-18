@@ -2,14 +2,29 @@ app.factory("bid", function ($interval, ngDialog) {
 	var saleCert = function($input, $callBack){
 		$input.parent.cancelLotRefresh();
 
-		$input.parent.modal = ngDialog.open({
-			template: '/saleCert?sale_no=' + $input.sale.SALE_NO,
-			controller: 'saleCertCtl',
-			showClose: false,
-			closeByDocument: false,
-			animationEndSupport: false,
-			resolve: {input: function(){return $input;}}
-		});
+		// cookie.provider_type = ssg
+		const isSSG = getCookie('provider_type');
+		if (isSSG && isSSG === 'ssg') {
+			// SSG Cert
+			$input.parent.modal = ngDialog.open({
+				template: '/saleCert?sale_no=' + $input.sale.SALE_NO + '&ssg=y',
+				controller: 'saleCertSSGCtl',
+				showClose: false,
+				closeByDocument: false,
+				animationEndSupport: false,
+				resolve: {input: function(){return $input;}}
+			});
+		} else {
+			// 기존 Cert
+			$input.parent.modal = ngDialog.open({
+				template: '/saleCert?sale_no=' + $input.sale.SALE_NO,
+				controller: 'saleCertCtl',
+				showClose: false,
+				closeByDocument: false,
+				animationEndSupport: false,
+				resolve: {input: function(){return $input;}}
+			});
+		}
 	};
 	
 	var bidPopup = function($input) {
@@ -1190,11 +1205,237 @@ app.controller('saleCertCtl', function($scope, consts, common, $interval, input,
     		});
     	}
     }
-	
 });
 
+/**
+ * 신세계 전용 SaleCert Controller
+ */
+app.controller('saleCertSSGCtl', function($scope, consts, common, $interval, input, locale, $filter, $http) {
+	$scope.sale = input.sale;
+	$scope.parent = input.parent;
+	$scope.sale_cert = $scope.parent.sale_cert;
+	$scope.callBack = input.callBack;
 
+	// [Event] 팝업 창 닫기
+	$scope.close = function() {
+		if ($scope.parent.refreshLots) {
+			$scope.parent.refreshLots();
+		}
 
+		if ($scope.parent.runLotsRefresh) {
+			$scope.parent.runLotsRefresh();
+		}
 
+		$scope.parent.modal.close();
 
+		//브라우저가 닫히면 세션을 삭제
+		if (($scope.parent.sale_cert.CNT || 0) <= 0) {
+			setCookie('sale_cert_cancel', true);
+		} else if ($scope.callBack) {
+			$scope.callBack(input);
+		}
+	}
 
+	let $e = function() {
+		$scope.is_processing = false;
+	}
+
+	let $s = function(data, status) {
+		$scope.is_processing = false;
+	};
+
+	let finalRefresh = function() {
+		$scope.is_processing = false;
+	}
+
+	$scope.hp1s = ['010', '011', '016', '017', '018', '019'];
+
+	// 폼 데이터 초기값
+	$scope.form_data = {
+		can_auth: false,
+		auth_num: null,
+		name: '',
+		ph1: '',
+		hp2: '',
+		hp3: '',
+	};
+
+	$scope.auth_req_btn_txt = '인증번호요청';
+
+	$scope.checkHpAuth = {
+		valid: false,
+		message: '',
+		check: '',
+	}
+
+	// [Event] CheckAll
+	$scope.checkboxAll = () => {
+		if ($('#agreeCert_checkbox_all').prop('checked')) {
+			$('input[name="agreeCert_checkbox"]').prop('checked', true);
+		} else {
+			$('input[name="agreeCert_checkbox"]').prop('checked', false);
+		}
+	}
+
+	// [Event] 인증번호 전송
+	$scope.authNumRequest = () => {
+		let checkboxLength = $('input:checkbox[name="agreeCert_checkbox"]').length; // 체크박스 전체 개수
+		let checkedLength = $('input:checkbox[name="agreeCert_checkbox"]:checked').length; // 체크된 개수
+
+		// 전체 체크가 안되어 있으면, 취소
+		if (checkboxLength !== checkedLength) {
+			window.alert($scope.locale === 'ko' ? '약관에 모두 동의해주세요.' : 'Please agree to all the terms and conditions.');
+			return;
+		}
+
+		if (!$scope.form_data.hp1 || !$scope.form_data.hp2 || !$scope.form_data.hp3) {
+			window.alert('휴대폰 번호를 입력해주세요');
+			return;
+		}
+
+		$scope.form_data.can_auth = false;
+		$scope.form_data.auth_num = null;
+
+		// 타이머 초기화
+		$interval.cancel($scope.timer_duration);
+
+		$scope.checkHpAuth.message = '';
+		$scope.form_data.hp = `${$scope.form_data.hp1}-${$scope.form_data.hp2}-${$scope.form_data.hp3}`;
+
+		const requestData = {
+			to_phone: $scope.form_data.hp,
+		};
+
+		// 인증번호 전송 API Call
+		common.callAPI('/join/send_auth_num', requestData, function(data, status) {
+			console.log(`data: ${data}`);
+			try {
+				$scope.form_data.can_auth = true;
+				$scope.auth_num_send_status = data.SEND_STATUS;
+				$scope.auth_end_time = moment(new Date()).add(120, 'seconds');
+
+				if ($scope.auth_num_send_status) {
+					$scope.timer_duration = $interval($scope.setAuthDuration, 1000);
+					console.log("======> set timer");
+				}
+				$scope.auth_req_btn_txt = '인증번호 재요청';
+			} catch(err) {
+				$scope.auth_num_send_status = false;
+			}
+		});
+	}
+
+	// [Event] 인증하기 버튼 클릭
+	$scope.authNumConfirm = () => {
+		const savedPhoneNumber = $scope.sale_cert.HP;
+		const savedPhoneNumberNoHyphen = savedPhoneNumber.replace(/[^\d]/g, '');
+		const formData = $scope.form_data;
+
+		// 이름 입력 체크
+		if (!formData.name) {
+			window.alert('이름을 입력해주세요');
+			return;
+		}
+
+		// 인증 번호 체크
+		if (!formData.auth_num) {
+			$scope.checkHpAuth.message = '인증번호를 넣으세요.';
+			return;
+		}
+
+		// 다시 한번 Set
+		$scope.form_data.hp = `${$scope.form_data.hp1}-${$scope.form_data.hp2}-${$scope.form_data.hp3}`;
+
+		const phoneNumberNoHyphen = $scope.form_data.hp.replace(/[^\d]/g, '');
+		const isSamePhone = savedPhoneNumberNoHyphen === phoneNumberNoHyphen;
+
+		if (data) {
+			const reqData = {
+				sale_no: $scope.sale.SALE_NO,
+				hp: $scope.form_data.hp,
+				done_cd: isSamePhone ? 'no_modify' : 'un_modify',
+				auth_num: $scope.form_data.auth_num,
+			}
+
+			// 인증 완료 처리 API Call
+			common.callAPI('/join/confirm_auth_num4sale', reqData, (data, httpStatus) => {
+				if (!data.resultCode || Number(data.resultCode) !== 0) {
+					$scope.checkHpAuth.message = '인증에 실패 하였습니다. 다시 요청 하세요.';
+					$scope.checkHpAuth.check = '';
+					$scope.checkHpAuth.valid = data;
+					return;
+				}
+
+				$scope.checkHpAuth.message = '인증에 성공 하였습니다.';
+				$scope.checkHpAuth.check = 'ok';
+				$scope.parent.sale_cert.CNT = 1;
+
+				// 같은 폰번호 -> 종료
+				if (isSamePhone) {
+					$scope.close();
+					return;
+				}
+
+				// 번호 갱신 안함 -> 종료
+				const confirms = window.confirm('고객정보의 핸드폰번호와 일치하지 않습니다.\n인증받은 핸드폰번호로 갱신하시겠습니까?');
+				if (!confirms) {
+					$scope.close();
+					return;
+				}
+
+				const updatePhoneNumberData = {
+					actionList: [
+						{
+							actionID: 'sale_cert_hp_mod',
+							actionType: 'update',
+							tableName: 'CERT',
+							parmsList: [
+								{
+									hp: $scope.form_data.hp,
+									sale_cert_no: data.tables.CERT.rows[0].sale_cert_no
+								}
+							]
+						}
+					]
+				}
+
+				// 폰번호 갱신 API Call
+				common.callActionSet(updatePhoneNumberData, () => {
+					// 이름 업데이트 API Call
+					common.callAPI('/auth/update/name', { name: formData.name }, (data, httpStatus) => {
+						$scope.parent.sale_cert.HP = $scope.form_data.hp;
+					});
+				}, null, $scope.close);
+			}, () => {
+				$interval.cancel($scope.timer_duration);
+				console.log("======> cancel timer");
+				$scope.form_data.auth_num = null;
+			});
+		}
+	}
+
+	// [Event] 핸드폰 인증 메시지 변경
+	$scope.getHpAuthMsg = function() {
+		return $scope.checkHpAuth.message;
+	}
+
+	// 타이머 구현 로직
+	$scope.setAuthDuration = function() {
+		const format = 'm:s';
+		const diffSeconds = moment($scope.auth_end_time).diff(moment(new Date()), 'seconds'); // 남은 초
+
+		if (diffSeconds > 0) {
+			$scope.checkHpAuth.message = "남은시간 : " + moment.duration(diffSeconds, "seconds").format(format);
+		} else if (diffSeconds === 0) {
+			$scope.form_data.can_auth = false;
+			$scope.checkHpAuth.message = '0';
+			$interval.cancel($scope.timer_duration);
+			console.log('======> cancel timer');
+
+			// 인증 만료 요청
+			common.callAPI('/join/clear_auth_num', {}, function(){
+				$scope.checkHpAuth.message = "인증 시간이 초과되었습니다. 다시 요청 하세요.";
+			});
+		}
+	}
+});

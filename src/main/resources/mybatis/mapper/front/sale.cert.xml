@@ -22,5 +22,12 @@
 				(select max(A.HP) from CUST A where A.CUST_NO = #{action_user_no}) as HP
 		from	SALE_CERT A
 		where	A.DEL_YN = 'N' and A.SALE_NO = #{sale_no} and A.CUST_NO = #{action_user_no}
-	</select>	
+	</select>
+
+	<update id="updateCustName">
+		update CUST set
+			CUST_NAME = #{name},
+			MOD_DT = current_timestamp
+		where CUST_NO = #{id}
+	</update>
 </mapper>
