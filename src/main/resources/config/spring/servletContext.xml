@@ -76,6 +76,10 @@
 		<bean id="localeChangeInterceptor" class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
 			<property name="paramName" value="lang" />
 		</bean>
+		<mvc:interceptor>
+			<mvc:mapping path="/**"/>
+			<bean id="ssgInterceptor" class="com.seoulauction.front.interceptor.SsgInterceptor" />
+		</mvc:interceptor>
 	</mvc:interceptors>
 
 	<!-- <mvc:interceptors>

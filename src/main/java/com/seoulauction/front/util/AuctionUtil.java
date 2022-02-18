@@ -1,11 +1,19 @@
 package com.seoulauction.front.util;
 
+import org.apache.commons.codec.binary.Base64;
+
+import java.nio.charset.StandardCharsets;
+import java.security.spec.AlgorithmParameterSpec;
 import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
+import javax.crypto.Cipher;
+import javax.crypto.spec.SecretKeySpec;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
 
 public class AuctionUtil {
@@ -165,5 +173,26 @@ public class AuctionUtil {
 	public static String convertLocaleEnDate(Date date){
 		SimpleDateFormat dateEn = new SimpleDateFormat("EEE d MMM yyyy", Locale.ENGLISH);
 		return dateEn.format(date);
+	}
+
+	public static String SSG_AES_KEY = "696d697373796f7568616e6765656e61";
+
+	public static String aesDecryptSSG(String text) throws Exception {
+		String decValue = aesDecryptCore(text, SSG_AES_KEY);
+		return decValue;
+	}
+
+	public static String aesDecryptCore(String text, String key) throws Exception {
+		SecretKeySpec spec = new SecretKeySpec(key.getBytes(StandardCharsets.UTF_8), "AES");
+		Cipher cipher = Cipher.getInstance("AES");
+		cipher.init(Cipher.DECRYPT_MODE, spec);
+		return new String(cipher.doFinal(Base64.decodeBase64(text.getBytes(StandardCharsets.UTF_8))),"UTF-8");
+	}
+
+	public static void setCookie(HttpServletResponse response, String key, String value) {
+		Cookie cookie = new Cookie(key, value);
+		cookie.setMaxAge(60*60*24);
+		cookie.setPath("/");
+		response.addCookie(cookie);
 	}
 }
