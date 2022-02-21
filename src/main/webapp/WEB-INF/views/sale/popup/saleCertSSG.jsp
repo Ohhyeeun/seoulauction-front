@@ -80,11 +80,8 @@
                     <div class="input_phone_auh">
                       <input type="text" ng-model="form_data.auth_num" onkeypress="return onlyNumber(event);" class="tac" placeholder="인증번호" maxlength="6" ng-disabled="!form_data.can_auth" style="ime-mode:disabled; min-height:26px;" />
                       <span class="btn_style01 gray02">
-													<button type="button" ng-click="authNumConfirm()" ng-disabled="!form_data.can_auth">
+													<button type="button" ng-click="authNumConfirmSSG()" ng-disabled="!form_data.can_auth">
 														<span>{{locale !== 'ko' ? 'certification' : '인증' }}</span>
-													</button>
-													<button type="button" ng-click="authNumConfirm()">
-														<span>{{locale !== 'ko' ? 'certification2' : '인증2' }}</span>
 													</button>
 												</span>
                       <p class="tbl_txt" ng-style="{'color': 'red', 'font-weight': 'bold'}">{{getHpAuthMsg()}}</p>

@@ -1326,7 +1326,7 @@ app.controller('saleCertSSGCtl', function($scope, consts, common, $interval, inp
 	}
 
 	// [Event] 인증하기 버튼 클릭
-	$scope.authNumConfirm = () => {
+	$scope.authNumConfirmSSG = () => {
 		const savedPhoneNumber = $scope.sale_cert.HP;
 		const savedPhoneNumberNoHyphen = savedPhoneNumber.replace(/[^\d]/g, '');
 		const formData = $scope.form_data;
@@ -1346,72 +1346,79 @@ app.controller('saleCertSSGCtl', function($scope, consts, common, $interval, inp
 		// 다시 한번 Set
 		$scope.form_data.hp = `${$scope.form_data.hp1}-${$scope.form_data.hp2}-${$scope.form_data.hp3}`;
 
-		const phoneNumberNoHyphen = $scope.form_data.hp.replace(/[^\d]/g, '');
-		const isSamePhone = savedPhoneNumberNoHyphen === phoneNumberNoHyphen;
+		const phoneNumberNumberOnly = $scope.form_data.hp.replace(/[^\d]/g, '');
+		const isSamePhone = savedPhoneNumberNoHyphen === phoneNumberNumberOnly;
 
-		if (data) {
-			const reqData = {
-				sale_no: $scope.sale.SALE_NO,
-				hp: $scope.form_data.hp,
-				done_cd: isSamePhone ? 'no_modify' : 'un_modify',
-				auth_num: $scope.form_data.auth_num,
+		// Auth Request Data
+		const reqData = {
+			sale_no: $scope.sale.SALE_NO,
+			hp: $scope.form_data.hp,
+			done_cd: isSamePhone ? 'no_modify' : 'un_modify',
+			auth_num: $scope.form_data.auth_num,
+		}
+
+		// 인증번호 확인 API Call
+		common.callAPI('/join/confirm_auth_num4sale', reqData, function response(data, httpStatus) {
+
+			// 인증 실패 -> 종료
+			if (typeof data.resultCode === 'undefined' || Number(data.resultCode) !== 0) {
+				$scope.checkHpAuth.message = '인증에 실패 하였습니다. 다시 요청 하세요.';
+				$scope.checkHpAuth.check = '';
+				$scope.checkHpAuth.valid = data;
+				return;
 			}
 
-			// 인증 완료 처리 API Call
-			common.callAPI('/join/confirm_auth_num4sale', reqData, (data, httpStatus) => {
-				if (!data.resultCode || Number(data.resultCode) !== 0) {
-					$scope.checkHpAuth.message = '인증에 실패 하였습니다. 다시 요청 하세요.';
-					$scope.checkHpAuth.check = '';
-					$scope.checkHpAuth.valid = data;
+			// 인증된 번호가 아닐 경우, 핸드폰을 변경
+			if (!isSamePhone) {
+				const confirms = window.confirm('고객정보의 핸드폰번호와 일치하지 않습니다.\n인증받은 핸드폰번호로 갱신하시겠습니까?');
+				if (confirms) {
+					updatePhoneNumber($scope.form_data.hp, $scope.form_data.hp, () => {
+						updateUserName(formData.name, () => {
+							$scope.checkHpAuth.message = '인증에 성공 하였습니다.';
+							$scope.checkHpAuth.check = 'ok';
+							$scope.parent.sale_cert.CNT = 1;
+						}, () => {}, $scope.close);
+					}, () => {}, $scope.close);
 					return;
 				}
+			}
 
+			// 아니면 이름만 변경
+			updateUserName(formData.name, () => {
 				$scope.checkHpAuth.message = '인증에 성공 하였습니다.';
 				$scope.checkHpAuth.check = 'ok';
 				$scope.parent.sale_cert.CNT = 1;
+			}, () => {}, $scope.close);
+		}, function error() {
+			$interval.cancel($scope.timer_duration);
+			console.log("======> cancel timer");
+			$scope.form_data.auth_num = null;
+		}, $scope.close);
+	}
 
-				// 같은 폰번호 -> 종료
-				if (isSamePhone) {
-					$scope.close();
-					return;
+	// [Action] 이릅 업데이트
+	function updateUserName(name, callback) {
+		common.callAPI('/auth/update/name', { name: name }, (data, httpStatus) => {
+			return callback(data, httpStatus);
+		});
+	}
+
+	// [Action] 폰번호 갱신
+	function updatePhoneNumber(phoneNo, saleCertNo, callback) {
+		const updatePhoneNumberData = {
+			actionList: [
+				{
+					actionID: 'sale_cert_hp_mod',
+					actionType: 'update',
+					tableName: 'CERT',
+					parmsList: [{ hp: phoneNo, sale_cert_no: saleCertNo }]
 				}
-
-				// 번호 갱신 안함 -> 종료
-				const confirms = window.confirm('고객정보의 핸드폰번호와 일치하지 않습니다.\n인증받은 핸드폰번호로 갱신하시겠습니까?');
-				if (!confirms) {
-					$scope.close();
-					return;
-				}
-
-				const updatePhoneNumberData = {
-					actionList: [
-						{
-							actionID: 'sale_cert_hp_mod',
-							actionType: 'update',
-							tableName: 'CERT',
-							parmsList: [
-								{
-									hp: $scope.form_data.hp,
-									sale_cert_no: data.tables.CERT.rows[0].sale_cert_no
-								}
-							]
-						}
-					]
-				}
-
-				// 폰번호 갱신 API Call
-				common.callActionSet(updatePhoneNumberData, () => {
-					// 이름 업데이트 API Call
-					common.callAPI('/auth/update/name', { name: formData.name }, (data, httpStatus) => {
-						$scope.parent.sale_cert.HP = $scope.form_data.hp;
-					});
-				}, null, $scope.close);
-			}, () => {
-				$interval.cancel($scope.timer_duration);
-				console.log("======> cancel timer");
-				$scope.form_data.auth_num = null;
-			});
+			]
 		}
+
+		common.callActionSet(updatePhoneNumberData, (data, httpStatus) => {
+			return callback(data, httpStatus);
+		});
 	}
 
 	// [Event] 핸드폰 인증 메시지 변경
