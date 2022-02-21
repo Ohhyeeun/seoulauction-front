@@ -4,22 +4,22 @@
 <mapper namespace="mapper.front.api">
     <select id="select_lots"  resultType="Map" parameterType="Map" >
         select
-        l.lot_no as lotNumber -- 랏번호
-        ,max(b.BID_PRICE) as lotPrice -- 현재가격
-        ,max(b.BID_PRICE)+max(b.BID_PRICE)*(19.8/100.0) as lotTotalPrice -- 수수로포함가격
-        ,if(l.TO_DT &lt; now(), 'FINISH', if(l.FROM_DT &lt;= now(), 'PROGRESS', 'READY')) as lotStatus
-        ,l.STAT_CD as stat_cd -- 출품/취소 상태
-        ,count(b.BID_NO) as lotBidCount -- 응찰건수
-        ,column_get(l.EXPE_PRICE_FROM_BLOB, 'KRW' as char) as estimatePrice_from
-        ,column_get(l.EXPE_PRICE_TO_BLOB, 'KRW' as char) as estimatePrice_to
+            l.lot_no as lotNumber -- 랏번호
+            ,ifnull(max(b.BID_PRICE), 0) as lotPrice -- 현재가격
+            ,ifnull(max(b.BID_PRICE)+max(b.BID_PRICE)*(19.8/100.0), 0) as lotTotalPrice -- 수수로포함가격
+            ,if(l.TO_DT &lt; now(), 'FINISH', if(l.FROM_DT &lt;= now(), 'PROGRESS', 'READY')) as lotStatus
+            ,l.STAT_CD as stat_cd -- 출품/취소 상태
+            ,count(b.BID_NO) as lotBidCount -- 응찰건수
+            ,column_get(l.EXPE_PRICE_FROM_BLOB, 'KRW' as char) as estimatePrice_from
+            ,column_get(l.EXPE_PRICE_TO_BLOB, 'KRW' as char) as estimatePrice_to
         from lot l
-        left join bid b on (l.sale_no = b.sale_no and l.lot_no = b.lot_no)
-        where l.sale_no = #{saleNumber} --
-        and l.LOT_NO in (
-        <foreach collection="lotNumbers" item="lotNum" index="index" separator=",">
-            ${lotNum}
-        </foreach>
-        )
+            left join bid b on (l.sale_no = b.sale_no and l.lot_no = b.lot_no)
+        where l.sale_no = #{saleNumber}
+            and l.LOT_NO in (
+            <foreach collection="lotNumbers" item="lotNum" index="index" separator=",">
+                #{lotNum}
+            </foreach>
+            )
         group by l.lot_no;
     </select>
 
