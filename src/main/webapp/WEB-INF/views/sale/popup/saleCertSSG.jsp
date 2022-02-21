@@ -5,6 +5,37 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
+<style>
+.policy-checkbox-wrapper h3 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.policy-wrap:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+.policy-checkbox-wrapper .policy-content {
+  border: 1px solid #ccc;
+  height: 72px;
+  overflow: auto;
+  padding: 6px 8px;
+  margin-bottom: 8px;
+}
+
+.policy-checkbox-wrapper .policy-content-checkbox {
+  font-size: 12px;
+  /*word-break: keep-all;*/
+  line-height: 1.6;
+}
+
+.policy-content-checkbox input[type="checkbox"].auctionagree_checkinput + label:before,
+.policy-content-checkbox input[type="checkbox"].auctionagree_checkinput:checked + label:before {
+  margin-right: 4px;
+}
+</style>
+
 <div id="custom-modal" class="modal modal02" style="top: 20px; display: block; padding: 0;">
   <div id="overlay" class="pop_wrap">
     <button type="button" ng-click="close();" class="sp_btn btn_pop_close">
@@ -125,6 +156,43 @@
               </ul>
             </div><!-- //agree_checkboxwrap -->
           </div><!-- //list_style02 -->
+
+          <div class="policy-checkbox-wrapper">
+            <h3><strong>[필수]</strong> 개인정보 수집 및 이용동의</h3>
+            <div class="policy-wrap">
+              <div class="policy-content">
+                <p>Content...</p>
+                <p>Content...</p>
+                <p>Content...</p>
+                <p>Content...</p>
+                <p>Content...</p>
+                <p>Content...</p>
+                <p>Content...</p>
+                <p>Content...</p>
+              </div>
+              <div class="policy-content-checkbox">
+                <input type="checkbox" id="policy-agree-1" class="auctionagree_checkinput" />
+                <label for="policy-agree-1" class="auctionagree_check">개인정보 수집 항목을 모두 읽었으며, 위 내용에 동의 하겠습니다.</label>
+              </div>
+            </div>
+            <h3><strong>[선택]</strong> 홍보 및 마케팅 이용동의</h3>
+            <div class="policy-wrap">
+              <div class="policy-content">
+                <p>Content...</p>
+                <p>Content...</p>
+                <p>Content...</p>
+                <p>Content...</p>
+                <p>Content...</p>
+                <p>Content...</p>
+                <p>Content...</p>
+                <p>Content...</p>
+              </div>
+              <div class="policy-content-checkbox">
+                <input type="checkbox" id="policy-agree-2" class="auctionagree_checkinput" />
+                <label for="policy-agree-2" class="auctionagree_check">개인정보 수집 항목을 모두 읽었으며, 위 내용에 동의 하겠습니다.</label>
+              </div>
+            </div>
+          </div>
 
           <div class="mt10" ><!-- 20150521 -->
             <div class="agree_checkboxwrap">
