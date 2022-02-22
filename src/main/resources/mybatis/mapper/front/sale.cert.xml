@@ -30,4 +30,11 @@
 			MOD_DT = current_timestamp
 		where CUST_NO = #{id}
 	</update>
+
+	<update id="updateMarketingAgree">
+		update CUST set
+			MARKETING_CHK = #{marketing_agree},
+			MARKETING_CHK_MOD_DT = current_timestamp
+		where CUST_NO = #{id}
+	</update>
 </mapper>
