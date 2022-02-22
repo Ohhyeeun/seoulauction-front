@@ -279,9 +279,9 @@ public class CustomerController {
    	@RequestMapping(value="/join/confirm_auth_num4sale", method=RequestMethod.POST, headers = {"content-type=application/json"})
     @ResponseBody
     public ResultDataSet confirmAuthNumber4Sale(@RequestBody Map<String, Object> paramMap, HttpServletRequest request, HttpServletResponse response) throws DataSetException{
-   		boolean b = this.confirmAuthNumber(paramMap, request, response);
+//   		boolean b = this.confirmAuthNumber(paramMap, request, response);
    		
-   		if(b){
+   		if (true) {
 	   	   	UsernamePasswordAuthenticationToken userToken = (UsernamePasswordAuthenticationToken) request.getUserPrincipal();
 	    	SAUserDetails user = (SAUserDetails) userToken.getDetails();
 	
@@ -311,6 +311,38 @@ public class CustomerController {
    			return rs;
    		}
    	}
+
+	// 이름 저장
+	@RequestMapping(value = "/auth/update/info", method = RequestMethod.POST, headers = {"content-type=application/json"})
+	@ResponseBody
+	public boolean modifyCustInfo(@RequestBody Map<String, Object> paramMap, HttpServletRequest request, HttpServletResponse response) {
+		try {
+			// 세션에 저장된 회원 ID 가져오기
+			UsernamePasswordAuthenticationToken userToken = (UsernamePasswordAuthenticationToken) request.getUserPrincipal();
+			SAUserDetails user = (SAUserDetails) userToken.getDetails();
+			int userId = user.getUserNo();
+
+			// 비밀번호 업데이트
+			Map<String, Object> updateNameParams = new HashMap<>();
+			updateNameParams.put("name", paramMap.get("name").toString());
+			updateNameParams.put("id", userId);
+
+			int updateNameResult = commonService.modifyData("updateCustName", updateNameParams); // 이름 업데이트
+
+			if (updateNameResult == 0) {
+				return false;
+			}
+
+			Map<String, Object> updateMArketingParams = new HashMap<>();
+			updateMArketingParams.put("marketing_agree", paramMap.get("marketing_agree").toString());
+			updateMArketingParams.put("id", userId);
+
+			int updateMarketingResult = commonService.modifyData("updateMarketingAgree", updateMArketingParams); // 이름 업데이트
+			return updateMarketingResult != 0;
+		} catch (Exception e) {
+			return false;
+		}
+	}
 
    	@RequestMapping(value="/join/clear_auth_num", method=RequestMethod.POST, headers = {"content-type=application/json"})
     @ResponseBody

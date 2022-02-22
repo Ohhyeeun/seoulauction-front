@@ -258,9 +258,15 @@ public class SaleController {
     @RequestMapping(value="/saleCert")
     public String saleCert(@RequestParam Map<String, String> params,  ModelMap model){
 		model.addAttribute("VIEW_ID", "SALE_CERT");
-		if(params.containsKey("sale_no")) model.addAttribute("SALE_NO", params.get("sale_no"));
 
-    	return "/sale/popup/saleCert";
+		if (params.containsKey("sale_no")) model.addAttribute("SALE_NO", params.get("sale_no"));
+
+		// SSG
+		if (params.containsKey("ssg")) {
+			return "/sale/popup/saleCertSSG";
+		} else {
+			return "/sale/popup/saleCert";
+		}
     }
 
     @RequestMapping(value="/soldInvoiceReport")

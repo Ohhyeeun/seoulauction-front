@@ -1,10 +1,18 @@
 app.factory("bid", function ($interval, ngDialog) {
-	var saleCert = function($input, $callBack){
+	var saleCert = function($input, $callBack) {
 		$input.parent.cancelLotRefresh();
 
+		// cookie.provider_type = ssg
+		const isSSG = getCookie('provider_type');
+		let controller = 'saleCertCtl';
+
+		if (isSSG && isSSG === 'ssg') {
+			controller = 'saleCertSSGCtl';
+		}
+
 		$input.parent.modal = ngDialog.open({
-			template: '/saleCert?sale_no=' + $input.sale.SALE_NO,
-			controller: 'saleCertCtl',
+			template: '/saleCert?sale_no=' + $input.sale.SALE_NO + '&ssg=y',
+			controller: controller,
 			showClose: false,
 			closeByDocument: false,
 			animationEndSupport: false,
@@ -1190,11 +1198,4 @@ app.controller('saleCertCtl', function($scope, consts, common, $interval, input,
     		});
     	}
     }
-	
 });
-
-
-
-
-
-
