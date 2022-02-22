@@ -1,14 +1,20 @@
 package com.seoulauction.front.interceptor;
 
+import com.seoulauction.common.auth.SAUserDetails;
 import com.seoulauction.front.util.AuctionUtil;
 import com.seoulauction.ws.dao.CommonDao;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.HashMap;
-import java.util.Map;
+import java.security.Principal;
+import java.util.*;
 
 public class SsgInterceptor extends HandlerInterceptorAdapter {
     @Autowired
@@ -18,12 +24,9 @@ public class SsgInterceptor extends HandlerInterceptorAdapter {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String custId = request.getParameter("cust_id");
-        // String custId = "rugEGAjQ3Z7ShRw1e+PjTA==";
-        System.out.println("preHandle custId: "+custId);
-        if(custId != null) {
+        if(custId != null && !request.isUserInRole("ROLE_FRONT_USER")) {
             // AES256 복호화
             custId = AuctionUtil.aesDecryptSSG(custId);
-            System.out.println("preHandle dec custId: "+custId);
 
             // check CUST
             Map<String, Object> paramMap = new HashMap<String, Object>();
@@ -37,11 +40,20 @@ public class SsgInterceptor extends HandlerInterceptorAdapter {
                 paramMap.put("nation_cd", "KR");
                 paramMap.put("join_kind_cd", "online");
                 paramMap.put("cust_name", "SSG");
+                paramMap.put("cust_kind_cd", "person");
                 paramMap.put("login_id", custId);
                 commonDao.insert("add_join", paramMap);
             }
 
             // 로그인
+            List<GrantedAuthority> roles = new ArrayList<GrantedAuthority>();
+            roles.add(new SimpleGrantedAuthority("ROLE_FRONT_USER"));
+
+            int custNo = Integer.parseInt(resultMap.get("CUST_NO").toString());
+
+            UsernamePasswordAuthenticationToken result = new UsernamePasswordAuthenticationToken(custNo, resultMap.get("PASSWD").toString(), roles);
+            result.setDetails(new SAUserDetails(custId, resultMap.get("PASSWD").toString(), custNo, roles, resultMap.get("CUST_KIND_CD").toString()));
+            SecurityContextHolder.getContext().setAuthentication(result);
 
             // 쿠키 설정
             AuctionUtil.setCookie(response, "provider_type", "ssg");
