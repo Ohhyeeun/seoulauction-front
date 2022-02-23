@@ -617,10 +617,10 @@ app.controller('lotListCtl', function($scope, consts, common, is_login, locale, 
 											<ul> 
 												<li class="es_price_left" ng-show='lot.STAT_CD != "reentry" && lot.SALE_KIND_CD != "online_zb"'>   
 													<div ng-class="{double:viewId == 'CURRENT_AUCTION'}"> 
-														<!-- <span><spring:message code="label.auction.finish" /></span> --> 
-														<span class="finished_icon" ng-if="lot.END_YN == 'Y'"><spring:message code="label.auction.finish" /></span>
-														<span class="finished_icon finished_icon_ing" ng-if="lot.END_YN == 'N'" class="auction_list_state"><spring:message code="label.auction.ongoing" /></span>
-													</div>           
+														<!-- <span><spring:message code="label.auction.finish" /></span> -->
+														<span class="finished_icon" ng-if="(['online','online_zb'].indexOf(lot.SALE_KIND_CD) > -1 && lot.END_YN == 'Y') || (['main','hongkong','plan'].indexOf(lot.SALE_KIND_CD) >= 0 && lot.CLOSE_YN == 'Y')"><spring:message code="label.auction.finish" /></span>
+														<span class="finished_icon finished_icon_ing" ng-if="(['online','online_zb'].indexOf(lot.SALE_KIND_CD) > -1 && lot.END_YN == 'N') || (['main','hongkong','plan'].indexOf(lot.SALE_KIND_CD) >= 0 && lot.CLOSE_YN == 'N')" class="auction_list_state"><spring:message code="label.auction.ongoing" /></span>
+													</div>
                                       			</li>    
                                       			<li class="es_price_right"> 
                                       				<div class="info">      
@@ -637,7 +637,7 @@ app.controller('lotListCtl', function($scope, consts, common, is_login, locale, 
 														<ul ng-if="custInfo.CUST_NO && is_login && ['main','hongkong','plan'].indexOf(lot.SALE_KIND_CD) >= 0">
 															<%-- <li><strong class="txt_impo"><spring:message code="label.bid.price.sold" /> {{base_currency}} {{lot.LAST_PRICE | number:0}}</strong></li> --%>
 															<%-- <li ng-if="lot.END_YN == 'Y' && (lot.LAST_PRICE <= 0)"><strong class="txt_impo"><spring:message code="label.auction.unsold" /></strong></li> --%>
-															<li ng-if="lot.END_YN == 'Y' && (lot.LAST_PRICE > 0)"><strong class="txt_impo"><spring:message code="label.bid.price.sold" /> {{lot.CURR_CD}} {{lot.LAST_PRICE | number:0}}</strong></li>
+															<li ng-if="lot.CLOSE_YN == 'Y' && (lot.LAST_PRICE > 0)"><strong class="txt_impo"><spring:message code="label.bid.price.sold" /> {{lot.CURR_CD}} {{lot.LAST_PRICE | number:0}}</strong></li>
 														</ul><!-- 오프라인 경매 && 금액 0 -->
 													</div>     
                                       			</li>
