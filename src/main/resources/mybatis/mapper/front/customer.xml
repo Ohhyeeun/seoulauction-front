@@ -489,7 +489,7 @@
 	<select id="select_join_cust" resultType="Map">
 		SELECT CU.CUST_NO FROM CUST CU
 			WHERE LOGIN_ID = #{login_id}
-			AND STAT_CD = 'normal'
+			AND (STAT_CD = 'normal' OR STAT_CD = 'not_certify')
 		 	<if test="local_kind_cd == 'korean'">
 				AND hp = #{hp}
 			</if>
