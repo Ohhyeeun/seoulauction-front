@@ -430,8 +430,8 @@
 										<div class="es_price" > 
                                            	<ul>
 											 	<li class="es_price_left text_hide" style="color:#ff0000;">
-											 		<span ng-if="lot.LAST_PRICE >= 0 && (['online','online_zb'].indexOf(sale.SALE_KIND_CD) > -1) && lot.END_YN == 'N'"><spring:message code="label.bid.price" /></span>
-											 		<span ng-if="lot.LAST_PRICE >= 0 && lot.BID_CNT > 0 && lot.END_YN == 'Y'"><spring:message code="label.bid.price.sold" /> </span>
+													<span ng-if="lot.LAST_PRICE >= 0 && (['online','online_zb'].indexOf(sale.SALE_KIND_CD) > -1) && (lot.END_YN == 'N' && lot.CLOSE_YN == 'N')"><spring:message code="label.bid.price" /></span>
+													<span ng-if="lot.LAST_PRICE >= 0 && lot.BID_CNT > 0 && (lot.END_YN == 'Y' || lot.CLOSE_YN == 'Y')"><spring:message code="label.bid.price.sold" /> </span>
 											 		<span ng-if="lot.LAST_PRICE >= 0 && lot.BID_CNT > 0 && ['online','online_zb'].indexOf(sale.SALE_KIND_CD) > -1">
 		                                            <span style="color:#ff0000; font-size:11px;">({{lot.BID_CNT | number:0}}<span ng-if="locale=='ko'">회</span><span ng-if="locale!='ko'">bid</span>)</span>
 		                                            </span>     
