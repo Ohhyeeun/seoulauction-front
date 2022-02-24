@@ -190,11 +190,6 @@
                                     <span style="font-weight: bold; vertical-align:top;">You can watch videos only on Chrome and Edge. Explorer does not play.</span> 
                                 </div>  
 							</div> <!-- 새로고침 -->
-							
-							<!-- 담당자 문의 번호 -->  
-							<div style="padding: 5px;">   
-								<p style="text-align:right; font-size: 12px;">IT Manager / T.(+82)(0)10-2617-3265</p>      
-							</div>   
 						</div> <!-- //video --> 
 						
 						<!-- 응찰 버튼 (고객용) --> 	 
@@ -203,8 +198,8 @@
 								<span ng-if="!custInfo.CUST_NO" ng-Click="goLoginPage()">   
 									<a>   
 										Bidding    
-									</a>   	 
-							  	</span>  
+									</a> 
+							  	</span>   
 								<span ng-if="custInfo.MEMBERSHIP_YN == 'N'" onClick="alert('Only members can bid.')">   
 									<a>   
 										Bidding    
@@ -227,7 +222,7 @@
 				</div>    
 				
 				<!--footer-->          
-				<div style="background-color:#f1f1f1; padding:10px; text-align:left;">  
+				<div style="background-color:#f1f1f1; padding:10px;">  
 					<div align="center">  
 		    			<p style="color: #000; font-size:11px; padding-top:20px; padding-bottom:20px; line-height:18px;">
 		    				* LOT information and Current Bidding may be delayed depending on network speed.
