@@ -7,7 +7,7 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <!-- head.jsp Begin --> 
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="ko" ng-app="myApp">   
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale = 1, maximum-scale = 1, user-scalable=no" http-equiv="X-UA-Compatible" content="IE=Edge">     

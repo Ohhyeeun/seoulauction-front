@@ -1138,20 +1138,20 @@
 				<div class="btn_wrap" style="margin-bottom: 10px; clear:both;">      
 					<span class="btn_style01 gray mid btn_pop_close" id="cancelBtn">
 						<button type="button"><spring:message code="label.close" /></button>
-					</span>  
+					</span>   
 				</div>   
 				 
 				<!--footer-->     
 				<div style="background-color:#f1f1f1; padding:20px 10px;">    	 
 					<div align="center"> 
 						<!-- 담당자 문의 번호 -->       
-						<div class="livebid_quirytelbox">                
-							<span>                  
-								<a href="tel:010-2617-3265"><span class="manager_tit">기술문의</span> T. 010-2617-3265 (IT팀관리자)</a>       
-							</span>           
+						<div class="livebid_quirytelbox">                 
 							<span>     
-								<a href="tel:010-3404-4565"><span class="manager_tit">응찰문의</span> T. 010-3404-4565 (고객관리자)</a>        
+								<a href="tel:010-3404-9454"><span class="manager_tit">응찰문의</span> T. 010-3404-9454 (고객관리자)</a> 
 							</span>       
+							<span>                   
+								<a href="tel:02-2075-4415"><span class="manager_tit">웹서비스문의</span> T. 02-2075-4415</a> 
+							</span>            
 						</div>   
 						<p style="color: #000; font-size:11px; line-height:18px;">      
 		    				* LOT정보와 Current Bidding은 네트워크 속도에 따라 지연될 수 있습니다. 
