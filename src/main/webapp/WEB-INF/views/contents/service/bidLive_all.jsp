@@ -7,7 +7,7 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <!-- head.jsp Begin --> 
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="ko" ng-app="myApp">   
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale = 1, maximum-scale = 1, user-scalable=no" http-equiv="X-UA-Compatible" content="IE=Edge">     
@@ -199,13 +199,8 @@
                             	<div style="overflow: hidden; padding: 10px 0; text-align: center;">    
                                     <span class="notice_style01"></span>          
                                     <span style="font-weight: bold; vertical-align:top;">동영상 시청은 <span style="color: #f30;">크롬, 엣지</span>에서만 시청이 가능합니다. 익스플로러는 재생이 되지 않습니다.</span> 
-                                </div>   
-							</div> <!-- 새로고침 -->    
-							
-							<!-- 담당자 문의 번호 -->   
-							<div style="padding: 5px;">    
-								<p style="text-align:right; font-size: 12px;">문의 : IT팀 관리자 / T.010-2617-3265</p>
-							</div> 
+                                </div>    
+							</div> <!-- 새로고침 -->     
 						</div> <!-- //video -->    
 						
 						<!-- 응찰 버튼 (고객용) --> 	 
@@ -218,7 +213,7 @@
 							  	</span>  
 								<span ng-if="custInfo.MEMBERSHIP_YN == 'N'" onClick="alert('정회원만 응찰 가능합니다.')">   
 									<a>   
-										응찰하기    
+										응찰하기     
 									</a>   	
 							  	</span>  
 							  	<span ng-if="custInfo.MEMBERSHIP_YN == 'Y'">          
@@ -227,7 +222,7 @@
 									</a>   	
 							  	</span>   
 							</span>
-						</div>
+						</div> 
 					</div>
 				</div><!-- // 1200 -->
 				
@@ -242,12 +237,12 @@
 					<div align="center">
 						<!-- 담당자 문의 번호 -->       
 						<div class="livebid_quirytelbox">                    
-							<span>                  
-								<a href="tel:010-2617-3265"><span class="manager_tit">기술문의</span> T. 010-2617-3265 (IT팀관리자)</a>       
-							</span>           
 							<span>     
-								<a href="tel:010-3404-4565"><span class="manager_tit">응찰문의</span> T. 010-3404-4565 (고객관리자)</a>        
-							</span> 
+								<a href="tel:010-3404-9454"><span class="manager_tit">응찰문의</span> T. 010-3404-9454 (고객관리자)</a> 
+							</span>       
+							<span>                  
+								<a href="tel:02-2075-4415"><span class="manager_tit">웹서비스문의</span> T. 02-2075-4415</a> 
+							</span>    
 						</div>   
 						<p style="color: #000; font-size:11px; line-height:18px;">      
 		    				* LOT정보와 Current Bidding은 네트워크 속도에 따라 지연될 수 있습니다. 
