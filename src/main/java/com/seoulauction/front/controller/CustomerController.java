@@ -441,7 +441,7 @@ public class CustomerController {
     	
 		model.addAttribute("name", custMap.get("CUST_NAME").toString());
 		model.addAttribute("email", custMap.get("EMAIL").toString());
-		model.addAttribute("phone", custMap.get("HP").toString());
+		model.addAttribute("phone", custMap.get("HP"));
 
 		if(request.getParameterMap().containsKey("from")) {
 			model.addAttribute("fromMore", "Y");
@@ -468,7 +468,7 @@ public class CustomerController {
        	
    		model.addAttribute("name", custMap.get("CUST_NAME").toString());
    		model.addAttribute("email", custMap.get("EMAIL").toString());
-   		model.addAttribute("phone", custMap.get("HP").toString());
+   		model.addAttribute("phone", custMap.get("HP"));
 
    		if(request.getParameterMap().containsKey("from")) {
    			model.addAttribute("fromMore", "Y");
@@ -635,7 +635,7 @@ public class CustomerController {
     	model.addAttribute("cust_no", custMap.get("CUST_NO").toString()); //2021.12.14 csy 추가
 		model.addAttribute("name", custMap.get("CUST_NAME").toString());
 		model.addAttribute("email", custMap.get("EMAIL").toString());
-		model.addAttribute("phone", custMap.get("HP").toString());
+		model.addAttribute("phone", custMap.get("HP"));
 
 
     	Map<String, Object> payMap = commonService.getData("get_pay_lot", paramMap);
@@ -919,7 +919,7 @@ public class CustomerController {
     	
 		model.addAttribute("name", custMap.get("CUST_NAME").toString());
 		model.addAttribute("email", custMap.get("EMAIL").toString());
-		model.addAttribute("phone", custMap.get("HP").toString());
+		model.addAttribute("phone", custMap.get("HP"));
 		model.addAttribute("price", academy_pay);
 		model.addAttribute("vat_price", vat_price);
 		model.addAttribute("vat", vat);
@@ -1103,7 +1103,7 @@ public class CustomerController {
     	Map<String, Object> custMap = commonService.getData("get_customer_by_cust_no", paramMap);
 		model.addAttribute("name", custMap.get("CUST_NAME").toString());
 		model.addAttribute("email", custMap.get("EMAIL").toString());
-		model.addAttribute("phone", custMap.get("HP").toString());
+		model.addAttribute("phone", custMap.get("HP"));
 
 
     	Map<String, Object> payMap = commonService.getData("get_pay_lot", paramMap);
