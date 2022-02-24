@@ -255,7 +255,7 @@ var m_sImagePath ="";
 
 
 <script type="text/javascript" src="/js/bid.js"></script>
-<script src="/js/bid-ssg.js"></script>
+<%--<script src="/js/bid-ssg.js"></script>--%>
 <script type="text/javascript">
 <!--
 function shareSns(snsType) {

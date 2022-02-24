@@ -3,16 +3,15 @@ app.factory("bid", function ($interval, ngDialog) {
 		$input.parent.cancelLotRefresh();
 
 		// cookie.provider_type = ssg
-		const isSSG = getCookie('provider_type');
-		let controller = 'saleCertCtl';
-
-		if (isSSG && isSSG === 'ssg') {
-			controller = 'saleCertSSGCtl';
-		}
+		// const isSSG = getCookie('provider_type');
+		// var controller = 'saleCertCtl';
+		// if (isSSG && isSSG === 'ssg') {
+		// 	controller = 'saleCertSSGCtl';
+		// }
 
 		$input.parent.modal = ngDialog.open({
-			template: '/saleCert?sale_no=' + $input.sale.SALE_NO + '&ssg=y',
-			controller: controller,
+			template: '/saleCert?sale_no=' + $input.sale.SALE_NO,
+			controller: 'saleCertCtl',
 			showClose: false,
 			closeByDocument: false,
 			animationEndSupport: false,
