@@ -85,6 +85,7 @@
         <dispatcher>ERROR</dispatcher>-->
     </filter-mapping>
 
+	<!-- CORS -->
 	<filter>
 		<filter-name>CorsFilter</filter-name>
 		<filter-class>org.apache.catalina.filters.CorsFilter</filter-class>
@@ -96,7 +97,7 @@
 
 	<filter-mapping>
 		<filter-name>CorsFilter</filter-name>
-		<url-pattern>*</url-pattern>
+		<url-pattern>/api/**</url-pattern>
 	</filter-mapping>
 
 	<welcome-file-list>
