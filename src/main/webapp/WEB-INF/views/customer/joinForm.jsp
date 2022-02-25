@@ -131,19 +131,15 @@ app.controller("joinCtl", function($scope, consts, common, join, joinService, ng
 				$scope.save_cust_no = data.tables["CUST_INFO"]["rows"][0].CUST_NO;
 				
    	   			if(data.tables["CUST"]["rows"].length > 0){
-   	   				$scope.nextStep();
-   	   				
-   	   				/* if($scope.locale == 'ko'){
-   	   					alert("회원 가입이 완료되었습니다.");
-   	   					document.location.href="/login";
+   	   				if($scope.locale == 'ko'){
+						$scope.nextStep();
    	   				}else{
-   	   					alert("In order to enjoy all of the benefits of your online account, please complete a one-time validation of your email address.");
 	   	   				$d = $scope.form_data;
 		   	   			common.callAPI('/join/send_join_mail', $d, 
 		   	   				function(data, status) {
 		   	   					try{
 		   	   						if(data){
-		   	    	   					document.location.href="/login?joinSuccess";
+										$scope.nextStep();
 		   	   						}
 		   	   						else{
 			   	    					alert("Join success, but failed to authenticate mail.\n Please contact webmaster@seoulauction.com.");
@@ -156,7 +152,7 @@ app.controller("joinCtl", function($scope, consts, common, join, joinService, ng
 		   	   					}
 		   	   		   		}
 		   	   			); 
-   	   				} */
+   	   				}
    	   				
    	   			}else{
    					alert("회원가입에 실패하셨습니다.\n다시 시도해주세요.");
