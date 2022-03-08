@@ -22,8 +22,8 @@ if(bIsSucceed) {
 	}else{
 		alert("결제에 성공했습니다.");	
 	}
-	
-	opener.location.href="../service/page?view=academyCulture";
+
+    window.opener.location.reload(true);
 	self.close();
 }
 else {
