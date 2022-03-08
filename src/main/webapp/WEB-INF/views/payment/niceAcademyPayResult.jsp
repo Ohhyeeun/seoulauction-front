@@ -21,13 +21,6 @@ if(bIsSucceed) {
 		alert("결제에 성공했습니다.\n입금계좌정보는 문자로 발송됩니다.");
 	}else{
 		alert("결제에 성공했습니다.");	
-		
-		function printReceipt(tid) {
-			 var status = "toolbar=no,location=no,directories=no,status=yes,menubar=no,scrollbars=yes,resizable=yes,width=420,height=540";
-			 var url = "https://pg.nicepay.co.kr/issue/IssueLoader.jsp?TID="+tid+"&type=0";
-			 window.open(url,"popupIssue",status);
-			}
-			printReceipt(tid);
 	}
 	
 	opener.location.href="../service/page?view=academyCulture";
