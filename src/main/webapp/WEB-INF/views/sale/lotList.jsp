@@ -379,8 +379,6 @@ app.controller('lotListCtl', function($scope, consts, common, bid, $interval, is
   				/* YBK.20170314.카테고리 추가 */
   				{"actionID":"saleLot_category", "actionType":"select", "tableName":"CATEGORY"},
   				{"actionID":"saleLot_subcategory", "actionType":"select", "tableName":"SUBCATEGORY"},
-  				{"actionID":"saleLot_material", "actionType":"select", "tableName":"MATERIAL"},
-  				{"actionID":"saleLot_artist", "actionType":"select", "tableName":"ARTIST"},
   				/* YBK.20170314.카테고리 추가 */
   				{"actionID":"saleLot_hashtag", "actionType":"select", "tableName":"HASHTAG"},
   				{"actionID":"saleHighlight_List", "actionType":"select", "tableName":"LOT_HIGHLIGHT"}, 
@@ -413,8 +411,6 @@ app.controller('lotListCtl', function($scope, consts, common, bid, $interval, is
  	 		/* YBK.20170314.카테고리 추가 */
  	 		$scope.category = data["tables"]["CATEGORY"]["rows"];
  	 		$scope.subcategory = data["tables"]["SUBCATEGORY"]["rows"];
- 	 		$scope.material = data["tables"]["MATERIAL"]["rows"];
- 	 		$scope.artist = data["tables"]["ARTIST"]["rows"];
  	 		/* YBK.20170314.카테고리 추가 */
  	 		$scope.hashtag = data["tables"]["HASHTAG"]["rows"];
  	 		$scope.highlight = data["tables"]["LOT_HIGHLIGHT"]["rows"];
