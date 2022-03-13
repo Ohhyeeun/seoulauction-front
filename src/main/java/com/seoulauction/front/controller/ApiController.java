@@ -7,19 +7,12 @@ import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.Cache;
-import org.springframework.cache.CacheManager;
-import org.springframework.cache.annotation.Cacheable;
-import org.springframework.cache.ehcache.EhCacheCacheManager;
-import org.springframework.data.redis.core.RedisTemplate;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import javax.lang.model.element.Element;
-import javax.xml.ws.Response;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
