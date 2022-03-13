@@ -26,6 +26,7 @@
 
 	<!-- nice 가상계좌 입금통보는 보안적용 제외 -->
  	<security:http pattern="/customer/niceVbankPaid" security="none" />
+    <security:http pattern="/api/**" security="none" />
     <security:http 
         auto-config="true"
         use-expressions="true"
