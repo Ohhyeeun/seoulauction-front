@@ -10,9 +10,11 @@
     <beans:bean id="restServicesEntryPoint" class="com.seoulauction.common.auth.RestAuthenticationEntryPoint">
         <beans:property name="loginFormUrl" value="/login"/>
     </beans:bean>
-    
+
     <beans:bean id="authenticationProvider" class="com.seoulauction.front.auth.FrontAuthenticationProvider" />
-    
+
+    <beans:bean id="ssgAuthenticationProvider" class="com.seoulauction.front.auth.SSGAuthenticationProvider" />
+
     <beans:bean id="saCrypt" class="com.seoulauction.common.auth.PasswordEncoderAESforSA" />
     
 	<beans:bean id="successHandler" class="org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler">
@@ -26,7 +28,13 @@
 
 	<!-- nice 가상계좌 입금통보는 보안적용 제외 -->
  	<security:http pattern="/customer/niceVbankPaid" security="none" />
-    <security:http pattern="/api/**" security="none" />
+    <security:http pattern="/api/custs/**" security="none" />
+    <security:http
+            auto-config="true"
+            use-expressions="true"
+            create-session="never"
+            pattern="/api/login" security="none" />
+
     <security:http 
         auto-config="true"
         use-expressions="true"
@@ -56,9 +64,13 @@
 		<!-- enable csrf protection -->
 		<security:csrf/>
     </security:http>
-    
+
     <security:authentication-manager id="authenticationManager">
         <security:authentication-provider ref="authenticationProvider" />
     </security:authentication-manager>
-    
+
+    <security:authentication-manager id="ssgAuthenticationManager">
+        <security:authentication-provider ref="ssgAuthenticationProvider" />
+    </security:authentication-manager>
+
 </beans:beans>
