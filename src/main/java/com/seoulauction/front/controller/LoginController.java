@@ -80,7 +80,7 @@ public class LoginController {
 
 	}
 
-	@RequestMapping(value = {"/api/login"}, method = RequestMethod.GET)
+	@RequestMapping(value = {"/api/login"})
 	public String ssg_login(HttpServletRequest request, @RequestParam(value = "custId") String custId, @RequestParam(value="callbackUrl", required = false) String callbackUrl) {
 		logger.info("/api/login");
 

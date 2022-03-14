@@ -51,7 +51,6 @@ public class SSGAuthenticationProvider  implements AuthenticationProvider {
         paramMap.put("login_id", custId);
         paramMap.put("stat_cd", "normal");
         Map<String, Object> resultMap = commonDao.selectOne("get_customer_by_login_id", paramMap);
-        System.out.println("preHandle resultMap: " + resultMap);
         if (resultMap == null || resultMap.isEmpty()) {
             //insert CUST
             paramMap.put("local_kind_cd", "korean");
