@@ -12,8 +12,8 @@
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
         http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
         ">
-        
-    <!-- DataSource/Transaction servlet 에서 설정 --> 
+
+    <!-- DataSource/Transaction servlet 에서 설정 -->
     <tx:annotation-driven proxy-target-class="true" transaction-manager="transactionManager"/>
 
     <!-- <aop:config>
@@ -43,7 +43,7 @@
 	</context:component-scan>
 		
 	<mvc:annotation-driven />
-	
+
 	<!-- begin locale -->
 	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
 	    <property name="basename" value="classpath:messages/message" />
@@ -76,10 +76,6 @@
 		<bean id="localeChangeInterceptor" class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
 			<property name="paramName" value="lang" />
 		</bean>
-		<mvc:interceptor>
-			<mvc:mapping path="/**"/>
-			<bean id="ssgInterceptor" class="com.seoulauction.front.interceptor.SsgInterceptor" />
-		</mvc:interceptor>
 	</mvc:interceptors>
 
 	<!-- <mvc:interceptors>
