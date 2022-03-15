@@ -1,12 +1,14 @@
 package com.seoulauction.front.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import com.seoulauction.common.auth.SAUserDetails;
 import com.seoulauction.front.auth.FrontAuthenticationProvider;
 import com.seoulauction.front.auth.SSGAuthenticationProvider;
 import com.seoulauction.front.util.AuctionUtil;
@@ -81,13 +83,19 @@ public class LoginController {
 	}
 
 	@RequestMapping(value = {"/api/login"})
-	public String ssg_login(HttpServletRequest request, @RequestParam(value = "custId") String custId, @RequestParam(value="callbackUrl", required = false) String callbackUrl) {
+	public String ssg_login(HttpServletRequest request, @RequestParam(value = "custId") String custId, @RequestParam(value = "userNm") String userNm, @RequestParam(value = "agreeYn") String agreeYn, @RequestParam(value="callbackUrl", required = false) String callbackUrl) {
 		logger.info("/api/login");
 
-		WebAuthenticationDetails details = new WebAuthenticationDetails(request);
+		SAUserDetails parameterUserDetail = SAUserDetails.builder()
+				.loginId(custId)
+				.userNm(userNm)
+				.agreeYn(agreeYn)
+				.ip(request.getRemoteAddr())
+				.build();
+
 		SecurityContext sc = SecurityContextHolder.getContext();
 		UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(custId, null);
-		auth.setDetails(details);
+		auth.setDetails(parameterUserDetail);
 		sc.setAuthentication(ssgAuthenticationProvider.authenticate(auth));
 
 		HttpSession session = request.getSession(true);
