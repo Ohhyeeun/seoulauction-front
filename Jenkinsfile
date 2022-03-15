@@ -37,11 +37,6 @@ pipeline {
         SERVER_LIST = "dev1"
     }
 
-    tools {
-        maven 'MAVEN 4.0.0'
-        jdk 'jdk7'
-    }
-
     agent any
 
     stages {
