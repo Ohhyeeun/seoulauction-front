@@ -62,4 +62,6 @@
 		<function-class>com.seoulauction.front.util.AuctionUtil</function-class>
 		<function-signature>String convertLocaleEnDate(java.util.Date)</function-signature>
 	</function>
+	<short-name/>
+	<tlib-version/>
 </taglib>
