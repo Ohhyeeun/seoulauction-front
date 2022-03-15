@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -25,30 +26,11 @@ public class ApiController {
     @Autowired
     private CommonService commonService;
 
-    //@Autowired
-    //EhCacheCacheManager ehCacheCacheManager;
-
-    //@Autowired
-    //RedisTemplate redisTemplate;
-
     @RequestMapping(value = "/api/lots", method = RequestMethod.GET, produces = "application/json;charset=utf8")
     @ResponseBody
-    //@Cacheable(value="apiLots")
+    @Cacheable(value="apiLots")
     public JSONObject lots(@RequestParam Integer saleNumber, @RequestParam(value = "lotNumbers") List<Integer> lotNumbers) {
-        logger.info("/api/lots");
-        logger.info("/api/lots saleNumber: "+saleNumber);
-        for(int lot : lotNumbers) {
-            logger.info("/api/lots lot: "+lot);
-        }
-/*
-        Collections.sort(lotNumbers);
-
-        Cache c = ehCacheCacheManager.getCache("apiLots");
-        Object element = c.get(lotNumbers);
-        logger.info("element:" +element);
-
-        redisTemplate.opsForValue().set(lotNumbers, "");
-*/
+        logger.info("/api/lots saleNumber: {}", saleNumber);
 
         Map<String,Object> paramMap = new HashMap<>();
         paramMap.put("saleNumber", saleNumber);
