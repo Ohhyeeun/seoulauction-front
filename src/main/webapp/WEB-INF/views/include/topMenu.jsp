@@ -210,6 +210,7 @@ function showTopLayer() {
 
 
 <div class="header_wrap"  ng-controller="saleIngCtl" data-ng-init="init();">
+	<div>파라미터 확인 custId: ${custId}, userNm: ${userNm}, agreeYn: ${agreeYn}</div>
          <!-- <div style="height:20px; width:200px; font-size:11px; display: inline-table; clear:both; float:right;" >
 			<ul class="fl_menu">
 			
@@ -558,7 +559,7 @@ function showTopLayer() {
 				<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 				
 				<div class="toggle_utility clearfix">    
-					<ul>   
+					<ul>
 						<c:if test="${locale == 'ko'}">
 							<li> 
 								<a href="/?lang=en" style="color:#f30;">ENG</a> 
@@ -800,7 +801,7 @@ function showTopLayer() {
                     
                     <li class="dropdown"> 
                     	<div class="mobile_copyright">
-                    		<div class="copy_txtbox">  
+                    		<div class="copy_txtbox">
                     			<p class="copy_txtbox_url">  
 				       				www.seoulauction.com
 				       			</p>        

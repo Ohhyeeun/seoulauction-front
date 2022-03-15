@@ -101,6 +101,20 @@ public class LoginController {
 		HttpSession session = request.getSession(true);
 		session.setAttribute(HttpSessionSecurityContextRepository.SPRING_SECURITY_CONTEXT_KEY, sc);
 
+		try {
+			session.setAttribute("custId", custId);
+			custId = AuctionUtil.aesDecryptSSG(custId);
+			session.setAttribute("custId", custId);
+
+			session.setAttribute("agreeYn", agreeYn);
+
+			session.setAttribute("userNm", userNm);
+			userNm = AuctionUtil.aesDecryptSSG(userNm);
+			session.setAttribute("userNm", userNm);
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+		}
+
 		if(callbackUrl == null) {
 			return "redirect:/";
 		}
