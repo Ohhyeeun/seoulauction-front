@@ -379,6 +379,8 @@ app.controller('lotListCtl', function($scope, consts, common, bid, $interval, is
   				/* YBK.20170314.카테고리 추가 */
   				{"actionID":"saleLot_category", "actionType":"select", "tableName":"CATEGORY"},
   				{"actionID":"saleLot_subcategory", "actionType":"select", "tableName":"SUBCATEGORY"},
+  				{"actionID":"saleLot_material", "actionType":"select", "tableName":"MATERIAL"},
+  				{"actionID":"saleLot_artist", "actionType":"select", "tableName":"ARTIST"},
   				/* YBK.20170314.카테고리 추가 */
   				{"actionID":"saleLot_hashtag", "actionType":"select", "tableName":"HASHTAG"},
   				{"actionID":"saleHighlight_List", "actionType":"select", "tableName":"LOT_HIGHLIGHT"}, 
@@ -411,6 +413,8 @@ app.controller('lotListCtl', function($scope, consts, common, bid, $interval, is
  	 		/* YBK.20170314.카테고리 추가 */
  	 		$scope.category = data["tables"]["CATEGORY"]["rows"];
  	 		$scope.subcategory = data["tables"]["SUBCATEGORY"]["rows"];
+ 	 		$scope.material = data["tables"]["MATERIAL"]["rows"];
+ 	 		$scope.artist = data["tables"]["ARTIST"]["rows"];
  	 		/* YBK.20170314.카테고리 추가 */
  	 		$scope.hashtag = data["tables"]["HASHTAG"]["rows"];
  	 		$scope.highlight = data["tables"]["LOT_HIGHLIGHT"]["rows"];
@@ -1006,7 +1010,6 @@ app.controller('lotListCtl', function($scope, consts, common, bid, $interval, is
 });
 </script>
 <script type="text/javascript" src="/js/bid.js?ver=20211013"></script>
-<%--<script src="/js/bid-ssg.js"></script>--%>
 <body>
 <jsp:include page="../include/topSearch.jsp" flush="false"/>
 <div id="wrap" class="noexhibition">
@@ -1152,8 +1155,8 @@ app.controller('lotListCtl', function($scope, consts, common, bid, $interval, is
                                                 </span>  
                                                  
                                                 <!-- e-book 도록 보기 (버튼 4개일시 빼기) -->     
-                                                <span class="btn_style01 dark" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_NO == '690'"> 
-                                                    <button type="button" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_NO == '690'" name=" CATALOGUE" value=" CATALOGUE" align="center" scrolling="no" onClick="window.open('https://www.seoulauction.com/nas_img/front/homepage/e-book/165th/index.html')"; >CATALOGUE</button>        
+                                                <span class="btn_style01 dark" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_NO == '696'"> 
+                                                    <button type="button" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_NO == '696'" name=" CATALOGUE" value=" CATALOGUE" align="center" scrolling="no" onClick="window.open('https://www.seoulauction.com/nas_img/front/homepage/e-book/Contemporary_Art_Sale/index.html')"; >CATALOGUE</button>  
                                                 </span>   
                                                 
 												<span class="btn_style01 green" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_NO == '679'"> 
@@ -1376,8 +1379,8 @@ app.controller('lotListCtl', function($scope, consts, common, bid, $interval, is
                                             </span>  
                                             
                                             <!-- e-book 도록 보기 -->       
-                                            <span class="btn_style01 dark" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_NO == '690'">  
-                                                <button type="button" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_NO == '690'" name=" CATALOGUE" value=" CATALOGUE" align="center" scrolling="no" onClick="window.open('https://www.seoulauction.com/nas_img/front/homepage/e-book/165th/index.html')";>CATALOGUE</button> 
+                                            <span class="btn_style01 dark" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_NO == '696'">  
+                                                <button type="button" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_NO == '696'" name=" CATALOGUE" value=" CATALOGUE" align="center" scrolling="no" onClick="window.open('https://www.seoulauction.com/nas_img/front/homepage/e-book/Contemporary_Art_Sale/index.html')";>CATALOGUE</button> 
                                             </span>     
                                             
                                             <!-- EXHIBITION 버튼 표시(VR) -->  
@@ -1569,10 +1572,10 @@ app.controller('lotListCtl', function($scope, consts, common, bid, $interval, is
                                     <h1 class="modal-title" id="liveBidContents"></h1>  
                                     <p> 
                                     	 온라인 실시간 응찰은 철회가 불가합니다.<br>   
-	                                     응찰 우선순위는 서면  > 현장  > 온라인 순입니다.<br>        
-	                                     동영상의 금액은 시차가 있을 수 있으니, 응찰 화면의 응찰가를 확인하시고 응찰해주시기 바랍니다.<br>   
-	                                     경매당일 4시부터 실시간 라이브 응찰이 가능합니다.   
-                                    </p>  
+	                                     응찰 우선순위는 서면  > 현장  > 온라인 순입니다.<br> 
+	                                     동영상의 금액은 시차가 있을 수 있으니, 응찰 화면의 응찰가를 확인하시고 응찰해주시기 바랍니다.<br>    
+	                                     경매당일 <span ng-bind="(sale.TO_DT | addHours : (base_currency == 'HKD' ? -1 : 0) | date:'h' : 'UTC+9' | lowercase)"></span>시부터 실시간 라이브 응찰이 가능합니다.
+                                    </p>
                                 </div><!-- 응찰 신청 팝업 --> 
                            	</div><!-- //livebid_pagebox -->
 						</div>

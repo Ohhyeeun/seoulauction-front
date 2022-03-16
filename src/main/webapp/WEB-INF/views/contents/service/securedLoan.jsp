@@ -162,7 +162,7 @@
 											<th>연체이자율</th>
 											<th>기본대출기간</th>
 											<th>이자징수</th>
-											<th>설정</th>
+											<th>대출한도</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -170,9 +170,9 @@
 											<td>일반담보대출</td>
 											<td>12% / 연</td>
 											<td>15% / 연</td>
-											<td>6개월</td>
+											<td>3개월</td>
 											<td>원칙 : 선취</td>
-											<td>150%</td>
+											<td>작품평가액의 50%</td>
 										</tr>
 										<!--
 										<tr class="noselect">
@@ -217,157 +217,48 @@
 										</tr>
 										<tr>
 											<th>기본대출기간</th>
-											<td>6개월</td>
+											<td>3개월</td>
 											<!--<td>6개월</td>-->
 										</tr>
 										<tr>
 											<th>이자징수</th>
 											<td>원칙 : 선취</td>
 											<!--<td>원칙 : 선취</td>-->
-										</tr>
+										</tr> 
 										<tr>
-											<th>설정</th>
-											<td>150%</td>
+											<th>대출한도</th>
+											<td>작품평가액의 50%</td> 
 											<!--<td>150%</td>-->
 										</tr>
 									</tbody>
 								</table>
 							</div>
-							<p style="line-height:24px;">※ 상기조건은 개별건에 따라서 변경 가능합니다.<br/>
-							※ 경매조건 담보대출의 경우 경매선급금제도 활용하며 구체적인 내용은 담당자와 협의바랍니다.</p>
+							<p style="line-height:24px;">※ 상기조건은 개별건에 따라서 변경 가능합니다.</p>
 						</div>
 						
 						<!-- YBK.20170331.경매대출안내추가 -->
 						<div class="section">				
-							<div class="tit_h3 noborder" style="padding-top:40px;">
-								<p>경매 대출 안내 : 경매낙찰고객대상 낙찰대금 일부 담보대출로 단계별 지원</p>
-							</div>
-							<div class="tbl_style02 web_only">
-								<table>
-									<caption>경매 대출 안내</caption>
-									<!--
-									<colgroup>
-										<col style="width:14%;" />
-										<col style="width:18%;" />
-										<col style="width:18%;" />
-										<col style="width:18%;" />
-										<col style="width:18%;" />
-										<col />
-									</colgroup>
-									-->
-									<thead>
-										<tr>
-											<th>낙찰대금</th>
-											<th>대출한도</th>
-											<th>대출한도금액</th>
-											<th>이자율</th>
-											<th>연체이자율</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr class="noselect">
-											<td>5천만원이하</td>
-											<td>낙찰대금의 50%</td>
-											<td>25백만원</td>
-											<td>12% / 연</td>
-											<td>15% / 연</td>
-										</tr>
-										<tr class="noselect">
-											<td>일억원이하</td>
-											<td>낙찰대금의 30%</td>
-											<td>30백만원</td>
-											<td>12% / 연</td>
-											<td>15% / 연</td>
-										</tr>
-										<tr class="noselect">
-											<td>이억원이하</td>
-											<td>낙찰대금의 20%</td>
-											<td>40백만원</td>
-											<td>12% / 연</td>
-											<td>15% / 연</td>
-										</tr>
-										<tr class="noselect">
-											<td>이억원이상</td>
-											<td>     </td>
-											<td>50백만원</td>
-											<td>12% / 연</td>
-											<td>15% / 연</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-							<div class="tbl_style02 m_only m_tbl_z022">
-								<table>
-									<caption>대출 조건 안내</caption>
-									<!--
-									<colgroup>
-										<col style="width:20%;" />
-										<col style="width:20%;" />
-										<col style="width:20%;" />
-										<col style="width:20%;" />
-										<col style="width:20%;" />
-										<col />
-									</colgroup>
-									-->
-									<tbody>
-										<tr>
-											<th>낙찰대금</th>
-											<td>5천만원이하</td>
-											<td>일억원이하</td>
-											<td>이억원이하</td>
-											<td>이억원이상</td>
-										</tr>
-										<tr>
-											<th>대출한도</th>
-											<td>낙찰대금의 50%</td>
-											<td>낙찰대금의 30%</td>
-											<td>낙찰대금의 20%</td>
-											<td></td>
-										</tr>
-										<tr>
-											<th>대출한도금액</th>
-											<td>25백만원</td>
-											<td>30백만원</td>
-											<td>40백만원</td>
-											<td>50백만원</td>
-										</tr>
-										<tr>
-											<th>이자율</th>
-											<td>12% / 연</td>
-											<td>12% / 연</td>
-											<td>12% / 연</td>
-											<td>12% / 연</td>
-										</tr>
-										<tr>
-											<th>연체이자율</th>
-											<td>15% / 연</td>
-											<td>15% / 연</td>
-											<td>15% / 연</td>
-											<td>15% / 연</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-							<p class="tit_arrow02">대출금액 : <span class="txt_impo02">담보물(미술작품) 가치(시장가격)의 최대 50%</span><br/><br/><br/><br/><br/></p>
-                            <p style="line-height:32px; font-size:20px;"><span class="txt_impo02">등록번호: 2011-서울종로-00069(대부업)<br/> 
-전화번호: 02-395-0330<br/> 
-대부이자율 12%/연 연체이자율 15%/연<br/>
-조기 상환 수수료율 등 조기상환조건 없음. <br/>
-<font style="font-weight:700;"">중개수수료를 요구하거나 받는 것은 불법입니다. <br/>
-과도한 빚은 당신에게 큰 불행을 안겨줄 수 있습니다.<br/>
-대출 시 귀하의 신용등급이 하락할 수 있습니다.</font></span><br/><br/></p>
-                            
-                           <p style="line-height:24px;">대부업체명: ㈜ 서울옥션 대표이사 : 이옥경<br/>
-				                            등록 관공서 명칭 : 종로구청(02-2148-1114)<br/> 
-				                            소재지 : 서울시 종로구 평창 30길 24 (평창동)<br/>
-				                            전화번호: 02-395-0330 
-				           </p><br/><br/>
-                           <p style="padding:15px; background-color: #F60; color:#FFF; width: 230px;"><a href="https://www.fss.or.kr/s1332/search/search0601.jsp" target="new" style="padding:20px; color:#FFF">등록대부업체 통합조회 서비스</a></p><br/> 
+							<p class="loan-info"> 
+                               대부업체명: ㈜ 서울옥션 대표이사 : 이옥경<br/>
+                               등록번호: 2011-서울종로-00069(대부업)<br/>
+                               소재지 : 서울시 종로구 평창 30길 24 (평창동)<br/> 
+                               전화번호: 02-395-0330  
+                            </p>
+                            <p class="loan-info"> 
+                            	대부이자율 12%/연 연체이자율 15%/연<br/>
+								조기상환수수료 2% 조기상환조건 및 기타비용 없음
+							</p> 
+                            <p class="loan-info"> 
+								중개수수료를 요구하거나 받는 것은 불법입니다.<br/> 
+								과도한 빚은 당신에게 큰 불행을 안겨줄 수 있습니다.<br/>
+								대출 시 귀하의 신용등급이 하락할 수 있습니다.  
+							</p>  
+							<p style="padding:15px; background-color: #F60; color:#FFF; width: 230px;"><a href="https://www.fss.or.kr/s1332/search/search0601.jsp" target="new" style="padding:20px; color:#FFF">등록대부업체 통합조회 서비스</a></p><br/> 
 						</div>
 						<!-- YBK.20170331.경매대출안내추가 --> 
 						
-						<div class="box_gray type01">   
-							<div class="contact">
+						<div class="box_gray type01">  
+							<div class="contact"> 
 								<div class="title">문의 Contact</div>
 								<div class="info">
 									<div class="highlight">미술품경매팀 <strong>이지희 이사</strong></div> 

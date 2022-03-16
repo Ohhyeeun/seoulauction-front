@@ -255,7 +255,6 @@ var m_sImagePath ="";
 
 
 <script type="text/javascript" src="/js/bid.js"></script>
-<%--<script src="/js/bid-ssg.js"></script>--%>
 <script type="text/javascript">
 <!--
 function shareSns(snsType) {
@@ -504,13 +503,13 @@ function OnloadImg(){
 									<ul style="width: 500px;"> 
 										<li ng-if="custInfo.EMP_GB != 'Y'" ng-repeat="img in imageList" style="text-align: center;" on-finish-render-filters>
 											<!-- <img oncontextmenu="return false" class="bg-contain" ng-style="{'background': 'url(<spring:eval expression="@configure['img.root.path']" />{{img.FILE_NAME | imagePath : img.FILE_PATH}})'}" style="margin-top: 84px;" alt="{{lot.TITLE}}"/> -->
-											<span ng-if="lot.ARTIST_NAME_JSON['ko'] == '김환기'">
+											<span ng-if="lot.ARTIST_NAME_JSON['ko'] == '김환기' || lot.ARTIST_NAME_JSON['ko'] == '박수근'">
 												<a>   
 													<img oncontextmenu="return false" ng-src="<spring:eval expression="@configure['img.root.path']" />{{img.FILE_NAME | imagePath1 : img.FILE_PATH : 'detail'}}" 
 													alt="{{lot.TITLE}}" style="max-width: 100px; max-height: 100px;"/>       
 												</a> 
 											</span> 
-											<span ng-if="lot.ARTIST_NAME_JSON['ko'] != '김환기'"> 
+											<span ng-if="lot.ARTIST_NAME_JSON['ko'] != '김환기' && lot.ARTIST_NAME_JSON['ko'] != '박수근'"> 
 												<a class="imgzoom_a" data-magnify="gallery" href="<spring:eval expression="@configure['img.root.path']" />{{img.FILE_NAME | imagePath : img.FILE_PATH}}" title="이미지 확대보기">   
 													<img oncontextmenu="return false" ng-src="<spring:eval expression="@configure['img.root.path']" />{{img.FILE_NAME | imagePath1 : img.FILE_PATH : 'detail'}}" 
 													alt="{{lot.TITLE}}" /> 
@@ -530,13 +529,13 @@ function OnloadImg(){
 									<ul style="width: 500px;">   
 										<li ng-if="custInfo.EMP_GB != 'Y'" ng-repeat="img in imageList" style="text-align: center;" on-finish-render-filters>
 											<!-- <img oncontextmenu="return false" class="bg-contain" ng-style="{'background': 'url(<spring:eval expression="@configure['img.root.path']" />{{img.FILE_NAME | imagePath1 : img.FILE_PATH : 'detail'}})'}" style="margin-top: 84px;" alt="{{lot.TITLE}}"/> -->
-											<span ng-if="lot.ARTIST_NAME_JSON['ko'] == '김환기'">
+											<span ng-if="lot.ARTIST_NAME_JSON['ko'] == '김환기' || lot.ARTIST_NAME_JSON['ko'] == '박수근'">  
 												<a>   
 													<img oncontextmenu="return false" ng-src="<spring:eval expression="@configure['img.root.path']" />{{img.FILE_NAME | imagePath1 : img.FILE_PATH : 'detail'}}" 
 													alt="{{lot.TITLE}}" />      
 												</a>
 											</span> 
-											<span ng-if="lot.ARTIST_NAME_JSON['ko'] != '김환기'"> 
+											<span ng-if="lot.ARTIST_NAME_JSON['ko'] != '김환기' && lot.ARTIST_NAME_JSON['ko'] != '박수근'"> 
 												<a class="imgzoom_a" data-magnify="gallery" href="<spring:eval expression="@configure['img.root.path']" />{{img.FILE_NAME | imagePath : img.FILE_PATH}}" title="이미지 확대보기">   
 													<img oncontextmenu="return false" ng-src="<spring:eval expression="@configure['img.root.path']" />{{img.FILE_NAME | imagePath1 : img.FILE_PATH : 'detail'}}" 
 													alt="{{lot.TITLE}}" />  
@@ -608,13 +607,13 @@ function OnloadImg(){
 										<li ng-if="custInfo.EMP_GB != 'Y'" ng-repeat="img in imageList" style="text-align: center;" on-finish-render-filters>
 											<!-- <img oncontextmenu="return false" class="bg-contain" ng-style="{'background': 'url(<spring:eval expression="@configure['img.root.path']" />{{img.FILE_NAME | imagePath : img.FILE_PATH}})'}" style="margin-top: 84px;" alt="{{lot.TITLE}}"/> -->
 											<img ng-if="lot.IMG_DISP_YN == 'N'" img ng-src="/images/bg/no_image.jpg" />
-											<span ng-if="lot.ARTIST_NAME_JSON['ko'] == '김환기'">
+											<span ng-if="lot.ARTIST_NAME_JSON['ko'] == '김환기' || lot.ARTIST_NAME_JSON['ko'] == '박수근'"> 
 												<a>  
 													<img ng-if="lot.IMG_DISP_YN == 'Y'" oncontextmenu="return false" ng-src="<spring:eval expression="@configure['img.root.path']" />{{img.FILE_NAME | imagePath : img.FILE_PATH}}" 
 													alt="{{lot.TITLE}}" style="max-width: 100px; max-height: 100px;"/>      
 												</a> 
 											</span>
-											<span ng-if="lot.ARTIST_NAME_JSON['ko'] != '김환기'">  
+											<span ng-if="lot.ARTIST_NAME_JSON['ko'] != '김환기' && lot.ARTIST_NAME_JSON['ko'] != '박수근'">   
 												<a class="imgzoom_a" data-magnify="gallery" href="<spring:eval expression="@configure['img.root.path']" />{{img.FILE_NAME | imagePath : img.FILE_PATH}}" title="이미지 확대보기"> 
 													<img ng-if="lot.IMG_DISP_YN == 'Y'" oncontextmenu="return false" ng-src="<spring:eval expression="@configure['img.root.path']" />{{img.FILE_NAME | imagePath1 : img.FILE_PATH : 'detail'}}" 
 													alt="{{lot.TITLE}}" /> 
@@ -635,13 +634,13 @@ function OnloadImg(){
 										<li ng-if="custInfo.EMP_GB != 'Y'" ng-repeat="img in imageList" style="text-align: center;" on-finish-render-filters>
 											<!-- <img oncontextmenu="return false" class="bg-contain" ng-style="{'background': 'url(<spring:eval expression="@configure['img.root.path']" />{{img.FILE_NAME | imagePath1 : img.FILE_PATH : 'detail'}})'}" style="margin-top: 84px;" alt="{{lot.TITLE}}"/> -->
 											<img ng-if="lot.IMG_DISP_YN == 'N'" img ng-src="/images/bg/no_image.jpg" />
-											<span ng-if="lot.ARTIST_NAME_JSON['ko'] == '김환기'">
+											<span ng-if="lot.ARTIST_NAME_JSON['ko'] == '김환기' || lot.ARTIST_NAME_JSON['ko'] == '박수근'">
 												<a>  
 													<img ng-if="lot.IMG_DISP_YN == 'Y'" oncontextmenu="return false" ng-src="<spring:eval expression="@configure['img.root.path']" />{{img.FILE_NAME | imagePath1 : img.FILE_PATH : 'detail'}}" 
 													alt="{{lot.TITLE}}" />   
 												</a>   
 											</span> 
-											<span ng-if="lot.ARTIST_NAME_JSON['ko'] != '김환기'">   
+											<span ng-if="lot.ARTIST_NAME_JSON['ko'] != '김환기' && lot.ARTIST_NAME_JSON['ko'] != '박수근'">  
 												<a class="imgzoom_a" data-magnify="gallery" href="<spring:eval expression="@configure['img.root.path']" />{{img.FILE_NAME | imagePath : img.FILE_PATH}}" title="이미지 확대보기"> 
 													<img ng-if="lot.IMG_DISP_YN == 'Y'" oncontextmenu="return false" ng-src="<spring:eval expression="@configure['img.root.path']" />{{img.FILE_NAME | imagePath1 : img.FILE_PATH : 'detail'}}" 
 													alt="{{lot.TITLE}}" /> 

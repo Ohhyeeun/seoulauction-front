@@ -161,7 +161,7 @@
 											<th>Overdue interest rate</th>
 											<th>Regular Loan Period</th>
 											<th>Charge Interest</th>
-											<th>Settlement of Collateral</th>
+											<th>Loan limit</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -169,9 +169,9 @@
 											<td>Default</td>
 											<td>12% per year</td>
 											<td>15% per year</td>
-											<td>6 months</td>
+											<td>3 months</td>
 											<td>Principle: Payment in advance</td>
-											<td>150%</td>
+											<td>50% of appraisal amount</td>
 										</tr>
 										<!--
 										<tr>
@@ -207,8 +207,8 @@
 										<tr>
 											<th>Interest Rate</th>
 											<td>12% per year</td>
-											<!--<td>1% per month</td>-->
-										</tr>
+											<!--<td>1% per month</td>-->  
+										</tr>  
 										<tr>
 											<th>Default Rate</th>
 											<td>15% per year</td>
@@ -216,7 +216,7 @@
 										</tr>
 										<tr>
 											<th>Regular Loan Period</th>
-											<td>6 months</td>
+											<td>3 months</td>
 											<!--<td>6 months</td>-->
 										</tr>
 										<tr>
@@ -225,8 +225,8 @@
 											<!--<td>Principle: Payment in advance</td>-->
 										</tr>
 										<tr>
-											<th>Settlement of Collateral</th>
-											<td>150%</td>
+											<th>Loan limit</th>
+											<td>50% of appraisal amount</td>  
 											<!--<td>150%</td>-->
 										</tr>
 									</tbody>
@@ -234,118 +234,6 @@
 							</div>
 							<p class="txt_small">※ Conditions above are adjustable depending on each case.</p>
 						</div>
-						
-						<!-- YBK.20170331.경매대출안내추가 -->
-						<div class="section">
-							<div class="tit_h3 noborder">
-								<h3>Condition of Loan</h3>
-							</div>
-							<div class="tbl_style02 web_only">
-								<table>
-									<caption>Auction Loan</caption>
-									<!--
-									<colgroup>
-										<col style="width:13%;" />
-										<col style="width:17%;" />
-										<col style="width:17%;" />
-										<col style="width:17%;" />
-										<col style="width:18%;" />
-										<col />
-									</colgroup>
-									-->
-									<thead>
-										<tr>
-											<th>Tender price</th>
-											<th>Loan ceiling</th>
-											<th>Loan ceiling amount</th>
-											<th>Interest rate</th>
-											<th>Overdue interest rate</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>Less than 50 million won</td>
-											<td>50% of the tender price</td>
-											<td>25 million won</td>
-											<td>12% per year</td>
-											<td>15% per year</td>
-										</tr>
-										<tr>
-											<td>Under one hundred million won</td>
-											<td>30% of the tender price</td>
-											<td>30 million won</td>
-											<td>12% per year</td>
-											<td>15% per year</td>
-										</tr>
-										<tr>
-											<td>Less than two billion won</td>
-											<td>20% of the tender price</td>
-											<td>40 million won</td>
-											<td>12% per year</td>
-											<td>15% per year</td>
-										</tr>
-										<tr>
-											<td>Over two billion won</td>
-											<td></td>
-											<td>50 million won</td>
-											<td>12% per year</td>
-											<td>15% per year</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-							<div class="tbl_style02 m_only m_tbl_z022">
-								<table>
-									<caption>Qualification</caption>
-									<!--
-									<colgroup>
-										<col style="width:14%;" />
-										<col style="width:43%;" />
-										<col />
-									</colgroup>
-									-->
-									<tbody>
-										<tr>
-											<th>Tender price</th>
-											<td>Less than 50 million won</td>
-											<td>Under one hundred million won</td>
-											<td>Less than two billion won</td>
-											<td>Over two billion won</td>
-										</tr>
-										<tr>
-											<th>Loan ceiling</th>
-											<td>50% of the tender price</td>
-											<td>30% of the tender price</td>
-											<td>20% of the tender price</td>
-											<td></td>
-										</tr>
-										<tr>
-											<th>Loan ceiling amount</th>
-											<td>25 million won</td>
-											<td>30 million won</td>
-											<td>40 million won</td>
-											<td>50 million won</td>
-										</tr>
-										<tr>
-											<th>Interest rate</th>
-											<td>12% per year</td>
-											<td>12% per year</td>
-											<td>12% per year</td>
-											<td>12% per year</td>
-										</tr> 
-										<tr> 
-											<th>Overdue interest rate</th>
-											<td>15% per year</td>
-											<td>15% per year</td>
-											<td>15% per year</td>
-											<td>15% per year</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-							<p class="tit_arrow02">Loan amount : <span class="txt_impo02">maximum 50% of the value (market price) of the collateral (artwork)</span></p>
-						</div>
-						<!-- YBK.20170331.경매대출안내추가 -->
 
 						<div class="box_gray type01">
 							<div class="contact">

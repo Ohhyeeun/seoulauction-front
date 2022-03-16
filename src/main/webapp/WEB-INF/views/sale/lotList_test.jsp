@@ -1427,7 +1427,7 @@ app.controller('lotListCtl', function($scope, consts, common, bid, $interval, is
                                     	 온라인 실시간 응찰은 철회가 불가합니다.<br>   
 						                                     응찰 우선순위는 서면  > 현장  > 온라인 순입니다.<br>        
 						                                     동영상의 금액은 시차가 있을 수 있으니, 응찰 화면의 응찰가를 확인하시고 응찰해주시기 바랍니다.<br>   
-						                                     경매당일 4시부터 실시간 라이브 응찰이 가능합니다.   
+						                                     경매당일 <span ng-bind="(sale.TO_DT | addHours : (base_currency == 'HKD' ? -1 : 0) | date:'h' : 'UTC+9' | lowercase)"></span>시부터 실시간 라이브 응찰이 가능합니다. 
                                     </p>  
                                 </div><!-- 응찰 신청 팝업 --> 
                            	</div><!-- //butt livebid_pagebox -->

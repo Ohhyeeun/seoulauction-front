@@ -201,8 +201,7 @@
 								<h3>응찰방법</h3>
 								<p style="line-height:30px; font-size:16px;">경매 응찰 방법은 아래와 같이 3가지 방법으로 가능합니다. 경매 응찰 후 해당 작품을 낙찰 받으시면 구매 취소가 어려우니 신중히 선택하시기 바랍니다. </p>
 							</div>
-							<div class="btn_filedown"><span class="btn_style01 gray03 xsmall icon02"><a href="/nas_img/front/homepage/202009_bidform.pdf
-" target="new">응찰등록신청서 (서면/전화) 받기</a><span class="ico download"></span></span></div>
+							<div class="btn_filedown"><span class="btn_style01 gray03 xsmall icon02"><a href="/images/form/bidform_20220218.pdf" target="_blank">응찰등록신청서 (서면/전화) 받기</a><span class="ico download"></span></span></div> 
 							<div class="box_style08">
 								<h4 class="tit_arrow">오프라인 경매 응찰</h4> 
 								<div class="both_cont tri">
