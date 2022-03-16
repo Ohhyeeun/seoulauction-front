@@ -1149,7 +1149,7 @@ app.controller('saleCertCtl', function($scope, consts, common, $interval, input,
 					$scope.parent.sale_cert.CNT = 1;
 
 					if(!is_same_hp){
-						if(confirm("고객정보의 핸드폰번호와 일치하지 않습니다.\n인증받은 핸드폰번호로 갱신하시겠습니까?")){
+						if(confirm("인증받은 핸드폰번호로 갱신하시겠습니까?")){
 					 		$d = {"actionList":[
 					 				{"actionID":"sale_cert_hp_mod", "actionType":"update" , "tableName": "CERT", "parmsList":[{"hp": $scope.form_data.hp, "sale_cert_no": data.tables.CERT.rows[0].sale_cert_no}]}
 					 			 ]};
