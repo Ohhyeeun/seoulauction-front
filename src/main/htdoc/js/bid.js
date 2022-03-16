@@ -35,9 +35,11 @@ app.factory("bid", function ($interval, ngDialog) {
 		
 		saleCertCheck: function($input) {
 			//if($input.parent.is_login == "true" && $input.parent.locale == 'ko' && ($input.parent.sale_cert.CNT || 0) <= 0){
-			if($input.parent.is_login == "true" && $input.parent.custInfo.LOCAL_KIND_CD != 'foreigner' && ($input.parent.sale_cert.CNT || 0) <= 0){
-				$input.parent.cancelLotRefresh();
-				saleCert($input);
+			if (typeof $input.parent.sale_cert !== 'undefined' && typeof $input.parent.sale_cert.CNT !== 'undefined') {
+				if($input.parent.is_login == "true" && $input.parent.custInfo.LOCAL_KIND_CD != 'foreigner' && ($input.parent.sale_cert.CNT || 0) <= 0){
+					$input.parent.cancelLotRefresh();
+					saleCert($input);
+				}
 			}
 		},
 
