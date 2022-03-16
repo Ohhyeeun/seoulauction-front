@@ -285,21 +285,9 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
             <div style="clear:both;"></div> 
         </div>  --> 
         
-        <!-- 온라인 경매 -->
-        <div class="col4">                                    
- 			<a href="/currentAuction?sale_kind=online_only&sale_no=694&page=1">
-                 <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220308_ko.gif" style="width:100%;"/>      
-				 <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220308_en.gif" style="width:100%;"/> 
- 			</a>  
-            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>  
-            <p class="mainContents_txt" ng-if="locale=='ko'">3월 e BID 퍼블릭 온라인 경매 Ⅰ</p>                     
-            <p class="mainContents_txt" ng-if="locale!='ko'">e BID Public Online Auction Ⅰ in March</p>  
-            <div style="clear:both;"></div> 
-        </div> 
-        
         <!-- 오프라인 경매 -->   
         <div class="col4">    
-			<a href="/currentAuction?sale_kind=offline_only&sale_no=696&page=1">
+			<a href="https://www.seoulauction.com/currentAuction?sale_kind=offline_only&sale_no=696&page=1"> 
                  <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220307.gif" style="width:100%;"/>           
                  <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220307.gif" style="width:100%;"/>           
 			</a>  
@@ -308,6 +296,19 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
             <p class="mainContents_txt" ng-if="locale!='ko'">Contemporary Art Sale</p> 
             <div style="clear:both;"></div> 
         </div> 
+        
+		<!-- 온라인 경매 --> 
+        <div class="col4">                                    
+ 			<!-- <a href="https://www.seoulauction.com/currentAuction?sale_kind=online_only&sale_no=694&page=1"> --> 
+                 <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220316_ko.gif" style="width:100%;"/>      
+				 <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220316_en.gif" style="width:100%;"/>  
+ 			<!-- </a> -->
+            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>  
+            <p class="mainContents_txt" ng-if="locale=='ko'">3월 e BID 퍼블릭 온라인 경매 Ⅱ</p>                     
+            <p class="mainContents_txt" ng-if="locale!='ko'">e BID Public Online Auction Ⅱ in March</p>   
+            <div style="clear:both;"></div> 
+        </div> 
+
         
         <!-- 커밍순 썸네일 --> 
         <div class="col4 last"> 
@@ -596,7 +597,7 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
         <div class="onerow"></div>  
         <div class="col6 web_only"> 
             <h2 class="mainContents_tit" style="border-bottom: 2px solid #000;">
-            	<a href="/noticeList"><spring:message code="label.notice" /></a>
+            	<a href="https://www.seoulauction.com/noticeList"><spring:message code="label.notice" /></a>
             </h2> 
             <div id="recentNoticeContainer" ng-controller="recentNoticeCtl" data-ng-init="loadRecentNotice();">
                 <ul>
@@ -607,7 +608,7 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
             </div>
       </div>
       <div class="col6 last web_only">   
-          <h2 class="mainContents_tit" style="border-bottom: 2px solid #000;"><a href="/about/page?view=pressList"><spring:message code="label.press" /></a></h2>
+          <h2 class="mainContents_tit" style="border-bottom: 2px solid #000;"><a href="https://www.seoulauction.com/about/page?view=pressList"><spring:message code="label.press" /></a></h2>
             <div id="recentPressContainer" ng-controller="recentPressCtl" data-ng-init="loadRecentPress();">
                 <ul> 
                     <span ng-if="locale=='ko'"><li ng-repeat="row in recentPressList" class="mainContent_notice"><a href="{{row.PRESS_URL}}" target="new">{{row.PRESS_TITLE}}</a></li></span>
@@ -649,12 +650,12 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
           <p class="mainContents_txt" style="padding-top: 20px;"><spring:message code="label.printbakery" /></p>   
       </div>  
       <div class="col4 last">     
-          <a href="https://www.youtube.com/channel/UCITsbs0m_QpXwZSZ-jc3ORA" target="_blank">      
-          	<img src="/images/img/main/ect/20220225_02.png" style="width:100%;"/>           
+          <a href="http://shop1.printbakery.cafe24.com/we-bake/detail.html?product_no=4829&cate_no=1&display_group=5" target="_blank">      
+          	<img src="/images/img/main/ect/20220316family_site.png" style="width:100%;"/>            
           </a>     
           <!-- <p style="padding-top:30px; padding-bottom:30px; font-size:18px; font-weight:600;" ng-if="locale=='ko'"><Bon Voyage : Kim Sun woo></p> -->
-          <p class="mainContents_txt" style="padding-top: 20px;" ng-if="locale=='ko'">print bakery youtube</p> 
-          <p class="mainContents_txt" style="padding-top: 20px;" ng-if="locale!='ko'">print bakery youtube</p>            
+          <p class="mainContents_txt" style="padding-top: 20px;" ng-if="locale=='ko'">CHUNG SHIN EXHIBITION</p>  
+          <p class="mainContents_txt" style="padding-top: 20px;" ng-if="locale!='ko'">CHUNG SHIN EXHIBITION</p>             
       </div>    
       
       
