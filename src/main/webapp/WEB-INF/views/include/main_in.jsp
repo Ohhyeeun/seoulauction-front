@@ -287,7 +287,7 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
         
         <!-- 온라인 경매 -->
         <div class="col4">                                    
- 			<a href="https://www.seoulauction.com/currentAuction?sale_kind=online_only&sale_no=694&page=1"> 
+ 			<a href="/currentAuction?sale_kind=online_only&sale_no=694&page=1">
                  <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220308_ko.gif" style="width:100%;"/>      
 				 <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220308_en.gif" style="width:100%;"/> 
  			</a>  
@@ -299,7 +299,7 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
         
         <!-- 오프라인 경매 -->   
         <div class="col4">    
-			<a href="https://www.seoulauction.com/currentAuction?sale_kind=offline_only&sale_no=696&page=1"> 
+			<a href="/currentAuction?sale_kind=offline_only&sale_no=696&page=1">
                  <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220307.gif" style="width:100%;"/>           
                  <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220307.gif" style="width:100%;"/>           
 			</a>  
@@ -596,7 +596,7 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
         <div class="onerow"></div>  
         <div class="col6 web_only"> 
             <h2 class="mainContents_tit" style="border-bottom: 2px solid #000;">
-            	<a href="https://www.seoulauction.com/noticeList"><spring:message code="label.notice" /></a>
+            	<a href="/noticeList"><spring:message code="label.notice" /></a>
             </h2> 
             <div id="recentNoticeContainer" ng-controller="recentNoticeCtl" data-ng-init="loadRecentNotice();">
                 <ul>
@@ -607,7 +607,7 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
             </div>
       </div>
       <div class="col6 last web_only">   
-          <h2 class="mainContents_tit" style="border-bottom: 2px solid #000;"><a href="https://www.seoulauction.com/about/page?view=pressList"><spring:message code="label.press" /></a></h2>
+          <h2 class="mainContents_tit" style="border-bottom: 2px solid #000;"><a href="/about/page?view=pressList"><spring:message code="label.press" /></a></h2>
             <div id="recentPressContainer" ng-controller="recentPressCtl" data-ng-init="loadRecentPress();">
                 <ul> 
                     <span ng-if="locale=='ko'"><li ng-repeat="row in recentPressList" class="mainContent_notice"><a href="{{row.PRESS_URL}}" target="new">{{row.PRESS_TITLE}}</a></li></span>

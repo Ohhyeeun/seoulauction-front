@@ -48,7 +48,7 @@
 									<div>art@seoulauction.com<br/> 
 	1. 성함 2. 연락처 3. 작품제목 4. 사이즈 5. 소장경위 6. 작품사진 - 전체컷, 싸인 등의 부분컷(중요부분) 을 보내주시면,<br/>작품별 스페셜리스트에게 전달되어 답변드리겠습니다.<br/>
     자세한 내용은 위탁안내 페이지를 참고 해주시기 바랍니다.&nbsp;&nbsp;
-    <a href="https://www.seoulauction.com/auctionGuide/page?view=commissionGuide" style="border:solid 1px #999999; color:#666; padding:3px;">위탁안내 바로가기</a></div>   
+    <a href="/auctionGuide/page?view=commissionGuide" style="border:solid 1px #999999; color:#666; padding:3px;">위탁안내 바로가기</a></div>
 								</div>  
 							</li>					
 							

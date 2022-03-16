@@ -703,7 +703,7 @@
 					
 					<!-- 경매 시작/마감 & 경매 문구 입력(고객용)-->
 					<div ng-if="!custInfo.CUST_NO" class="bid_live_edit_login_box clearfix"> 
-						<button type="button" onClick="location.href='https://www.seoulauction.com/login'"> 
+						<button type="button" onClick="location.href='/login'">
 							<spring:message code="label.go.bid.loginlog" />
 						</button>	
 				  	</div>
