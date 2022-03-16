@@ -39,6 +39,37 @@ public class LoginController {
 	@Autowired
 	SSGAuthenticationProvider ssgAuthenticationProvider;
 
+	/**
+	 * 클라이언트의 IP 주소는 HttpServletRequest.getRemoteAddr() 메서드를 이용하여 알아낼 수 있다.
+	 * 그러나 Proxy, Caching server, Load Balancer 등을 거쳐올 경우 getRemoteAddr()를 이용하여 IP 주소를 가지고 오지 못하게 된다.
+	 * 이걸 위한 별도의 처리가 필요
+	 */
+	private String getIp(HttpServletRequest request) {
+		String ip = request.getHeader("X-Forwarded-For");
+
+		if (ip == null) {
+			ip = request.getHeader("Proxy-Client-IP");
+		}
+
+		if (ip == null) {
+			ip = request.getHeader("WL-Proxy-Client-IP"); // 웹로직
+		}
+
+		if (ip == null) {
+			ip = request.getHeader("HTTP_CLIENT_IP");
+		}
+
+		if (ip == null) {
+			ip = request.getHeader("HTTP_X_FORWARDED_FOR");
+		}
+
+		if (ip == null) {
+			ip = request.getRemoteAddr();
+		}
+
+		return ip;
+	}
+
 	@RequestMapping(value = {"/login"}, method = RequestMethod.GET)
 	public String login(ModelMap model, HttpServletRequest request,
 		@RequestParam(value = "error", required = false) String error,
@@ -90,7 +121,7 @@ public class LoginController {
 				.loginId(custId)
 				.userNm(userNm)
 				.agreeYn(agreeYn)
-				.ip(request.getRemoteAddr())
+				.ip(getIp(request))
 				.build();
 
 		SecurityContext sc = SecurityContextHolder.getContext();
