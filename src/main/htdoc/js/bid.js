@@ -302,7 +302,8 @@ app.controller('bidListCtl', function($scope, consts, common, $interval, input, 
 		$scope.cancelTimer();
 	   	$scope.is_processing = false;
 	}
-	
+
+	// API 성공시 받아오는 Callback
 	var $s = function(data, status) {
 		if(data["tables"]["AUTO"] && data["tables"]["AUTO"]["rows"].length > 0){
 			$scope.auto_req_price = data["tables"]["AUTO"]["rows"][0].BID_PRICE;
@@ -316,6 +317,15 @@ app.controller('bidListCtl', function($scope, consts, common, $interval, input, 
 		var src = data["tables"]["LIST"]["rows"];
 		
 		if(src.length > 0){
+			// ID Replace for _ssg_
+			if (src && src.length > 0) {
+				const index = src.findIndex((item) => item.SELF_YN === 'Y');
+				if (index > -1) {
+					const custId = src[index].CUST_ID;
+					src[index].CUST_ID = custId.replace(/(.*)(_SSG_\d+)$/ig, '$1');
+				}
+			}
+
 			$scope.bidList = src;
 			//$scope.bidList = src.concat($scope.bidList);
 		}
