@@ -22,7 +22,6 @@ app.controller("joinCtl", function($scope, consts, common, join, joinService, ng
 	joinService.setScope($scope);
 
 	$scope.init = function(){
-		
  		$d = {"baseParms":{},
  				"actionList":[
 				{"actionID":"code_list", "actionType":"select" , "tableName": "CODES", "parmsList":[{"grp_ids":["push_way", "interest_area" , "nation"]}]},
@@ -94,7 +93,8 @@ app.controller("joinCtl", function($scope, consts, common, join, joinService, ng
 	 		$scope.checkHp.check = "ok";
 	 		$scope.checkHpAuth.check = "ok";
 	 		$scope.checkHpAuth.valid = true;
-	 		
+			// 신세계 ID 여부
+			$scope.isSSG = /(_SSG_\d+)$/i.test(custInfo.login_id);
  		}, null);
 	}
 	
