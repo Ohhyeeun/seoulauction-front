@@ -109,6 +109,7 @@
 	
 	app.controller('inquiryWriteCtl', function($scope, consts, common, inquiryService) {
 		inquiryService.setScope($scope);
+		$scope.form_data.cate1 = "${param.cate1}";
 	});
 
 	/*var scope = null;
@@ -174,12 +175,12 @@
 													<div class="input_ver">
 														<select name="category1" id="category1" class="selectbox" ng-model="form_data.cate1" ng-change="changeCate1()">
 															<option value=""><spring:message code="message.Choose" /></option>
-															<option ng-repeat="code in inqCate | filter:{P_CD_ID:null}:true" value="{{code.CD_ID}}">{{code.CD_NM}}{{code.CD_NM_EN}}</option>
+															<option ng-repeat="code in inqCate | filter:{P_CD_ID:null}:true" value="{{code.CD_ID}}">{{code.CD_NM}}/{{code.CD_NM_EN}}</option>
 														</select>
 														<select name="category2" id="category2"
 															ng-model="form_data.cate2" ng-if="inqCate2 != undefined && inqCate2.length > 0">
 															<option value=""><spring:message code="message.Choose" /></option>
-															<option ng-repeat="code in inqCate2" value="{{code.CD_ID}}">{{code.CD_NM}}{{code.CD_NM_EN}}</option>
+															<option ng-repeat="code in inqCate2" value="{{code.CD_ID}}">{{code.CD_NM}}/{{code.CD_NM_EN}}</option>
 														</select>
 													</div>
 												</div>
