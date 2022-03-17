@@ -412,17 +412,17 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
       	</div>  -->
               
       	<div class="onerow"></div>    
-     	<h2 class="mainContents_tit">VIDEO</h2> 
+     	<h2 class="mainContents_tit">VIDEO</h2>  
      	<div class="col8" style="overflow:hidden">
-          	<div class="popupVideo">
-                  <a data-video="cfhkKWQAA1c">               
-                      <img src="/images/img/main/video/20220302_01.jpg" style="width:100%; cursor:pointer;" alt="video1"/> 
+          	<div class="popupVideo"> 
+                  <a data-video="4GLkDTdMzfM">                
+                      <img src="/images/img/main/video/20220317.jpg" style="width:100%; cursor:pointer;" alt="video1"/> 
                   </a>  
                   <div class="video-popup"> 
-                      <div class="video-popup-closer"></div>  
+                      <div class="video-popup-closer"></div>   
                   </div> 
-                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">ZEROBASE x HANDSOME 트레일러</p>    
-                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">ZEROBASE x HANDSOME</p>             
+                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">FOCUS ON: Contemporary Art Sale_Blue Chip Artists</p>    
+                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">FOCUS ON: Contemporary Art Sale_Blue Chip Artists</p>              
           	</div>
      	</div>  
       	<div class="col4 last" style="overflow:hidden"> 
