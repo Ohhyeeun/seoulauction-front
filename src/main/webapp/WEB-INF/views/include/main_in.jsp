@@ -297,12 +297,12 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
             <div style="clear:both;"></div> 
         </div> 
         
-		<!-- 온라인 경매 --> 
+		<!-- 온라인 경매 -->
         <div class="col4">                                    
- 			<!-- <a href="https://www.seoulauction.com/currentAuction?sale_kind=online_only&sale_no=694&page=1"> --> 
+ 			<a href="https://www.seoulauction.com/currentAuction?sale_kind=online_only&sale_no=695&page=1"> 
                  <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220316_ko.gif" style="width:100%;"/>      
 				 <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220316_en.gif" style="width:100%;"/>  
- 			<!-- </a> -->
+ 			</a>  
             <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>  
             <p class="mainContents_txt" ng-if="locale=='ko'">3월 e BID 퍼블릭 온라인 경매 Ⅱ</p>                     
             <p class="mainContents_txt" ng-if="locale!='ko'">e BID Public Online Auction Ⅱ in March</p>   
@@ -654,7 +654,7 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
           	<img src="/images/img/main/ect/20220316family_site.png" style="width:100%;"/>            
           </a>     
           <!-- <p style="padding-top:30px; padding-bottom:30px; font-size:18px; font-weight:600;" ng-if="locale=='ko'"><Bon Voyage : Kim Sun woo></p> -->
-          <p class="mainContents_txt" style="padding-top: 20px;" ng-if="locale=='ko'">CHUNG SHIN EXHIBITION</p>  
+          <p class="mainContents_txt" style="padding-top: 20px;" ng-if="locale=='ko'">CHUNG SHIN EXHIBITION</p> 
           <p class="mainContents_txt" style="padding-top: 20px;" ng-if="locale!='ko'">CHUNG SHIN EXHIBITION</p>             
       </div>    
       
