@@ -43,10 +43,29 @@
 							<td>
 								<div class="fl_wrap">
 									<div class="input_password">
-										<input type="password" ng-model="form_data.passwd" name="passwd" ng-pattern="/^[a-zA-Z0-9!@#$%^&*?_~]{4,}$/" ng-change="initValidPasswdCheck();"
-											ng-style="getValidInput(joinForm.passwd.$valid && joinForm.checkPasswd.$valid)" placeholder="<spring:message code="label.putpassword" />" tabindex="3" required />
-										<input type="password" ng-model="form_data.passwd2" name="passwd2" ng-style="getValidInput(joinForm.passwd.$valid && joinForm.checkPasswd.$valid)" 
-											placeholder="<spring:message code="label.passwordre" />" ng-change="initValidPasswdCheck();" tabindex="4" required />
+										<input
+											type="password"
+											ng-model="form_data.passwd"
+											name="passwd"
+											ng-pattern="/^[a-zA-Z0-9!@#$%^&*?_~]{4,}$/"
+											ng-change="initValidPasswdCheck();"
+											ng-style="getValidInput(joinForm.passwd.$valid && joinForm.checkPasswd.$valid)"
+											placeholder="<spring:message code="label.putpassword" />"
+											tabindex="3"
+											required
+											ng-disabled="isSSG"
+										/>
+										<input
+											type="password"
+											ng-model="form_data.passwd2"
+											name="passwd2"
+											ng-style="getValidInput(joinForm.passwd.$valid && joinForm.checkPasswd.$valid)"
+											placeholder="<spring:message code="label.passwordre" />"
+											ng-change="initValidPasswdCheck();"
+											tabindex="4"
+											required
+											ng-disabled="isSSG"
+										/>
 										<p class="tbl_txt" ng-style="styleInvalid" ng-show="!joinForm.passwd.$valid  && checkConfirmPwd.message == ''">
 											<spring:message code="message.mem.password" />
 										</p>

@@ -279,9 +279,8 @@ public class CustomerController {
    	@RequestMapping(value="/join/confirm_auth_num4sale", method=RequestMethod.POST, headers = {"content-type=application/json"})
     @ResponseBody
     public ResultDataSet confirmAuthNumber4Sale(@RequestBody Map<String, Object> paramMap, HttpServletRequest request, HttpServletResponse response) throws DataSetException{
-//   		boolean b = this.confirmAuthNumber(paramMap, request, response);
-   		
-   		if (true) {
+   		boolean b = this.confirmAuthNumber(paramMap, request, response);
+   		if (b) {
 	   	   	UsernamePasswordAuthenticationToken userToken = (UsernamePasswordAuthenticationToken) request.getUserPrincipal();
 	    	SAUserDetails user = (SAUserDetails) userToken.getDetails();
 	

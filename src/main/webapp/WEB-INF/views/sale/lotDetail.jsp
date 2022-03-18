@@ -69,7 +69,7 @@ app.controller('lotDetailCtl', function($scope, consts, common, bid, $interval, 
  		var TO_DT = $filter('date')($scope.lot.TO_DT, 'yyyyMMddHHmmss');
  		var SALE_TO_DT = $filter('date')($scope.lot.TO_DT, 'yyyyMMdd');
  		var DB_NOW_DT = $filter('date')($scope.db_now, 'yyyyMMdd');
- 		
+
  		if(FROM_DT > S_DB_NOW && TO_DT > S_DB_NOW){
  			$scope.sale_status = "READY";
  		}
@@ -86,11 +86,11 @@ app.controller('lotDetailCtl', function($scope, consts, common, bid, $interval, 
  		
  		//종료된 경매이고 로그인하지 않은 경우 메인페이지 이동(2018.06.12)
  		if($scope.sale_status == "END" && $scope.is_login == "false"){
-  	   		location.href="https://www.seoulauction.com"
+  	   		location.href="/"
   	   	}
   	   	//종료된 경매이고 로그인했지만 직원이 아닌경우 메인페이지 이동(2018.06.12)
   	  	if($scope.lot.NEXT_LOT_NO == null && $scope.sale_status == "END" && $scope.is_login == "true" && $scope.custInfo.EMP_GB != "Y"){
-  	   		location.href="https://www.seoulauction.com"
+  	   		location.href="/"
   	   	}
   	  	
  	    $scope.lot = data["tables"]["LOT"]["rows"][0];
@@ -109,7 +109,7 @@ app.controller('lotDetailCtl', function($scope, consts, common, bid, $interval, 
 	 		$scope.sale_cert = data["tables"]["CERT"]["rows"][0];
  			//bid.saleCertCheck({'parent':$scope, 'sale':$scope.sale}); LOT Detail에서는 체크하지 않음
  		}
- 		
+
  		//var key = $scope.sale.SALE_NO + "" + $scope.lot.LOT_NO;
  		console.log("=======>>>>> end");
  	};
@@ -254,7 +254,7 @@ var m_sImagePath ="";
 </script>
 
 
-<script type="text/javascript" src="/js/bid.js"></script>
+<script type="text/javascript" src="/js/bid.js?ver=20220317.1"></script>
 <script type="text/javascript">
 <!--
 function shareSns(snsType) {
@@ -1134,7 +1134,7 @@ Shipping : </br>
 									<button ng-if="custInfo.CUST_NO" ng-click="showBidHistoryPopup({'parent':this, 'sale':sale, 'lot':lot});" >
 										<spring:message code="label.go.bid.history" />
 									</button><!--온라인응찰기록 -->
-                                    <button ng-if="!custInfo.CUST_NO" type="button" onClick="location.href='https://www.seoulauction.com/login'" >
+                                    <button ng-if="!custInfo.CUST_NO" type="button" onClick="location.href='/login'" >
 										<spring:message code="label.go.bid.loginlog" />
 									</button>
 								</span> <!-- 온라인 / 종료 -->
@@ -1161,7 +1161,7 @@ Shipping : </br>
 								   
 								<span ng-show='lot.STAT_CD != "reentry"' class="btn_style01 xlarge2 green02"      
 									ng-if="!custInfo.CUST_NO">
-									<button ng-if="!custInfo.CUST_NO" type="button" onClick="location.href='https://www.seoulauction.com/login'" >
+									<button ng-if="!custInfo.CUST_NO" type="button" onClick="location.href='/login'" >
 										<spring:message code="label.go.bid.loginlog" /> 
 									</button>
 								</span> <!-- 정회원 국내 -->
@@ -1193,24 +1193,24 @@ Shipping : </br>
 									</span>
 								</a>
 								<span ng-show='lot.STAT_CD != "reentry"' class="btn_style01 xlarge2 green02 btn_bid" ng-if="lot_no==87 && lot.SALE_NO == 467">
-									<button type="button" onClick="location.href='https://www.seoulauction.com/nas_img/front/online0467/Lot87_detail.pdf'" >
+									<button type="button" onClick="location.href='/nas_img/front/online0467/Lot87_detail.pdf'" >
 										<span>세부작품보기</span>
 									</button>
 								</span> <!-- 정회원 국내 -->
 								<span ng-show='lot.STAT_CD != "reentry"' class="btn_style01 xlarge2 green02 btn_bid" ng-if="lot_no==88 && lot.SALE_NO == 467">
-									<button type="button" onClick="location.href='https://www.seoulauction.com/nas_img/front/online0467/Lot88_detail.pdf'" >
+									<button type="button" onClick="location.href='/nas_img/front/online0467/Lot88_detail.pdf'" >
 										<span>세부작품보기</span>
 									</button>
 								</span> <!-- 정회원 국내 -->
 								<span ng-show='lot.STAT_CD != "reentry"' class="btn_style01 xlarge2 green02 btn_bid" ng-if="lot_no==89 && lot.SALE_NO == 467">
-									<button type="button" onClick="location.href='https://www.seoulauction.com/nas_img/front/online0467/Lot89_detail.pdf'" >
+									<button type="button" onClick="location.href='/nas_img/front/online0467/Lot89_detail.pdf'" >
 										<span>세부작품보기</span>
 									</button>
 								</span> <!-- 정회원 국내 -->
-									
+
                                 
                                 <!-- VR -->
-                                <a href="https://www.seoulauction.com/service/page?view=auction360VRPop_online1" target="_blank">
+                                <a href="/service/page?view=auction360VRPop_online1" target="_blank">
 									<span class="btn_style01 xlarge2 white" ng-if="locale == 'ko' && lot.SALE_NO == 459">
 										<button type="button">
 											전시장보기
@@ -1223,7 +1223,7 @@ Shipping : </br>
 									</span>
 								</a>							
 								<!-- VR -->
-                                <a href="https://www.seoulauction.com/service/page?view=auction360VRPop" target="_blank">
+                                <a href="/service/page?view=auction360VRPop" target="_blank">
 									<span class="btn_style01 xlarge2 white" ng-if="locale == 'ko' && lot.SALE_NO == 442">
 										<button type="button">
 											전시장보기

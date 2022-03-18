@@ -324,11 +324,16 @@ app.service("joinService", function ($rootScope,$sce, common, ngDialog, locale, 
 					chkList = "ID, ";
 					chk = false;
 				}
-				if(!$scope.joinForm.passwd.$valid || !$scope.joinForm.checkPasswd.$valid){
-					if(locale == 'ko') chkList = chkList+ '비밀번호, ';
-					if(locale != 'ko') chkList = chkList+ 'Password, ';
-					chk = false;
+
+				const isSSG = /.*_SSG_\d+$/ig.test($scope.form_data.login_id);
+				if (!isSSG) {
+					if(!$scope.joinForm.passwd.$valid || !$scope.joinForm.checkPasswd.$valid){
+						if(locale == 'ko') chkList = chkList+ '비밀번호, ';
+						if(locale != 'ko') chkList = chkList+ 'Password, ';
+						chk = false;
+					}
 				}
+
 				if(!$scope.joinForm.cust_name.$valid){
 					if(locale == 'ko') chkList = chkList+ '이름, ';
 					if(locale != 'ko') chkList = chkList+ 'Name, ';

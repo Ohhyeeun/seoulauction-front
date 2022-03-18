@@ -30,6 +30,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller("loginController")
 public class LoginController {
@@ -38,6 +39,37 @@ public class LoginController {
 
 	@Autowired
 	SSGAuthenticationProvider ssgAuthenticationProvider;
+
+	/**
+	 * 클라이언트의 IP 주소는 HttpServletRequest.getRemoteAddr() 메서드를 이용하여 알아낼 수 있다.
+	 * 그러나 Proxy, Caching server, Load Balancer 등을 거쳐올 경우 getRemoteAddr()를 이용하여 IP 주소를 가지고 오지 못하게 된다.
+	 * 이걸 위한 별도의 처리가 필요
+	 */
+	private String getIp(HttpServletRequest request) {
+		String ip = request.getHeader("X-Forwarded-For");
+
+		if (ip == null) {
+			ip = request.getHeader("Proxy-Client-IP");
+		}
+
+		if (ip == null) {
+			ip = request.getHeader("WL-Proxy-Client-IP"); // 웹로직
+		}
+
+		if (ip == null) {
+			ip = request.getHeader("HTTP_CLIENT_IP");
+		}
+
+		if (ip == null) {
+			ip = request.getHeader("HTTP_X_FORWARDED_FOR");
+		}
+
+		if (ip == null) {
+			ip = request.getRemoteAddr();
+		}
+
+		return ip;
+	}
 
 	@RequestMapping(value = {"/login"}, method = RequestMethod.GET)
 	public String login(ModelMap model, HttpServletRequest request,
@@ -83,14 +115,15 @@ public class LoginController {
 	}
 
 	@RequestMapping(value = {"/api/login"})
-	public String ssg_login(HttpServletRequest request, @RequestParam(value = "custId") String custId, @RequestParam(value = "userNm") String userNm, @RequestParam(value = "agreeYn") String agreeYn, @RequestParam(value="callbackUrl", required = false) String callbackUrl) {
+	public String ssg_login(HttpServletRequest request, @RequestParam(value = "custId") String custId, @RequestParam(value = "userNm") String userNm, @RequestParam(value = "agreeYn") String agreeYn
+			, @RequestParam(value="callbackUrl", required = false) String callbackUrl, @RequestParam(value="cate1", required = false) String cate1, RedirectAttributes redirect) {
 		logger.info("/api/login");
 
 		SAUserDetails parameterUserDetail = SAUserDetails.builder()
 				.loginId(custId)
 				.userNm(userNm)
 				.agreeYn(agreeYn)
-				.ip(request.getRemoteAddr())
+				.ip(getIp(request))
 				.build();
 
 		SecurityContext sc = SecurityContextHolder.getContext();
@@ -101,23 +134,12 @@ public class LoginController {
 		HttpSession session = request.getSession(true);
 		session.setAttribute(HttpSessionSecurityContextRepository.SPRING_SECURITY_CONTEXT_KEY, sc);
 
-		try {
-			session.setAttribute("custId", custId);
-			custId = AuctionUtil.aesDecryptSSG(custId);
-			session.setAttribute("custId", custId);
-
-			session.setAttribute("agreeYn", agreeYn);
-
-			session.setAttribute("userNm", userNm);
-			userNm = AuctionUtil.aesDecryptSSG(userNm);
-			session.setAttribute("userNm", userNm);
-		} catch (Exception e) {
-			logger.error(e.getMessage());
-		}
+		redirect.addAttribute("cate1", cate1);
 
 		if(callbackUrl == null) {
 			return "redirect:/";
 		}
+
 		logger.info("/api/login {}", callbackUrl);
 		return "redirect:"+callbackUrl;
 	}

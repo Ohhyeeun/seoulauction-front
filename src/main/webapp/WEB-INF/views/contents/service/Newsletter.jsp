@@ -77,7 +77,7 @@ app.value('locale', 'ko');
 					<div class="newsletter_contentsbox" >
 						<div class="newsletter_gridwrap" style="cursor:pointer;" ng-repeat="newletterList in newletterList" ng-if="newletterList.NEWLETTER_TITLE_KO"> 
 							<div class="newsletter_gridbox" ng-if=" date == newletterList.NEWSLETTER_DATE">
-								<a href="https://www.seoulauction.com/nas_img/front/homepage/newsletter/{{newletterList.NEWSLETTER_DATE}}/{{newletterList.NEWSLETTER_DATE}}.html">
+								<a href="/nas_img/front/homepage/newsletter/{{newletterList.NEWSLETTER_DATE}}/{{newletterList.NEWSLETTER_DATE}}.html">
 									<div class="newsletter_gridbox_imgbox"> 
 										<div class="newsletter_gridbox_img"> 
 											<img src="https://www.seoulauction.com/nas_img/{{newletterList.FILE_PATH}}/{{newletterList.FILE_NAME}}" alt="뉴스레터 이미지사진"/>
@@ -101,7 +101,7 @@ app.value('locale', 'ko');
 							</div>
 							
 							<div class="newsletter_gridbox" ng-if=" date != newletterList.NEWSLETTER_DATE">
-								<a href="https://www.seoulauction.com/nas_img/front/homepage/newsletter/{{newletterList.NEWSLETTER_DATE}}/KOR/{{newletterList.NEWSLETTER_DATE}}_KOR.html">
+								<a href="/nas_img/front/homepage/newsletter/{{newletterList.NEWSLETTER_DATE}}/KOR/{{newletterList.NEWSLETTER_DATE}}_KOR.html">
 									<div class="newsletter_gridbox_imgbox"> 
 										<div class="newsletter_gridbox_img"> 
 											<img src="https://www.seoulauction.com/nas_img/{{newletterList.FILE_PATH}}/{{newletterList.FILE_NAME}}" alt="뉴스레터 이미지사진"/>

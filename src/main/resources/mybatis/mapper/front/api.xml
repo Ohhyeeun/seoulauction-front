@@ -12,8 +12,8 @@
             ,count(b.BID_NO) as lotBidCount -- 응찰건수
             ,column_get(l.EXPE_PRICE_FROM_BLOB, 'KRW' as char) as estimatePrice_from
             ,column_get(l.EXPE_PRICE_TO_BLOB, 'KRW' as char) as estimatePrice_to
-        from lot l
-            left join bid b on (l.sale_no = b.sale_no and l.lot_no = b.lot_no)
+        from LOT l
+            left join BID b on (l.sale_no = b.sale_no and l.lot_no = b.lot_no)
         where l.sale_no = #{saleNumber}
             and l.LOT_NO in (
             <foreach collection="lotNumbers" item="lotNum" index="index" separator=",">

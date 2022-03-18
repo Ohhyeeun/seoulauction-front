@@ -85,7 +85,7 @@ app.controller("recuitListCtl", function($scope, consts, common, locale) {
                         	</p>
                         	<br>
                         	<br>
-                        	<img ng-if="recuitDetail.recruitment_img_file_path" src="https://www.seoulauction.com/nas_img/{{recuitDetail.recruitment_img_file_path}}/{{recuitDetail.recruitment_img_file_name}}" alt="서울옥션 채용공고 이미지" title="서울옥션 채용공고 이미지" style="max-width: 100%; max-height: 100%;"> 
+                        	<img ng-if="recuitDetail.recruitment_img_file_path" src="https://www.seoulauction.com/nas_img/{{recuitDetail.recruitment_img_file_path}}/{{recuitDetail.recruitment_img_file_name}}" alt="서울옥션 채용공고 이미지" title="서울옥션 채용공고 이미지" style="max-width: 100%; max-height: 100%;">
 						</div> 
 					</div> 
 				</div>

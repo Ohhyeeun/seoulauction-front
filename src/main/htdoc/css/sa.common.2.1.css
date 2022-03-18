@@ -2917,7 +2917,7 @@ figure.effect-julia:hover p {
 	overflow: hidden;
 	display: inline-block; 
 }
-.standard:before {  
+.list-category-b>a:before {    
 	content: "|"; 
 	padding: 0 5px;
 	vertical-align: middle;   
@@ -3532,6 +3532,16 @@ input[type="checkbox"].auctionagree_checkinput:checked+label:before {
 span.inteArtistName {
 	vertical-align: middle; 
 }
+/* 담보대출 페이지 */ 
+.loan-info{
+	line-height: 1.5; 
+}
+.loan-info + .loan-info { 
+	margin-top: 15px;  
+}   
+.loan-info:nth-of-type(3) {
+	margin-bottom: 40px;    
+} 
 
 @media all and (max-width:1500px){
 .master_detail .left {

@@ -975,7 +975,7 @@
 							  		</button> 
 							  	</span>
 							  	<span ng-if="!custInfo.CUST_NO">
-									<button type="button" onClick="location.href='https://www.seoulauction.com/login'"> 
+									<button type="button" onClick="location.href='/login'">
 										<spring:message code="label.go.bid.loginlog" /> 
 									</button>	
 							  	</span>

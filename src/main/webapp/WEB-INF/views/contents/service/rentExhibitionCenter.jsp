@@ -48,7 +48,7 @@
 						<!-- 20150519 -->
 						<div class="btns mt10">
 							<span class="btn_style01"><a href="/about/page?view=location" target="_blank" title="새창">서울옥션 위치안내</a></span>&nbsp;&nbsp;
-                            <span class="btn_style01"><a href="https://www.seoulauction.com/service/page?view=auction360VRPop_ex01" target="new" title="VR">서울옥션 강남센터 전시장 VR보기</a></span>&nbsp;&nbsp;
+                            <span class="btn_style01"><a href="/service/page?view=auction360VRPop_ex01" target="new" title="VR">서울옥션 강남센터 전시장 VR보기</a></span>&nbsp;&nbsp;
                             <span class="btn_style01"><a href="/nas_img/front/homepage/ganam_brochure.pdf" target="_blank" title="강남센터 대관 브로셔">강남센터 대관 브로셔</a></span>
 						</div>
 						<!-- //20150519 -->

@@ -11,7 +11,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ng-dialog/0.5.6/js/ngDialog.min.js"></script>
 <script src="/js/angular/checklist-model.js"></script>
-<script type="text/javascript" src="/js/join.js"></script>
+<script type="text/javascript" src="/js/join.js?ver=20220317"></script>
 <script type="text/javascript">
 
 app.requires.push.apply(app.requires, ["checklist-model", "ngDialog"]);
@@ -22,7 +22,6 @@ app.controller("joinCtl", function($scope, consts, common, join, joinService, ng
 	joinService.setScope($scope);
 
 	$scope.init = function(){
-		
  		$d = {"baseParms":{},
  				"actionList":[
 				{"actionID":"code_list", "actionType":"select" , "tableName": "CODES", "parmsList":[{"grp_ids":["push_way", "interest_area" , "nation"]}]},
@@ -94,7 +93,8 @@ app.controller("joinCtl", function($scope, consts, common, join, joinService, ng
 	 		$scope.checkHp.check = "ok";
 	 		$scope.checkHpAuth.check = "ok";
 	 		$scope.checkHpAuth.valid = true;
-	 		
+			// 신세계 ID 여부
+			$scope.isSSG = /(_SSG_\d+)$/i.test(custInfo.login_id);
  		}, null);
 	}
 	

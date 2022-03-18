@@ -192,7 +192,7 @@
 	                                            	<div class="es_price">   
 	                                            		<p class="krw Price_inqury" ng-if="lot.EXPE_PRICE_INQ_YN == 'Y'"><spring:message code="label.auction.detail.Request" /></p>
 	                                            		<!-- <p class="krw Price_inqury" ng-if="lot.LOT_NO == 281">{{lot.EXPE_PRICE_TO_JSON[base_currency]}}<br>{{lot.EXPE_PRICE_FROM_JSON[base_currency]}}</p> -->
-                                                        <ul ng-if="lot.EXPE_PRICE_INQ_YN != 'Y' && (((lot.EXPE_PRICE_TO_JSON[base_currency]) != 0 && (lot.EXPE_PRICE_TO_JSON[base_currency]) != null) || ((lot.EXPE_PRICE_FROM_JSON[base_currency]) != 0 && (lot.EXPE_PRICE_FROM_JSON[base_currency]) != null))">
+                                                        <ul ng-if="lot.EXPE_PRICE_INQ_YN != 'Y' && (((lot.EXPE_PRICE_TO_JSON[base_currency]) != 0 && (lot.EXPE_PRICE_TO_JSON[base_currency]) != null) && ((lot.EXPE_PRICE_FROM_JSON[base_currency]) != 0 && (lot.EXPE_PRICE_FROM_JSON[base_currency]) != null))">
                                                             <li class="es_price_left"><spring:message code="label.expense.price" />
                                                             </li> 
                                                             <li class="es_price_right" style="font-size: 12px; line-height: 20px;"> 
@@ -207,7 +207,7 @@
 	                                                                	<span class="Price_block">
 	                                                                		~ {{lot.EXPE_PRICE_TO_JSON[base_currency] | number : 0}}	
 	                                                                	</span>
-                                                                	</p>  
+                                                                	</p>
                                                                  	<p class="Price_block" ng-if="(locale=='en' && ['online','online_zb'].indexOf(sale.SALE_KIND_CD) > -1) && lot.EXPE_PRICE_INQ_YN != 'Y' && lot.EXPE_PRICE_FROM_JSON.USD != 0 && lot.EXPE_PRICE_FROM_JSON.USD != null" >
                                                                   		<span class="Price_block">
                                                                   			{{lot.EXPE_PRICE_FROM_JSON.USD | currency : "USD " : 0}}
@@ -223,7 +223,7 @@
                                                                 </div>    
                                                                  
                                                                 <!-- 오프라인인 경우 --> 
-                                                                <div ng-if="lot.EXPE_PRICE_INQ_YN != 'Y' && (['online','online_zb'].indexOf(sale.SALE_KIND_CD) < 0) && ((lot.EXPE_PRICE_TO_JSON[base_currency]) != 0 || (lot.EXPE_PRICE_FROM_JSON[base_currency]) != 0 || (lot.EXPE_PRICE_TO_JSON[base_currency]) != null || (lot.EXPE_PRICE_FROM_JSON[base_currency]) != null)" >
+                                                                <div ng-if="lot.EXPE_PRICE_INQ_YN != 'Y' && (['online','online_zb'].indexOf(sale.SALE_KIND_CD) < 0) && ((lot.EXPE_PRICE_TO_JSON[base_currency]) != 0 && (lot.EXPE_PRICE_FROM_JSON[base_currency]) != 0 && (lot.EXPE_PRICE_TO_JSON[base_currency]) != null && (lot.EXPE_PRICE_FROM_JSON[base_currency]) != null)" >
                                                                 	<p>
                                                                 		<span class="Price_block">{{lot.EXPE_PRICE_FROM_JSON[base_currency] | currency : base_currency + ' ' : 0}}</span> 
                                                                   	<span class="Price_block">~ {{lot.EXPE_PRICE_TO_JSON[base_currency] | number : 0}}</span>
@@ -232,12 +232,12 @@
                                                                         </br>{{lot.EXPE_PRICE_FROM_JSON.USD | currency : "USD " : 0}}<br/>
                                                                          ~{{lot.EXPE_PRICE_TO_JSON.USD | number : 0}}
                                                                     </span> --%>
-                                                                    <p ng-if="['online','online_zb'].indexOf(sale.SALE_KIND_CD) < 0 && lot.EXPE_PRICE_INQ_YN != 'Y' && (lot.EXPE_PRICE_FROM_JSON.USD != 0 || lot.EXPE_PRICE_FROM_JSON.USD != null)" >
-                                                                        <span class="Price_block">{{lot.EXPE_PRICE_FROM_JSON.USD | currency : "USD " : 0}}</span>
+                                                                    <p ng-if="['online','online_zb'].indexOf(sale.SALE_KIND_CD) < 0 && lot.EXPE_PRICE_INQ_YN != 'Y' && (lot.EXPE_PRICE_FROM_JSON.USD != 0 && lot.EXPE_PRICE_FROM_JSON.USD != null)" >
+																		<span class="Price_block">{{lot.EXPE_PRICE_FROM_JSON.USD | currency : "USD " : 0}}</span>
                                                                         <span class="Price_block">~{{lot.EXPE_PRICE_TO_JSON.USD | number : 0}}</span>   
-                                                                    </p> 
-                                                                    <p ng-if="(locale!='en' && ['online','online_zb','main','plan'].indexOf(sale.SALE_KIND_CD) < 0) && lot.EXPE_PRICE_INQ_YN != 'Y' && (lot.EXPE_PRICE_FROM_JSON.USD != 0 || lot.EXPE_PRICE_FROM_JSON.USD != null || lot.EXPE_PRICE_FROM_JSON != 0 || lot.EXPE_PRICE_FROM_JSON != null)" >
-                                                                        <span class="Price_block">{{lot.EXPE_PRICE_FROM_JSON[sub_currency] | currency : sub_currency + ' ' : 0}}</span>
+                                                                    </p>
+                                                                    <p ng-if="(locale!='en' && ['online','online_zb','main','plan'].indexOf(sale.SALE_KIND_CD) < 0) && lot.EXPE_PRICE_INQ_YN != 'Y' && (lot.EXPE_PRICE_FROM_JSON.USD != 0 && lot.EXPE_PRICE_FROM_JSON.USD != null && lot.EXPE_PRICE_FROM_JSON != 0 && lot.EXPE_PRICE_FROM_JSON != null)" >
+																		<span class="Price_block">{{lot.EXPE_PRICE_FROM_JSON[sub_currency] | currency : sub_currency + ' ' : 0}}</span>
                                                                         <span class="Price_block">~ {{lot.EXPE_PRICE_TO_JSON[sub_currency] | number : 0}}</span> 
                                                                     </p>    
                                                                  </div>   

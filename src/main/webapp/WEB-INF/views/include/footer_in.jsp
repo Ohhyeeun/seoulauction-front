@@ -64,7 +64,7 @@ app.controller('footerCtl', function($scope, consts, common ) {
                               <li style="border-bottom: 1px solid #333; height: 10px; max-width: 100px;"><li>   
                               <li style="padding-top: 10px;"><a href="/currentAuction?sale_kind=zerobase_only"><span ng-if="locale=='ko'">제로베이스 경매</span><span ng-if="locale!='ko'">Zero base</span></a> 
                               </li>
-                              <li><a href="https://www.seoulauction.com/zerobaseArtist"><span ng-if="locale=='ko'">제로베이스 작가</span><span ng-if="locale!='ko'">Zero base Artist</span></a></li>  
+                              <li><a href="/zerobaseArtist"><span ng-if="locale=='ko'">제로베이스 작가</span><span ng-if="locale!='ko'">Zero base Artist</span></a></li>
                           
                       </ul>
                   </div>
@@ -127,7 +127,7 @@ app.controller('footerCtl', function($scope, consts, common ) {
                               <li><a href="/about/page?view=history"><spring:message code="label.seoulauction.history" /></a></li>
                               <!-- <li><a href="/about/page?view=investRealtime"><spring:message code="label.seoulauction.invest" /></a></li> --> 
                               <!--<li><a href="/about/page?view=snsChannels"><spring:message code="label.seoulauction.sns" /></a></li>-->
-                              <li><a href="https://www.seoulauction.com/noticeList"><spring:message code="label.notice" /></a></li>
+                              <li><a href="/noticeList"><spring:message code="label.notice" /></a></li>
 							  <c:if test="${is_korean}"> 
 	                              	<li><a href="/about/page?view=recruitList"><spring:message code="label.recruit" /></a></li>   
                               </c:if>
@@ -149,8 +149,8 @@ app.controller('footerCtl', function($scope, consts, common ) {
                       <ul>   
                       		<c:if test="${!is_login}">                
                                 <p><spring:message code="label.login" />/<spring:message code="label.agree" /></p> 
-                                <li><a href="https://www.seoulauction.com/login"><spring:message code="label.login" /></a></li>	
-                                <li><a href="https://www.seoulauction.com/login"><spring:message code="label.agree" /></a></li>
+                                <li><a href="/login"><spring:message code="label.login" /></a></li>
+                                <li><a href="/login"><spring:message code="label.agree" /></a></li>
                             </c:if>
                              <c:if test="${is_login}">
                           		<p>Log out</p> 
