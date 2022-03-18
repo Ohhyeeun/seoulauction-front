@@ -35,9 +35,9 @@
     <link rel="icon" type="image/png" href="/images/icon/favic/favicon-16x16.png" sizes="16x16"/> 
     <meta name="application-name" content="SeoulAuction" />
  
-    <link href="<c:url value="/css/old/common.css?ver=20220207" />" rel="stylesheet">     
-    <link href="<c:url value="/css/sa.common.2.0.css?ver=20210901" />" rel="stylesheet">   
-    <link href="<c:url value="/css/sa.common.2.1.css?ver=20220224" />" rel="stylesheet">            
+    <link href="<c:url value="/css/old/common.css?ver=20220318" />" rel="stylesheet">     
+    <link href="<c:url value="/css/sa.common.2.0.css?ver=20210901" />" rel="stylesheet">    
+    <link href="<c:url value="/css/sa.common.2.1.css?ver=20220318" />" rel="stylesheet">            
     <link type="text/css" href="/css/imgzoom/magnific-popup.css" rel="stylesheet"> 
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"><!-- 아트컨실팅 및 후원 기증 페이지 웹아이콘 -->
     
