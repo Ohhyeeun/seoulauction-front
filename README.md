@@ -13,7 +13,8 @@ git clone https://github.com/seoulauction/seoulauction-front.git
 
 ### 전체 브랜치
 - master
-- develop
+- develop ( 현재 사용 x 2022-03-19 )
+- dev ( 2022-03-19 )
 - feature/...
 - hotfix/...
 
