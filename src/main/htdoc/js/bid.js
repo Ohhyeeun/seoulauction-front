@@ -315,19 +315,18 @@ app.controller('bidListCtl', function($scope, consts, common, $interval, input, 
 		}
 		
 		var src = data["tables"]["LIST"]["rows"];
-		
-		if(src.length > 0){
-			// ID Replace for _ssg_
-			if (src && src.length > 0) {
-				const index = src.findIndex((item) => item.SELF_YN === 'Y');
-				if (index > -1) {
+
+		// ID Replace
+		if (src.length > 0) {
+			src.forEach((_, index) => {
+				const item = src[index];
+				if (item.SELF_YN === 'Y') {
 					const custId = src[index].CUST_ID;
 					src[index].CUST_ID = custId.replace(/(.*)(_SSG_\d+)$/ig, '$1');
 				}
-			}
+			});
 
 			$scope.bidList = src;
-			//$scope.bidList = src.concat($scope.bidList);
 		}
 		
 		//angular.extend($scope.bidList, data["tables"]["LIST"]["rows"]);
