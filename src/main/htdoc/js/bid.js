@@ -43,8 +43,6 @@ app.factory("bid", function ($interval, ngDialog) {
 
 		showBidPopup: function($input) {
 
-			console.log('asdfasf234234asdf');
-
 			if(!$input.parent.is_login){
 				document.location.href='/login';
 				return;
