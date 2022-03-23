@@ -166,7 +166,7 @@
 								<div class="wrap_check">
 									<div>
 										<input type="radio" ng-model="form_data.sex_cd"  
-											ng-style="getValidInput(joinForm.sex_cd.$valid)" name="sex_cd" value="male" tabindex="11" ng-required="isPerson()"/> <!--  ng-init="form_data.sex_cd='male'"  -->
+											ng-style="getValidInput(joinForm.sex_cd.$valid)" name="sex_cd" value="male" tabindex="11" ng-init="form_data.sex_cd='male'" ng-required="isPerson()"/> <!--    -->
 										<label for="sex_cd_male"><spring:message code="label.mem.male" /></label>
 									</div>
 									<div>
