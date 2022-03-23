@@ -115,8 +115,9 @@ public class LoginController {
 	}
 
 	@RequestMapping(value = {"/api/login"})
-	public String ssg_login(HttpServletRequest request, @RequestParam(value = "custId") String custId, @RequestParam(value = "userNm") String userNm, @RequestParam(value = "agreeYn") String agreeYn
-			, @RequestParam(value="callbackUrl", required = false) String callbackUrl, @RequestParam(value="cate1", required = false) String cate1, RedirectAttributes redirect) {
+	public String ssg_login(HttpServletRequest request, @RequestParam(value = "custId") String custId, @RequestParam(value = "userNm") String userNm
+			, @RequestParam(value = "agreeYn", required = false, defaultValue = "N") String agreeYn, @RequestParam(value="callbackUrl", required = false) String callbackUrl
+			, @RequestParam(value="cate1", required = false) String cate1, RedirectAttributes redirect) {
 		logger.info("/api/login");
 
 		SAUserDetails parameterUserDetail = SAUserDetails.builder()
