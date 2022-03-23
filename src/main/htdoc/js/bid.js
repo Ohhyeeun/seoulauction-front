@@ -1109,9 +1109,6 @@ app.controller('saleCertCtl', function($scope, consts, common, $interval, input,
 			function(data, status) {
 				try {
 
-					console.log(JSON.stringify(data));
-					console.log(data.AUTH_EXISTS);
-
 					if(data.AUTH_EXISTS){
 						alert('해당경매에 이미 인증 된 폰 번호가 존재합니다.');
 						return;
