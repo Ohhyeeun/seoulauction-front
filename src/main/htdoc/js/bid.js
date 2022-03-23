@@ -1103,8 +1103,10 @@ app.controller('saleCertCtl', function($scope, consts, common, $interval, input,
     	$scope.checkHpAuth.message = "";
 		$scope.form_data.hp = $scope.form_data.hp1 + "-" + $scope.form_data.hp2 + "-" + $scope.form_data.hp3;
 
-		$d = {"to_phone":$scope.form_data.hp , "bid_auth" : true };
-		
+
+
+		$d = {"to_phone":$scope.form_data.hp , "bid_auth" : true , "sale_no" : $scope.sale.SALE_NO };
+
 		common.callAPI('/join/send_auth_num', $d,
 			function(data, status) {
 				try {

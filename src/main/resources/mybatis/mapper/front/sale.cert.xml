@@ -31,6 +31,7 @@
 		WHERE
 		    DEL_YN = 'N'
 		  	and HP = #{hp}
+		  	and SALE_NO = #{sale_no}
 		LIMIT
 			1
 	</select>

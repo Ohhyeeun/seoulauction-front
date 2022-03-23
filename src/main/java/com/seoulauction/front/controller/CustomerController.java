@@ -209,8 +209,9 @@ public class CustomerController {
     public Map<String, Object> sendAuthNumber(@RequestBody Map<String, Object> paramMap, HttpServletRequest request, HttpServletResponse response){
 
 
-		Map<String, Object> custHpParamMap = new HashMap<String, Object>();
+		Map<String, Object> custHpParamMap = new HashMap<>();
 		custHpParamMap.put("hp",paramMap.get("to_phone"));
+		custHpParamMap.put("sale_no", paramMap.get("sale_no"));
 		Map<String, Object> existMap = commonService.getData("selSaleCertByCustHp",custHpParamMap);
 		Boolean bid = paramMap.get("bid_auth") != null && (Boolean) paramMap.get("bid_auth"); // 경매용 폰번호 인증시
 		Map<String, Object> resultMap = new HashMap<>();
