@@ -42,6 +42,7 @@ app.factory("bid", function ($interval, ngDialog) {
 		},
 
 		showBidPopup: function($input) {
+
 			if(!$input.parent.is_login){
 				document.location.href='/login';
 				return;
@@ -1045,7 +1046,7 @@ app.controller('saleCertCtl', function($scope, consts, common, $interval, input,
 	$scope.parent = input.parent;
 	$scope.sale_cert = $scope.parent.sale_cert;
 	$scope.callBack = input.callBack;
-	
+
 	$scope.close = function(){
 		if($scope.parent.refreshLots) $scope.parent.refreshLots();
 		if($scope.parent.runLotsRefresh) $scope.parent.runLotsRefresh();
@@ -1075,11 +1076,7 @@ app.controller('saleCertCtl', function($scope, consts, common, $interval, input,
 	$scope.checkHpAuth = {"valid" : false, "message":"", "check": ""};
 
 	$scope.authNumRequest = function() {
-		
 //		$scope.chkAgree = $("input:checkbox[id='chkAgree']").is(":checked") == true;
-		
-//		console.log($scope.chkAgree);
-		
 		var checkboxLen = $("input:checkbox[name=agreeCert_checkbox]").length; //체크박스 전체 개수
 		var checkedLen = $("input:checkbox[name=agreeCert_checkbox]:checked").length; //체크된 개수
 		
@@ -1106,13 +1103,19 @@ app.controller('saleCertCtl', function($scope, consts, common, $interval, input,
     	$scope.checkHpAuth.message = "";
 		$scope.form_data.hp = $scope.form_data.hp1 + "-" + $scope.form_data.hp2 + "-" + $scope.form_data.hp3;
 
-		$d = {"to_phone":$scope.form_data.hp};
-		
-		
 
-		common.callAPI('/join/send_auth_num', $d, 
+
+		$d = {"to_phone":$scope.form_data.hp , "bid_auth" : true , "sale_no" : $scope.sale.SALE_NO };
+
+		common.callAPI('/join/send_auth_num', $d,
 			function(data, status) {
 				try {
+
+					if(data.AUTH_EXISTS){
+						alert('해당경매에 이미 인증 된 폰 번호가 존재합니다.');
+						return;
+					}
+
 			    	$scope.form_data.can_auth = true;
 			    	
 			    	$scope.auth_num_send_status = data.SEND_STATUS;
