@@ -343,12 +343,11 @@ app.service("joinService", function ($rootScope,$sce, common, ngDialog, locale, 
 					chkList = chkList+ '사업자등록번호, ';
 					chk = false;
 				}
-				/* IOS앱 등록으로 인해 일시적으로 주석처리
-				 * if(!$scope.joinForm.born_dt.$valid && $scope.isPerson()){
+				 if(!$scope.joinForm.born_dt.$valid && $scope.isPerson()){
 					if(locale == 'ko') chkList = chkList+ '생년월일, ';
 					if(locale != 'ko') chkList = chkList+ 'Date of birth, ';
 					chk = false;
-				}*/
+				}
 				if(locale == 'ko' && (!$scope.joinForm.hp1.$valid || !$scope.joinForm.hp2.$valid || !$scope.joinForm.hp3.$valid || !$scope.checkHpAuth.valid)) {
 					chkList = chkList+ '휴대폰번호 및 중복확인, ';
 					chk = false;

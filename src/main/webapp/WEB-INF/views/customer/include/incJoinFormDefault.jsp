@@ -138,13 +138,13 @@
 						<tr ng-show="isPerson()">
 							<th scope="row">
 								<label for=""><spring:message code="label.mem.birth" /></label>
-<!-- 								<span class="ico_essen"><span class="hidden">필수입력</span></span> --> <!-- ios앱 등록으로 인해 일시적으로 필수값 해제 -->
+								<span class="ico_essen"><span class="hidden">필수입력</span></span>
 							</th>
 							<td>
 								<div class="fl_wrap">
 									<div class="input_birth">
 										<input type="text" name="born_dt" ng-model="form_data.born_dt" ng-pattern="/[12][0-9]{3}[01][0-9][0-3][0-9]/" style="ime-mode:disabled" onkeypress="return onlyNumber(event);"
-										ng-change="initValidBornCheck();" ng-style="getValidInput(joinForm.born_dt.$valid)" class="tac" maxlength="8" placeholder="yyyymmdd" tabindex="10"/> <!-- ng-required="isPerson()"   -->
+										ng-change="initValidBornCheck();" ng-style="getValidInput(joinForm.born_dt.$valid)" class="tac" maxlength="8" placeholder="yyyymmdd" tabindex="10" ng-required="isPerson()"/> <!--    -->
 										<%-- <p class="tbl_txt" ng-style="styleInvalid" ng-show="!joinForm.born_dt.$valid"> <!-- !joinForm.born_dt.$valid -->
 											<spring:message code="message.mem.born" />	<!-- 유효성 오류 -->
 										</p>				
@@ -160,18 +160,18 @@
 						<tr ng-show="isPerson()">
 							<th scope="row">
 								<label for=""><spring:message code="label.mem.gender" /></label>
-<!-- 								<span class="ico_essen"><span class="hidden">필수입력</span></span> --> <!-- ios앱 등록으로 인해 일시적으로 필수값 해제 -->
+ 								<span class="ico_essen"><span class="hidden">필수입력</span></span>
 							</th>
 							<td>
 								<div class="wrap_check">
 									<div>
 										<input type="radio" ng-model="form_data.sex_cd"  
-											ng-style="getValidInput(joinForm.sex_cd.$valid)" name="sex_cd" value="male" tabindex="11" /> <!-- ng-required="isPerson()" ng-init="form_data.sex_cd='male'"  -->
+											ng-style="getValidInput(joinForm.sex_cd.$valid)" name="sex_cd" value="male" tabindex="11" ng-required="isPerson()"/> <!--  ng-init="form_data.sex_cd='male'"  -->
 										<label for="sex_cd_male"><spring:message code="label.mem.male" /></label>
 									</div>
 									<div>
 										<input type="radio" ng-model="form_data.sex_cd" 
-											ng-style="getValidInput(joinForm.sex_cd.$valid)" name="sex_cd" value="female" tabindex="12"  /><!-- ng-required="isPerson()"  -->
+											ng-style="getValidInput(joinForm.sex_cd.$valid)" name="sex_cd" value="female" tabindex="12"  ng-required="isPerson()" /><!--  -->
 										<label for="sex_cd_female"><spring:message code="label.mem.female" /></label>
 									</div>
 								</div>
