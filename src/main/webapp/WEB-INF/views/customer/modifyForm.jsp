@@ -11,7 +11,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ng-dialog/0.5.6/js/ngDialog.min.js"></script>
 <script src="/js/angular/checklist-model.js"></script>
-<script type="text/javascript" src="/js/join.js?ver=20220317"></script>
+<script type="text/javascript" src="/js/join.js?ver=20220322"></script>
 <script type="text/javascript">
 
 app.requires.push.apply(app.requires, ["checklist-model", "ngDialog"]);
