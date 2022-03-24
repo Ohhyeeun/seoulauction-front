@@ -1,13 +1,6 @@
 app.factory("bid", function ($interval, ngDialog) {
-	var saleCert = function($input, $callBack) {
+	var saleCert = function($input, $callBack){
 		$input.parent.cancelLotRefresh();
-
-		// cookie.provider_type = ssg
-		// const isSSG = getCookie('provider_type');
-		// var controller = 'saleCertCtl';
-		// if (isSSG && isSSG === 'ssg') {
-		// 	controller = 'saleCertSSGCtl';
-		// }
 
 		$input.parent.modal = ngDialog.open({
 			template: '/saleCert?sale_no=' + $input.sale.SALE_NO,
@@ -42,7 +35,6 @@ app.factory("bid", function ($interval, ngDialog) {
 		},
 
 		showBidPopup: function($input) {
-
 			if(!$input.parent.is_login){
 				document.location.href='/login';
 				return;
@@ -303,8 +295,7 @@ app.controller('bidListCtl', function($scope, consts, common, $interval, input, 
 		$scope.cancelTimer();
 	   	$scope.is_processing = false;
 	}
-
-	// API 성공시 받아오는 Callback
+	
 	var $s = function(data, status) {
 		if(data["tables"]["AUTO"] && data["tables"]["AUTO"]["rows"].length > 0){
 			$scope.auto_req_price = data["tables"]["AUTO"]["rows"][0].BID_PRICE;
@@ -316,18 +307,10 @@ app.controller('bidListCtl', function($scope, consts, common, $interval, input, 
 		}
 		
 		var src = data["tables"]["LIST"]["rows"];
-
-		// ID Replace
-		if (src.length > 0) {
-			src.forEach((_, index) => {
-				const item = src[index];
-				if (item.SELF_YN === 'Y') {
-					const custId = src[index].CUST_ID;
-					src[index].CUST_ID = custId.replace(/(.*)(_SSG_\d+)$/ig, '$1');
-				}
-			});
-
+		
+		if(src.length > 0){
 			$scope.bidList = src;
+			//$scope.bidList = src.concat($scope.bidList);
 		}
 		
 		//angular.extend($scope.bidList, data["tables"]["LIST"]["rows"]);
@@ -1046,7 +1029,7 @@ app.controller('saleCertCtl', function($scope, consts, common, $interval, input,
 	$scope.parent = input.parent;
 	$scope.sale_cert = $scope.parent.sale_cert;
 	$scope.callBack = input.callBack;
-
+	
 	$scope.close = function(){
 		if($scope.parent.refreshLots) $scope.parent.refreshLots();
 		if($scope.parent.runLotsRefresh) $scope.parent.runLotsRefresh();
@@ -1076,7 +1059,11 @@ app.controller('saleCertCtl', function($scope, consts, common, $interval, input,
 	$scope.checkHpAuth = {"valid" : false, "message":"", "check": ""};
 
 	$scope.authNumRequest = function() {
+		
 //		$scope.chkAgree = $("input:checkbox[id='chkAgree']").is(":checked") == true;
+		
+//		console.log($scope.chkAgree);
+		
 		var checkboxLen = $("input:checkbox[name=agreeCert_checkbox]").length; //체크박스 전체 개수
 		var checkedLen = $("input:checkbox[name=agreeCert_checkbox]:checked").length; //체크된 개수
 		
@@ -1103,26 +1090,13 @@ app.controller('saleCertCtl', function($scope, consts, common, $interval, input,
     	$scope.checkHpAuth.message = "";
 		$scope.form_data.hp = $scope.form_data.hp1 + "-" + $scope.form_data.hp2 + "-" + $scope.form_data.hp3;
 
+		$d = {"to_phone":$scope.form_data.hp};
+		
+		
 
-
-		$d = {"to_phone":$scope.form_data.hp , "bid_auth" : true , "sale_no" : $scope.sale.SALE_NO };
-
-		common.callAPI('/join/send_auth_num', $d,
+		common.callAPI('/join/send_auth_num', $d, 
 			function(data, status) {
 				try {
-
-					if(data.AUTH_EXISTS){
-						alert(
-							$scope.locale == 'ko'?
-							'이미 인증된 번호입니다.\n' +
-							'최초 인증받은 아이디로 재로그인 후 응찰 진행해주시기 바랍니다.'
-							:
-							"This number is already authorized.\n" +
-							"Please log-in again with the first authenticated ID and start bidding."
-						);
-						return;
-					}
-
 			    	$scope.form_data.can_auth = true;
 			    	
 			    	$scope.auth_num_send_status = data.SEND_STATUS;
@@ -1168,7 +1142,7 @@ app.controller('saleCertCtl', function($scope, consts, common, $interval, input,
 					$scope.parent.sale_cert.CNT = 1;
 
 					if(!is_same_hp){
-						if(confirm("인증받은 핸드폰번호로 갱신하시겠습니까?")){
+						if(confirm("고객정보의 핸드폰번호와 일치하지 않습니다.\n인증받은 핸드폰번호로 갱신하시겠습니까?")){
 					 		$d = {"actionList":[
 					 				{"actionID":"sale_cert_hp_mod", "actionType":"update" , "tableName": "CERT", "parmsList":[{"hp": $scope.form_data.hp, "sale_cert_no": data.tables.CERT.rows[0].sale_cert_no}]}
 					 			 ]};
@@ -1216,4 +1190,11 @@ app.controller('saleCertCtl', function($scope, consts, common, $interval, input,
     		});
     	}
     }
+	
 });
+
+
+
+
+
+
