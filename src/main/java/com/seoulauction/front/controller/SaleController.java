@@ -260,13 +260,7 @@ public class SaleController {
 		model.addAttribute("VIEW_ID", "SALE_CERT");
 
 		if (params.containsKey("sale_no")) model.addAttribute("SALE_NO", params.get("sale_no"));
-
-		// SSG
-		if (params.containsKey("ssg")) {
-			return "/sale/popup/saleCertSSG";
-		} else {
-			return "/sale/popup/saleCert";
-		}
+		return "/sale/popup/saleCert";
     }
 
     @RequestMapping(value="/soldInvoiceReport")

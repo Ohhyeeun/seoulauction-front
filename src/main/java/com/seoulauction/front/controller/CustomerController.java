@@ -18,6 +18,7 @@ import kr.co.nicevan.nicepay.adapter.web.NicePayHttpServletRequestWrapper;
 import kr.co.nicevan.nicepay.adapter.web.NicePayWEB;
 import kr.co.nicevan.nicepay.adapter.web.dto.WebMessageDTO;
 
+import org.apache.commons.collections.MapUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.slf4j.Logger;
@@ -206,20 +207,34 @@ public class CustomerController {
    	@RequestMapping(value="/join/send_auth_num", method=RequestMethod.POST, headers = {"content-type=application/json"})
     @ResponseBody
     public Map<String, Object> sendAuthNumber(@RequestBody Map<String, Object> paramMap, HttpServletRequest request, HttpServletResponse response){
-   		
-   		paramMap.put("from_phone", config.getMobileMsgCallback()); //02-395-0330
-   		//paramMap.put("msg", "서울옥션 인증번호는 [##rand_num##] 입니다.");
-   		paramMap.put("msg", config.getMobileMsgAuth());
-   		
-   		Map<String, Object> resultMap = commonService.getData("get_auth_number", paramMap);
-		
-		if(resultMap.containsKey("AUTH_NUM")){
-			BCryptPasswordEncoder encode = new BCryptPasswordEncoder();
-			request.getSession().setAttribute("AUTH_NUM", encode.encode(resultMap.get("AUTH_NUM").toString()));
+
+
+		Map<String, Object> custHpParamMap = new HashMap<>();
+		custHpParamMap.put("hp",paramMap.get("to_phone"));
+		custHpParamMap.put("sale_no", paramMap.get("sale_no"));
+		Map<String, Object> existMap = commonService.getData("selSaleCertByCustHp",custHpParamMap);
+		Boolean bid = paramMap.get("bid_auth") != null && (Boolean) paramMap.get("bid_auth"); // 경매용 폰번호 인증시
+		Map<String, Object> resultMap = new HashMap<>();
+
+		// 경매전용 인증이 아니고 현재 폰인증한 내역이 없으면 무시.
+		if(!bid || MapUtils.isEmpty(existMap)) {
+
+			paramMap.put("from_phone", config.getMobileMsgCallback()); //02-395-0330
+			//paramMap.put("msg", "서울옥션 인증번호는 [##rand_num##] 입니다.");
+			paramMap.put("msg", config.getMobileMsgAuth());
+
+			resultMap = commonService.getData("get_auth_number", paramMap);
+
+			if (resultMap.containsKey("AUTH_NUM")) {
+				BCryptPasswordEncoder encode = new BCryptPasswordEncoder();
+				request.getSession().setAttribute("AUTH_NUM", encode.encode(resultMap.get("AUTH_NUM").toString()));
+			}
+			resultMap.put("AUTH_NUM", "");
+			resultMap.put("SEND_STATUS", true);
+			resultMap.put("AUTH_EXISTS", false);
+		} else {  //둘다 해당할경우 폰인증을 막음.
+			resultMap.put("AUTH_EXISTS", true);
 		}
-		resultMap.put("AUTH_NUM", "");
-		resultMap.put("SEND_STATUS", true);
-		
 		return resultMap;
    	}
    	
