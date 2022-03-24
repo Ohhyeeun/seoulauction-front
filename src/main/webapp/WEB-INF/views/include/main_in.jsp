@@ -273,7 +273,38 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
         <div class="onerow"></div>             
         <h2 class="mainContents_tit">AUCTION</h2>   
         
-        <!-- 오프라인 경매 -->   
+        <!-- 제로베이스 -->      
+        <div class="col4">                        
+            <a href="https://www.seoulauction.com/currentAuction?sale_kind=zerobase_only&page=1"> 
+            	 <img src="/images/img/main/auction_sum/20220317.jpg" style="width:100%;"/>     
+			</a> 
+            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>  
+            <p class="mainContents_txt" ng-if="locale=='ko'">ZEROBASE</p>
+            <p class="mainContents_txt" ng-if="locale!='ko'">ZEROBASE</p>   
+            <div style="clear:both;"></div>    
+        </div> 
+        
+		<!-- 온라인 경매 -->  
+        <div class="col4">                                     
+ 			<!-- <a href="https://www.seoulauction.com/currentAuction?sale_kind=online_only&sale_no=695&page=1"> -->
+                 <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220324_ko.gif" style="width:100%;"/>      
+				 <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220324_en.gif" style="width:100%;"/> 
+ 			<!-- </a> -->
+            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>  
+            <p class="mainContents_txt" ng-if="locale=='ko'">4월 e BID 프리미엄 온라인 경매</p>                     
+            <p class="mainContents_txt" ng-if="locale!='ko'">e BID Premium Online Auction in April</p> 
+            <div style="clear:both;"></div> 
+        </div> 
+        
+        <!-- 커밍순 썸네일-->  
+        <div class="col4 last"> 
+			<img src="/images/img/main/auction_sum/20190613.jpg" style="width:100%;"/>     
+            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>  
+            <p class="mainContents_txt"></p>
+            <div style="clear:both;"></div>   
+        </div> 
+        
+        <!-- 오프라인 경매  
         <div class="col4">    
 			<a href="https://www.seoulauction.com/currentAuction?sale_kind=offline_only&sale_no=696&page=1"> 
                  <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220307.gif" style="width:100%;"/>           
@@ -283,39 +314,7 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
             <p class="mainContents_txt" ng-if="locale=='ko'">Contemporary Art Sale</p>                       
             <p class="mainContents_txt" ng-if="locale!='ko'">Contemporary Art Sale</p> 
             <div style="clear:both;"></div> 
-        </div> 
-        
-		<!-- 온라인 경매 -->
-        <div class="col4">                                     
- 			<a href="https://www.seoulauction.com/currentAuction?sale_kind=online_only&sale_no=695&page=1"> 
-                 <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220316_ko.gif" style="width:100%;"/>      
-				 <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220316_en.gif" style="width:100%;"/>  
- 			</a> 
-            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>  
-            <p class="mainContents_txt" ng-if="locale=='ko'">3월 e BID 퍼블릭 온라인 경매 Ⅱ</p>                     
-            <p class="mainContents_txt" ng-if="locale!='ko'">e BID Public Online Auction Ⅱ in March</p>   
-            <div style="clear:both;"></div> 
-        </div> 
-        
-        <!-- 제로베이스 -->      
-        <div class="col4 last">                       
-            <!-- <a href="https://www.seoulauction.com/currentAuction?sale_kind=zerobase_only&page=1"> -->
-            	 <img src="/images/img/main/auction_sum/20220317.jpg" style="width:100%;"/>     
-			<!-- </a> -->  
-            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>  
-            <p class="mainContents_txt" ng-if="locale=='ko'">ZEROBASE</p>
-            <p class="mainContents_txt" ng-if="locale!='ko'">ZEROBASE</p>  
-            <div style="clear:both;"></div>    
-        </div> 
-
-        
-        <!-- 커밍순 썸네일 
-        <div class="col4 last"> 
-			<img src="/images/img/main/auction_sum/20190613.jpg" style="width:100%;"/>     
-            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>  
-            <p class="mainContents_txt"></p>
-            <div style="clear:both;"></div>   
-        </div> --> 
+        </div> -->
         
         <!-- 온라인 경매 
         <div class="col4">                                    
@@ -415,40 +414,40 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
      	<h2 class="mainContents_tit">VIDEO</h2>  
      	<div class="col8" style="overflow:hidden">
           	<div class="popupVideo"> 
-                  <a data-video="4GLkDTdMzfM">                
-                      <img src="/images/img/main/video/20220317.jpg" style="width:100%; cursor:pointer;" alt="video1"/> 
+                  <a data-video="hmywtGmXrEo?start=12">                  
+                      <img src="/images/img/main/video/20220321_01.jpg" style="width:100%; cursor:pointer;" alt="video1"/> 
                   </a>  
                   <div class="video-popup"> 
-                      <div class="video-popup-closer"></div>   
+                      <div class="video-popup-closer"></div>    
                   </div> 
-                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">FOCUS ON: Contemporary Art Sale_Blue Chip Artists</p>    
-                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">FOCUS ON: Contemporary Art Sale_Blue Chip Artists</p>              
+                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">WALK THROUGH WITH THE SPECIALIST | Contemporary Art Sale</p>    
+                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">WALK THROUGH WITH THE SPECIALIST | Contemporary Art Sale</p>               	
           	</div>
      	</div>  
       	<div class="col4 last" style="overflow:hidden"> 
           	<div class="popupVideo">   
-                  <a data-video="URNLVb3Ewg8">  
-                      <img src="/images/img/main/video/20220304_01.jpg" style="width:100%; cursor:pointer;" alt="video2"/>
+                  <a data-video="4GLkDTdMzfM">    
+                      <img src="/images/img/main/video/20220321_02.jpg" style="width:100%; cursor:pointer;" alt="video2"/>
                   </a>  
                   <div class="video-popup">      
                       <div class="video-popup-closer"></div>
                   </div>   
-                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">FOCUS ON: eBID Premium Online Auction in March 2022</p>
-                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">FOCUS ON: eBID Premium Online Auction in March 2022</p> 
+                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">FOCUS ON: Contemporary Art Sale_Blue Chip Artists</p>
+                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">FOCUS ON: Contemporary Art Sale_Blue Chip Artists</p> 
             </div>     
           
          	<span class="m_only"><img src="/images/img/main/video/00.jpg" style="width:100%;" alt="높이용"/></span>   
 
           	<div class="popupVideo">    
-                  <a data-video="IRZtkYIIo_M">  
-                  	<img src="/images/img/main/video/20220304_02.jpg" style="width:100%; cursor:pointer;" alt="video3"/> 
+                  <a data-video="WyLNXBH11pc">  
+                  	<img src="/images/img/main/video/20220321_03.jpg" style="width:100%; cursor:pointer;" alt="video3"/> 
                   </a>     
-                  <div class="video-popup">   
+                  <div class="video-popup">  
                       <div class="video-popup-closer"></div>       
                   </div>   
                   
-                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">WALK THROUGH WITH THE SPECIALIST</p> 
-                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">WALK THROUGH WITH THE SPECIALIST</p> 
+                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">FOCUS ON: eBID Public Online Auction Ⅱ in March_Traditional Art</p> 
+                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">FOCUS ON: eBID Public Online Auction Ⅱ in March_Traditional Art</p>  
           	</div> 
       	</div>  
             
@@ -958,7 +957,7 @@ function getCookie( name ) {
 		  $(".video-popup").addClass("reveal"),
 		  $(".video-popup .video-wrapper").remove(),
 		  $(".video-popup").append("<div class='video-wrapper'><img class='videoclose_btn' src='/images/icon/close_white_24dp.svg'><div class='videoBox'><iframe width='1280' height='720' src='https://youtube.com/embed/" + $(this).data("video") + "' allow='autoplay; encrypted-media' allowfullscreen></iframe></div></div>"), 
-		  $(".video-popup").find("img.videoclose_btn").click(function(){// 닫기버튼 추가 (2021.11.30 em) 
+		  $(".video-popup").find("img.videoclose_btn").click(function(){// 닫기버튼 추가 (2021.11.30 em) ,
 			  $(".video-popup .video-wrapper").remove(),   
 			  $(".video-popup").removeClass("reveal") 
 		  });
