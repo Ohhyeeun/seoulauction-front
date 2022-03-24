@@ -1112,7 +1112,14 @@ app.controller('saleCertCtl', function($scope, consts, common, $interval, input,
 				try {
 
 					if(data.AUTH_EXISTS){
-						alert('해당경매에 이미 인증 된 폰 번호가 존재합니다.');
+						alert(
+							$scope.locale == 'ko'?
+							'이미 인증된 번호입니다.\n' +
+							'최초 인증받은 아이디로 재로그인 후 응찰 진행해주시기 바랍니다.'
+							:
+							"This number is already authorized.\n" +
+							"Please log-in again with the first authenticated ID and start bidding."
+						);
 						return;
 					}
 
