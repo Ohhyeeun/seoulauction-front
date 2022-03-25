@@ -651,7 +651,8 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
       <div class="col4 last">     
           <a href="http://shop1.printbakery.cafe24.com/we-bake/detail.html?product_no=4829&cate_no=1&display_group=5" target="_blank">      
           	<img src="/images/img/main/ect/20220316family_site.png" style="width:100%;"/>            
-          </a>     
+          </a>
+          
           <!-- <p style="padding-top:30px; padding-bottom:30px; font-size:18px; font-weight:600;" ng-if="locale=='ko'"><Bon Voyage : Kim Sun woo></p> -->
           <p class="mainContents_txt" style="padding-top: 20px;" ng-if="locale=='ko'">CHUNG SHIN EXHIBITION</p>
           <p class="mainContents_txt" style="padding-top: 20px;" ng-if="locale!='ko'">CHUNG SHIN EXHIBITION</p>             
