@@ -42,7 +42,7 @@ $(document).ready(function(){
 
 app.requires.push("bw.paging");
 
-app.controller('saleListCtl', function($scope, consts, is_login, locale, common) {
+app.controller('saleListCtl', function($scope, consts, is_login, locale, common, $filter) {
 	$scope.is_login = is_login;
 	$scope.pageRows = consts.SALE_LIST_ROWS;
 	$scope.currentPage = page;
@@ -51,15 +51,10 @@ app.controller('saleListCtl', function($scope, consts, is_login, locale, common)
 	$scope.sale_outside_yn = (getParameter("sale_outside_yn"));
 	
  	$scope.loadSaleList = function($page){
- /*
-		if(getCookie('curr_url').indexOf("saleList") > -1){
-			$page = $page;
-		}else{
-	 		if(getCookie('saleList') != $page && getCookie('saleList') > 1){
-	 			$page = getCookie('saleList');
-	 		}
-		}
-*/
+		//지난경매 결과 당일 자정까지 보여주기
+		const today = new Date();
+		$scope.today = $filter('date')(today, 'yyyyMMdd');
+
 		window.location.hash = '#page' + $page;
 		if(!$scope.sale_outside_yn){
  			$scope.sale_outside_yn = "N";
