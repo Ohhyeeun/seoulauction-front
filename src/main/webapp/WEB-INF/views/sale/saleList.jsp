@@ -203,7 +203,7 @@ app.controller('saleListCtl', function($scope, consts, is_login, locale, common,
 											<br />
 											{{sale.PLACE_JSON[locale]}}</span>
 										</div>
-										<span class="btn_style01 white02" ng-if="custInfo.EMP_GB == 'Y' || ( is_login == 'true' && ['main','hongkong','plan'].indexOf(sale.SALE_KIND_CD) > -1 )">
+										<span class="btn_style01 white02" ng-if="custInfo.EMP_GB == 'Y' || ( is_login == 'true' && ((['main','hongkong','plan'].indexOf(sale.SALE_KIND_CD) > -1) ||  (today <= (sale.TO_DT | date:'yyyyMMdd'))) )">
 											<a ng-href="/saleDetail?view_id=${VIEW_ID}&sale_no={{sale.SALE_NO}}"><spring:message code="label.view.detail" /></a>
 										</span>
 									</div>
