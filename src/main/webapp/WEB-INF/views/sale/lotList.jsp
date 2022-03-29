@@ -341,7 +341,7 @@ app.controller('lotListCtl', function($scope, consts, common, bid, $interval, is
  	 }
  	
  	$scope.loadLotList = function($page){
-		 
+
 
 		window.location.hash = '#page' + $page;
 //  		if(!$scope.sale_outside_yn){
@@ -494,10 +494,14 @@ app.controller('lotListCtl', function($scope, consts, common, bid, $interval, is
 
  	 		//$scope.setJsonObj(data["tables"]["LOTS"]["rows"], ["LOT_SIZE", "ARTIST_NAME", "TITLE", "STITLE", "MAKE_YEAR"]);
  	 		
- 	 	    $scope.lotList = data["tables"]["LOTS"]["rows"];
- 	 	    if($scope.lotList.length > 0)
- 	 	   	 	$scope.curr_lot_no = $scope.lotList[0].CURR_LOT_NO;
- 	 	   
+			$scope.lotList = data["tables"]["LOTS"]["rows"];
+			if ($scope.lotList.length > 0) {
+				$scope.curr_lot_no = $scope.lotList[0].CURR_LOT_NO;
+			}
+
+			// 5년전 데이터의 가격은 숨김처리
+			$scope.isHidePrice5Years = moment($scope.sale.TO_DT).isBefore(moment().subtract(5, 'y')) || false;
+
  	 	    //$scope.base_currency = ($scope.sale.SALE_KIND_CD == 'hongkong' ? "HKD" : "KRW");
  	 	    $scope.base_currency = $scope.sale.CURR_CD;
  	 	    $("#nationCash").html($scope.sale.CURR_CD);
