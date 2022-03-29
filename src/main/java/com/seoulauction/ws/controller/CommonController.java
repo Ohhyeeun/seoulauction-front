@@ -60,27 +60,13 @@ public class CommonController {
 				response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized");
 			}
     	}
-		//RememberMeAuthenticationToken  userToken = (RememberMeAuthenticationToken ) SecurityContextHolder.getContext().getAuthentication();
-		//UsernamePasswordAuthenticationToken userToken = (UsernamePasswordAuthenticationToken) request.getUserPrincipal();
 
-		Authentication userToken;
-
-		if ( request.getUserPrincipal() instanceof UsernamePasswordAuthenticationToken ){
-			userToken = SecurityContextHolder.getContext().getAuthentication();
-		} else {
-			userToken = SecurityContextHolder.getContext().getAuthentication();
-		}
-		//UsernamePasswordAuthenticationToken userToken = (UsernamePasswordAuthenticationToken) SecurityContextHolder.getContext().getAuthentication();
-		if(userToken != null && !(userToken instanceof AnonymousAuthenticationToken)){
-
-
-        	SAUserDetails user = (SAUserDetails) (userToken instanceof RememberMeAuthenticationToken ? userToken.getPrincipal() : userToken.getDetails());
-        	
-        	if(actionSet.getBaseParms() == null){
+		SAUserDetails user = SAUserDetails.getLoginUser(request);
+		if ( user !=null) {
+			if (actionSet.getBaseParms() == null) {
 				actionSet.setBaseParms(new HashMap<String, Object>());
 			}
-        	
-        	actionSet.getBaseParms().put("action_user_ip", request.getRemoteAddr());
+			actionSet.getBaseParms().put("action_user_ip", request.getRemoteAddr());
 			actionSet.getBaseParms().put("action_user_no", user.getUserNo());
 		}
 		return commonService.actionSet(actionSet);
