@@ -830,7 +830,7 @@ function OnloadImg(){
 									<!--시작가끝-->   
 									<p>      
 										<strong class="txt_red"> 
-											<span ng-if="['online','online_zb'].indexOf(sale.SALE_KIND_CD) > -1 && sale_status == 'ING'"><spring:message code="label.bid.price" /></span>
+											<span ng-if="['online','online_zb'].indexOf(sale.SALE_KIND_CD) > -1 && sale_status == 'ING' && lot.BID_CNT > 0"><spring:message code="label.bid.price" /></span>
 											<span ng-if="sale_status == 'END' && lot.LAST_PRICE >= 0 && lot.BID_CNT > 0"><spring:message code="label.bid.price.sold" /></span>
                                             <span ng-if="lot.LAST_PRICE != null && sale_status != 'ING' && lot.LAST_PRICE >= 0 && lot.BID_CNT > 0" ng-bind="sale.CURR_CD+' '+(lot.LAST_PRICE | number:0)"></span>
                                             <span ng-if="lot.LAST_PRICE >= 0 && sale_status == 'ING' && lot.LAST_PRICE != null" ng-bind="(sale.CURR_CD)+' '+(lot.LAST_PRICE | number:0)"></span>   
