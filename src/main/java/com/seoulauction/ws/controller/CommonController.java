@@ -62,7 +62,7 @@ public class CommonController {
     	}
 
 		SAUserDetails user = SAUserDetails.getLoginUser(request);
-		if ( user !=null) {
+		if (user != null) {
 			if (actionSet.getBaseParms() == null) {
 				actionSet.setBaseParms(new HashMap<String, Object>());
 			}

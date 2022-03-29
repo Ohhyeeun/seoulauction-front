@@ -85,16 +85,9 @@ public class SAUserDetails implements UserDetails {
 	}
 
 	public static SAUserDetails getLoginUser(HttpServletRequest request){
-		Authentication userToken;
-
-		if ( request.getUserPrincipal() instanceof UsernamePasswordAuthenticationToken){
-			userToken = SecurityContextHolder.getContext().getAuthentication();
-		} else {
-			userToken = SecurityContextHolder.getContext().getAuthentication();
-		}
+		Authentication userToken = SecurityContextHolder.getContext().getAuthentication();
 
 		SAUserDetails user = null;
-
 		if(userToken != null && !(userToken instanceof AnonymousAuthenticationToken)){
 			user = (SAUserDetails) (userToken instanceof RememberMeAuthenticationToken ? userToken.getPrincipal() : userToken.getDetails());
 		}

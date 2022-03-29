@@ -183,9 +183,7 @@ public class CustomerController {
     @RequestMapping(value="/customer/academyList")
     public String showAcademyList(HttpServletRequest request, ModelMap model , HttpSession session){
     	SAUserDetails user = SAUserDetails.getLoginUser(request);
-		if(user !=null) {
-			model.addAttribute("CUST_NO", user.getUserNo());
-		}
+		model.addAttribute("CUST_NO", user.getUserNo());
 		return "/customer/academyList";
     }
     

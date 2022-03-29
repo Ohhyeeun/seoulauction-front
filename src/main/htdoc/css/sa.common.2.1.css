@@ -2973,14 +2973,16 @@ figure.effect-julia:hover p {
 	margin-right: 30px;   
 }
 .login_wrap .form .login_checkbox input[id="checkedID"],
-.login_wrap .form .login_checkbox input[id="checkedPW"] { 
+.login_wrap .form .login_checkbox input[id="checkedPW"],
+.login_wrap .form .login_checkbox input[id="remember-me"]{
 	width: auto;  
 	margin: 0;
 	padding: 0;  
 	display: none;  
 }
 .login_wrap .form .login_checkbox input[id="checkedID"] + label,
-.login_wrap .form .login_checkbox input[id="checkedPW"] + label { 
+.login_wrap .form .login_checkbox input[id="checkedPW"] + label,
+.login_wrap .form .login_checkbox input[id="remember-me"] + label {
 	cursor: pointer;
 	padding-left: 7px;  
 	font-size: 12px;    
@@ -2988,12 +2990,14 @@ figure.effect-julia:hover p {
 	font-weight: 900;   
 }  
 .login_wrap .form .login_checkbox input[id="checkedID"] + label:hover,
-.login_wrap .form .login_checkbox input[id="checkedPW"] + label:hover {
+.login_wrap .form .login_checkbox input[id="checkedPW"] + label:hover,
+.login_wrap .form .login_checkbox input[id="remember-me"] + label:hover {
 	color: #62c3bc;  
 }
  
 .login_wrap .form .login_checkbox input[id="checkedID"] + label:before,
-.login_wrap .form .login_checkbox input[id="checkedPW"] + label:before {  	
+.login_wrap .form .login_checkbox input[id="checkedPW"] + label:before,
+.login_wrap .form .login_checkbox input[id="remember-me"] + label:before {
 	content: "";
 	margin-right: 5px;
 	display: inline-block;  
@@ -3003,11 +3007,13 @@ figure.effect-julia:hover p {
 	height: 24px;  
 }    
 .login_wrap .form .login_checkbox input[id="checkedID"]:checked + label:before,
-.login_wrap .form .login_checkbox input[id="checkedPW"]:checked + label:before {     
+.login_wrap .form .login_checkbox input[id="checkedPW"]:checked + label:before,
+.login_wrap .form .login_checkbox input[id="remember-me"]:checked + label:before {
 	background-position: 0 -17px;     
 }    
 .login_wrap .form .login_checkbox input[id="checkedID"]:checked + label,
-.login_wrap .form .login_checkbox input[id="checkedPW"]:checked + label {        
+.login_wrap .form .login_checkbox input[id="checkedPW"]:checked + label,
+.login_wrap .form .login_checkbox input[id="remember-me"]:checked + label {
 	color: #62c3bc;    
 }  
 /* 온라인경매거래목록 - 응찰목록,자동응찰목록,구매내역 */  
