@@ -104,7 +104,7 @@ app.controller('academyListCtl', function($scope, consts, common) {
                             총결제액 : <span ng-bind="art.ACADEMY_PAY | number : 0"></span> (부가세포함)<br/>
                             결제현황 : <span>
                                           <!-- <span>결제전</span> -->
-                                          <span ng-if="art.CANCEL_YN === 'Y'" style="color: #FF3300;">결제취소</span>
+                                          <span ng-if="art.CANCEL_YN === 'Y'">결제취소</span>
                                           <span ng-if="art.CANCEL_YN === 'N'">결제완료</span>
                                       </span>
                                       <br/>
