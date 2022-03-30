@@ -445,15 +445,19 @@
 	</select>
 	
 	<select id="get_academy_reqlist" resultType="Map">
-		SELECT A.CUST_NAME , 
-		A.EMAIL , 
-		A.HP, 
-		B.REG_DT , 
-		C.ACADEMY_PAY, 
-		COLUMN_JSON(C.TITLE_BLOB) TITLE_JSON
-		FROM CUST A , ACADEMY_REQ B , ACADEMY C
-		WHERE A.CUST_NO = B.CUST_NO AND B.ACADEMY_NO = C.ACADEMY_NO AND A.CUST_NO = #{cust_no} AND B.DEL_YN = 'N'
-		order by B.REG_DT desc;
+		SELECT A.CUST_NAME,
+			   A.EMAIL,
+			   A.HP,
+			   B.REG_DT,
+			   IFNULL(B.CANCEL_YN, 'N') AS CANCEL_YN,
+			   C.ACADEMY_PAY,
+			   COLUMN_JSON(C.TITLE_BLOB) TITLE_JSON
+		FROM   CUST A, ACADEMY_REQ B, ACADEMY C
+		WHERE  A.CUST_NO = B.CUST_NO
+		  AND  B.ACADEMY_NO = C.ACADEMY_NO
+		  AND  A.CUST_NO = #{cust_no}
+		  AND  B.DEL_YN = 'N'
+		ORDER BY B.REG_DT DESC
 	</select>
 	
 	<sql id="get_newletter_sql">

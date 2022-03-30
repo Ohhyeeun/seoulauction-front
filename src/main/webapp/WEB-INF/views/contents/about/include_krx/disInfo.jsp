@@ -8,6 +8,10 @@
 <%@ page import="javax.xml.parsers.*"%>
 <%@ page import="javax.servlet.http.HttpServletResponse.*"%>
 
+
+
+
+
 <%
 	String geturl = "http://asp1.krx.co.kr/servlet/krx.asp.DisList4MainServlet?code=063170&gubun=K";
 	String gettime="";
