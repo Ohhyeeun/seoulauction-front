@@ -286,10 +286,10 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
 
 		<!-- 온라인 경매 -->
         <div class="col4">
- 			<!-- <a href="https://www.seoulauction.com/currentAuction?sale_kind=online_only&sale_no=695&page=1"> -->
-                 <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220324_ko.gif" style="width:100%;"/>
-				 <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220324_en.gif" style="width:100%;"/>
- 			<!-- </a> -->
+			 			<a href="https://www.seoulauction.com/currentAuction?sale_kind=online_only&sale_no=698&page=1">
+			                 <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220324_ko.gif" style="width:100%;"/>
+							 <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220324_en.gif" style="width:100%;"/>
+			 			</a>
             <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
             <p class="mainContents_txt" ng-if="locale=='ko'">4월 e BID 프리미엄 온라인 경매</p>
             <p class="mainContents_txt" ng-if="locale!='ko'">e BID Premium Online Auction in April</p>
@@ -298,7 +298,7 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
 
         <!-- 커밍순 썸네일-->
         <div class="col4 last">
-			<img src="/images/img/main/auction_sum/20190613.jpg" style="width:100%;"/>
+			  	  <img src="/images/img/main/auction_sum/20190613.jpg" style="width:100%;"/>
             <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
             <p class="mainContents_txt"></p>
             <div style="clear:both;"></div>
@@ -435,7 +435,7 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
                   <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">AUCTION DAY REVIEW | Contemporary Art Sale</p>
                   <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">AUCTION DAY REVIEW | Contemporary Art Sale</p>
             </div>
-          
+
          	<span class="m_only"><img src="/images/img/main/video/00.jpg" style="width:100%;" alt="높이용"/></span>
 
           	<div class="popupVideo">
