@@ -99,9 +99,6 @@ public class CustomerController {
     @RequestMapping(value="/customer/modifyForm")
     public String showModifyForm(ModelMap model, HttpServletRequest request){
     	
-    	UsernamePasswordAuthenticationToken userToken = (UsernamePasswordAuthenticationToken) request.getUserPrincipal();
-    	SAUserDetails user = (SAUserDetails) userToken.getDetails();
-    	
         //Map<String, Object> paramMap = new HashMap<String, Object>();
                 
         //paramMap.put("login_id", request.getUserPrincipal().getName());
@@ -186,9 +183,8 @@ public class CustomerController {
     
     @RequestMapping(value="/customer/academyList")
     public String showAcademyList(HttpServletRequest request, ModelMap model , HttpSession session){
-    	UsernamePasswordAuthenticationToken userToken = (UsernamePasswordAuthenticationToken) request.getUserPrincipal();
-    	SAUserDetails user = (SAUserDetails) userToken.getDetails();
-    	model.addAttribute("CUST_NO", user.getUserNo());
+    	SAUserDetails user = SAUserDetails.getLoginUser(request);
+		model.addAttribute("CUST_NO", user.getUserNo());
 		return "/customer/academyList";
     }
     
@@ -296,8 +292,7 @@ public class CustomerController {
     public ResultDataSet confirmAuthNumber4Sale(@RequestBody Map<String, Object> paramMap, HttpServletRequest request, HttpServletResponse response) throws DataSetException{
    		boolean b = this.confirmAuthNumber(paramMap, request, response);
    		if (b) {
-	   	   	UsernamePasswordAuthenticationToken userToken = (UsernamePasswordAuthenticationToken) request.getUserPrincipal();
-	    	SAUserDetails user = (SAUserDetails) userToken.getDetails();
+	    	SAUserDetails user = SAUserDetails.getLoginUser(request);
 	
 	    	paramMap.put("action_user_no", user.getUserNo());
 	    	
@@ -332,8 +327,7 @@ public class CustomerController {
 	public boolean modifyCustInfo(@RequestBody Map<String, Object> paramMap, HttpServletRequest request, HttpServletResponse response) {
 		try {
 			// 세션에 저장된 회원 ID 가져오기
-			UsernamePasswordAuthenticationToken userToken = (UsernamePasswordAuthenticationToken) request.getUserPrincipal();
-			SAUserDetails user = (SAUserDetails) userToken.getDetails();
+			SAUserDetails user = SAUserDetails.getLoginUser(request);
 			int userId = user.getUserNo();
 
 			// 비밀번호 업데이트
@@ -445,8 +439,7 @@ public class CustomerController {
     @RequestMapping(value = "/customer/payRegularRequest")
 	public String payRegularRequest(HttpServletRequest request, Model model, HttpSession session) {
 		
-    	UsernamePasswordAuthenticationToken userToken = (UsernamePasswordAuthenticationToken) request.getUserPrincipal();
-    	SAUserDetails user = (SAUserDetails) userToken.getDetails();
+    	SAUserDetails user = SAUserDetails.getLoginUser(request);
 
     	Map<String, Object> paramMap = new HashMap<String, Object>();
     	paramMap.put("action_user_no", user.getUserNo());
@@ -472,8 +465,7 @@ public class CustomerController {
     @RequestMapping(value = "/customer/TermCheckPop")
    	public String termCheckPop(HttpServletRequest request, Model model, HttpSession session) {
    		
-       	UsernamePasswordAuthenticationToken userToken = (UsernamePasswordAuthenticationToken) request.getUserPrincipal();
-       	SAUserDetails user = (SAUserDetails) userToken.getDetails();
+       	SAUserDetails user = SAUserDetails.getLoginUser(request);
 
        	Map<String, Object> paramMap = new HashMap<String, Object>();
        	paramMap.put("action_user_no", user.getUserNo());
@@ -590,8 +582,7 @@ public class CustomerController {
 		if(tid != null || tid.length() != 0){
 			
 		if(paySuccess){
-	    	UsernamePasswordAuthenticationToken userToken = (UsernamePasswordAuthenticationToken) request.getUserPrincipal();
-	    	SAUserDetails user = (SAUserDetails) userToken.getDetails();
+	    	SAUserDetails user = SAUserDetails.getLoginUser(request);
 
 	    	Map<String, Object> paramMap = new HashMap<String, Object>();
 	    	paramMap.put("action_user_no", user.getUserNo());
@@ -639,8 +630,7 @@ public class CustomerController {
     @RequestMapping(value = "/customer/payPurchaseRequest")
 	public String payPurchaseRequest(@RequestParam Map<String, Object> paramMap, HttpServletRequest request, Model model, HttpSession session) {
 		
-    	UsernamePasswordAuthenticationToken userToken = (UsernamePasswordAuthenticationToken) request.getUserPrincipal();
-    	SAUserDetails user = (SAUserDetails) userToken.getDetails();
+    	SAUserDetails user = SAUserDetails.getLoginUser(request);
 
     	paramMap.put("action_user_no", user.getUserNo());
     	
@@ -801,8 +791,7 @@ public class CustomerController {
 		
 		if(tid != null || tid.length() != 0){			
 			if(paySuccess){
-		    	UsernamePasswordAuthenticationToken userToken = (UsernamePasswordAuthenticationToken) request.getUserPrincipal();
-		    	SAUserDetails user = (SAUserDetails) userToken.getDetails();
+		    	SAUserDetails user = SAUserDetails.getLoginUser(request);
 
 		    	Map<String, Object> paramMap = new HashMap<String, Object>();
 		    	paramMap.put("action_user_no", user.getUserNo());
@@ -917,8 +906,7 @@ public class CustomerController {
     @RequestMapping(value = "/customer/payAcademyRequest")
 	public String payAcademyRequest(HttpServletRequest request, Model model, HttpSession session) {
 		
-    	UsernamePasswordAuthenticationToken userToken = (UsernamePasswordAuthenticationToken) request.getUserPrincipal();
-    	SAUserDetails user = (SAUserDetails) userToken.getDetails();
+    	SAUserDetails user = SAUserDetails.getLoginUser(request);
 
     	int academy_pay = Integer.parseInt(request.getParameter("academy_pay"));
     	String academy_no = request.getParameter("academy_no");
@@ -1048,8 +1036,7 @@ public class CustomerController {
 		if(tid != null || tid.length() != 0){
 			
 		if(paySuccess){
-	    	UsernamePasswordAuthenticationToken userToken = (UsernamePasswordAuthenticationToken) request.getUserPrincipal();
-	    	SAUserDetails user = (SAUserDetails) userToken.getDetails();
+	    	SAUserDetails user = SAUserDetails.getLoginUser(request);
 
 	    	Map<String, Object> paramMap = new HashMap<String, Object>();
 	    	paramMap.put("action_user_no", user.getUserNo());
@@ -1108,8 +1095,7 @@ public class CustomerController {
     @RequestMapping(value = "/customer/payPurchaseRequestTest")
 	public String payPurchaseRequestTest(@RequestParam Map<String, Object> paramMap, HttpServletRequest request, Model model, HttpSession session) {
 		
-    	UsernamePasswordAuthenticationToken userToken = (UsernamePasswordAuthenticationToken) request.getUserPrincipal();
-    	SAUserDetails user = (SAUserDetails) userToken.getDetails();
+    	SAUserDetails user = SAUserDetails.getLoginUser(request);
 
     	paramMap.put("action_user_no", user.getUserNo());
     	

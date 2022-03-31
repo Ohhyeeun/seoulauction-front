@@ -37,8 +37,6 @@ public class RemembermeUserDetailsService implements UserDetailsService {
 
         List<GrantedAuthority> roles = new ArrayList<>();
         roles.add(new SimpleGrantedAuthority("ROLE_FRONT_USER"));
-
-        UserDetails user =  new SAUserDetails(loginId, resultMap.get("PASSWD").toString(), Integer.parseInt(resultMap.get("CUST_NO").toString()), roles, resultMap.get("CUST_KIND_CD").toString());
-        return user;
+        return new SAUserDetails(loginId, resultMap.get("PASSWD").toString(), Integer.parseInt(resultMap.get("CUST_NO").toString()), roles, resultMap.get("CUST_KIND_CD").toString());
     }
 }

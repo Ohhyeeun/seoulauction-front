@@ -234,8 +234,8 @@ app.controller('searchAccountPopCtl', function($scope, consts, common, locale) {
 													</label>
 												</fieldset>
 												<fieldset>
-													<input type="checkbox" name="_spring_security_remember_me" id="staySignedId">
-													<label for="staySignedId">
+													<input type="checkbox" name="_spring_security_remember_me" id="remember-me">
+													<label for="remember-me">
 														<span ng-if="locale == 'ko'">로그인 상태 유지</span>
 														<span ng-if="locale != 'ko'">Stay signed in</span>
 													</label>
