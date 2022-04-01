@@ -109,6 +109,7 @@ function goPayMobile(form) {
 	form.acceptCharset = "euc-kr"; /*<!-- blueerr 2018.09.04 모바일에서 acceptCharset euck-kr로 해야 결제화면에  한글상품명이 깨지지 않음 -->*/
 	form.method = "post";
 	form.action = "https://web.nicepay.co.kr/smart/paySmart.jsp";
+    chkPayType(); //PayMethod 설정
 	form.submit();
 }
 
