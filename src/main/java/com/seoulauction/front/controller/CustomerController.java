@@ -67,9 +67,6 @@ public class CustomerController {
 	@Autowired
 	Config config;
 
-
-
-	
     @RequestMapping(value="/join/agree")
     public String join(ModelMap model, HttpServletRequest request){
     	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -82,6 +79,8 @@ public class CustomerController {
 		return "/customer/joinAgree";
     }
 
+
+	
     @RequestMapping(value="/join/form/{cust_kind_cd}")
     public String joinForm(@PathVariable(value = "cust_kind_cd") String cust_kind_cd, ModelMap model, HttpServletRequest request){
     	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
