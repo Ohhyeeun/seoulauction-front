@@ -276,31 +276,35 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
 
 				<!-- 온라인 경매 -->
         <div class="col4">
-			 			<a href="https://www.seoulauction.com/currentAuction?sale_kind=online_only&sale_no=698&page=1">
-			                 <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220324_ko.gif" style="width:100%;"/>
-							 <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220324_en.gif" style="width:100%;"/>
-			 			</a>
+            <a href="https://www.seoulauction.com/currentAuction?sale_kind=online_only&sale_no=698&page=1">
+                 <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220324_ko.gif" style="width:100%;"/>
+                 <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220324_en.gif" style="width:100%;"/>
+            </a>
             <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
             <p class="mainContents_txt" ng-if="locale=='ko'">4월 e BID 프리미엄 온라인 경매</p>
             <p class="mainContents_txt" ng-if="locale!='ko'">e BID Premium Online Auction in April</p>
             <div style="clear:both;"></div>
         </div>
 
-        <!-- 커밍순 썸네일-->
+        <!-- 온라인 경매 -->
         <div class="col4">
-			  	  <img src="/images/img/main/auction_sum/20190613.jpg" style="width:100%;"/>
+            <!-- <a href="https://www.seoulauction.com/currentAuction?sale_kind=online_only&sale_no=698&page=1">-->
+                 <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220401_ko.gif" style="width:100%;"/>
+                 <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220401_en.gif" style="width:100%;"/>
+            <!-- </a> -->
             <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
-            <p class="mainContents_txt"></p>
-            <div style="clear:both;"></div>
-        </div> 
-
-				<!-- 커밍순 썸네일-->
-        <div class="col4 last">
-			  	  <img src="/images/img/main/auction_sum/20190613.jpg" style="width:100%;"/>
-            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
-            <p class="mainContents_txt"></p>
+            <p class="mainContents_txt" ng-if="locale=='ko'">4월 e BID 퍼블릭 온라인 경매 Ⅰ</p>
+            <p class="mainContents_txt" ng-if="locale!='ko'">e BID Public Online Auction Ⅰ in April</p>
             <div style="clear:both;"></div>
         </div>
+
+			<!-- 커밍순 썸네일-->
+	        <div class="col4 last">
+				<img src="/images/img/main/auction_sum/20190613.jpg" style="width:100%;"/>
+	            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
+	            <p class="mainContents_txt"></p>
+	            <div style="clear:both;"></div>
+	        </div>
 
 				<!-- 제로베이스
         <div class="col4">
@@ -420,45 +424,44 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
       	</div>  -->
 
       	<div class="onerow"></div>
-     	<h2 class="mainContents_tit">VIDEO</h2>
-			<div class="col8" style="overflow:hidden">
-          	<div class="popupVideo">
-                  <a data-video="QYEs6JQO4oM?start=1">
-                      <img src="/images/img/main/video/20220328_01.jpg" style="width:100%; cursor:pointer;" alt="video1"/>
-                  </a>
-                  <div class="video-popup">
-                      <div class="video-popup-closer"></div>
-                  </div>
-                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">ZEROBASE: The Edit</p>
-                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">ZEROBASE: The Edit</p>
-          	</div>
-     	</div>
-      	<div class="col4 last" style="overflow:hidden">
-          	<div class="popupVideo">
-                  <a data-video="oSp2Hn9Eq7o">
-                      <img src="/images/img/main/video/20220328_02.jpg" style="width:100%; cursor:pointer;" alt="video2"/>
-                  </a>
-                  <div class="video-popup">
-                      <div class="video-popup-closer"></div>
-                  </div>
-                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">AUCTION DAY REVIEW | Contemporary Art Sale</p>
-                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">AUCTION DAY REVIEW | Contemporary Art Sale</p>
-            </div>
+				<h2 class="mainContents_tit">VIDEO</h2>
+				<div class="col8" style="overflow:hidden">
+	          	<div class="popupVideo">
+	                  <a data-video="B_iGOoOR1SY">
+	                      <img src="/images/img/main/video/20220401_02.jpg" style="width:100%; cursor:pointer;" alt="video1"/>
+	                  </a>
+	                  <div class="video-popup">
+	                      <div class="video-popup-closer"></div>
+	                  </div>
+	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">ZEROBASE: The Edit</p>
+	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">ZEROBASE: The Edit</p>
+	          	</div>
+	     	</div>
+	      	<div class="col4 last" style="overflow:hidden">
+	          	<div class="popupVideo">
+	                  <a data-video="HyOD1CMbc5I">
+	                      <img src="/images/img/main/video/20220401_02.jpg" style="width:100%; cursor:pointer;" alt="video2"/>
+	                  </a>
+	                  <div class="video-popup">
+	                      <div class="video-popup-closer"></div>
+	                  </div>
+	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">AUCTION DAY REVIEW | Contemporary Art Sale</p>
+	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">AUCTION DAY REVIEW | Contemporary Art Sale</p>
+	            </div>
 
-         	<span class="m_only"><img src="/images/img/main/video/00.jpg" style="width:100%;" alt="높이용"/></span>
+	         	<span class="m_only"><img src="/images/img/main/video/00.jpg" style="width:100%;" alt="높이용"/></span>
 
-          	<div class="popupVideo">
-                  <a data-video="hmywtGmXrEo?start=12">
-                  	<img src="/images/img/main/video/20220328_03.jpg" style="width:100%; cursor:pointer;" alt="video3"/>
-                  </a>
-                  <div class="video-popup">
-                      <div class="video-popup-closer"></div>
-                  </div>
-
-                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">WALK THROUGH WITH THE SPECIALIST | Contemporary Art Sale</p>
-                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">WALK THROUGH WITH THE SPECIALIST | Contemporary Art Sale</p>
-          	</div>
-      	</div>
+	          	<div class="popupVideo">
+	                  <a data-video="oSp2Hn9Eq7o">
+	                      <img src="/images/img/main/video/20220328_02.jpg" style="width:100%; cursor:pointer;" alt="video2"/>
+	                  </a>
+	                  <div class="video-popup">
+	                      <div class="video-popup-closer"></div>
+	                  </div>
+	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">AUCTION DAY REVIEW | Contemporary Art Sale</p>
+	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">AUCTION DAY REVIEW | Contemporary Art Sale</p>
+	          	</div>
+	      	</div>
 
      	<div class="onerow"></div>
 
