@@ -66,6 +66,9 @@ public class CustomerController {
 
 	@Autowired
 	Config config;
+
+
+
 	
     @RequestMapping(value="/join/agree")
     public String join(ModelMap model, HttpServletRequest request){
