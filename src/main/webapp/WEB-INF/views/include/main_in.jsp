@@ -273,18 +273,8 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
         <div class="onerow"></div>
         <h2 class="mainContents_tit">AUCTION</h2>
 
-        <!-- 제로베이스 -->
-        <div class="col4">
-            <a href="https://www.seoulauction.com/currentAuction?sale_kind=zerobase_only&page=1">
-            	 <img src="/images/img/main/auction_sum/20220317.jpg" style="width:100%;"/>
-			</a>
-            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
-            <p class="mainContents_txt" ng-if="locale=='ko'">ZEROBASE</p>
-            <p class="mainContents_txt" ng-if="locale!='ko'">ZEROBASE</p>
-            <div style="clear:both;"></div>
-        </div>
 
-		<!-- 온라인 경매 -->
+				<!-- 온라인 경매 -->
         <div class="col4">
 			 			<a href="https://www.seoulauction.com/currentAuction?sale_kind=online_only&sale_no=698&page=1">
 			                 <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220324_ko.gif" style="width:100%;"/>
@@ -297,12 +287,31 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
         </div>
 
         <!-- 커밍순 썸네일-->
+        <div class="col4">
+			  	  <img src="/images/img/main/auction_sum/20190613.jpg" style="width:100%;"/>
+            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
+            <p class="mainContents_txt"></p>
+            <div style="clear:both;"></div>
+        </div> 
+
+				<!-- 커밍순 썸네일-->
         <div class="col4 last">
 			  	  <img src="/images/img/main/auction_sum/20190613.jpg" style="width:100%;"/>
             <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
             <p class="mainContents_txt"></p>
             <div style="clear:both;"></div>
         </div>
+
+				<!-- 제로베이스
+        <div class="col4">
+            <a href="https://www.seoulauction.com/currentAuction?sale_kind=zerobase_only&page=1">
+            	 <img src="/images/img/main/auction_sum/20220317.jpg" style="width:100%;"/>
+						 </a>
+            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
+            <p class="mainContents_txt" ng-if="locale=='ko'">ZEROBASE</p>
+            <p class="mainContents_txt" ng-if="locale!='ko'">ZEROBASE</p>
+            <div style="clear:both;"></div>
+        </div> -->
 
         <!-- 오프라인 경매
         <div class="col4">
