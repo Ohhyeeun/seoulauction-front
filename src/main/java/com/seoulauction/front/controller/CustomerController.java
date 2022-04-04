@@ -572,7 +572,7 @@ public class CustomerController {
 		String mall_reserved = request.getParameter("MallReserved");
 
 		boolean paySuccess = false;		// 결제 성공 여부
-		logger.debug("nice result : {} / {} / {}", payMethod, resultCode, mall_reserved);
+		logger.info("nice result : {} / {} / {}", payMethod, resultCode, mall_reserved);
 
 		/** 위의 응답 데이터 외에도 전문 Header와 개별부 데이터 Get 가능 */
 		if(payMethod.equals("CARD")){	//신용카드
@@ -784,7 +784,7 @@ public class CustomerController {
 		String mall_reserved = request.getParameter("MallReserved");
 
 		boolean paySuccess = false;		// 결제 성공 여부
-		logger.debug("nice result : {} / {}", payMethod, resultCode);
+		logger.info("nice result : {} / {}", payMethod, resultCode);
 
 		/** 위의 응답 데이터 외에도 전문 Header와 개별부 데이터 Get 가능 */
 		if(payMethod.equals("CARD")){	//신용카드
@@ -1030,7 +1030,7 @@ public class CustomerController {
     	String academy_no = request.getParameter("academy_no");
 
 		boolean paySuccess = false;		// 결제 성공 여부
-		logger.debug("nice result : {} / {}", payMethod, resultCode);
+		logger.info("nice result : {} / {}", payMethod, resultCode);
 
 		/** 위의 응답 데이터 외에도 전문 Header와 개별부 데이터 Get 가능 */
 		if(payMethod.equals("CARD")){	//신용카드
