@@ -110,7 +110,6 @@ function goPayMobile(form) {
 	form.method = "post";
 	form.action = "https://web.nicepay.co.kr/smart/paySmart.jsp";
     form.PayMethod.value = document.querySelector('input[name="selectType"]:checked').value;
-    alert("결제수단: "+form.PayMethod.value);
 	form.submit();
 }
 
