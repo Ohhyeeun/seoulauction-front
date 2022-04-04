@@ -276,7 +276,7 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
 
 				<!-- 온라인 경매 -->
         <div class="col4">
-            <a href="https://www.seoulauction.com/currentAuction?sale_kind=online_only&sale_no=698&page=1">
+            <a href="/currentAuction?sale_kind=online_only&sale_no=698&page=1">
                  <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220324_ko.gif" style="width:100%;"/>
                  <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220324_en.gif" style="width:100%;"/>
             </a>
@@ -288,7 +288,7 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
 
         <!-- 온라인 경매 -->
         <div class="col4">
-            <!-- <a href="https://www.seoulauction.com/currentAuction?sale_kind=online_only&sale_no=698&page=1">-->
+            <!-- <a href="/currentAuction?sale_kind=online_only&sale_no=698&page=1">-->
                  <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220401_ko.gif" style="width:100%;"/>
                  <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220401_en.gif" style="width:100%;"/>
             <!-- </a> -->
@@ -308,7 +308,7 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
 
 				<!-- 제로베이스
         <div class="col4">
-            <a href="https://www.seoulauction.com/currentAuction?sale_kind=zerobase_only&page=1">
+            <a href="/currentAuction?sale_kind=zerobase_only&page=1">
             	 <img src="/images/img/main/auction_sum/20220317.jpg" style="width:100%;"/>
 						 </a>
             <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
@@ -319,7 +319,7 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
 
         <!-- 오프라인 경매
         <div class="col4">
-			<a href="https://www.seoulauction.com/currentAuction?sale_kind=offline_only&sale_no=696&page=1">
+			<a href="/currentAuction?sale_kind=offline_only&sale_no=696&page=1">
                  <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220307.gif" style="width:100%;"/>
                  <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220307.gif" style="width:100%;"/>
 			</a>
@@ -331,7 +331,7 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
 
         <!-- 온라인 경매
         <div class="col4">
- 			<a href="https://www.seoulauction.com/currentAuction?sale_kind=online_only&sale_no=692&page=1">
+ 			<a href="/currentAuction?sale_kind=online_only&sale_no=692&page=1">
                  <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220223_ko.gif" style="width:100%;"/>
 				 <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220223_en.gif" style="width:100%;"/>
  			</a>
@@ -343,7 +343,7 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
 
         <!-- 블랙랏 전시
         <div class="col4">
- 			<a href="https://www.seoulauction.com/currentExhibit?sale_kind=exhibit_only&sale_no=673&page=1">
+ 			<a href="/currentExhibit?sale_kind=exhibit_only&sale_no=673&page=1">
                  <img src="/images/img/main/auction_sum/20211026.jpg" style="width:100%;"/>
  			</a>
             <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
@@ -365,7 +365,7 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
 
       	<!-- 부산 세일 -->
       	<!--<div class="col4">
-             <a href="https://www.seoulauction.com/currentAuction?sale_kind=offline_only&page=1">
+             <a href="/currentAuction?sale_kind=offline_only&page=1">
              <a href="/currentAuction?sale_kind=offline_only&sale_no=582&page=1">
              	<img src="/images/img/main/auction_sum/auction_thumb20201013.jpg" style="width:100%;"/>
              </a>
@@ -377,7 +377,7 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
 
        	<!-- 홍콩 세일 ->
       	<div class="col4">
-              <a href="https://www.seoulauction.com/currentAuction?sale_kind=offline_only&sale_no=566&page=1">
+              <a href="/currentAuction?sale_kind=offline_only&sale_no=566&page=1">
                 <img src="/images/img/main/auction_sum/20200624_sum.jpg" style="width:100%;"/>
               </a>
               <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
@@ -388,7 +388,7 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
 
       	<!-- 이벤트 썸네일 ->
       	<div class="col4">
-              <!-- <a href="https://www.seoulauction.com/noticeView?write_no=3041"> ->
+              <!-- <a href="/noticeView?write_no=3041"> ->
               <a href="https://www.artsy.net/auction/seoul-auction-spring-online-auction-goat">
               	<img src="/images/img/main/auction_sum/2020033101.png" style="width:100%;"/>
               </a>
@@ -400,8 +400,8 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
 
        	<!-- 위탁 안내 -->
        	<!-- <div class="col4 last">
-              <a href="https://www.seoulauction.com/auctionGuide/page?view=commissionGuide">
-              <!-- <a href="https://www.seoulauction.com/currentAuction?sale_kind=online_only&sale_no=483&page=1">  ->
+              <a href="/auctionGuide/page?view=commissionGuide">
+              <!-- <a href="/currentAuction?sale_kind=online_only&sale_no=483&page=1">  ->
               	 <img src="/images/img/main/auction_sum/20191217.jpg" style="width:100%;"/>
               </a>
               <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
@@ -411,7 +411,7 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
        	</div> -->
 
      	<!--<div class="col4">
-         	<a href="https://www.seoulauction.com/currentAuction?sale_kind=offline_only">
+         	<a href="/currentAuction?sale_kind=offline_only">
           		<img src="/images/img/main/auction_sum/20190304.jpg" style="width:100%;"/>
           	</a>
           	<p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
@@ -428,13 +428,13 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
 				<div class="col8" style="overflow:hidden">
 	          	<div class="popupVideo">
 	                  <a data-video="B_iGOoOR1SY">
-	                      <img src="/images/img/main/video/20220401_02.jpg" style="width:100%; cursor:pointer;" alt="video1"/>
+	                      <img src="/images/img/main/video/20220401_01.jpg" style="width:100%; cursor:pointer;" alt="video1"/>
 	                  </a>
 	                  <div class="video-popup">
 	                      <div class="video-popup-closer"></div>
 	                  </div>
-	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">ZEROBASE: The Edit</p>
-	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">ZEROBASE: The Edit</p>
+	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">FOCUS ON: eBID Premium Online Auction in April 2022_국내작가편</p>
+	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">FOCUS ON: eBID Premium Online Auction in April 2022_국내작가편</p>
 	          	</div>
 	     	</div>
 	      	<div class="col4 last" style="overflow:hidden">
@@ -470,8 +470,8 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
            	<h2 class="mainContents_tit mainContents_tit_mver">
            		<p ng-if="locale=='ko'">VR 전시장 보기</p><p ng-if="locale!='ko'">VR Exhibition</p>
            	</h2>
-           	<a href="https://www.seoulauction.com/nas_img/front/homepage/VR/164th/index.html" target="_blank" title="60VRPop">
-                <img src="https://www.seoulauction.com/nas_img/front/homepage/VR/164th/resource/bg01.jpg" style="width:100%; hight:auto; verflow:hidden;"/>
+           	<a href="/nas_img/front/homepage/VR/164th/index.html" target="_blank" title="60VRPop">
+                <img src="/nas_img/front/homepage/VR/164th/resource/bg01.jpg" style="width:100%; hight:auto; verflow:hidden;"/>
            	</a>
         </div> -->
 
@@ -480,7 +480,7 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
             <h2 class="mainContents_tit mainContents_tit_mver">
              	<p ng-if="locale=='ko'">서울옥션</p><p ng-if="locale!='ko'">SeoulAuction</p>
             </h2>
-            <a href="https://www.seoulauction.com/about/page?view=introduction">
+            <a href="/about/page?view=introduction">
                 <img src="/images/img/main/ex/sa01.jpg" style="width:100%; hight:auto;"/>
             </a>
         </div> -->
@@ -580,7 +580,7 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
             <h2 class="mainContents_tit mainContents_tit_mver">
             	<p ng-if="locale=='ko'">서울옥션 홍콩 리미티드</p><p ng-if="locale!='ko'">SEOUL AUCTION HONG KONG LIMITED</p>
             </h2>
-            <a href="https://www.seoulauction.com/about/page?view=saplus">
+            <a href="/about/page?view=saplus">
             	<img src="/images/img/main/SA/sa17.jpg" style="width:100%; hight:auto;"/>
             </a>
         </div> -->
@@ -590,7 +590,7 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
             <h2 class="mainContents_tit mainContents_tit_mver">
             	<p ng-if="locale=='ko'">서울옥션 부산</p><p ng-if="locale!='ko'">Seoul Auction BUSAN</p>
             </h2>
-            <!-- <a href="https://www.seoulauction.com/about/page?view=gnExhibition02"> ->
+            <!-- <a href="/about/page?view=gnExhibition02"> ->
             	<img src="/images/img/main/gang/sa07.jpg" style="width:100%; hight:auto;"/>
             <!-- </a>
         </div> -->
@@ -600,7 +600,7 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
             <h2 class="mainContents_tit mainContents_tit_mver">
                	<p ng-if="locale=='ko'">서울옥션 X 삼성카드</p><p ng-if="locale!='ko'">SeoulAuction X Samsung Card</p>
             </h2>
-            <a href="https://www.seoulauction.com/noticeView?write_no=2629">
+            <a href="/noticeView?write_no=2629">
          	   <img src="/images/img/main/samsung.jpg" style="width:100%; hight:auto;"/>
             </a>
         </div> -->
@@ -608,7 +608,7 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
         <div class="onerow"></div>
         <div class="col6 web_only">
             <h2 class="mainContents_tit" style="border-bottom: 2px solid #000;">
-            	<a href="https://www.seoulauction.com/noticeList"><spring:message code="label.notice" /></a>
+            	<a href="/noticeList"><spring:message code="label.notice" /></a>
             </h2>
             <div id="recentNoticeContainer" ng-controller="recentNoticeCtl" data-ng-init="loadRecentNotice();">
                 <ul>
@@ -619,7 +619,7 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
             </div>
       </div>
       <div class="col6 last web_only">
-          <h2 class="mainContents_tit" style="border-bottom: 2px solid #000;"><a href="https://www.seoulauction.com/about/page?view=pressList"><spring:message code="label.press" /></a></h2>
+          <h2 class="mainContents_tit" style="border-bottom: 2px solid #000;"><a href="/about/page?view=pressList"><spring:message code="label.press" /></a></h2>
             <div id="recentPressContainer" ng-controller="recentPressCtl" data-ng-init="loadRecentPress();">
                 <ul>
                     <span ng-if="locale=='ko'"><li ng-repeat="row in recentPressList" class="mainContent_notice"><a href="{{row.PRESS_URL}}" target="new">{{row.PRESS_TITLE}}</a></li></span>
@@ -633,19 +633,19 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
       <div class="col12 last">
           <h2 class="mainContents_tit">HOW TO</h2>
           <div class="col3">
-          <a href="https://www.seoulauction.com/auctionGuide/page?view=biddingGuide"><img src="/images/img/main/howto/02.jpg" style="width:100%;"/></a>
+          <a href="/auctionGuide/page?view=biddingGuide"><img src="/images/img/main/howto/02.jpg" style="width:100%;"/></a>
           <p class="mainContents_txt" style="padding-top: 20px;"><spring:message code="label.howto.auction" /></p>
           </div>
           <div class="col3">
-          <a href="https://www.seoulauction.com/auctionGuide/page?view=commissionGuide"><img src="/images/img/main/howto/05.jpg" style="width:100%;"/></a>
+          <a href="/auctionGuide/page?view=commissionGuide"><img src="/images/img/main/howto/05.jpg" style="width:100%;"/></a>
           <p class="mainContents_txt" style="padding-top: 20px;"><spring:message code="label.howto.contract" /></p>
           </div>
           <div class="col3">
-          <a href="https://www.seoulauction.com/auctionGuide/page?view=priGuide"><img src="/images/img/main/howto/07.jpg" style="width:100%;"/> </a>
+          <a href="/auctionGuide/page?view=priGuide"><img src="/images/img/main/howto/07.jpg" style="width:100%;"/> </a>
           <p class="mainContents_txt" style="padding-top: 20px;"><spring:message code="label.howto.PRIVATE" /></p>
           </div>
           <div class="col3 last">
-          <a href="https://www.seoulauction.com/join/agree"><img src="/images/img/main/howto/06.jpg" style="width:100%;"/></a>
+          <a href="/join/agree"><img src="/images/img/main/howto/06.jpg" style="width:100%;"/></a>
           <p class="mainContents_txt" style="padding-top: 20px;"><spring:message code="label.agree" /></p>
           </div>
       </div>
@@ -783,12 +783,12 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
                         </span>
                     </p> -->
 
-<!--                     <a href="https://www.seoulauction.com/noticeView?write_no=5507" style="display:block; text-align:center;" target="_blank">  -->
+<!--                     <a href="/noticeView?write_no=5507" style="display:block; text-align:center;" target="_blank">  -->
 <!--                         <img src="/images/img/main/overlay/20220127_ko.jpg" alt="layerpopup" style="text-align:center;">           -->
 <!--                     </a>  -->
 
                     <!-- 이미지 두개 이상 -->
-                    <a href="https://www.seoulauction.com/noticeView?write_no=5507" style="display:block; text-align:center;">
+                    <a href="/noticeView?write_no=5507" style="display:block; text-align:center;">
                         <img src="/images/img/main/overlay/20220203-ko.jpg" alt="layerpopup" style="text-align:center; margin-bottom: 10px;">
                     </a>
 
@@ -801,7 +801,7 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
                     </a> -->
 
                     <!-- 버튼 -->
-                    <!-- <a href="https://www.seoulauction.com/currentAuction?sale_kind=online_only" class="btn_main_more green" style="width:80px;">상세 보기</a>
+                    <!-- <a href="/currentAuction?sale_kind=online_only" class="btn_main_more green" style="width:80px;">상세 보기</a>
                     <a href="/noticeView?write_no=3518" class="btn_main_more green" style="width:80px;">자세히 보기</a> -->
     	    	</div>
 	        </div> <!-- //layerbox_wrap -->
@@ -833,18 +833,18 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
                     	Warm regards, SEOUL AUCTION Team
 	                </span>
     	    	</p>
-    	    	<!--<a href="https://www.seoulauction.com/currentAuction?sale_kind=online_only" class="btn_main_more green" style="width:80px;">SEE MORE</a>
+    	    	<!--<a href="/currentAuction?sale_kind=online_only" class="btn_main_more green" style="width:80px;">SEE MORE</a>
     	    	<a href="/noticeView?write_no=3518" class="btn_main_more green" style="width:80px;">NOTICE</a> -->
 
 
     	    	<!-- 이미지 레이어 팝업-->
     	    	<div class="layer_img">
-<!--     	    		<a href="https://www.seoulauction.com/noticeView?write_no=5507" style="display:block; text-align:center;" target="_blank">    -->
+<!--     	    		<a href="/noticeView?write_no=5507" style="display:block; text-align:center;" target="_blank">    -->
 <!--                         <img src="/images/img/main/overlay/20220127_en.jpg" alt="layerpopup" style="text-align:center;">  -->
 <!--                     </a>    -->
 
     	    		<!-- 이미지 두개 -->
-    	    		<a href="https://www.seoulauction.com/noticeView?write_no=5507" style="display:block; text-align:center;">
+    	    		<a href="/noticeView?write_no=5507" style="display:block; text-align:center;">
     	    			<img src="/images/img/main/overlay/20220203-en.jpg" alt="layerpopup" style="text-align:center; margin-bottom: 10px;">
     	    		</a>
 
