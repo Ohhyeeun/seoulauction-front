@@ -60,7 +60,7 @@
 			logout-success-url="/login?logout"
             delete-cookies="JSESSIONID,SPRING_SECURITY_REMEMBER_ME_COOKIE"/>
 
-        <security:remember-me key="seoulauction" token-validity-seconds="300" user-service-ref="remembermeUserDetailsService" />
+        <security:remember-me key="seoulauction" token-validity-seconds="30" user-service-ref="remembermeUserDetailsService" />
         <!-- <security:session-management >
             <security:concurrency-control max-sessions="1"/>
         </security:session-management> -->
