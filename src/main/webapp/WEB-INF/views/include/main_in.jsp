@@ -433,8 +433,8 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
 	                  <div class="video-popup">
 	                      <div class="video-popup-closer"></div>
 	                  </div>
-	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">FOCUS ON: eBID Premium Online Auction in April 2022_국내작가편</p>
-	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">FOCUS ON: eBID Premium Online Auction in April 2022_국내작가편</p>
+	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">FOCUS ON: eBID Premium Online Auction in April 2022_해외작가편</p>
+	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">FOCUS ON: eBID Premium Online Auction in April 2022_해외작가편</p>
 	          	</div>
 	     	</div>
 	      	<div class="col4 last" style="overflow:hidden">
@@ -445,8 +445,8 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
 	                  <div class="video-popup">
 	                      <div class="video-popup-closer"></div>
 	                  </div>
-	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">AUCTION DAY REVIEW | Contemporary Art Sale</p>
-	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">AUCTION DAY REVIEW | Contemporary Art Sale</p>
+	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">FOCUS ON: eBID Premium Online Auction in April 2022_국내작가편</p>
+	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">FOCUS ON: eBID Premium Online Auction in April 2022_국내작가편</p>
 	            </div>
 
 	         	<span class="m_only"><img src="/images/img/main/video/00.jpg" style="width:100%;" alt="높이용"/></span>
