@@ -2917,7 +2917,7 @@ figure.effect-julia:hover p {
 	overflow: hidden;
 	display: inline-block;
 }
-.list-category-b>a:before,
+.list-category-b>a::after,
 .list-category-a>a::after {
 	content: "|";
 	font-size: 12px;
@@ -2928,7 +2928,7 @@ figure.effect-julia:hover p {
 	padding: 0 5px 0 8px;
 }
 .auction-list-category span:last-of-type>.list-category-b a::after,
-.auction-list-category span:last-of-type>.list-category-a a::after {
+.auction-list-category span:last-of-type>.list-category-a a::after { 
 	content: none;
 }
 .category_left {
