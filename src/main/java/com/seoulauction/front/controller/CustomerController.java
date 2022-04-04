@@ -521,6 +521,8 @@ public class CustomerController {
 		String payMethod = request.getParameter("PayMethod");
 		nicepayWEB.setParam("PayMethod",payMethod);
 
+		logger.info("niceRegularResult : {}", payMethod);
+
 		//nicepayWEB.setParam("EncodeKey","33F49GnCMS1mFYlGXisbUDzVf2ATWCl9k3R++d5hDd3Frmuos/XLx8XhXpe+LDYAbpGKZYSwtlyyLOtS/8aD7A==");
 		nicepayWEB.setParam("EncodeKey","9s7oFNUdG03jLMJ0nIYs4qwRldWVS7YUvVzNXeodXOCw/hWTsLQW64hDE7eJQ4Dui8aGGqFnqvlWSPYdlnLeBg==");
 
@@ -566,7 +568,7 @@ public class CustomerController {
 		String mall_reserved = request.getParameter("MallReserved");
 
 		boolean paySuccess = false;		// 결제 성공 여부
-		logger.info("nice result : {} / {} / {}", payMethod, resultCode, mall_reserved);
+		logger.info("niceRegularResult result : {} / {} / {}", payMethod, resultCode, mall_reserved);
 
 		/** 위의 응답 데이터 외에도 전문 Header와 개별부 데이터 Get 가능 */
 		if(payMethod.equals("CARD")){	//신용카드
@@ -724,6 +726,7 @@ public class CustomerController {
 		/** 2-7. 결제수단 설정 (신용카드결제 : CARD, 계좌이체: BANK, 가상계좌이체 : VBANK, 휴대폰결제 : CELLPHONE ) */
 		String payMethod = request.getParameter("PayMethod");
 		nicepayWEB.setParam("PayMethod",payMethod);
+		logger.info("nicePurchaseResult : {}", payMethod);
 
 //		nicepayWEB.setParam("EncodeKey","33F49GnCMS1mFYlGXisbUDzVf2ATWCl9k3R++d5hDd3Frmuos/XLx8XhXpe+LDYAbpGKZYSwtlyyLOtS/8aD7A==");
 		nicepayWEB.setParam("EncodeKey","9s7oFNUdG03jLMJ0nIYs4qwRldWVS7YUvVzNXeodXOCw/hWTsLQW64hDE7eJQ4Dui8aGGqFnqvlWSPYdlnLeBg==");
@@ -776,7 +779,7 @@ public class CustomerController {
 		String mall_reserved = request.getParameter("MallReserved");
 
 		boolean paySuccess = false;		// 결제 성공 여부
-		logger.info("nice result : {} / {}", payMethod, resultCode);
+		logger.info("nicePurchaseResult result : {} / {}", payMethod, resultCode);
 
 		/** 위의 응답 데이터 외에도 전문 Header와 개별부 데이터 Get 가능 */
 		if(payMethod.equals("CARD")){	//신용카드
@@ -972,6 +975,7 @@ public class CustomerController {
 		/** 2-7. 결제수단 설정 (신용카드결제 : CARD, 계좌이체: BANK, 가상계좌이체 : VBANK, 휴대폰결제 : CELLPHONE ) */
 		String payMethod = request.getParameter("PayMethod");
 		nicepayWEB.setParam("PayMethod",payMethod);
+		logger.info("niceAcademyResult : {}", payMethod);
 
 		//nicepayWEB.setParam("EncodeKey","33F49GnCMS1mFYlGXisbUDzVf2ATWCl9k3R++d5hDd3Frmuos/XLx8XhXpe+LDYAbpGKZYSwtlyyLOtS/8aD7A==");
 		nicepayWEB.setParam("EncodeKey","9s7oFNUdG03jLMJ0nIYs4qwRldWVS7YUvVzNXeodXOCw/hWTsLQW64hDE7eJQ4Dui8aGGqFnqvlWSPYdlnLeBg==");
@@ -1020,7 +1024,7 @@ public class CustomerController {
     	String academy_no = request.getParameter("academy_no");
 
 		boolean paySuccess = false;		// 결제 성공 여부
-		logger.info("nice result : {} / {}", payMethod, resultCode);
+		logger.info("niceAcademyResult result : {} / {}", payMethod, resultCode);
 
 		/** 위의 응답 데이터 외에도 전문 Header와 개별부 데이터 Get 가능 */
 		if(payMethod.equals("CARD")){	//신용카드
