@@ -114,7 +114,7 @@ function goPayMobile(form) {
 	form.acceptCharset = "euc-kr"; /*<!-- blueerr 2018.09.04 모바일에서 acceptCharset euck-kr로 해야 결제화면에  한글상품명이 깨지지 않음 -->*/
 	form.method = "post";
 	form.action = "https://web.nicepay.co.kr/smart/paySmart.jsp";
-    chkPayType(); //PayMethod 설정
+    form.PayMethod.value = document.querySelector('input[name="selectType"]:checked').value;
 	form.submit();
 }
 
@@ -193,8 +193,8 @@ function chkPayType()
           <tr>
             <td width="100" height="30" id="borderBottom" class="thead01">결제 수단</td> 
             <td id="borderBottom" >
-           		<input type="radio" name="selectType" value="CARD" onClick="javascript:chkPayType();" checked>[신용카드]
-           		<input type="radio" name="selectType" value="VBANK" onClick="javascript:chkPayType();" >[가상계좌]
+           		<input type="radio" name="selectType" value="CARD" onClick="chkPayType();" checked>[신용카드]
+           		<input type="radio" name="selectType" value="VBANK" onClick="chkPayType();" >[가상계좌]
 			</td>
           </tr>
           <tr>
