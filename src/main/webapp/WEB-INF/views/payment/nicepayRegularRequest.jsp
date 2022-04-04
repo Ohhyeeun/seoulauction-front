@@ -91,6 +91,7 @@ function nicepay() {
 	});
 	
 	if(bIsTypeSelected) {
+        alert("isMobile: "+bIsMobile);
 		if(bIsMobile){
 			goPayMobile(payForm);
 		}else{
@@ -110,6 +111,8 @@ function goPayMobile(form) {
 	form.method = "post";
 	form.action = "https://web.nicepay.co.kr/smart/paySmart.jsp";
     chkPayType(); //PayMethod 설정
+    alert(form.PayMethod.value);
+    alert(document.payForm.PayMethod.value);
 	form.submit();
 }
 
