@@ -19,7 +19,6 @@ import kr.co.nicevan.nicepay.adapter.web.NicePayWEB;
 import kr.co.nicevan.nicepay.adapter.web.dto.WebMessageDTO;
 
 import org.apache.commons.collections.MapUtils;
-import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.slf4j.Logger;
@@ -525,7 +524,7 @@ public class CustomerController {
 		nicepayWEB.setParam("Currency", "KRW");
 
 		/** 2-7. 결제수단 설정 (신용카드결제 : CARD, 계좌이체: BANK, 가상계좌이체 : VBANK, 휴대폰결제 : CELLPHONE ) */
-		String payMethod = StringUtils.defaultIfEmpty(request.getParameter("PayMethod"), "CARD");
+		String payMethod = request.getParameter("PayMethod");
 		nicepayWEB.setParam("PayMethod",payMethod);
 
 		logger.info("niceRegularResult : {}", payMethod);
@@ -733,7 +732,7 @@ public class CustomerController {
 		nicepayWEB.setParam("Currency", "KRW");
 
 		/** 2-7. 결제수단 설정 (신용카드결제 : CARD, 계좌이체: BANK, 가상계좌이체 : VBANK, 휴대폰결제 : CELLPHONE ) */
-		String payMethod = StringUtils.defaultIfEmpty(request.getParameter("PayMethod"), "CARD");
+		String payMethod = request.getParameter("PayMethod");
 		nicepayWEB.setParam("PayMethod",payMethod);
 		logger.info("nicePurchaseResult : {}", payMethod);
 
@@ -984,7 +983,7 @@ public class CustomerController {
 		nicepayWEB.setParam("Currency", "KRW");
 
 		/** 2-7. 결제수단 설정 (신용카드결제 : CARD, 계좌이체: BANK, 가상계좌이체 : VBANK, 휴대폰결제 : CELLPHONE ) */
-		String payMethod = StringUtils.defaultIfEmpty(request.getParameter("PayMethod"), "CARD");
+		String payMethod = request.getParameter("PayMethod");
 		nicepayWEB.setParam("PayMethod",payMethod);
 		logger.info("niceAcademyResult : {}", payMethod);
 
