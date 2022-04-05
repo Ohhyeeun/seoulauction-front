@@ -109,4 +109,11 @@ public class Config {
 	public String getMobileMsgAuth() {
 		return mobileMsgAuth;
 	}
+
+	@Value("#{configure['is.develop']}")
+	private Boolean isDevelop;
+
+	public Boolean getIsDevelop() {
+		return isDevelop;
+	}
 }

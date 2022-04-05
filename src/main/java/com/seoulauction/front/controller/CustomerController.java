@@ -283,6 +283,9 @@ public class CustomerController {
 		try{
 			boolean result = encode.matches(paramMap.get("auth_num").toString(), request.getSession().getAttribute("AUTH_NUM").toString());
 			request.getSession().setAttribute("AUTH_NUM", null);
+			if(config.getIsDevelop()) {
+				result = true;
+			}
 			return result;
 		}
 		catch(Exception ex){
