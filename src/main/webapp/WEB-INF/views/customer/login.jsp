@@ -232,7 +232,14 @@ app.controller('searchAccountPopCtl', function($scope, consts, common, locale) {
 														<span ng-if="locale == 'ko'">PW 저장</span> 
 														<span ng-if="locale != 'ko'">Save PW</span>  
 													</label>
-												</fieldset>    
+												</fieldset>
+												<fieldset>
+													<input type="checkbox" name="_spring_security_remember_me" id="staySignedId">
+													<label for="staySignedId">
+														<span ng-if="locale == 'ko'">로그인 상태 유지</span>
+														<span ng-if="locale != 'ko'">Stay signed in</span>
+													</label>
+												</fieldset>
 											</div>
 											
 											<div class="clearfix">    
