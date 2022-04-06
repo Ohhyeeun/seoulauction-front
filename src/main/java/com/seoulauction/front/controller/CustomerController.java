@@ -3,7 +3,11 @@ package com.seoulauction.front.controller;
 import java.io.IOException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
@@ -494,18 +498,6 @@ public class CustomerController {
     
     @RequestMapping(value = "/customer/niceRegularResult")
 	public String niceRegularResult(HttpServletRequest request, HttpServletResponse response, Model model, HttpSession session) throws Exception {
-		Enumeration params = request.getParameterNames();
-		while(params.hasMoreElements()) {
-			String name = (String) params.nextElement();
-			logger.info(name + " : " + request.getParameter(name));
-		}
-		logger.info("---------------------");
-		Enumeration attrs = request.getAttributeNames();
-		while(attrs.hasMoreElements()){
-			String name = (String)attrs.nextElement();
-			logger.info(name + " : " + request.getAttribute(name));
-		}
-		
 		request.setCharacterEncoding("euc-kr");
 		/** 1. Request Wrapper 클래스를 등록한다.  */ 
 		NicePayHttpServletRequestWrapper httpRequestWrapper = new NicePayHttpServletRequestWrapper(request);
