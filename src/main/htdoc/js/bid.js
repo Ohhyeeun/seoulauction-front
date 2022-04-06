@@ -1090,16 +1090,27 @@ app.controller('saleCertCtl', function($scope, consts, common, $interval, input,
     	$scope.checkHpAuth.message = "";
 		$scope.form_data.hp = $scope.form_data.hp1 + "-" + $scope.form_data.hp2 + "-" + $scope.form_data.hp3;
 
-		$d = {"to_phone":$scope.form_data.hp};
-		
-		
+		$d = {"to_phone":$scope.form_data.hp , "bid_auth" : true , "sale_no" : $scope.sale.SALE_NO };
 
-		common.callAPI('/join/send_auth_num', $d, 
+		common.callAPI('/join/send_auth_num', $d,
 			function(data, status) {
 				try {
-			    	$scope.form_data.can_auth = true;
-			    	
-			    	$scope.auth_num_send_status = data.SEND_STATUS;
+
+					if(data.AUTH_EXISTS){
+						alert(
+							$scope.locale == 'ko'?
+								'이미 인증된 번호입니다.\n' +
+								'최초 인증받은 아이디로 재로그인 후 응찰 진행해주시기 바랍니다.'
+								:
+								"This number is already authorized.\n" +
+								"Please log-in again with the first authenticated ID and start bidding."
+						);
+						return;
+					}
+
+					$scope.form_data.can_auth = true;
+
+					$scope.auth_num_send_status = data.SEND_STATUS;
 					$scope.auth_end_time = moment(new Date()).add(120, 'seconds');
 					if($scope.auth_num_send_status){
 						$scope.timer_duration = $interval($scope.setAuthDuration, 1000);
@@ -1110,7 +1121,7 @@ app.controller('saleCertCtl', function($scope, consts, common, $interval, input,
 				catch(err) {
 					$scope.auth_num_send_status = false;
 				}
-	   		}
+			}
 		);
 	}
 	
