@@ -317,10 +317,12 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
             <a href="/currentAuction?sale_kind=zerobase_only&page=1">
             	 <img src="/images/img/main/auction_sum/20220317.jpg" style="width:100%;"/>
 						 </a>
+
             <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
             <p class="mainContents_txt" ng-if="locale=='ko'">ZEROBASE</p>
             <p class="mainContents_txt" ng-if="locale!='ko'">ZEROBASE</p>
             <div style="clear:both;"></div>
+
         </div> -->
 
         <!-- 오프라인 경매

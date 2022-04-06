@@ -424,7 +424,7 @@ function OnloadImg(){
 									<ul>
 										<li id="leftTime" class="time" ng-if="lot.END_YN != 'Y'"><span ng-bind="db_now | timeDuration : lot.TO_DT"></span></li>
 										<li><spring:message code="label.bid.count" arguments="{{lot.BID_CNT | number:0}}" /></li>
-										<li><strong class="txt_red"><spring:message code="label.bid.price" />&nbsp;<span ng-if="lot.LAST_PRICE != null" ng-bind="sale.CURR_CD+' '+(lot.LAST_PRICE | number:0)"></span> <!--KRW <span id="current_price" ng-bind="lot.LAST_PRICE | number:0"></span>--></strong></li>
+										<li ng-if="lot.BID_CNT > 0"><strong class="txt_red"><spring:message code="label.bid.price" />&nbsp;<span ng-if="lot.LAST_PRICE != null" ng-bind="sale.CURR_CD+' '+(lot.LAST_PRICE | number:0)"></span> <!--KRW <span id="current_price" ng-bind="lot.LAST_PRICE | number:0"></span>--></strong></li>
 									</ul>
                                     <!--<span class="btn_style01 xlarge white btn_bid">
 										<button type="button" ng-click="showBidPopup({'parent':this, 'sale':sale, 'lot':lot});" >
@@ -830,7 +830,7 @@ function OnloadImg(){
 									<!--시작가끝-->   
 									<p>      
 										<strong class="txt_red"> 
-											<span ng-if="['online','online_zb'].indexOf(sale.SALE_KIND_CD) > -1 && sale_status == 'ING'"><spring:message code="label.bid.price" /></span>
+											<span ng-if="['online','online_zb'].indexOf(sale.SALE_KIND_CD) > -1 && sale_status == 'ING' && lot.BID_CNT > 0"><spring:message code="label.bid.price" /></span>
 											<span ng-if="sale_status == 'END' && lot.LAST_PRICE >= 0 && lot.BID_CNT > 0"><spring:message code="label.bid.price.sold" /></span>
                                             <span ng-if="lot.LAST_PRICE != null && sale_status != 'ING' && lot.LAST_PRICE >= 0 && lot.BID_CNT > 0" ng-bind="sale.CURR_CD+' '+(lot.LAST_PRICE | number:0)"></span>
                                             <span ng-if="lot.LAST_PRICE >= 0 && sale_status == 'ING' && lot.LAST_PRICE != null" ng-bind="(sale.CURR_CD)+' '+(lot.LAST_PRICE | number:0)"></span>   
