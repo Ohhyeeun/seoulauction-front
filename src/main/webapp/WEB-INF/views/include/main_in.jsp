@@ -670,7 +670,9 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
           <a href="https://www.youtube.com/channel/UCITsbs0m_QpXwZSZ-jc3ORA" target="_blank">
           	<img src="/images/img/main/ect/20220331.png" style="width:100%;"/>
           </a>
+
           <!-- <p style="padding-top:30px; padding-bottom:30px; font-size:18px; font-weight:600;" ng-if="locale=='ko'"><Bon Voyage : Kim Sun woo></p> -->
+
           <p class="mainContents_txt" style="padding-top: 20px;" ng-if="locale=='ko'">PRINT BAKERY YOUTUBE</p>
           <p class="mainContents_txt" style="padding-top: 20px;" ng-if="locale!='ko'">PRINT BAKERY YOUTUBE</p>
       </div>
