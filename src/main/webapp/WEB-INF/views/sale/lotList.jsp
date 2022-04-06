@@ -396,7 +396,7 @@ app.controller('lotListCtl', function($scope, consts, common, bid, $interval, is
  		}
  		
  	   	$d["actionList"][3]["parmsList"][0]["from"] = (($scope.currentPage - 1) * parseInt($scope.reqRowCnt)); 
- 	   	common.callActionSet($d, function(data, status) { 
+ 	   	common.callActionSet($d, function(data, status) {
 	 	   	if(is_login == "true"){
 			   	var padd_info = data["tables"]["PADDLE_CHECK"]["rows"][0];
 			   	$scope.padd_no = padd_info == null? 0 : padd_info.PADD_NO;
@@ -418,7 +418,13 @@ app.controller('lotListCtl', function($scope, consts, common, bid, $interval, is
  	 		/* YBK.20170314.카테고리 추가 */
  	 		$scope.hashtag = data["tables"]["HASHTAG"]["rows"];
  	 		$scope.highlight = data["tables"]["LOT_HIGHLIGHT"]["rows"];
- 	 		
+
+			if ($scope.sale.IS_OLD_SALE === 'Y') {
+				window.alert('해당 경매는 조회가 불가능 합니다');
+				window.history.back();
+				return;
+			}
+
  	 		if($scope.expe_from_price == null && $scope.expe_to_price == null){
  	 	 		$scope.setExpeSlide($scope.sale.CURR_CD);
  	 	 		$scope.expe_from_price = parseInt(slide_expe_start);
