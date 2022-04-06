@@ -283,7 +283,7 @@ public class CustomerController {
 		try{
 			boolean result = encode.matches(paramMap.get("auth_num").toString(), request.getSession().getAttribute("AUTH_NUM").toString());
 			request.getSession().setAttribute("AUTH_NUM", null);
-			if(config.getIsDevelop()) {
+			if(!config.getIsPhoneAuth()) {
 				result = true;
 			}
 			return result;
