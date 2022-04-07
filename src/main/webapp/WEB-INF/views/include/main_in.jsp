@@ -278,7 +278,7 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
             <a href="/currentAuction?sale_kind=online_only&sale_no=699&page=1">
                  <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220401_ko.gif" style="width:100%;"/>
                  <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220401_en.gif" style="width:100%;"/>
-            </a> 
+            </a>
             <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
             <p class="mainContents_txt" ng-if="locale=='ko'">4월 e BID 퍼블릭 온라인 경매 Ⅰ</p>
             <p class="mainContents_txt" ng-if="locale!='ko'">e BID Public Online Auction Ⅰ in April</p>
@@ -435,14 +435,14 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
 				<h2 class="mainContents_tit">VIDEO</h2>
 				<div class="col8" style="overflow:hidden">
 	          	<div class="popupVideo">
-	                  <a data-video="B_iGOoOR1SY">
-	                      <img src="/images/img/main/video/20220401_01.jpg" style="width:100%; cursor:pointer;" alt="video1"/>
+	                  <a data-video="GB32owUiPqw"> 
+	                      <img src="/images/img/main/video/20220407.jpg" style="width:100%; cursor:pointer;" alt="video1"/>
 	                  </a>
 	                  <div class="video-popup">
 	                      <div class="video-popup-closer"></div>
 	                  </div>
-	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">FOCUS ON: eBID Premium Online Auction in April 2022_해외작가편</p>
-	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">FOCUS ON: eBID Premium Online Auction in April 2022_해외작가편</p>
+	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">FOCUS ON: eBID Public Online Auction Ⅰ in April</p>
+	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">FOCUS ON: eBID Public Online Auction Ⅰ in April</p>
 	          	</div>
 	     	</div>
 	      	<div class="col4 last" style="overflow:hidden">
