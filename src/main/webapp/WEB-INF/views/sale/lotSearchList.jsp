@@ -660,10 +660,10 @@ app.controller('lotListCtl', function($scope, consts, common, is_login, locale, 
 												<span ng-show='lot.STAT_CD != "reentry"' class="btn_style01 xlarge white btn_bid" ng-if="['online','online_zb'].indexOf(lot.SALE_KIND_CD) > -1 && custInfo.CUST_NO && is_login && lot.END_YN == 'N'">
 										        	<a ng-if="locale=='ko'" target="_blank" href="/saleDetail?view_id=CURRENT_AUCTION&sale_no={{lot.SALE_NO}}">진행경매 보기</a> 
                                                     <a ng-if="locale!='ko'" target="_blank" href="/saleDetail?view_id=CURRENT_AUCTION&sale_no={{lot.SALE_NO}}">View Auction</a> 
-										        </span>    
-										        <span ng-show='lot.STAT_CD != "reentry"' class="btn_style01 xlarge white btn_bid" ng-if="custInfo.CUST_NO && is_login && lot.END_YN == 'Y'">
-										        	<a ng-if="locale=='ko'" target="_blank" href="/lotDetail?view_id=RESULT_AUCTION&sale_no={{lot.SALE_NO}}&lot_no={{lot.LOT_NO}}&view_type=GRID">경매결과 보기</a> 
-                                                    <a ng-if="locale!='ko'" target="_blank" href="/lotDetail?view_id=RESULT_AUCTION&sale_no={{lot.SALE_NO}}&lot_no={{lot.LOT_NO}}&view_type=GRID">See the result</a> 
+										        </span>
+												<span ng-show='lot.STAT_CD != "reentry"' class="btn_style01 xlarge white btn_bid" ng-if="['online','online_zb'].indexOf(lot.SALE_KIND_CD) < 0 && custInfo.CUST_NO && is_login && lot.END_YN == 'Y'">
+										        	<a ng-if="locale=='ko'" target="_blank" href="/lotDetail?view_id=RESULT_AUCTION&sale_no={{lot.SALE_NO}}&lot_no={{lot.LOT_NO}}&view_type=GRID">경매결과 보기</a>
+                                                    <a ng-if="locale!='ko'" target="_blank" href="/lotDetail?view_id=RESULT_AUCTION&sale_no={{lot.SALE_NO}}&lot_no={{lot.LOT_NO}}&view_type=GRID">See the result</a>
 										        </span> 
 										        <!--  YDH 추가 End.(2016.10.05) -->      
 											</div>    

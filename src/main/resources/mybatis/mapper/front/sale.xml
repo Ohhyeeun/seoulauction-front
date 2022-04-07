@@ -1076,7 +1076,12 @@
 		    and L.STAT_CD != 'reentry'
 	        and S.STAT_CD = 'open'
 	        and S.SALE_OUTSIDE_YN = 'N'
-	        and now()  &lt;= case when S.SALE_KIND_CD IN ('online', 'online_zb') then (case when CU.EMP_GB = 'Y' then now() else (select MAX(L.TO_DT) from LOT L where L.SALE_NO = S.SALE_NO GROUP BY L.SALE_NO) end) else now() end ## 온라인 경매는 진행중인것만 표시. 오프라인은 모두 표시
+			and now() &lt;= case when S.SALE_KIND_CD IN ('online', 'online_zb') then (
+			case when (CU.EMP_GB = 'Y' || date_format(S.TO_DT, '%Y-%m-%d') >= date_format(now(), '%Y-%m-%d') )
+			then now()
+			else (select MAX(L.TO_DT) from LOT L where L.SALE_NO = S.SALE_NO GROUP BY L.SALE_NO) end
+			)else now()
+			end ## 온라인 경매는 진행중인것만 표시. 오프라인은 모두 표시
 	        <if test="sale_kind != null">
 	        	and S.SALE_KIND_CD in (
 		        <foreach collection="sale_kind" item="item" index="index" separator=",">
