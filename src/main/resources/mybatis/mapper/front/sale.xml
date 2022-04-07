@@ -16,7 +16,9 @@
 		select 	S.SALE_NO
 		<if test="for_count == null">
 			  , IF(S.SALE_TH_DSP_YN = 'N', '', S.SALE_TH) SALE_TH, COLUMN_JSON(S.TITLE_BLOB) TITLE_JSON
-			  , S.FROM_DT, S.TO_DT, COLUMN_JSON(S.PLACE_BLOB) PLACE_JSON
+			  , S.FROM_DT
+		      , S.TO_DT
+		      , COLUMN_JSON(S.PLACE_BLOB) PLACE_JSON
 			  , S.SALE_KIND_CD
 			  , SI.FILE_PATH as SALE_IMG_PATH
 			  , SI.FILE_NAME as SALE_IMG_NAME
@@ -26,6 +28,7 @@
 			  , S.LIVE_BID_YN
 			  , S.LIVE_BID_DT
 			  , S.SALE_OUTSIDE_YN
+			  , if(S.SALE_KIND_CD in('plan', 'main', 'hongkong') and S.TO_DT &lt; current_timestamp - interval 5 year, 'Y', 'N') as IS_OLD_SALE
 		</if>
 		from 	SALE S
 		<if test="for_count == null">
@@ -176,6 +179,7 @@
 		  , S.SALE_OUTSIDE_YN
 		  , S.LIVE_BID_YN
 		  , S.LIVE_BID_DT
+		  , if(S.SALE_KIND_CD in('plan', 'main', 'hongkong') and S.TO_DT &lt; current_timestamp - interval 5 year, 'Y', 'N') as IS_OLD_SALE
 		   , BW.WRITE_NO <!-- 공지사항 불러오기 -->
 		from SALE S
 			left outer join BBS_WRITE BW on S.SALE_NO = BW.SALE_NO AND BBS_ID = 'notice'
@@ -1082,12 +1086,13 @@
 			else (select MAX(L.TO_DT) from LOT L where L.SALE_NO = S.SALE_NO GROUP BY L.SALE_NO) end
 			)else now()
 			end ## 온라인 경매는 진행중인것만 표시. 오프라인은 모두 표시
+			and IF(S.SALE_KIND_CD in ('plan', 'main', 'hongkong'), S.TO_DT &gt; current_timestamp - interval 5 year, true)
 	        <if test="sale_kind != null">
 	        	and S.SALE_KIND_CD in (
-		        <foreach collection="sale_kind" item="item" index="index" separator=",">
-					'${item}'
-				</foreach>
-			)
+					<foreach collection="sale_kind" item="item" index="index" separator=",">
+						'${item}'
+					</foreach>
+				)
 	        </if>
 			<if test="from_dt != null and from_dt != ''">
 			    and S.TO_DT &gt;= #{from_dt}
