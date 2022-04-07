@@ -690,7 +690,6 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
                     <a href="" class="sp_btn slidesjs-previous slidesjs-navigation"><span class="hidden">이전</span></a>
                     <a href="" class="sp_btn slidesjs-next slidesjs-navigation"><span class="hidden">다음</span></a>
                     <div class="sub_banner02">
-
                         <div>
                             <a href="https://xxblue.com/so2/sales/list/">
                                 <img src="/images/img/main/ad/2021040501.jpg" alt="banner" target="_blank"/>
