@@ -469,8 +469,8 @@ app.controller('lotListCtl', function($scope, consts, common, bid, $interval, is
  	 				if($scope.custInfo.EMP_GB == 'Y')	{
  	 	 				/* 직원은 모든 페이지 접속 허용 */
  	 	 			}else{
- 	 	 				if(['online','online_zb','exhibit','exhibit_sa'].indexOf($scope.sale.SALE_KIND_CD) > -1 && TO_DT < S_DB_NOW_D ){
- 	 	 	 				/* 마감된 온라인경매 페이지 접속시*/ 	  	 	 				
+						if(['online','online_zb','exhibit','exhibit_sa'].indexOf($scope.sale.SALE_KIND_CD) > -1 && TO_DT < S_DB_NOW_D ){
+ 	 	 	 				/* 마감된 온라인경매 페이지 접속시*/
  	 	 	 				alert($scope.locale == 'ko' ? "권한이 없거나 허용되지 않은 접근입니다.2" : "Access is not authorized or not allowed.");
  	 						history_back();
  	 	 				}
