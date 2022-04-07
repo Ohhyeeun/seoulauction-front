@@ -53,14 +53,11 @@
 			authentication-failure-url="/login?error"
 			authentication-failure-handler-ref="failureHandler"
 		 />
-
         <security:anonymous granted-authority="ROLE_ANONYMOUS"/>
 		<security:logout 
 		    logout-url="/processLogout"
-			logout-success-url="/login?logout"
-            delete-cookies="JSESSIONID,SPRING_SECURITY_REMEMBER_ME_COOKIE"/>
+			logout-success-url="/login?logout" />
 
-        <security:remember-me key="seoulauction" token-validity-seconds="604800" authentication-success-handler-ref="successHandler" user-service-ref="remembermeUserDetailsService" />
         <!-- <security:session-management >
             <security:concurrency-control max-sessions="1"/>
         </security:session-management> -->
