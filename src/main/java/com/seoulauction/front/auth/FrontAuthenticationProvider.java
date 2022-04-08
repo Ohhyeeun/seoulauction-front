@@ -41,6 +41,7 @@ public class FrontAuthenticationProvider implements AuthenticationProvider {
 	
 	@Override
 	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
+		logger.info("authenticate");
 		String loginId = (String)authentication.getPrincipal();
 		String passwd = (String)authentication.getCredentials();
 		
@@ -78,7 +79,7 @@ public class FrontAuthenticationProvider implements AuthenticationProvider {
         int custNo = Integer.parseInt(resultMap.get("CUST_NO").toString());
         
         UsernamePasswordAuthenticationToken result 
-        	= new UsernamePasswordAuthenticationToken(custNo, resultMap.get("PASSWD").toString(), roles);
+        	= new UsernamePasswordAuthenticationToken(loginId, resultMap.get("PASSWD").toString(), roles);
         result.setDetails(new SAUserDetails(loginId, resultMap.get("PASSWD").toString(), custNo, roles, resultMap.get("CUST_KIND_CD").toString()));
 		return result;
 	}

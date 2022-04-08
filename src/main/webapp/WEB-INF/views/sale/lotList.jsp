@@ -341,7 +341,7 @@ app.controller('lotListCtl', function($scope, consts, common, bid, $interval, is
  	 }
  	
  	$scope.loadLotList = function($page){
-		 
+
 
 		window.location.hash = '#page' + $page;
 //  		if(!$scope.sale_outside_yn){
@@ -445,9 +445,9 @@ app.controller('lotListCtl', function($scope, consts, common, bid, $interval, is
  	 		$scope.liveEnd = TO_DT;  
  	 		$scope.nowTime = S_DB_NOW_D;  
  	 		$scope.liveStartDt = LIVE_START_DT;
- 	 		$scope.liveCheckDt = S_DB_NOW;   
- 	 		
- 	 		if(FROM_DT > S_DB_NOW && 
+ 	 		$scope.liveCheckDt = S_DB_NOW;
+
+ 	 		if(FROM_DT > S_DB_NOW &&
  	 				((['main','hongkong','plan'].indexOf($scope.sale.SALE_KIND_CD) > -1 && TO_DT > S_DB_NOW_D)	//$scope.sale.SALE_KIND_CD != 'online' 수정. 2019.12.12 YDH
  	 				|| (['online','online_zb'].indexOf($scope.sale.SALE_KIND_CD) > -1 && END_DT > S_DB_NOW))	//$scope.sale.SALE_KIND_CD == 'online' 수정. 2019.12.12 YDH
  	 			){
@@ -469,17 +469,17 @@ app.controller('lotListCtl', function($scope, consts, common, bid, $interval, is
  	 			$scope.sale_status = "END";
  				
  	 			if(is_login == "false"){//마감되고 비로그인시
- 	 				alert($scope.locale == 'ko' ? "권한이 없거나 허용되지 않은 접근입니다." : "Access is not authorized or not allowed.");
+ 	 				alert($scope.locale == 'ko' ? "권한이 없거나 허용되지 않은 접근입니다.1" : "Access is not authorized or not allowed.");
  	 				history_back();
  	 			}else{
  	 				if($scope.custInfo.EMP_GB == 'Y')	{
  	 	 				/* 직원은 모든 페이지 접속 허용 */
  	 	 			}else{
-						if(['online','online_zb','exhibit','exhibit_sa'].indexOf($scope.sale.SALE_KIND_CD) > -1 && TO_DT < S_DB_NOW_D ){
- 	 	 	 				/* 마감된 온라인경매 페이지 접속시*/
+ 	 	 				if(['online','online_zb','exhibit','exhibit_sa'].indexOf($scope.sale.SALE_KIND_CD) > -1 && TO_DT < S_DB_NOW_D ){
+ 	 	 	 				/* 마감된 온라인경매 페이지 접속시*/ 	  	 	 				
  	 	 	 				alert($scope.locale == 'ko' ? "권한이 없거나 허용되지 않은 접근입니다.2" : "Access is not authorized or not allowed.");
  	 						history_back();
- 	 	 				} 	
+ 	 	 				}
  	 	 			}
  	 			}
  	 		}
@@ -500,10 +500,14 @@ app.controller('lotListCtl', function($scope, consts, common, bid, $interval, is
 
  	 		//$scope.setJsonObj(data["tables"]["LOTS"]["rows"], ["LOT_SIZE", "ARTIST_NAME", "TITLE", "STITLE", "MAKE_YEAR"]);
  	 		
- 	 	    $scope.lotList = data["tables"]["LOTS"]["rows"];
- 	 	    if($scope.lotList.length > 0)
- 	 	   	 	$scope.curr_lot_no = $scope.lotList[0].CURR_LOT_NO;
- 	 	   
+			$scope.lotList = data["tables"]["LOTS"]["rows"];
+			if ($scope.lotList.length > 0) {
+				$scope.curr_lot_no = $scope.lotList[0].CURR_LOT_NO;
+			}
+
+			// 5년전 데이터의 가격은 숨김처리
+			$scope.isHidePrice5Years = moment($scope.sale.TO_DT).isBefore(moment().subtract(5, 'y')) || false;
+
  	 	    //$scope.base_currency = ($scope.sale.SALE_KIND_CD == 'hongkong' ? "HKD" : "KRW");
  	 	    $scope.base_currency = $scope.sale.CURR_CD;
  	 	    $("#nationCash").html($scope.sale.CURR_CD);
