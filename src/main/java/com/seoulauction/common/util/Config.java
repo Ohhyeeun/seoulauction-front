@@ -115,7 +115,8 @@ public class Config {
 	private Boolean isPhoneAuth;
 	public Boolean getIsPhoneAuth() {
 		return isPhoneAuth;
-
+	}
+    
 	@Value("${nicepay.encodeKey}")
 	private String nicepayEncodeKey;
 	public String getNicepayEncodeKey() {
