@@ -110,4 +110,10 @@ public class Config {
 	public String getMobileMsgAuth() {
 		return mobileMsgAuth;
 	}
+
+	@Value("${nicepay.encodeKey}")
+	private String nicepayEncodeKey;
+	public String getNicepayEncodeKey() {
+		return nicepayEncodeKey;
+	}
 }

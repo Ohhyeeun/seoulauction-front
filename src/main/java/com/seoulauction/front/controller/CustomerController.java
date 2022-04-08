@@ -529,8 +529,7 @@ public class CustomerController {
 
 		logger.info("niceRegularResult : {}", payMethod);
 
-		//nicepayWEB.setParam("EncodeKey","33F49GnCMS1mFYlGXisbUDzVf2ATWCl9k3R++d5hDd3Frmuos/XLx8XhXpe+LDYAbpGKZYSwtlyyLOtS/8aD7A==");
-		nicepayWEB.setParam("EncodeKey","9s7oFNUdG03jLMJ0nIYs4qwRldWVS7YUvVzNXeodXOCw/hWTsLQW64hDE7eJQ4Dui8aGGqFnqvlWSPYdlnLeBg==");
+		nicepayWEB.setParam("EncodeKey", config.getNicepayEncodeKey());
 
 		/** 3. 결제 요청 */
 		WebMessageDTO responseDTO = nicepayWEB.doService(httpRequestWrapper,response);
@@ -736,9 +735,7 @@ public class CustomerController {
 		nicepayWEB.setParam("PayMethod",payMethod);
 		logger.info("nicePurchaseResult : {}", payMethod);
 
-//		nicepayWEB.setParam("EncodeKey","33F49GnCMS1mFYlGXisbUDzVf2ATWCl9k3R++d5hDd3Frmuos/XLx8XhXpe+LDYAbpGKZYSwtlyyLOtS/8aD7A==");
-		nicepayWEB.setParam("EncodeKey","9s7oFNUdG03jLMJ0nIYs4qwRldWVS7YUvVzNXeodXOCw/hWTsLQW64hDE7eJQ4Dui8aGGqFnqvlWSPYdlnLeBg==");
-    	
+		nicepayWEB.setParam("EncodeKey", config.getNicepayEncodeKey());
     	
 		/** 3. 결제 요청 */
 		WebMessageDTO responseDTO = nicepayWEB.doService(httpRequestWrapper,response);
@@ -987,8 +984,7 @@ public class CustomerController {
 		nicepayWEB.setParam("PayMethod",payMethod);
 		logger.info("niceAcademyResult : {}", payMethod);
 
-		//nicepayWEB.setParam("EncodeKey","33F49GnCMS1mFYlGXisbUDzVf2ATWCl9k3R++d5hDd3Frmuos/XLx8XhXpe+LDYAbpGKZYSwtlyyLOtS/8aD7A==");
-		nicepayWEB.setParam("EncodeKey","9s7oFNUdG03jLMJ0nIYs4qwRldWVS7YUvVzNXeodXOCw/hWTsLQW64hDE7eJQ4Dui8aGGqFnqvlWSPYdlnLeBg==");
+		nicepayWEB.setParam("EncodeKey", config.getNicepayEncodeKey());
 
 		/** 3. 결제 요청 */
 		WebMessageDTO responseDTO = nicepayWEB.doService(httpRequestWrapper,response);
