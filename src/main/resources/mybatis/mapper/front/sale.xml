@@ -409,7 +409,7 @@
 		limit		#{from}, #{rows}
 	</select>
 	<select id="lot_list_refresh" resultType="Map">
-		select 	L.LOT_NO, L.STAT_CD, L.TO_DT, BD.LAST_PRICE
+		select  L.LOT_NO, L.STAT_CD, L.FROM_DT, L.TO_DT, BD.LAST_PRICE
 		    , CASE WHEN '${action_user_no}' != '' AND BD.LAST_CUST_NO = '${action_user_no}' THEN BD.LAST_CUST_ID 
 			  	ELSE concat(substr(BD.LAST_CUST_ID, 1, 2), '***') END AS LAST_CUST_ID
 			, ifnull(BD.IS_WIN, 'N') IS_WIN
