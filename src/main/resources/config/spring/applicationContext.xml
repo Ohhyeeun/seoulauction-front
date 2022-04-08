@@ -57,6 +57,7 @@
 	</bean>
 
 	<util:properties id="configure" location="classpath:application.properties" />
+	<util:properties id="property" location="classpath:application-${spring.profiles.active}.properties" />
 
     <!-- enable autowire -->
 	<context:annotation-config/>
