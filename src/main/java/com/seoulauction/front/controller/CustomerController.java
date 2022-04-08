@@ -468,5 +468,4 @@ public class CustomerController {
 
    		return "customer/popup/TermCheckPop";
    	}
-
 }

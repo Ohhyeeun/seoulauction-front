@@ -2,6 +2,10 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+
+<spring:eval expression="@property['nicepay.merchantID']" var="merchantID" scope="page"/>
+<spring:eval expression="@property['nicepay.merchantKey']" var="merchantKey" scope="page"/>
 
 <c:set var="price" value="${price}" scope="page"/>
 <%@ include file="incMerchant.jsp" %>
@@ -17,25 +21,11 @@
 	VbankExpDate = VbankExpDate.replaceAll("-", "");
 
 	String ediDate = getyyyyMMddHHmmss(); // 전문생성일시
-	
-	// 상점서명키 (꼭 해당 상점키로 바꿔주세요). 낙찰대는 면세 아이디 입력.
-	// 테스트 키
-// 	String merchantKey = "33F49GnCMS1mFYlGXisbUDzVf2ATWCl9k3R++d5hDd3Frmuos/XLx8XhXpe+LDYAbpGKZYSwtlyyLOtS/8aD7A==";	// nictest00m Test Key
-// 	String merchantKey = "NLA1O8Rr6YevU0YOlduvHoVz00BISclF6PLhm1qzLbH7ali6BhwNN/4mNEEgijIcAJtt5VSmJDQb2KHr0IituQ==";	// nictest74m Test Key
-	// 실제 키
-//	String merchantKey = "9s7oFNUdG03jLMJ0nIYs4qwRldWVS7YUvVzNXeodXOCw/hWTsLQW64hDE7eJQ4Dui8aGGqFnqvlWSPYdlnLeBg==";
-//	String merchantKey = "4OdHwuPKRNnZcsRjaTYq9Kcli+lDk1qRUgwmpmLfTX1PeaMr9z+Y17XimrZm+/b0te6jXNr/jyxZn34Knflksw=="; //"sauction2m"키
-//@실제String merchantKey = "9s7oFNUdG03jLMJ0nIYs4qwRldWVS7YUvVzNXeodXOCw/hWTsLQW64hDE7eJQ4Dui8aGGqFnqvlWSPYdlnLeBg=="; //sauction0키(가상계좌가능키)
-	String merchantKey = "94NmaNMnYunJssu3wwIMF7bc8hCROIdZCh2WCCDPVpj052Wx99HiGh6Y6UeekOnoV+A+vxKbIwR7pKWDoPJyrA==";
-	
-	// 상점 MID
-	// 테스트 MID
-// 	String merchantID = "nictest00m";
-// 	String merchantID = "nictest74m"; 
-	// 실제 MID
-//	String merchantID = "sauction2m";  // 수정전 sauction0m
-//@실제String merchantID = "sauction0m";  // YDH수정(2018.09.05)
-	String merchantID = "sauction3m";
+
+    // 상점 MID
+    String merchantID = pageContext.getAttribute("merchantID").toString();
+    // 상점서명키 (꼭 해당 상점키로 바꿔주세요) 연회비는 과세 아이디 설정. 추후 낙찰대수수료는 과세아이디로 결제할 것.
+    String merchantKey = pageContext.getAttribute("merchantKey").toString();
 
 	// 상품 가격을 기입하십시요.
 	// 하단 form값의 Amt와 동일해야 합니다.
@@ -60,16 +50,43 @@
 	 head 태그 안에 넣어주십시요. -->
 <script src="https://web.nicepay.co.kr/flex/js/nicepay_tr_utf.js" language="javascript"></script>
 
-<script language="javascript">
-/** 모바일 여부 체크 (2018.01.31)*/
-var filter = "win16|win32|win64|mac";
-var bIsMobile = false;
-if(navigator.platform){
-	if(0 > filter.indexOf(navigator.platform.toLowerCase())){
-		bIsMobile = true;
-	}else{
-		bIsMobile = false;
-	}
+<script>
+/** 모바일 여부 체크 */
+function isMobile(ua) {
+  if(ua === undefined) {
+    ua = window.navigator.userAgent;
+  }
+
+  ua = ua.toLowerCase();
+  var platform = {};
+  var matched = {};
+  var isMobile = false;
+  var platform_match = /(ipad)/.exec(ua) || /(ipod)/.exec(ua)
+          || /(windows phone)/.exec(ua) || /(iphone)/.exec(ua)
+          || /(kindle)/.exec(ua) || /(silk)/.exec(ua) || /(android)/.exec(ua)
+          || /(win)/.exec(ua) || /(mac)/.exec(ua) || /(linux)/.exec(ua)
+          || /(cros)/.exec(ua) || /(playbook)/.exec(ua)
+          || /(bb)/.exec(ua) || /(blackberry)/.exec(ua)
+          || [];
+
+  matched.platform = platform_match[0] || "";
+  if(matched.platform) {
+    platform[matched.platform] = true;
+  }
+
+  if(platform.android || platform.bb || platform.blackberry
+          || platform.ipad || platform.iphone
+          || platform.ipod || platform.kindle
+          || platform.playbook || platform.silk
+          || platform["windows phone"]) {
+    isMobile = true;
+  }
+
+  if(platform.cros || platform.mac || platform.linux || platform.win) {
+    isMobile = false;
+  }
+
+  return isMobile;
 }
 /***************************/
 NicePayUpdate();	//Active-x Control 초기화 함수로 head 태그 안에 선언합니다.
@@ -97,7 +114,7 @@ function nicepay() {
 	});
 	
 	if(bIsTypeSelected) {
-		if(bIsMobile){
+        if(isMobile(window.navigator.userAgent)){
 			goPayMobile(payForm);
 		}else{
 			goPay(payForm);
