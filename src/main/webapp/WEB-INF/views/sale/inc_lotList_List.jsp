@@ -427,25 +427,21 @@
                                        	</div><!--시작가끝-->
 										
 										<!-- 현재가 -->
-										<div class="es_price" > 
-                                           	<ul>
+										<div class="es_price">
+                      <ul ng-if="!isHidePrice5Years">
 											 	<li class="es_price_left text_hide" style="color:#ff0000;">
 													<span ng-if="lot.LAST_PRICE >= 0 && lot.BID_CNT > 0 && (['online','online_zb'].indexOf(sale.SALE_KIND_CD) > -1) && (lot.END_YN == 'N' && lot.CLOSE_YN == 'N')"><spring:message code="label.bid.price" /></span>
 													<span ng-if="lot.LAST_PRICE >= 0 && lot.BID_CNT > 0 && (lot.END_YN == 'Y' || lot.CLOSE_YN == 'Y')"><spring:message code="label.bid.price.sold" /> </span>
 											 		<span ng-if="lot.LAST_PRICE >= 0 && lot.BID_CNT > 0 && ['online','online_zb'].indexOf(sale.SALE_KIND_CD) > -1">
-		                                            <span style="color:#ff0000; font-size:11px;">({{lot.BID_CNT | number:0}}<span ng-if="locale=='ko'">회</span><span ng-if="locale!='ko'">bid</span>)</span>
-		                                            </span>     
+														<span style="color:#ff0000; font-size:11px;">({{lot.BID_CNT | number:0}}<span ng-if="locale=='ko'">회</span><span ng-if="locale!='ko'">bid</span>)</span>
+													</span>
 											 	</li>
-		                                        <li class="es_price_right">  
+												<li class="es_price_right">
 													<span style="color:#ff0000; font-weight:600;" ng-if="lot.LAST_PRICE != null" ng-bind="(sale.CURR_CD)+' '+(lot.LAST_PRICE | number:0)"></span>
 												</li>
-												<!-- <p style="font-weight:600; font-size:18px;line-height:30px;">
-		                                                <strong class="txt_impo"><spring:message code="label.bid.price" /><br/>
-		                                                <span ng-if="lot.LAST_PRICE != null" ng-bind="(sale.CURR_CD)+' '+(lot.LAST_PRICE | number:0)">
-		                                                </span></strong>
-												 </p> -->
-                                  			</ul>
-										</div>	 
+                      </ul>
+										</div>
+
 										<!-- 홍콩경매 sale.SALE_KIND_CD == 'hongkong'는 HKD를 맨위로 표시한다. -->
 										<%-- <span class="krw" ng-if="lot.EXPE_PRICE_INQ_YN == 'Y'"><spring:message code="label.auction.detail.Request" /></span>
 										<span ng-if="lot.EXPE_PRICE_INQ_YN != 'Y' && (lot.EXPE_PRICE_TO_JSON[base_currency]) != 0 && (lot.EXPE_PRICE_FROM_JSON[base_currency]) != 0 && (lot.EXPE_PRICE_TO_JSON[base_currency]) != null && (lot.EXPE_PRICE_FROM_JSON[base_currency]) != null">

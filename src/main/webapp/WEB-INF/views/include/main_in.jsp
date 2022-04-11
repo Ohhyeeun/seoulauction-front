@@ -275,10 +275,10 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
 
         <!-- 온라인 경매 -->
         <div class="col4">
-            <a href="/currentAuction?sale_kind=online_only&sale_no=699&page=1">
+            <!-- <a href="/currentAuction?sale_kind=online_only&sale_no=698&page=1">-->
                  <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220401_ko.gif" style="width:100%;"/>
                  <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220401_en.gif" style="width:100%;"/>
-            </a>
+            <!-- </a> -->
             <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
             <p class="mainContents_txt" ng-if="locale=='ko'">4월 e BID 퍼블릭 온라인 경매 Ⅰ</p>
             <p class="mainContents_txt" ng-if="locale!='ko'">e BID Public Online Auction Ⅰ in April</p>
@@ -334,12 +334,10 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
             <a href="/currentAuction?sale_kind=zerobase_only&page=1">
             	 <img src="/images/img/main/auction_sum/20220317.jpg" style="width:100%;"/>
 						 </a>
-
             <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
             <p class="mainContents_txt" ng-if="locale=='ko'">ZEROBASE</p>
             <p class="mainContents_txt" ng-if="locale!='ko'">ZEROBASE</p>
             <div style="clear:both;"></div>
-
         </div> -->
 
         <!-- 온라인 경매
@@ -446,8 +444,8 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
 	                  <div class="video-popup">
 	                      <div class="video-popup-closer"></div>
 	                  </div>
-	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">FOCUS ON: eBID Public Online Auction Ⅰ in April</p>
-	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">FOCUS ON: eBID Public Online Auction Ⅰ in April</p>
+	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">FOCUS ON: eBID Premium Online Auction in April 2022_해외작가편</p>
+	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">FOCUS ON: eBID Premium Online Auction in April 2022_해외작가편</p>
 	          	</div>
 	     	</div>
 	      	<div class="col4 last" style="overflow:hidden">
@@ -677,7 +675,9 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
           <a href="https://www.youtube.com/channel/UCITsbs0m_QpXwZSZ-jc3ORA" target="_blank">
           	<img src="/images/img/main/ect/20220331.png" style="width:100%;"/>
           </a>
+
           <!-- <p style="padding-top:30px; padding-bottom:30px; font-size:18px; font-weight:600;" ng-if="locale=='ko'"><Bon Voyage : Kim Sun woo></p> -->
+
           <p class="mainContents_txt" style="padding-top: 20px;" ng-if="locale=='ko'">PRINT BAKERY YOUTUBE</p>
           <p class="mainContents_txt" style="padding-top: 20px;" ng-if="locale!='ko'">PRINT BAKERY YOUTUBE</p>
       </div>
