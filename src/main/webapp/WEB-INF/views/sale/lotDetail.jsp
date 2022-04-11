@@ -70,9 +70,6 @@ app.controller('lotDetailCtl', function($scope, consts, common, bid, $interval, 
  		var SALE_TO_DT = $filter('date')($scope.lot.TO_DT, 'yyyyMMdd');
  		var DB_NOW_DT = $filter('date')($scope.db_now, 'yyyyMMdd');
 
-		// 5년전 데이터의 가격은 숨김처리
-		$scope.isHidePrice5Years = moment($scope.sale.TO_DT).isBefore(moment().subtract(5, 'y')) || false;
-
  		if(FROM_DT > S_DB_NOW && TO_DT > S_DB_NOW){
  			$scope.sale_status = "READY";
  		}
@@ -831,7 +828,7 @@ function OnloadImg(){
 										<p>KRW <span ng-bind="lot.START_PRICE | number : 0"></span></p> 
 									</div>  	 
 									<!--시작가끝-->   
-									<p ng-if="!isHidePrice5Years">
+									<p>      
 										<strong class="txt_red"> 
 											<span ng-if="['online','online_zb'].indexOf(sale.SALE_KIND_CD) > -1 && sale_status == 'ING' && lot.BID_CNT > 0"><spring:message code="label.bid.price" /></span>
 											<span ng-if="sale_status == 'END' && lot.LAST_PRICE >= 0 && lot.BID_CNT > 0"><spring:message code="label.bid.price.sold" /></span>

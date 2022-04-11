@@ -409,7 +409,7 @@
 		limit		#{from}, #{rows}
 	</select>
 	<select id="lot_list_refresh" resultType="Map">
-		select  L.LOT_NO, L.STAT_CD, L.FROM_DT, L.TO_DT, BD.LAST_PRICE
+		select 	L.LOT_NO, L.STAT_CD, L.TO_DT, BD.LAST_PRICE
 		    , CASE WHEN '${action_user_no}' != '' AND BD.LAST_CUST_NO = '${action_user_no}' THEN BD.LAST_CUST_ID 
 			  	ELSE concat(substr(BD.LAST_CUST_ID, 1, 2), '***') END AS LAST_CUST_ID
 			, ifnull(BD.IS_WIN, 'N') IS_WIN
@@ -1080,7 +1080,12 @@
 		    and L.STAT_CD != 'reentry'
 	        and S.STAT_CD = 'open'
 	        and S.SALE_OUTSIDE_YN = 'N'
-	        and now()  &lt;= case when S.SALE_KIND_CD IN ('online', 'online_zb') then (case when CU.EMP_GB = 'Y' then now() else (select MAX(L.TO_DT) from LOT L where L.SALE_NO = S.SALE_NO GROUP BY L.SALE_NO) end) else now() end ## 온라인 경매는 진행중인것만 표시. 오프라인은 모두 표시
+			and now() &lt;= case when S.SALE_KIND_CD IN ('online', 'online_zb') then (
+			case when (CU.EMP_GB = 'Y' || date_format(S.TO_DT, '%Y-%m-%d') >= date_format(now(), '%Y-%m-%d') )
+			then now()
+			else (select MAX(L.TO_DT) from LOT L where L.SALE_NO = S.SALE_NO GROUP BY L.SALE_NO) end
+			)else now()
+			end ## 온라인 경매는 진행중인것만 표시. 오프라인은 모두 표시
 			and IF(S.SALE_KIND_CD in ('plan', 'main', 'hongkong'), S.TO_DT &gt; current_timestamp - interval 5 year, true)
 	        <if test="sale_kind != null">
 	        	and S.SALE_KIND_CD in (

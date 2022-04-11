@@ -91,7 +91,7 @@ public class SSGAuthenticationProvider  implements AuthenticationProvider {
         int custNo = Integer.parseInt(resultMap.get("CUST_NO").toString());
 
         UsernamePasswordAuthenticationToken result
-                = new UsernamePasswordAuthenticationToken(custId, resultMap.get("PASSWD").toString(), roles);
+                = new UsernamePasswordAuthenticationToken(custNo, resultMap.get("PASSWD").toString(), roles);
         result.setDetails(new SAUserDetails(custId, resultMap.get("PASSWD").toString(), custNo, roles, resultMap.get("CUST_KIND_CD").toString()));
 
         return result;
