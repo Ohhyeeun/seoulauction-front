@@ -282,21 +282,27 @@
 		                                                KRW <span ng-bind="lot.START_PRICE | number : 0"></span>
 		                                                </span> -->
 	                                              	</div><!--시작가끝-->
-													 <!-- 현재가 -->
-													 <div class="es_price">
-														 <ul ng-if="!isHidePrice5Years">
+												
+													 <!-- 현재가 -->   
+													 <div class="es_price"> 
+		                                              	<ul> 
 														 	<li class="es_price_left text_hide" style="color:#ff0000;">
 																<span ng-if="lot.LAST_PRICE >= 0 && lot.BID_CNT > 0 && (['online','online_zb'].indexOf(sale.SALE_KIND_CD) > -1) && (lot.END_YN == 'N' && lot.CLOSE_YN == 'N')" title="현재가 {{lot.BID_CNT | number:0}}회"><spring:message code="label.bid.price" /></span>
 																<span ng-if="lot.LAST_PRICE >= 0 && lot.BID_CNT > 0 && (lot.END_YN == 'Y' || lot.CLOSE_YN == 'Y')" title="낙찰가 {{lot.BID_CNT | number:0}}회"><spring:message code="label.bid.price.sold" /> </span>
-																<span ng-if="lot.LAST_PRICE >= 0 && lot.BID_CNT > 0 && ['online','online_zb'].indexOf(sale.SALE_KIND_CD) > -1">
-																	<span style="color:#ff0000; font-size:11px;" title="{{lot.BID_CNT | number:0}}회">({{lot.BID_CNT | number:0}}<span ng-if="locale=='ko'">회</span><span ng-if="locale!='ko'">bid</span>)</span>
-																</span>
-															</li>
-															<li class="es_price_right">
+														 		<span ng-if="lot.LAST_PRICE >= 0 && lot.BID_CNT > 0 && ['online','online_zb'].indexOf(sale.SALE_KIND_CD) > -1">           
+		                                                       		<span style="color:#ff0000; font-size:11px;" title="{{lot.BID_CNT | number:0}}회">({{lot.BID_CNT | number:0}}<span ng-if="locale=='ko'">회</span><span ng-if="locale!='ko'">bid</span>)</span> 
+		                                                   		</span>    
+														 	</li> 
+			                                                <li class="es_price_right">
 																<span style="color:#ff0000; font-weight:600;" ng-if="lot.LAST_PRICE != null" ng-bind="(sale.CURR_CD)+' '+(lot.LAST_PRICE | number:0)"></span>
 															</li>
-														</ul>
-													</div>
+															<!-- <p style="font-weight:600; font-size:18px;line-height:30px;">
+				                                                 <strong class="txt_impo"><spring:message code="label.bid.price" /><br/>
+				                                                 <span ng-if="lot.LAST_PRICE != null" ng-bind="(sale.CURR_CD)+' '+(lot.LAST_PRICE | number:0)">
+				                                                 </span></strong>
+															 </p> -->
+		                                     			</ul>
+													</div>	
 												</div>
                                    			</a> 
                                    			  

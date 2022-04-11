@@ -275,31 +275,48 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
 
         <!-- 온라인 경매 -->
         <div class="col4">
-            <!-- <a href="/currentAuction?sale_kind=online_only&sale_no=698&page=1">-->
+            <a href="/currentAuction?sale_kind=online_only&sale_no=699&page=1">
                  <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220401_ko.gif" style="width:100%;"/>
                  <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220401_en.gif" style="width:100%;"/>
-            <!-- </a> -->
+            </a>
             <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
             <p class="mainContents_txt" ng-if="locale=='ko'">4월 e BID 퍼블릭 온라인 경매 Ⅰ</p>
             <p class="mainContents_txt" ng-if="locale!='ko'">e BID Public Online Auction Ⅰ in April</p>
             <div style="clear:both;"></div>
         </div>
 
-				<!-- 커밍순 썸네일-->
-	        <div class="col4">
-						<img src="/images/img/main/auction_sum/20190613.jpg" style="width:100%;"/>
-	            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
-	            <p class="mainContents_txt"></p>
-	            <div style="clear:both;"></div>
-	        </div>
+				<!-- 온라인 경매 -->
+        <div class="col4">
+            <!-- <a href="/currentAuction?sale_kind=online_only&sale_no=699&page=1"> -->
+                 <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220411_01.gif" style="width:100%;"/>
+                 <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220411_01.gif" style="width:100%;"/>
+            <!-- </a> -->
+            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
+            <p class="mainContents_txt" ng-if="locale=='ko'">▶산불 피해 이재민 돕기 온라인 자선경매</p>
+            <p class="mainContents_txt" ng-if="locale!='ko'">▶Online Charity Auction for victims of wildfire</p>
+            <div style="clear:both;"></div>
+        </div>
 
-				<!-- 커밍순 썸네일-->
+				<!-- 오프라인 경매 -->
+        <div class="col4 last">
+					<!-- <a href="/currentAuction?sale_kind=offline_only&sale_no=696&page=1"> -->
+             <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220411_02.gif" style="width:100%;"/>
+             <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220411_02.gif" style="width:100%;"/>
+					<!-- </a> -->
+          <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
+          <p class="mainContents_txt" ng-if="locale=='ko'">166회 서울옥션 미술품경매</p>
+          <p class="mainContents_txt" ng-if="locale!='ko'">166th ART AUCTION</p>
+          <div style="clear:both;"></div>
+        </div>
+
+				<!-- 커밍순 썸네일
 	        <div class="col4 last">
 						<img src="/images/img/main/auction_sum/20190613.jpg" style="width:100%;"/>
 	            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
 	            <p class="mainContents_txt"></p>
 	            <div style="clear:both;"></div>
-	        </div>
+	        </div> -->
+
 				<!-- 온라인 경매 -->
         <!-- <div class="col4">
             <a href="/currentAuction?sale_kind=online_only&sale_no=698&page=1">
@@ -317,22 +334,12 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
             <a href="/currentAuction?sale_kind=zerobase_only&page=1">
             	 <img src="/images/img/main/auction_sum/20220317.jpg" style="width:100%;"/>
 						 </a>
+
             <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
             <p class="mainContents_txt" ng-if="locale=='ko'">ZEROBASE</p>
             <p class="mainContents_txt" ng-if="locale!='ko'">ZEROBASE</p>
             <div style="clear:both;"></div>
-        </div> -->
 
-        <!-- 오프라인 경매
-        <div class="col4">
-			<a href="/currentAuction?sale_kind=offline_only&sale_no=696&page=1">
-                 <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220307.gif" style="width:100%;"/>
-                 <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220307.gif" style="width:100%;"/>
-			</a>
-            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
-            <p class="mainContents_txt" ng-if="locale=='ko'">Contemporary Art Sale</p>
-            <p class="mainContents_txt" ng-if="locale!='ko'">Contemporary Art Sale</p>
-            <div style="clear:both;"></div>
         </div> -->
 
         <!-- 온라인 경매
@@ -433,14 +440,14 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
 				<h2 class="mainContents_tit">VIDEO</h2>
 				<div class="col8" style="overflow:hidden">
 	          	<div class="popupVideo">
-	                  <a data-video="B_iGOoOR1SY">
-	                      <img src="/images/img/main/video/20220401_01.jpg" style="width:100%; cursor:pointer;" alt="video1"/>
+	                  <a data-video="GB32owUiPqw">
+	                      <img src="/images/img/main/video/20220407.jpg" style="width:100%; cursor:pointer;" alt="video1"/>
 	                  </a>
 	                  <div class="video-popup">
 	                      <div class="video-popup-closer"></div>
 	                  </div>
-	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">FOCUS ON: eBID Premium Online Auction in April 2022_해외작가편</p>
-	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">FOCUS ON: eBID Premium Online Auction in April 2022_해외작가편</p>
+	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">FOCUS ON: eBID Public Online Auction Ⅰ in April</p>
+	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">FOCUS ON: eBID Public Online Auction Ⅰ in April</p>
 	          	</div>
 	     	</div>
 	      	<div class="col4 last" style="overflow:hidden">
@@ -670,9 +677,7 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
           <a href="https://www.youtube.com/channel/UCITsbs0m_QpXwZSZ-jc3ORA" target="_blank">
           	<img src="/images/img/main/ect/20220331.png" style="width:100%;"/>
           </a>
-
           <!-- <p style="padding-top:30px; padding-bottom:30px; font-size:18px; font-weight:600;" ng-if="locale=='ko'"><Bon Voyage : Kim Sun woo></p> -->
-
           <p class="mainContents_txt" style="padding-top: 20px;" ng-if="locale=='ko'">PRINT BAKERY YOUTUBE</p>
           <p class="mainContents_txt" style="padding-top: 20px;" ng-if="locale!='ko'">PRINT BAKERY YOUTUBE</p>
       </div>

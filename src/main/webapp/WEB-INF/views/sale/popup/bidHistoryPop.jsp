@@ -12,7 +12,7 @@
 	</button>
 	<div class="title">
 		<h2><spring:message code="label.go.bid.history" />
-			[<span id="planningTitle">{{sale.SALE_TH | localeOrdinal}} {{sale.TITLE_JSON[locale]}}</span>]</h2>
+			[<span id="planningTitle">{{sale.SALE_TH | localeOrdinal}} {{"TITLE" | localeValue : sale}}</span>]</h2>
 	</div>
 	<div class="cont">
 		<div class="bid_data">
@@ -75,7 +75,7 @@
 				<div class="txt_style03" ng-if="lot.LAST_PRICE >= 0 && lot.BID_CNT > 0">
 					<span><span class="txt_green" id="winnerId">{{lot.LAST_CUST_ID}}</span>님의</span> 낙찰을 축하드립니다.
 				</div>
-				<div class="txt_style03" ng-if="(!lot.LAST_PRICE || lot.LAST_PRICE == 0) && lot.BID_CNT < 1">
+				<div class="txt_style03" ng-if="(!lot.LAST_PRICE || lot.LAST_PRICE == 0) && && lot.BID_CNT < 1">
 					 유찰 되었습니다. 
 				</div>
 			</div>
@@ -86,7 +86,7 @@
 				<div class="txt_style03" ng-if="lot.LAST_PRICE >= 0 && lot.BID_CNT > 0">
 					<span><span class="txt_green" id="winnerId">{{lot.LAST_CUST_ID}}</span>&nbsp;Congratulations!</span> 
 				</div>
-				<div class="txt_style03" ng-if="(!lot.LAST_PRICE || lot.LAST_PRICE == 0) && lot.BID_CNT < 1">
+				<div class="txt_style03" ng-if="(!lot.LAST_PRICE || lot.LAST_PRICE == 0) && && lot.BID_CNT < 1">
 					 Unsold 
 				</div>
 			</div>

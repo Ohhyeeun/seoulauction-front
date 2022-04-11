@@ -51,10 +51,10 @@ app.controller('saleListCtl', function($scope, consts, is_login, locale, common,
 	$scope.sale_outside_yn = (getParameter("sale_outside_yn"));
 	
  	$scope.loadSaleList = function($page){
+
 		//지난경매 결과 당일 자정까지 보여주기
 		const today = new Date();
 		$scope.today = $filter('date')(today, 'yyyyMMdd');
-
 		window.location.hash = '#page' + $page;
 		if(!$scope.sale_outside_yn){
  			$scope.sale_outside_yn = "N";
@@ -204,7 +204,7 @@ app.controller('saleListCtl', function($scope, consts, is_login, locale, common,
 											{{sale.PLACE_JSON[locale]}}</span>
 										</div>
 										<div ng-if="sale.IS_OLD_SALE === 'N'">
-											<span class="btn_style01 white02" ng-if="custInfo.EMP_GB == 'Y' || (is_login == 'true' && ['main','hongkong','plan'].indexOf(sale.SALE_KIND_CD) > -1)">
+											<span class="btn_style01 white02" ng-if="custInfo.EMP_GB == 'Y' || ( is_login == 'true' && ((['main','hongkong','plan'].indexOf(sale.SALE_KIND_CD) > -1) ||  (today <= (sale.TO_DT | date:'yyyyMMdd'))) )">
 												<a ng-href="/saleDetail?view_id=${VIEW_ID}&sale_no={{sale.SALE_NO}}"><spring:message code="label.view.detail" /></a>
 											</span>
 										</div>

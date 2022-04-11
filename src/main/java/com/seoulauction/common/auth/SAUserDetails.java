@@ -4,15 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.security.authentication.AnonymousAuthenticationToken;
-import org.springframework.security.authentication.RememberMeAuthenticationToken;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.Collection;
 import java.util.List;
 
@@ -82,15 +76,5 @@ public class SAUserDetails implements UserDetails {
 	@Override
 	public boolean isEnabled() {
 		return true;
-	}
-
-	public static SAUserDetails getLoginUser(HttpServletRequest request){
-		Authentication userToken = SecurityContextHolder.getContext().getAuthentication();
-
-		SAUserDetails user = null;
-		if(userToken != null && !(userToken instanceof AnonymousAuthenticationToken)){
-			user = (SAUserDetails) (userToken instanceof RememberMeAuthenticationToken ? userToken.getPrincipal() : userToken.getDetails());
-		}
-		return user;
 	}
 }
