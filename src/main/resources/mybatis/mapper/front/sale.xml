@@ -1086,7 +1086,7 @@
 			else (select MAX(L.TO_DT) from LOT L where L.SALE_NO = S.SALE_NO GROUP BY L.SALE_NO) end
 			)else now()
 			end ## 온라인 경매는 진행중인것만 표시. 오프라인은 모두 표시
-			and IF(S.SALE_KIND_CD in ('plan', 'main', 'hongkong'), S.TO_DT &gt; current_timestamp - interval 5 year, true)
+			and IF(CU.EMP_GB = 'N' and S.SALE_KIND_CD in ('plan', 'main', 'hongkong'), S.TO_DT &gt; current_timestamp - interval 5 year, true)
 	        <if test="sale_kind != null">
 	        	and S.SALE_KIND_CD in (
 					<foreach collection="sale_kind" item="item" index="index" separator=",">
