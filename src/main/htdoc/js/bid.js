@@ -538,14 +538,15 @@ app.controller('bidHistoryCtl', function($scope, consts, common, $interval, inpu
 	
 	$scope.loadBidHistory = function(){
 		$d = {"baseParms":{"sale_no":$scope.sale.SALE_NO, "lot_no":$scope.lot.LOT_NO},//, "last_bid_no":$scope.last_bid_no},
- 				"actionList":[
- 			    {"actionID":"bid_list", "actionType":"select" , "tableName": "LIST"}
- 			 ]};
+			"actionList":[
+				{"actionID":"lot_list_refresh", "actionType":"select" , "tableName":"LOT", "parmsList":[{"lot_nos":[$scope.lot.LOT_NO]}]},
+				{"actionID":"bid_list", "actionType":"select" , "tableName": "LIST"}
+			]};
 
-  	   	common.callActionSet($d, 
-  	   			function(data, status) { 
-  	   		$scope.bidList = data["tables"]["LIST"]["rows"]; 
-  	   	});
+		common.callActionSet($d,function(data, status) {
+			$scope.bidList = data["tables"]["LIST"]["rows"];
+			$scope.lot = data["tables"]["LOT"]["rows"][0];
+		});
 	}
 });
 /* aa */
