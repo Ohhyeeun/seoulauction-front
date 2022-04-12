@@ -419,7 +419,8 @@ app.controller('lotListCtl', function($scope, consts, common, bid, $interval, is
  	 		$scope.hashtag = data["tables"]["HASHTAG"]["rows"];
  	 		$scope.highlight = data["tables"]["LOT_HIGHLIGHT"]["rows"];
 
-			if ($scope.sale.IS_OLD_SALE === 'Y') {
+			// 직원이 아니고, 오래된 경매일 경우, 막음
+			if ($scope.custInfo.EMP_GB === 'N' && $scope.sale.IS_OLD_SALE === 'Y') {
 				window.alert('해당 경매는 조회가 불가능 합니다');
 				window.history.back();
 				return;
