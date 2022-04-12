@@ -12,7 +12,7 @@
 	</button>
 	<div class="title">
 		<h2><spring:message code="label.go.bid.history" />
-			[<span id="planningTitle">{{sale.SALE_TH | localeOrdinal}} {{"TITLE" | localeValue : sale}}</span>]</h2>
+			[<span id="planningTitle">{{sale.SALE_TH | localeOrdinal}} {{sale.TITLE_JSON[locale]}}</span>]</h2>
 	</div>
 	<div class="cont">
 		<div class="bid_data">
