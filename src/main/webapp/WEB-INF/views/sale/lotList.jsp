@@ -420,11 +420,15 @@ app.controller('lotListCtl', function($scope, consts, common, bid, $interval, is
  	 		$scope.highlight = data["tables"]["LOT_HIGHLIGHT"]["rows"];
 
 			// 직원이 아니고, 오래된 경매일 경우, 막음
-			// if ($scope.custInfo.EMP_GB === 'N' && $scope.sale.IS_OLD_SALE === 'Y') {
-			// 	window.alert('해당 경매는 조회가 불가능 합니다');
-			// 	window.history.back();
-			// 	return;
-			// }
+			if (typeof $scope.custInfo !== 'undefined') {
+				if (typeof $scope.custInfo.EMP_GB !== 'undefined') {
+					if ($scope.custInfo.EMP_GB === 'N' && $scope.sale.IS_OLD_SALE === 'Y') {
+						window.alert('해당 경매는 조회가 불가능 합니다');
+						window.history.back();
+						return;
+					}
+				}
+			}
 
  	 		if($scope.expe_from_price == null && $scope.expe_to_price == null){
  	 	 		$scope.setExpeSlide($scope.sale.CURR_CD);
