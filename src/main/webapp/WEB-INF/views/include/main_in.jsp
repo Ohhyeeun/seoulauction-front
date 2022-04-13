@@ -275,31 +275,48 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
 
         <!-- 온라인 경매 -->
         <div class="col4">
-            <a href="/currentAuction?sale_kind=online_only&sale_no=699&page=1">
-                 <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220401_ko.gif" style="width:100%;"/>
-                 <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220401_en.gif" style="width:100%;"/>
-            </a>
+            <!-- <a href="/currentAuction?sale_kind=online_only&sale_no=699&page=1"> -->
+                 <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220413_ko.gif" style="width:100%;"/>
+                 <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220413_en.gif" style="width:100%;"/>
+            <!-- </a> -->
             <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
-            <p class="mainContents_txt" ng-if="locale=='ko'">4월 e BID 퍼블릭 온라인 경매 Ⅰ</p>
-            <p class="mainContents_txt" ng-if="locale!='ko'">e BID Public Online Auction Ⅰ in April</p>
+            <p class="mainContents_txt" ng-if="locale=='ko'">e BID 4월 퍼블릭 온라인 경매 Ⅱ</p>
+            <p class="mainContents_txt" ng-if="locale!='ko'">e BID Public Online Auction Ⅱ in April</p>
             <div style="clear:both;"></div>
         </div>
 
-				<!-- 커밍순 썸네일-->
-	        <div class="col4">
-						<img src="/images/img/main/auction_sum/20190613.jpg" style="width:100%;"/>
-	            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
-	            <p class="mainContents_txt"></p>
-	            <div style="clear:both;"></div>
-	        </div>
+        <!-- 온라인 경매 -->
+        <div class="col4">
+            <!-- <a href="/currentAuction?sale_kind=online_only&sale_no=699&page=1"> -->
+                 <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220411_01.gif" style="width:100%;"/>
+                 <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220411_01.gif" style="width:100%;"/>
+            <!-- </a> -->
+            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
+            <p class="mainContents_txt" ng-if="locale=='ko'">산불 피해 이재민 돕기 온라인 자선경매</p>
+            <p class="mainContents_txt" ng-if="locale!='ko'">Online Charity Auction for victims of wildfire</p>
+            <div style="clear:both;"></div>
+        </div>
 
-				<!-- 커밍순 썸네일-->
+				<!-- 오프라인 경매 -->
+        <div class="col4 last">
+					<!-- <a href="/currentAuction?sale_kind=offline_only&sale_no=696&page=1"> -->
+             <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220411_02.gif" style="width:100%;"/>
+             <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220411_02.gif" style="width:100%;"/>
+					<!-- </a> -->
+          <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
+          <p class="mainContents_txt" ng-if="locale=='ko'">166회 서울옥션 미술품경매</p>
+          <p class="mainContents_txt" ng-if="locale!='ko'">166th ART AUCTION</p>
+          <div style="clear:both;"></div>
+        </div>
+
+				<!-- 커밍순 썸네일
 	        <div class="col4 last">
 						<img src="/images/img/main/auction_sum/20190613.jpg" style="width:100%;"/>
 	            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
 	            <p class="mainContents_txt"></p>
 	            <div style="clear:both;"></div>
-	        </div>
+	        </div> -->
+
 				<!-- 온라인 경매 -->
         <!-- <div class="col4">
             <a href="/currentAuction?sale_kind=online_only&sale_no=698&page=1">
@@ -323,18 +340,6 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
             <p class="mainContents_txt" ng-if="locale!='ko'">ZEROBASE</p>
             <div style="clear:both;"></div>
 
-        </div> -->
-
-        <!-- 오프라인 경매
-        <div class="col4">
-			<a href="/currentAuction?sale_kind=offline_only&sale_no=696&page=1">
-                 <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220307.gif" style="width:100%;"/>
-                 <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220307.gif" style="width:100%;"/>
-			</a>
-            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
-            <p class="mainContents_txt" ng-if="locale=='ko'">Contemporary Art Sale</p>
-            <p class="mainContents_txt" ng-if="locale!='ko'">Contemporary Art Sale</p>
-            <div style="clear:both;"></div>
         </div> -->
 
         <!-- 온라인 경매
@@ -435,7 +440,7 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
 				<h2 class="mainContents_tit">VIDEO</h2>
 				<div class="col8" style="overflow:hidden">
 	          	<div class="popupVideo">
-	                  <a data-video="GB32owUiPqw"> 
+	                  <a data-video="GB32owUiPqw">
 	                      <img src="/images/img/main/video/20220407.jpg" style="width:100%; cursor:pointer;" alt="video1"/>
 	                  </a>
 	                  <div class="video-popup">
