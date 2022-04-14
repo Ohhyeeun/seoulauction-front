@@ -346,7 +346,7 @@ These Auction Terms shall be governed by the laws of Korea. The Seoul Central Di
 								<div class="inner">
                                 	<p>
                                     	Please carefully review the provisions of these Auction Terms.<br>
-Offline auctions and purchase contracts of Seoul Auction are implemented pursuant to the following, and you are consenting to being bound by these Auction Terms by participating in the auction or the contract.<br><br>
+Online auctions and purchase contracts of Seoul Auction are implemented pursuant to the following, and you are consenting to being bound by these Auction Terms by participating in the auction or the contract.<br><br>
 
  Article 1 Purpose<br><br>
 
