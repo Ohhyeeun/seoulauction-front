@@ -6,6 +6,7 @@
 
 <spring:eval expression="@property['nicepay.merchantID']" var="merchantID" scope="page"/>
 <spring:eval expression="@property['nicepay.merchantKey']" var="merchantKey" scope="page"/>
+<spring:eval expression="@property['server.scheme']" var="scheme" scope="page"/>
 
 <c:set var="price" value="${price}" scope="page"/>
 <c:set var="vat_price" value="${vat_price}" scope="page"/>
@@ -323,7 +324,7 @@ function chkPayType()
 <input type="hidden" name="vat" value="${vat}" />
 <input type="hidden" name="academy_no" value="${academy_no}" />
 <input type="hidden" name="CharSet" value="utf-8"/>
-<input type="hidden" name="ReturnURL" value="<%=request.getRequestURL().toString().replace(request.getRequestURI(),"")%>/customer/niceAcademyResult"><!-- blueerr 2018.09.04 모바일에서 절대경로로 처리하여야 합니다. -->
+<input type="hidden" name="ReturnURL" value="${scheme}://${pageContext.request.serverName}/customer/niceAcademyResult"><!-- blueerr 2018.09.04 모바일에서 절대경로로 처리하여야 합니다. -->
 
 
 <!-- 과세/면세 결제 처리 Amt(결제총액)은 입력박스에서 처리 -->
