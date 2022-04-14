@@ -115,6 +115,7 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
     padding:20px;
     padding-bottom: 10px;
 	background: #ffffff;
+    box-shadow: rgb(0 0 0 / 5%) -1px 7px 8px 1px; 
     /* transform: translate(-50%,-50%);
     -ms-transform: translate(-50%,-50%);  */
 }
