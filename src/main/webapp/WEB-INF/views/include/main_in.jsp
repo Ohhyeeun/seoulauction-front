@@ -275,7 +275,7 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
 
         <!-- 온라인 경매 -->
         <div class="col4">
-            <a href="/currentAuction?sale_kind=online_only&sale_no=701&page=1">
+            <a href="/currentAuction?sale_kind=online_only&sale_no=702&page=1">
                  <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220413_ko.gif" style="width:100%;"/>
                  <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220413_en.gif" style="width:100%;"/>
             </a>
@@ -287,7 +287,7 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
 
         <!-- 온라인 경매 -->
         <div class="col4">
-            <a href="/currentAuction?sale_kind=online_only&sale_no=702&page=1">
+            <a href="/currentAuction?sale_kind=online_only&sale_no=701&page=1"> 
                  <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220411_01.gif" style="width:100%;"/>
                  <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220411_01.gif" style="width:100%;"/>
             </a>
