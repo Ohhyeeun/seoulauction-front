@@ -111,7 +111,7 @@ public class Config {
 		return mobileMsgAuth;
 	}
 
-	@Value("${is.phohe.auth}")
+	@Value("${is.phone.auth}")
 	private Boolean isPhoneAuth;
 	public Boolean getIsPhoneAuth() {
 		return isPhoneAuth;
