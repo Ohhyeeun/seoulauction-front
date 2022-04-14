@@ -112,8 +112,9 @@
         right: 0;
         font-size: 43px;
         color: #333333;
-        padding:20px;
-        padding-bottom: 10px;
+        /*padding:20px;
+        padding-bottom: 10px;*/
+        padding: 0;
         background: #ffffff;
         /* transform: translate(-50%,-50%);
         -ms-transform: translate(-50%,-50%);  */
@@ -133,8 +134,8 @@
         padding: 20px 0;
     }
     .layer_img img {
-        /* 	max-width: 500px; */
-        max-height: 130px;
+        max-width: 300px;
+        /*max-height: 130px;*/
         margin: 0 auto;
         text-align: center;
     }
@@ -159,6 +160,7 @@
             /* width: 100%;
             max-width: 300px; */
             padding: 10px;
+            padding: 0;
         }
         #closebtn {
             font-size: 30px;
@@ -171,9 +173,8 @@
             font-size: 12px;
         }
         .layer_img img {
-            max-width: 100%;
-            /* max-height: 550px; */
-            max-height: 100px;
+            max-width: 240px;
+            /* max-height: 550px; */ 
         }
     }
 
@@ -772,7 +773,7 @@
 
 
 <!-- 국문 레이어팝업 -->
-<%-- <c:if test="${locale == 'ko'}">
+<c:if test="${locale == 'ko'}">
     <div id="overlay" onclick="off()">
         <div id="textbg">
         	<span id="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
@@ -802,7 +803,7 @@
 
                     <!-- 이미지 두개 이상 -->
                     <a href="/noticeView?write_no=5507" style="display:block; text-align:center;">
-                        <img src="/images/img/main/overlay/20220203-ko.jpg" alt="layerpopup" style="text-align:center; margin-bottom: 10px;">
+                        <img src="/images/img/main/overlay/lot_time_popup_1x.png" alt="layerpopup" style="text-align:center; margin-bottom: 10px;">
                     </a>
 
                     <!-- <a href="" style="display:block;">
@@ -823,7 +824,7 @@
             <font style="font-size:12px; vertical-align: middle;" onclick="javascript:closeWin('overlay', 1);">하루동안 이 창을 열지 않음</font>
          </div>
     </div>
-</c:if> --%>
+</c:if>
 
 
 <!-- 영문 레이어팝업 -->
@@ -919,7 +920,7 @@
 
 <script>
     // overlay 사용 (국문만 사용시 사용)
-    /*$(window).ready(function(){
+    $(window).ready(function(){
     var blnCookie = getCookie("overlay");
     if(!blnCookie == false){
         document.getElementById("overlay").style.display = "none";
@@ -929,29 +930,30 @@
 	}
 }
 });
+    /*
+    // overlay 사용 (국문영문모두사용시 사용)
+    $(window).ready(function(){
+    var blnCookie = getCookie("overlay");
+    if(!blnCookie == false){
+        document.getElementById("overlay").style.display = "none";
+    } else {
+            document.getElementById("overlay").style.display = "block";
+    }
+    });
+     */
 
-// overlay 사용 (국문영문모두사용시 사용)
-$(window).ready(function(){
-var blnCookie = getCookie("overlay");
-if(!blnCookie == false){
-    document.getElementById("overlay").style.display = "none";
-} else {
-		document.getElementById("overlay").style.display = "block";
-}
-});
 
+    function off() {
+        document.getElementById("overlay").style.display = "none";
+    }
 
-function off() {
-    document.getElementById("overlay").style.display = "none";
-}
+    //창닫기(overlay)
+    function closeWin(winName, expiredays) {
+       setCookie( winName, "done" , expiredays);
+       var obj = eval( "window." + winName );
+       obj.style.display = "none";
+    }
 
-//창닫기(overlay)
-function closeWin(winName, expiredays) {
-   setCookie( winName, "done" , expiredays);
-   var obj = eval( "window." + winName );
-   obj.style.display = "none";
-}
-*/
 
     // 쿠키 가져오기
     function getCookie( name ) {
