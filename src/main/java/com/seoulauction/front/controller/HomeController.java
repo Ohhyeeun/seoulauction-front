@@ -8,6 +8,7 @@ import java.util.Locale;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.FileUtils;
@@ -44,7 +45,7 @@ public class HomeController {
 	CommonService commonService;
 
 	@RequestMapping(value={"/"})
-	public String home(@RequestParam(value = "screenType", required = false) String screenType, ModelMap model, String lang) 
+	public String home(@RequestParam(value = "screenType", required = false) String screenType, ModelMap model, String lang, HttpServletRequest request)
 	{
 		
        /* logger.info("===========>Total logged-in users: {}", sessionRegistry.getAllPrincipals().size());
@@ -52,6 +53,9 @@ public class HomeController {
         for (Object username: sessionRegistry.getAllPrincipals()) {
         	logger.info("{}",username);
         }*/
+		logger.info("requestURL: {}", request.getRequestURL().toString());
+		logger.info("scheme: {}", request.getScheme());
+		logger.info("serverName: {}", request.getServerName());
 
 		if(screenType != null && screenType.equals("M")){
 			return "m_home";
