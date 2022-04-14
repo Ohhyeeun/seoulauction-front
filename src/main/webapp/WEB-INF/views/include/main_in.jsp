@@ -174,7 +174,7 @@
         }
         .layer_img img {
             max-width: 240px;
-            /* max-height: 550px; */ 
+            /* max-height: 550px; */
         }
     }
 
