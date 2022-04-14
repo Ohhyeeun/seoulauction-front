@@ -110,4 +110,16 @@ public class Config {
 	public String getMobileMsgAuth() {
 		return mobileMsgAuth;
 	}
+
+	@Value("${is.phone.auth}")
+	private Boolean isPhoneAuth;
+	public Boolean getIsPhoneAuth() {
+		return isPhoneAuth;
+	}
+	
+	@Value("${nicepay.encodeKey}")
+	private String nicepayEncodeKey;
+	public String getNicepayEncodeKey() {
+		return nicepayEncodeKey;
+	}
 }

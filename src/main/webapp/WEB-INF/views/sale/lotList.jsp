@@ -1166,8 +1166,8 @@ app.controller('lotListCtl', function($scope, consts, common, bid, $interval, is
                                                 </span>  
                                                  
                                                 <!-- e-book 도록 보기 (버튼 4개일시 빼기) -->     
-                                                <span class="btn_style01 dark" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_NO == '696'"> 
-                                                    <button type="button" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_NO == '696'" name=" CATALOGUE" value=" CATALOGUE" align="center" scrolling="no" onClick="window.open('https://www.seoulauction.com/nas_img/front/homepage/e-book/Contemporary_Art_Sale/index.html')"; >CATALOGUE</button>  
+                                                <span class="btn_style01 dark" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_NO == '700'">
+                                                    <button type="button" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_NO == '700'" name=" CATALOGUE" value=" CATALOGUE" align="center" scrolling="no" onClick="window.open('/nas_img/front/homepage/e-book/166th/index.html')"; >CATALOGUE</button>
                                                 </span>   
                                                 
 												<span class="btn_style01 green" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_NO == '679'"> 
@@ -1390,8 +1390,8 @@ app.controller('lotListCtl', function($scope, consts, common, bid, $interval, is
                                             </span>  
                                             
                                             <!-- e-book 도록 보기 -->       
-                                            <span class="btn_style01 dark" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_NO == '696'">  
-                                                <button type="button" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_NO == '696'" name=" CATALOGUE" value=" CATALOGUE" align="center" scrolling="no" onClick="window.open('https://www.seoulauction.com/nas_img/front/homepage/e-book/Contemporary_Art_Sale/index.html')";>CATALOGUE</button> 
+                                            <span class="btn_style01 dark" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_NO == '700'">
+                                                <button type="button" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_NO == '700'" name=" CATALOGUE" value=" CATALOGUE" align="center" scrolling="no" onClick="window.open('/nas_img/front/homepage/e-book/166th/index.html')";>CATALOGUE</button>
                                             </span>     
                                             
                                             <!-- EXHIBITION 버튼 표시(VR) -->  
