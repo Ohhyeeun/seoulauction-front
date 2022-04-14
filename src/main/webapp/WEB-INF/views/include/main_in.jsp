@@ -300,14 +300,15 @@
 
         <!-- 오프라인 경매 -->
         <div class="col4 last">
-            <!-- <a href="/currentAuction?sale_kind=offline_only&sale_no=696&page=1"> -->
-            <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220411_02.gif" style="width:100%;"/>
-            <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220411_02.gif" style="width:100%;"/>
-            <!-- </a> -->
-            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
-            <p class="mainContents_txt" ng-if="locale=='ko'">166회 서울옥션 미술품경매</p>
-            <p class="mainContents_txt" ng-if="locale!='ko'">166th ART AUCTION</p>
-            <div style="clear:both;"></div>
+
+			 <a href="/currentAuction?sale_kind=offline_only&sale_no=700&page=1"> 
+                 <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220411_02.gif" style="width:100%;"/>
+                 <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220411_02.gif" style="width:100%;"/>
+             </a>
+          <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
+          <p class="mainContents_txt" ng-if="locale=='ko'">166회 서울옥션 미술품경매</p>
+          <p class="mainContents_txt" ng-if="locale!='ko'">166th ART AUCTION</p>
+          <div style="clear:both;"></div>
         </div>
 
         <!-- 커밍순 썸네일
