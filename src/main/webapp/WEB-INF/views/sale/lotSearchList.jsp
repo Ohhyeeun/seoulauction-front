@@ -569,9 +569,9 @@ app.controller('lotListCtl', function($scope, consts, common, is_login, locale, 
 										</div> 
 										
 										<div class="es_price"> 
-											<!-- 추정가 -->    
+											<!-- 추정가 -->
 											<ul>
-												<li class="es_price_left">  
+												<li class="es_price_left" >
 													<spring:message code="label.expense.price" />  
                                       				<%-- <span class="txt_dark web_only" ng-if="lot.EXPE_PRICE_FROM_JSON.HKD != 0 && lot.EXPE_PRICE_FROM_JSON.KRW != 0"><spring:message code="label.expense.price" /></span> --%>
                                       			</li>    
@@ -612,10 +612,10 @@ app.controller('lotListCtl', function($scope, consts, common, is_login, locale, 
 											</ul> 
 										</div><!-- //es_price -->
 										 
-										<div class="es_price" ng-show='lot.STAT_CD != "reentry" && lot.SALE_KIND_CD != "online_zb"' ng-class="{double:viewId == 'CURRENT_AUCTION'}" style="border-bottom: 0;">      
+										<div class="es_price" ng-show='lot.STAT_CD != "reentry"' ng-class="{double:viewId == 'CURRENT_AUCTION'}" style="border-bottom: 0;">
 											<!-- 낙찰가 -->         
 											<ul> 
-												<li class="es_price_left" ng-show='lot.STAT_CD != "reentry" && lot.SALE_KIND_CD != "online_zb"'>   
+												<li class="es_price_left" ng-show='lot.STAT_CD != "reentry"'>
 													<div ng-class="{double:viewId == 'CURRENT_AUCTION'}"> 
 														<!-- <span><spring:message code="label.auction.finish" /></span> -->
 														<span class="finished_icon" ng-if="(['online','online_zb'].indexOf(lot.SALE_KIND_CD) > -1 && lot.END_YN == 'Y') || (['main','hongkong','plan'].indexOf(lot.SALE_KIND_CD) >= 0 && lot.CLOSE_YN == 'Y')"><spring:message code="label.auction.finish" /></span>
