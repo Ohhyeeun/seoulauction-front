@@ -41,8 +41,8 @@ public class PayController {
     	Map<String, Object> custMap = commonService.getData("get_customer_by_cust_no", paramMap);
     	
     	
-		model.addAttribute("name", custMap.get("CUST_NAME").toString());
-		model.addAttribute("email", custMap.get("EMAIL").toString());
+		model.addAttribute("name", custMap.get("CUST_NAME"));
+		model.addAttribute("email", custMap.get("EMAIL"));
 		model.addAttribute("phone", custMap.get("HP"));
 
 		if(request.getParameterMap().containsKey("from")) {
@@ -209,9 +209,9 @@ public class PayController {
     	
     	
     	Map<String, Object> custMap = commonService.getData("get_customer_by_cust_no", paramMap);
-    	model.addAttribute("cust_no", custMap.get("CUST_NO").toString()); //2021.12.14 csy 추가
-		model.addAttribute("name", custMap.get("CUST_NAME").toString());
-		model.addAttribute("email", custMap.get("EMAIL").toString());
+    	model.addAttribute("cust_no", custMap.get("CUST_NO")); //2021.12.14 csy 추가
+		model.addAttribute("name", custMap.get("CUST_NAME"));
+		model.addAttribute("email", custMap.get("EMAIL"));
 		model.addAttribute("phone", custMap.get("HP"));
 
 
@@ -492,8 +492,8 @@ public class PayController {
     	paramMap.put("action_user_no", user.getUserNo());
     	Map<String, Object> custMap = commonService.getData("get_customer_by_cust_no", paramMap);
     	
-		model.addAttribute("name", custMap.get("CUST_NAME").toString());
-		model.addAttribute("email", custMap.get("EMAIL").toString());
+		model.addAttribute("name", custMap.get("CUST_NAME"));
+		model.addAttribute("email", custMap.get("EMAIL"));
 		model.addAttribute("phone", custMap.get("HP"));
 		model.addAttribute("price", academy_pay);
 		model.addAttribute("vat_price", vat_price);
@@ -676,8 +676,8 @@ public class PayController {
     	paramMap.put("action_user_no", user.getUserNo());
 
     	Map<String, Object> custMap = commonService.getData("get_customer_by_cust_no", paramMap);
-		model.addAttribute("name", custMap.get("CUST_NAME").toString());
-		model.addAttribute("email", custMap.get("EMAIL").toString());
+		model.addAttribute("name", custMap.get("CUST_NAME"));
+		model.addAttribute("email", custMap.get("EMAIL"));
 		model.addAttribute("phone", custMap.get("HP"));
 
 
