@@ -456,8 +456,8 @@ public class CustomerController {
        	Map<String, Object> custMap = commonService.getData("get_customer_by_cust_no", paramMap);
        	
        	
-   		model.addAttribute("name", custMap.get("CUST_NAME").toString());
-   		model.addAttribute("email", custMap.get("EMAIL").toString());
+   		model.addAttribute("name", custMap.get("CUST_NAME"));
+   		model.addAttribute("email", custMap.get("EMAIL"));
    		model.addAttribute("phone", custMap.get("HP"));
 
    		if(request.getParameterMap().containsKey("from")) {
