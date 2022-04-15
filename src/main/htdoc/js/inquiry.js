@@ -15,13 +15,17 @@ app.service("inquiryService", function ($rootScope, common, locale) {
 	 	   	common.callActionSet($d, function(data, status){
 	 	   		$scope.inqCate = data["tables"]["CODE_LIST"]["rows"];
 	 	   		$scope.custInfo = data["tables"]["CUST_INFO"]["rows"][0];
-	 	   			 	   		
-	 	   		$scope.form_data.email1 = $scope.custInfo.EMAIL.split("@")[0];
-	 	   		$scope.form_data.email2 = $scope.custInfo.EMAIL.split("@")[1];
-	 	   		$scope.email_select = $scope.form_data.email2;
-	 	   		$scope.form_data.hp1 = $scope.custInfo.HP.split("-")[0];
-	 	   		$scope.form_data.hp2 = $scope.custInfo.HP.split("-")[1];
-	 	   		$scope.form_data.hp3 = $scope.custInfo.HP.split("-")[2];
+
+				if($scope.custInfo.EMAIL !== null) {
+					$scope.form_data.email1 = $scope.custInfo.EMAIL.split("@")[0];
+					$scope.form_data.email2 = $scope.custInfo.EMAIL.split("@")[1];
+					$scope.email_select = $scope.form_data.email2;
+				}
+				if($scope.custInfo.HP !== null) {
+					$scope.form_data.hp1 = $scope.custInfo.HP.split("-")[0];
+					$scope.form_data.hp2 = $scope.custInfo.HP.split("-")[1];
+					$scope.form_data.hp3 = $scope.custInfo.HP.split("-")[2];
+				}
 			});
 		}
 		

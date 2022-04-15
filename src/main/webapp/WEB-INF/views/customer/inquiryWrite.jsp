@@ -110,6 +110,7 @@
 	app.controller('inquiryWriteCtl', function($scope, consts, common, inquiryService) {
 		inquiryService.setScope($scope);
 		$scope.form_data.cate1 = "${param.cate1}";
+		$scope.form_data.title = "${param.title}";
 	});
 
 	/*var scope = null;

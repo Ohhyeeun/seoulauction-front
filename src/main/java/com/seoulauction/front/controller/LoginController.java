@@ -117,7 +117,7 @@ public class LoginController {
 	@RequestMapping(value = {"/api/login"})
 	public String ssg_login(HttpServletRequest request, @RequestParam(value = "custId") String custId, @RequestParam(value = "userNm") String userNm
 			, @RequestParam(value = "agreeYn", required = false, defaultValue = "N") String agreeYn, @RequestParam(value="callbackUrl", required = false) String callbackUrl
-			, @RequestParam(value="cate1", required = false) String cate1, RedirectAttributes redirect) {
+			, @RequestParam(value="cate1", required = false) String cate1, @RequestParam(value="title", required = false) String title, RedirectAttributes redirect) {
 		logger.info("/api/login");
 
 		SAUserDetails parameterUserDetail = SAUserDetails.builder()
@@ -136,12 +136,13 @@ public class LoginController {
 		session.setAttribute(HttpSessionSecurityContextRepository.SPRING_SECURITY_CONTEXT_KEY, sc);
 
 		redirect.addAttribute("cate1", cate1);
+		redirect.addAttribute("title", title);
 
 		if(callbackUrl == null) {
 			return "redirect:/";
 		}
 
-		logger.info("/api/login {}", callbackUrl);
+		logger.info("/api/login {} {}", callbackUrl, title);
 		return "redirect:"+callbackUrl;
 	}
 }
