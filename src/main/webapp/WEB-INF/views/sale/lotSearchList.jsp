@@ -568,13 +568,13 @@ app.controller('lotListCtl', function($scope, consts, common, is_login, locale, 
 											</div>     
 										</div> 
 										
-										<div class="es_price"> 
+										<div class="es_price" >
 											<!-- 추정가 -->
 											<ul>
-												<li class="es_price_left" >
-													<spring:message code="label.expense.price" />  
-                                      				<%-- <span class="txt_dark web_only" ng-if="lot.EXPE_PRICE_FROM_JSON.HKD != 0 && lot.EXPE_PRICE_FROM_JSON.KRW != 0"><spring:message code="label.expense.price" /></span> --%>
-                                      			</li>    
+												<li class="es_price_left" ng-if="lot.EXPE_PRICE_INQ_YN != 'Y' && lot.EXPE_PRICE_TO_JSON.HKD != 0 && lot.EXPE_PRICE_TO_JSON.KRW != 0 && lot.EXPE_PRICE_FROM_TO.USD != 0">
+													<spring:message code="label.expense.price" />
+													<%-- <span class="txt_dark web_only" ng-if="lot.EXPE_PRICE_FROM_JSON.HKD != 0 && lot.EXPE_PRICE_FROM_JSON.KRW != 0"><spring:message code="label.expense.price" /></span> --%>
+												</li>
                                       			<li class="es_price_right" style="font-size: 12px; line-height: 20px;">
                                       				<!-- 홍콩경매 SALE_KIND_CD == 'hongkong'는 HKD를 맨위로 표시한다. --> 
 													<span class="krw" ng-if="lot.EXPE_PRICE_INQ_YN == 'Y'">추정가 별도문의</span>
