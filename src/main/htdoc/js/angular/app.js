@@ -32,32 +32,24 @@ app.run(function ($rootScope, consts, locale, common, $filter) {
 	$rootScope.getWeek = function(date){
 		var enWeek = $filter('date')(date, 'EEE');
 		if(locale != 'ko') return enWeek;
-		var hanja = "";
 		switch(enWeek){
 		case "Mon":
-			hanja = "月";
-			break;
+			return "월";
 		case "Tue":
-			hanja = "火";
-			break;
+			return "화";
 		case "Wed":
-			hanja = "水";
-			break;
+			return "수";
 		case "Thu":
-			hanja = "木";
-			break;
+			return "목";
 		case "Fri":
-			hanja = "金";
-			break;
+			return "금";
 		case "Sat":
-			hanja = "土";
-			break;
+			return "토";
 		case "Sun":
-			hanja = "日";
-			break;
+			return "일";
 		default:
+			return enWeek;
 		}
-		return hanja;
 	}
 	$rootScope.getPayTotal = function(price, lot_fee) {
 		
