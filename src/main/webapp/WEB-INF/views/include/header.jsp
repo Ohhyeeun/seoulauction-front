@@ -51,7 +51,7 @@
 	<script src="/js/angular/angular-sanitize.js"></script>
     <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.4.9/angular-locale_ko-kr.min.js"></script> -->
     <script type="text/javascript" src="<c:url value="/js/angular/angular-bind-html-compile.js" />"></script>
-    <script type="text/javascript" src="<c:url value="/js/angular/app.js?ver=202111041" />"></script>
+    <script type="text/javascript" src="<c:url value="/js/angular/app.js?ver=20220415" />"></script>
     <script type="text/javascript" src="<c:url value="/js/common.js" />"></script>
 
 <!--      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.js" ></script> -->
