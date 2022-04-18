@@ -791,11 +791,11 @@ input[type="checkbox"].overlay_checkbox{
                          <span style="font-weight:bold; text-align: right; margin: 20px 0 0; display:block;">
                             -서울옥션 임직원 일동-
                         </span>
-                    </p> -->
+                    </p> --> 
 
-                    <a href="/noticeView?write_no=5507" style="display:block; text-align:center;">
+                    <!--<a href="/noticeView?write_no=5507" style="display:block; text-align:center;">-->
                         <img src="/images/img/main/overlay/20220418.png" alt="layerpopup" style="text-align:center; margin-bottom: 10px;">
-                    </a>
+                    <!-- </a> -->
 
                     <!-- <a href="" style="display:block;">
                         <img src="/images/img/main/overlay/20220127_2.jpeg" alt="layerpopup" style= "text-align:center; ">
