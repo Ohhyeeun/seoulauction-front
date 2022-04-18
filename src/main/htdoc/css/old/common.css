@@ -10,6 +10,7 @@
     src: url(../../font/NanumGothic-Regular.eot);
     src: url(../../font/NanumGothic-Regular.eot?#iefix) format('embedded-opentype'), url(../../font/NanumGothic-Regular.woff2) format('woff2'), url(../../font/NanumGothic-Regular.woff) format('woff'), url(../../font/NanumGothic-Regular.ttf) format('truetype');
 }
+# /* font bold가 빠진 상태 font-weight: extra bold로 설정되어 리뉴얼때 동안 지우지 말길 */
 @font-face {
     font-family: 'Nanum Gothic';
     font-style: normal;
