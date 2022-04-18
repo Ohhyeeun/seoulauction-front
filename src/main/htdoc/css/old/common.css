@@ -10,7 +10,6 @@
     src: url(../../font/NanumGothic-Regular.eot);
     src: url(../../font/NanumGothic-Regular.eot?#iefix) format('embedded-opentype'), url(../../font/NanumGothic-Regular.woff2) format('woff2'), url(../../font/NanumGothic-Regular.woff) format('woff'), url(../../font/NanumGothic-Regular.ttf) format('truetype');
 }
-#
 @font-face {
     font-family: 'Nanum Gothic';
     font-style: normal;
@@ -4497,6 +4496,7 @@ table .wrap_check.type03 > div {
 }
 .ex_title .title .tit span {
   display: block;
+    word-break: keep-all;
 }
 .ex_title .title .sub {
   line-height: 22px;

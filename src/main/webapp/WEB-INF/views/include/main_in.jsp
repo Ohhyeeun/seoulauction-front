@@ -112,15 +112,15 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
 	right: 0;
     font-size: 43px;
     color: #333333;
-    padding:20px;
-    padding-bottom: 10px;
 	background: #ffffff;
     /* transform: translate(-50%,-50%);
     -ms-transform: translate(-50%,-50%);  */
+    box-shadow: rgba(0,0,0,0.1) 1px 12px 9px 1px;
 }
 .layerbox_wrap {
 	overflow: hidden;
 	color: #fff;
+    max-width: 300px;
 }
 .layerbox {
 	font-size: 14px;
@@ -133,10 +133,13 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
 	padding: 20px 0;
 }
 .layer_img img {
-/* 	max-width: 500px; */
-	max-height: 130px;
 	margin: 0 auto;
 	text-align: center;
+    max-width: 100%;
+    max-height: 100%;
+}
+input[type="checkbox"].overlay_checkbox{
+    margin-left: 20px;
 }
 @media screen and (max-width: 768px) {
 #overlay {
@@ -155,10 +158,8 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
 #text{
     font-size: 25px;
 }
-#textbg {
-	/* width: 100%;
-	max-width: 300px; */
-	padding: 10px;
+.layerbox_wrap {
+    max-width: 200px;
 }
 #closebtn {
 	font-size: 30px;
@@ -170,11 +171,7 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
 .layerbox {
 	font-size: 12px;
 }
-.layer_img img {
-	max-width: 100%;
-	/* max-height: 550px; */
-	max-height: 100px;
-}
+
 }
 
 
@@ -772,7 +769,7 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
 
 
 <!-- 국문 레이어팝업 -->
-<%-- <c:if test="${locale == 'ko'}">
+<c:if test="${locale == 'ko'}">
     <div id="overlay" onclick="off()">
         <div id="textbg">
         	<span id="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
@@ -796,13 +793,8 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
                         </span>
                     </p> -->
 
-<!--                     <a href="/noticeView?write_no=5507" style="display:block; text-align:center;" target="_blank">  -->
-<!--                         <img src="/images/img/main/overlay/20220127_ko.jpg" alt="layerpopup" style="text-align:center;">           -->
-<!--                     </a>  -->
-
-                    <!-- 이미지 두개 이상 -->
                     <a href="/noticeView?write_no=5507" style="display:block; text-align:center;">
-                        <img src="/images/img/main/overlay/20220203-ko.jpg" alt="layerpopup" style="text-align:center; margin-bottom: 10px;">
+                        <img src="/images/img/main/overlay/20220418.png" alt="layerpopup" style="text-align:center; margin-bottom: 10px;">
                     </a>
 
                     <!-- <a href="" style="display:block;">
@@ -819,11 +811,11 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
     	    	</div>
 	        </div> <!-- //layerbox_wrap -->
             <!-- 오늘하루 안보기 버튼 -->
-            <input type="checkbox" name="close" value="OK" onclick="javascript:closeWin('overlay', 1);"/>
+            <input class="overlay_checkbox" type="checkbox" name="close" value="OK" onclick="javascript:closeWin('overlay', 1);"/>
             <font style="font-size:12px; vertical-align: middle;" onclick="javascript:closeWin('overlay', 1);">하루동안 이 창을 열지 않음</font>
          </div>
     </div>
-</c:if> --%>
+</c:if>
 
 
 <!-- 영문 레이어팝업 -->
@@ -919,7 +911,7 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
 
 <script>
 // overlay 사용 (국문만 사용시 사용)
-/*$(window).ready(function(){
+$(window).ready(function(){
 var blnCookie = getCookie("overlay");
 if(!blnCookie == false){
     document.getElementById("overlay").style.display = "none";
@@ -931,7 +923,7 @@ if(!blnCookie == false){
 });
 
 // overlay 사용 (국문영문모두사용시 사용)
-$(window).ready(function(){
+/*$(window).ready(function(){
 var blnCookie = getCookie("overlay");
 if(!blnCookie == false){
     document.getElementById("overlay").style.display = "none";
@@ -939,7 +931,7 @@ if(!blnCookie == false){
 		document.getElementById("overlay").style.display = "block";
 }
 });
-
+*/
 
 function off() {
     document.getElementById("overlay").style.display = "none";
@@ -951,7 +943,7 @@ function closeWin(winName, expiredays) {
    var obj = eval( "window." + winName );
    obj.style.display = "none";
 }
-*/
+
 
 // 쿠키 가져오기
 function getCookie( name ) {
