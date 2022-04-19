@@ -819,9 +819,12 @@ app.controller('bidRequestCtl', function($scope, consts, common, $interval, inpu
 			}else if (inputPrice >= 500000000 && inputPrice < 1000000000){
 				tmp_grow_price = 30000000;
 				//alert("호가- 10억미만");
-			}else if (1000000000 <= inputPrice){
+			}else if (inputPrice >= 1000000000 && inputPrice < 2000000000){
 				tmp_grow_price = 50000000;
-				//alert("호가- 10억이상");
+				//alert("호가- 20억미만");
+			}else if (2000000000 <= inputPrice){
+				tmp_grow_price = 100000000;
+				//alert("호가- 20억이상");
 			} else {
 				tmp_grow_price = $scope.lot.GROW_PRICE;
 				//alert("호가- 기본값 설정");
@@ -896,11 +899,17 @@ app.controller('bidRequestCtl', function($scope, consts, common, $interval, inpu
 				if((inputPrice - tmp_grow_price) < 500000000){
 					tmp_grow_price = 20000000;
 				}
-			} else if (1000000000 < inputPrice){
+			} else if (inputPrice > 1000000000 && inputPrice <= 2000000000){
 				tmp_grow_price = 50000000;
-				//alert("호가- 10억이상");
+				//alert("호가- 20억미만");
 				if((inputPrice - tmp_grow_price) < 1000000000){
-					tmp_grow_price = 30000000;		 
+					tmp_grow_price = 30000000;
+				}
+			} else if (2000000000 < inputPrice){
+				tmp_grow_price = 100000000;
+				//alert("호가- 20억이상");
+				if((inputPrice - tmp_grow_price) < 2000000000){
+					tmp_grow_price = 50000000;
 				}
 			} else {
 				tmp_grow_price = $scope.lot.GROW_PRICE;
