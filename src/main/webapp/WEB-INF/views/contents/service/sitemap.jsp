@@ -120,7 +120,7 @@
 									<li><a href="/service/page?view=corporationArtwork">아트컨설팅 &#38; 기업컨설팅</a></li> 
                                     <li><a href="/service/page?view=rentExhibitionCenter">전시장대관</a></li> 
                                     <li><a href="/service/page?view=securedLoan">담보대출</a></li>  
-                                    <li><a href="/service/page?view=chinaArtwork">중국미술품위탁감정</a></li>
+<%--                                    <li><a href="/service/page?view=chinaArtwork">중국미술품위탁감정</a></li>--%>
 									<li><a href="/service/page?view=storageInsa">미술품보관</a></li>
                                     <!-- <li><a href="/service/page?view=ArtDonations">후원 및 기증</a></li> -->  
                                     <li><a href="/service/page?view=Newsletter">뉴스레터</a></li>   

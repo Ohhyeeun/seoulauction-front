@@ -42,9 +42,9 @@
 						<a href="/service/page?view=securedLoan"><spring:message code="label.collateral.loan" /></a>
 					</li> 
 					
-					<li class="<c:if test='${fn:indexOf(pageContext.request.requestURI,\"chinaArtwork\") > -1}'>sele</c:if>">
-						<a href="/service/page?view=chinaArtwork"><spring:message code="label.china.artwork.auth" /></a>
-					</li>
+<%--					<li class="<c:if test='${fn:indexOf(pageContext.request.requestURI,\"chinaArtwork\") > -1}'>sele</c:if>">--%>
+<%--						<a href="/service/page?view=chinaArtwork"><spring:message code="label.china.artwork.auth" /></a>--%>
+<%--					</li>--%>
 					
 					<li class="<c:if test='${fn:indexOf(pageContext.request.requestURI,\"storage\") > -1}'>sele</c:if>">
 						<a href="/service/page?view=storageInsa"><spring:message code="label.artwork.keep" /></a>

@@ -298,7 +298,7 @@ function showTopLayer() {
 										<!-- 기존 -->
 										<li><a href="/auctionGuide/page?view=commissionGuide"><spring:message code="label.howto.contract" /></a></li>
                                         <li><a href="/auctionGuide/page?view=priGuide"><spring:message code="label.howto.PRIVATE" /></a></li>
-                                        <li><a href="/service/page?view=chinaArtwork"><spring:message code="label.china.artwork.auth" /></a></li>
+<%--                                        <li><a href="/service/page?view=chinaArtwork"><spring:message code="label.china.artwork.auth" /></a></li>--%>
 									</ul>
 								</li>
 								<li>
