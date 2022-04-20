@@ -121,12 +121,12 @@
 														<a href="/customer/inquiryForm">위탁신청 바로가기</a>
 													</span>
 												</div>
-												<p class="pt20">중국 미술품의 경우, 중국미술품 위탁감정안내를 확인 후 위탁 신청해주세요. </p>
-												<div class="btns">
-													<span class="btn_style01">
-														<a href="/service/page?view=chinaArtwork">중국미술품 위탁감정 바로가기</a>
-													</span>
-												</div>											
+<%--												<p class="pt20">중국 미술품의 경우, 중국미술품 위탁감정안내를 확인 후 위탁 신청해주세요. </p>--%>
+<%--												<div class="btns">--%>
+<%--													<span class="btn_style01">--%>
+<%--														<a href="/service/page?view=chinaArtwork">중국미술품 위탁감정 바로가기</a>--%>
+<%--													</span>--%>
+<%--												</div>											--%>
 											</div>
 										</div>
 									</div>
