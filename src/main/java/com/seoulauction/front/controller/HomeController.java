@@ -67,6 +67,13 @@ public class HomeController {
 		if(LocaleContextHolder.getLocale().equals(Locale.ENGLISH)){
 			locale = Locale.ENGLISH.getLanguage() + "/";
 		}
+
+		//chinaArtwork 을 타고 올경우 home 으로 보내도록 수정.
+		if("chinaArtwork".equals(view)){
+			return "home";
+		}
+
+
 		return "contents/" + locale + category + "/" + view + (!locale.equals("")?"Eng":"");
 	}
 	

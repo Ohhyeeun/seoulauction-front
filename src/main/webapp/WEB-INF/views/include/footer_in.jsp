@@ -104,7 +104,7 @@ app.controller('footerCtl', function($scope, consts, common ) {
                               <li><a href="/service/page?view=corporationArtwork"><spring:message code="label.company.artwork" /></a></li>
                               <li><a href="/service/page?view=rentExhibitionCenter"><spring:message code="label.space.rental" /></a></li>
                               <li><a href="/service/page?view=securedLoan"><spring:message code="label.collateral.loan" /></a></li>
-                              <li><a href="/service/page?view=chinaArtwork"><spring:message code="label.china.artwork.auth" /></a></li>
+<%--                              <li><a href="/service/page?view=chinaArtwork"><spring:message code="label.china.artwork.auth" /></a></li>--%>
                               <li><a href="/service/page?view=storageInsa"><spring:message code="label.artwork.keep" /></a></li>
                               <c:if test="${is_korean}">
                             	  <li><a href="/service/page?view=Newsletter"><spring:message code="label.newsletter" /></a></li>

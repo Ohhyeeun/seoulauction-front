@@ -121,7 +121,7 @@
 									<li><a href="/service/page?view=corporationArtwork">Consulting &#38; Corporate Marketing</a></li>
                                     <li><a href="/service/page?view=rentExhibitionCenter">Rental of Space</a></li>
                                     <li><a href="/service/page?view=securedLoan">Art Collateral Loans</a></li>
-                                    <li><a href="/service/page?view=chinaArtwork">Consignment Appraisal of Chinese Art</a></li>
+<%--                                    <li><a href="/service/page?view=chinaArtwork">Consignment Appraisal of Chinese Art</a></li>--%>
                                     <li><a href="/service/page?view=storageInsa">Art Storage</a></li>
                                     <!-- <li><a href="/service/page?view=ArtDonations">Art Donation</a></li> --> 
                                     <!-- <li><a href="/service/page?view=Newsletter">News Letter</a></li> -->
