@@ -5,6 +5,9 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <jsp:include page="../include/header.jsp" flush="false"/>
+
+<spring:eval expression="@property['blacklot.router.domain']" var="blacklot" scope="request"/>
+
 <link href="/css/angular/rzslider.css" rel="stylesheet">
 <link href="/css/angular/ngDialog.css" rel="stylesheet">  
 <link href="/css/angular/popup.css" rel="stylesheet">
@@ -1018,6 +1021,10 @@ app.controller('lotListCtl', function($scope, consts, common, bid, $interval, is
 		window.open('about:blank').location.href= url;
 	}
 
+	$scope.blacklotGo = function(url, sale_no, lot_no) {
+		//TODO:sale_no 바꾸기
+		window.location.href = url+encodeURIComponent("sale_no=700&lot_no="+lot_no);
+	}
 });
 </script>
 <script type="text/javascript" src="/js/bid.js?ver=20220418"></script>
@@ -1192,10 +1199,10 @@ app.controller('lotListCtl', function($scope, consts, common, bid, $interval, is
                                                 </span> -->   
                                                 
                                                 <!-- 아트시 응찰버튼 -->   
-                                                <span class="btn_style01 orange01" ng-if="viewId == 'CURRENT_AUCTION' && sale_outside_yn == 'Y' && sale.SALE_NO == '669'">   
+                                                <span class="btn_style01 orange01" ng-if="viewId == 'CURRENT_AUCTION' && sale_outside_yn == 'Y'">
                                                     <button type="button" ng-if="viewId == 'CURRENT_AUCTION' && sale_outside_yn == 'Y'" name="Artsy" value="Artsy" align="center" scrolling="no" onClick="window.open('https://www.artsy.net/auction/seoul-auction-crossroad')"; > 
-                                                    	<span ng-if="locale != 'ko'">Artsy Bid</span>
-                                                        <span ng-if="locale == 'ko'">아트시 응찰</span> 
+                                                    	<span ng-if="locale != 'ko'">BLACKLOT Bid</span>
+                                                        <span ng-if="locale == 'ko'">블랙랏 응찰</span>
                                                     </button>   
                                                 </span>
                                                 
@@ -1414,11 +1421,12 @@ app.controller('lotListCtl', function($scope, consts, common, bid, $interval, is
                                                 <button type="button" ng-if="viewId == 'CURRENT_AUCTION'" name="EXHIBITION" value="EXHIBITION" align="center" scrolling="no" onClick="window.open('https://www.seoulauction.com/nas_img/front/homepage/VR/')"; >VR Video</button>     
                                             </span> -->  
                                             
-                                            <!-- 아트시 응찰버튼 -->        
-                                            <span class="btn_style01 orange01" ng-if="viewId == 'CURRENT_AUCTION' && sale_outside_yn == 'Y' && sale.SALE_NO == '669'">     
+                                            <!-- 아트시 응찰버튼 -->
+										   <!-- TODO: 블랙랏 응찰 URI 변경 -->
+                                            <span class="btn_style01 orange01" ng-if="viewId == 'CURRENT_AUCTION' && sale_outside_yn == 'Y'">
                                                 <button type="button" ng-if="viewId == 'CURRENT_AUCTION' && sale_outside_yn == 'Y'" name="Artsy" value="Artsy" align="center" scrolling="no" onClick="window.open('https://www.artsy.net/auction/seoul-auction-crossroad')";>   
-                                                    <span ng-if="locale != 'ko'">Artsy Bid</span>  
-                                                    <span ng-if="locale == 'ko'">아트시 응찰</span> 
+                                                    <span ng-if="locale != 'ko'">BLACKLOT Bid</span>
+                                                    <span ng-if="locale == 'ko'">블랙랏 응찰</span>
                                                  </button>     
                                             </span> 
                                             

@@ -296,9 +296,10 @@ function showTopLayer() {
                                                 <a href="https://www.blacklot.com/" ng-if="locale!='ko'" target="_blank">BLACKLOT<img src="/images/icon/now_icon.png"/></a>    
                                             </li> 
                                             <li>      
-	                                            <span ng-if="outsideIng > 0"><a href="https://www.seoulauction.com/currentAuction?sale_outside_yn=Y&lang={{locale}}">
-                                                <span ng-if="locale=='ko'">아트시 경매</span><span ng-if="locale!='ko'">ARTSY Auction</span><img src="/images/icon/now_icon.png" /></a></span> 
-                                                <span ng-if="outsideIng == 0 || outsideIng == null" id="outsideIngBtn"><span ng-if="locale=='ko'">아트시 경매</span><span ng-if="locale!='ko'">ARTSY Auction</span></span>   
+	                                            <span ng-if="outsideIng > 0"><a href="/currentAuction?sale_outside_yn=Y&lang={{locale}}">
+                                                	<span ng-if="locale=='ko'">블랙랏 경매</span><span ng-if="locale!='ko'">BLACKLOT Auction</span><img src="/images/icon/now_icon.png" /></a>
+												</span>
+                                                <span ng-if="outsideIng == 0 || outsideIng == null" id="outsideIngBtn"><span ng-if="locale=='ko'">아트시 경매</span><span ng-if="locale!='ko'">ARTSY Auction</span></span>
 											</li>                 
 	                                        <!-- <li><a href="/resultAuction?sale_kind=online&page=1&lang={{locale}}"><spring:message code="label.auction.result" /></a></li> --> 
 	                                        <li><a href="/auctionGuide/page?view=onlinebidGuide&lang={{locale}}"><spring:message code="label.howto.onbid" /></a></li>

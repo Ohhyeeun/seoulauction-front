@@ -57,7 +57,10 @@ app.controller('footerCtl', function($scope, consts, common ) {
                               <li><a href="/auctionGuide/page?view=deliveryGuide"><spring:message code="label.howto.delivery" /></a></li> -->
                           <p>Online</p>
                               <li><a href="/currentAuction?sale_kind=online_only"><spring:message code="label.auction.current" /></a></li>
-                              <li><a href="/currentAuction?sale_kind=offline_only&sale_no=622&sale_outside_yn=Y"><span ng-if="locale=='ko'">아트시 경매</span><span ng-if="locale!='ko'">ARTSY Auction</span></a>
+                              <li>
+                                  <a href="/currentAuction?sale_outside_yn=Y&lang={{locale}}">
+                                    <span ng-if="locale=='ko'">블랙랏 경매</span><span ng-if="locale!='ko'">BLACKLOT Auction</span>
+                                  </a>
                               </li>
 							  <li><a href="/upcomingAuction?sale_kind=online_only"><spring:message code="label.auction.upcoming" /></a></li>
                               <li><a href="/auctionGuide/page?view=onlinebidGuide"><spring:message code="label.howto.bid" /></a></li>
