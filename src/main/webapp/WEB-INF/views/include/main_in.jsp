@@ -112,7 +112,7 @@ app.controller("mainInfoCtl", function($scope, consts, common, locale, is_login)
 	right: 0;
     font-size: 43px;
     color: #333333;
-	background: #ffffff;
+	/* background: #ffffff; */
     /* transform: translate(-50%,-50%);
     -ms-transform: translate(-50%,-50%);  */
     box-shadow: rgba(0,0,0,0.1) 1px 12px 9px 1px;
@@ -282,17 +282,16 @@ input[type="checkbox"].overlay_checkbox{
             <div style="clear:both;"></div>
         </div>
 
-        <!-- 온라인 경매 -->
-        <div class="col4">
-            <a href="/currentAuction?sale_kind=online_only&sale_no=701&page=1"> 
-                 <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220411_01.gif" style="width:100%;"/>
-                 <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220411_01.gif" style="width:100%;"/>
-            </a>
+        <!-- 아트시 경매 -->
+      	<div class="col4">
+            <!-- <a href="/currentAuction?sale_kind=offline_only&sale_outside_yn=Y&sale_no=703#page1"> -->
+                <img src="/images/img/main/auction_sum/20220420_thumb.jpg.jpg" style="width:100%;"/>
+            <!-- </a> -->
             <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
-            <p class="mainContents_txt" ng-if="locale=='ko'">산불 피해 이재민 돕기 온라인 자선경매</p>
-            <p class="mainContents_txt" ng-if="locale!='ko'">Online Charity Auction for victims of wildfire</p>
+            <p class="mainContents_txt" ng-if="locale=='ko'">BLACKLOT Original & Edition</p>
+            <p class="mainContents_txt" ng-if="locale!='ko'">BLACKLOT Original & Edition</p>
             <div style="clear:both;"></div>
-        </div>
+      	</div>
 
         <!-- 오프라인 경매 -->
         <div class="col4 last">
@@ -361,17 +360,6 @@ input[type="checkbox"].overlay_checkbox{
             <p class="mainContents_txt" ng-if="locale!='ko'">BLACKLOT Launching Exhibition</p>
             <div style="clear:both;"></div>
         </div> -->
-
-        <!-- 아트시 경매
-      	<div class="col4">
-            <a href="/currentAuction?sale_kind=offline_only&sale_outside_yn=Y&sale_no=669#page1">
-                <img src="/images/img/main/auction_sum/20211018.jpg" style="width:100%;"/>
-            </a>
-            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
-            <p class="mainContents_txt" ng-if="locale=='ko'">SEOUL AUCTION X ARTSY</p>
-            <p class="mainContents_txt" ng-if="locale!='ko'">SEOUL AUCTION X ARTSY</p>
-            <div style="clear:both;"></div>
-      	</div> -->
 
       	<!-- 부산 세일 -->
       	<!--<div class="col4">
@@ -794,7 +782,8 @@ input[type="checkbox"].overlay_checkbox{
                     </p> --> 
 
                     <!--<a href="/noticeView?write_no=5507" style="display:block; text-align:center;">-->
-                        <img src="/images/img/main/overlay/20220418.png" alt="layerpopup" style="text-align:center; margin-bottom: 10px;">
+                        <img src="/images/img/main/overlay/20220402_time.png" alt="layerpopup" style="text-align:center; margin-bottom: 10px;">
+                        <img src="/images/img/main/overlay/20220402_thanks_to.png" alt="layerpopup">  
                     <!-- </a> -->
 
                     <!-- <a href="" style="display:block;">
@@ -811,8 +800,10 @@ input[type="checkbox"].overlay_checkbox{
     	    	</div>
 	        </div> <!-- //layerbox_wrap -->
             <!-- 오늘하루 안보기 버튼 -->
-            <input class="overlay_checkbox" type="checkbox" name="close" value="OK" onclick="javascript:closeWin('overlay', 1);"/>
-            <font style="font-size:12px; vertical-align: middle;" onclick="javascript:closeWin('overlay', 1);">하루동안 이 창을 열지 않음</font>
+            <div style="background-color: #fff;">
+                <input class="overlay_checkbox" type="checkbox" name="close" value="OK" onclick="javascript:closeWin('overlay', 1);"/>
+                <font style="font-size:12px; vertical-align: middle;" onclick="javascript:closeWin('overlay', 1);">하루동안 이 창을 열지 않음</font>
+            </div>
          </div>
     </div>
 </c:if>
