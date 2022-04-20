@@ -79,7 +79,7 @@
 											<div class="bg_img bg24">
 												<div class="tit_border">이메일 접수</div>
 												<p style="line-height:30px; font-size:16px;">고객님의 작품 사진을 작품 설명과 함께 이메일을 통해 신청</p>
-                                                 <p>※ 중국미술품은 1:1 문의를 통해서만 접수 가능</p>
+<%--                                                 <p>※ 중국미술품은 1:1 문의를 통해서만 접수 가능</p>--%>
 												<div class="txt_mail"><a href="mailto:art@seoulauction.com">art@seoulauction.com</a> (미술품 경매팀)</div>
 												<dl>
 													<dt>메일제목</dt>
