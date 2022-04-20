@@ -122,12 +122,12 @@
 														<a href="/customer/inquiryForm">1:1 Inquiry</a>
 													</span>
 												</div>
-												<p class="pt20">If you have inquiry about Chinese art, please require the consignment after check the guidance of Chinese art.</p>
-												<div class="btns">
-													<span class="btn_style01">
-														<a href="/service/page?view=chinaArtwork">Consignment Appraisal of Chinese Art</a>
-													</span>
-												</div>
+<%--												<p class="pt20">If you have inquiry about Chinese art, please require the consignment after check the guidance of Chinese art.</p>--%>
+<%--												<div class="btns">--%>
+<%--													<span class="btn_style01">--%>
+<%--														<a href="/service/page?view=chinaArtwork">Consignment Appraisal of Chinese Art</a>--%>
+<%--													</span>--%>
+<%--												</div>--%>
 											</div>
 										</div>
 									</div>

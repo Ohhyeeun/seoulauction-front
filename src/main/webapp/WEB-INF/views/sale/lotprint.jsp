@@ -62,7 +62,7 @@
 									<li><a href="/service/page?view=corporationArtwork">기업미술품</a></li>
 									<li><a href="/service/page?view=securedLoan">담보대출</a></li>
 									<li><a href="/service/page?view=academyArtculture">아카데미</a></li>
-									<li><a href="/service/page?view=chinaArtwork">중국미술품감정</a></li>
+<%--									<li><a href="/service/page?view=chinaArtwork">중국미술품감정</a></li>--%>
 								</ul>
 							</div>
 							<div>
