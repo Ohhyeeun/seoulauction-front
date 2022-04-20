@@ -183,7 +183,7 @@
                                                         </ul>
                                              	 	</div>
 												</div> 
-                                   			</a> 
+                                   			</a>
                                    			  
                                             <div class="ect auction_ect"><!-- 7.7sh추가 --> 
                                                 <%-- <span ng-if="custInfo.CUST_NO > 0 && is_login && ['main','hongkong','plan'].indexOf(sale.SALE_KIND_CD) >= 0 && lot.LAST_PRICE > 0">
@@ -194,6 +194,11 @@
                                                 <span ng-if="!is_login && sale_status == 'END'">
                                                     <spring:message code="label.auction.soldpricelog" />
                                                 </span>
+												<span class="btn_style01 xlarge green02 full bidding_btn02 bidding_btn02_en" >
+													<button type="button" ng-click="blacklotGo('${blacklot}', sale.SALE_NO, lot.LOT_NO)">
+														<spring:message code="label.go.bid.now" />
+													</button>
+												</span>
 											</div><!-- 7.7sh추가 끝-->
 											</div>
 										</div> 
