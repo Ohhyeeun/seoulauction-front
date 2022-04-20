@@ -336,7 +336,7 @@ function showTopLayer() {
 											<li><a href="/service/page?view=corporationArtwork&lang={{locale}}"><spring:message code="label.company.artwork" /></a></li>
 	                                        <li><a href="/service/page?view=rentExhibitionCenter&lang={{locale}}"><spring:message code="label.space.rental" /></a></li>
 	                                        <li><a href="/service/page?view=securedLoan&lang={{locale}}"><spring:message code="label.collateral.loan" /></a></li>
-	                                        <li><a href="/service/page?view=chinaArtwork&lang={{locale}}"><spring:message code="label.china.artwork.auth" /></a></li>
+<%--	                                        <li><a href="/service/page?view=chinaArtwork&lang={{locale}}"><spring:message code="label.china.artwork.auth" /></a></li>--%>
 	                                        <li><a href="/service/page?view=storageInsa&lang={{locale}}"><spring:message code="label.artwork.keep" /></a></li>
 	                                        <!-- <li><a href="/service/page?view=ArtDonations&lang={{locale}}"><spring:message code="label.company.artwork-artdonation" /></a></li> -->
                                             <li ng-if="locale==='ko'"><a href="/service/page?view=Newsletter"><spring:message code="label.newsletter" /></a></li> 
@@ -743,7 +743,7 @@ function showTopLayer() {
 							</li>
 		                    <li><a href="/service/page?view=rentExhibitionCenter&lang={{locale}}"><spring:message code="label.space.rental" /></a></li>
 		                    <li><a href="/service/page?view=securedLoan&lang={{locale}}"><spring:message code="label.collateral.loan" /></a></li>
-		                    <li><a href="/service/page?view=chinaArtwork&lang={{locale}}"><spring:message code="label.china.artwork.auth" /></a></li>
+<%--		                    <li><a href="/service/page?view=chinaArtwork&lang={{locale}}"><spring:message code="label.china.artwork.auth" /></a></li>--%>
 		                    <li>
 		                    	<a href="/service/page?view=storageInsa&lang={{locale}}"><spring:message code="label.artwork.keep" /></a>
 		                    	<ul class="sub_menu_tit" style="border-bottom: 1px solid #333;">          
