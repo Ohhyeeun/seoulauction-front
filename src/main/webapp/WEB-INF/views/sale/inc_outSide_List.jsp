@@ -241,7 +241,12 @@
                                             	</li>
                                       		</ul>  
 										</div>   
-										<div class="ect auction_ect"> 
+										<div class="ect auction_ect">
+											<span class="btn_style01 xlarge green02 full bidding_btn02 bidding_btn02_en">
+	                                            <button type="button" ng-click="blacklotGo('${blacklot}', sale.SALE_NO, lot.LOT_NO)">
+	                                                <spring:message code="label.go.bid.now" />
+	                                            </button>
+	                                        </span>
 										</div> <!-- // auction_list_estimate -->
 									</div><!-- //auction_list_estimate -->  
 									 
