@@ -116,7 +116,10 @@
 			if ($scope.bid_price_input_grow5 == "" || $scope.bid_price_input_grow5 == null || $scope.lot_move_init == "YES"){
 				$scope.bid_price_input_grow5 = $scope.commaSetting($scope.lot.START_PRICE != null? $scope.lot.START_PRICE : $scope.lot.EXPE_PRICE_FROM_JSON[$scope.base_currency]);	
 			}
-	
+			if ($scope.bid_price_input_grow6 == "" || $scope.bid_price_input_grow6 == null || $scope.lot_move_init == "YES"){
+				$scope.bid_price_input_grow6 = $scope.commaSetting(10 * Math.pow(10, parseInt(price_len)-2));
+			}
+
 			// 최초 오픈된 경우 실행. 최초 오픈시에는 mid_lot_no는 NULL!
 			if($scope.mid_lot_no == null || $scope.mid_lot_no == 'undefined'){
 				$scope.naviMoveInit($scope.live_lot_no);
@@ -157,6 +160,7 @@
 				$scope.bid_price_input_grow3 = "";
 				$scope.bid_price_input_grow4 = "";
 				$scope.bid_price_input_grow5 = "";
+				$scope.bid_price_input_grow6 = "";
 	
 				$scope.loadLiveAuction();				
 			})
