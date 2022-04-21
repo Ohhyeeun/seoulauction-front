@@ -1020,7 +1020,7 @@ app.controller('lotListCtl', function($scope, consts, common, bid, $interval, is
 
 });
 </script>
-<script type="text/javascript" src="/js/bid.js?ver=20220318"></script>
+<script type="text/javascript" src="/js/bid.js?ver=20220418"></script>
 <body>
 <jsp:include page="../include/topSearch.jsp" flush="false"/>
 <div id="wrap" class="noexhibition">
