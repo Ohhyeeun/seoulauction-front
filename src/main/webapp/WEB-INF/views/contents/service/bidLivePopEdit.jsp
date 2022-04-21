@@ -147,7 +147,7 @@
 						$("#bidPriceInputGrow5").val($scope.bid_price_input_grow5);
 					}
 					if ($scope.bid_price_input_grow6 == "" || $scope.bid_price_input_grow6 == null || $scope.lot_move_init == "YES"){
-						$scope.bid_price_input_grow6 = "";	
+						$scope.bid_price_input_grow6 = $scope.commaSetting(10*$scope.growPriceOffline($scope.lot.START_PRICE != null? $scope.lot.START_PRICE : $scope.lot.EXPE_PRICE_FROM_JSON[$scope.base_currency]));
 						$("#bidPriceInputGrow6").val($scope.bid_price_input_grow6);
 					}
 					
@@ -735,7 +735,7 @@
 						</p>
 					</div>
 					<!-- 경매 시작/마감 & 경매 문구 입력(직원용). 김예은, 양동호, 채수연, 이은미, 박지혜, 오지은, 김민채, 김희욱, 이송미 -->  
-					<div ng-if="custInfo.CUST_NO != null && custInfo.EMP_GB == 'Y' && (['yeeun0210', 'hajenuri','cotndus3', 'eunmi1235', 'rpa2080', 'lael16', 'iminchaek', 'poourj', 'songmi1028'].indexOf(custInfo.LOGIN_ID) > -1)">
+					<div ng-if="custInfo.CUST_NO != null && custInfo.EMP_GB == 'Y' && (['yeeun0210', 'hajenuri','cotndus3', 'eunmi1235', 'rpa2080', 'lael16', 'iminchaek', 'poourj', 'songmi1028', 'rlatjswls91'].indexOf(custInfo.LOGIN_ID) > -1)">
 						<div class="col7 last bid_livebox clearfix" style="text-align:left; margin-top: 20px;">     
 							<!-- Lot동기화는 LOT의 시작과 마감을 모두 처리. --> 
 							<div class="clearfix" style="padding: 10px;">       
