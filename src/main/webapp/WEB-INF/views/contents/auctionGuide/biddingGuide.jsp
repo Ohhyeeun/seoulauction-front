@@ -22,10 +22,10 @@
 
 			<div class="contents_wrap">
 				<div class="contents">
-					<div class="tit_h2 border">
+					<div class="tit_h2 border"> 
 						<h2>경매안내</h2>
 						<p style="line-height:30px; font-size:16px;">서울옥션 미술품 경매는 지난 1998년부터 서울에서 시작해 지난 2008년에는 홍콩에 진출하였으며 매년 부산과 대구 등에서도 열리고 있습니다.</p>
-                        <p style="line-height:30px; font-size:14px;">&bull;&nbsp;메이저 경매 : 3월, 6월, 9월, 12월에 서울에서 열리는 정기 경매로 한국 근현대 작품과 고미술품 등이 출품됩니다. <br/>
+                        <p style="line-height:30px; font-size:14px;">&bull;&nbsp;메이저 경매 : 서울에서 열리는 정기 경매로 한국 근현대 작품, 해외작품, 고미술품 등이 출품됩니다. <br/>
                        &bull;&nbsp;홍콩 경매 : 한국 근현대 작품을 세계 시장에 알리고 해외에 흩어진 고미술품을 환수하며 또한 해외 유명 작가의 작품이 출품되는 경매로 연간 3-4회 열립니다. <br/>
                        &bull;&nbsp;기획 경매 : 기획 경매는 부산, 대구 등의 지역 경매는 물론 신진 작가 소개 및 자선 경매 등 테마가 있는 기획 작품을 선보입니다. <br/>
                         </p>

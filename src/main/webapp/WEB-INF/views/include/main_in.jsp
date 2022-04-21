@@ -270,18 +270,6 @@ input[type="checkbox"].overlay_checkbox{
         <div class="onerow"></div>
         <h2 class="mainContents_tit">AUCTION</h2>
 
-        <!-- 온라인 경매 -->
-        <div class="col4">
-            <a href="/currentAuction?sale_kind=online_only&sale_no=702&page=1">
-                 <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220413_ko.gif" style="width:100%;"/>
-                 <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220413_en.gif" style="width:100%;"/>
-            </a>
-            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
-            <p class="mainContents_txt" ng-if="locale=='ko'">e BID 4월 퍼블릭 온라인 경매 Ⅱ</p>
-            <p class="mainContents_txt" ng-if="locale!='ko'">e BID Public Online Auction Ⅱ in April</p>
-            <div style="clear:both;"></div>
-        </div>
-
         <!-- 아트시 경매 -->
       	<div class="col4">
             <!-- <a href="/currentAuction?sale_kind=offline_only&sale_outside_yn=Y&sale_no=703#page1"> -->
@@ -294,7 +282,7 @@ input[type="checkbox"].overlay_checkbox{
       	</div>
 
         <!-- 오프라인 경매 -->
-        <div class="col4 last">
+        <div class="col4">
 			 <a href="/currentAuction?sale_kind=offline_only&sale_no=700&page=1"> 
                  <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220411_02.gif" style="width:100%;"/>
                  <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220411_02.gif" style="width:100%;"/>
@@ -305,13 +293,25 @@ input[type="checkbox"].overlay_checkbox{
           <div style="clear:both;"></div>
         </div>
 
-				<!-- 커밍순 썸네일
-	        <div class="col4 last">
-						<img src="/images/img/main/auction_sum/20190613.jpg" style="width:100%;"/>
-	            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
-	            <p class="mainContents_txt"></p>
-	            <div style="clear:both;"></div>
-	        </div> -->
+        <!-- 커밍순 썸네일 -->
+        <div class="col4 last">
+                    <img src="/images/img/main/auction_sum/20190613.jpg" style="width:100%;"/>
+            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
+            <p class="mainContents_txt"></p>
+            <div style="clear:both;"></div>
+        </div>
+
+        <!-- 온라인 경매
+        <div class="col4">
+            <a href="/currentAuction?sale_kind=online_only&sale_no=702&page=1">
+                 <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220413_ko.gif" style="width:100%;"/>
+                 <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220413_en.gif" style="width:100%;"/>
+            </a>
+            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
+            <p class="mainContents_txt" ng-if="locale=='ko'">e BID 4월 퍼블릭 온라인 경매 Ⅱ</p>
+            <p class="mainContents_txt" ng-if="locale!='ko'">e BID Public Online Auction Ⅱ in April</p>
+            <div style="clear:both;"></div>
+        </div> -->
 
 				<!-- 온라인 경매 -->
         <!-- <div class="col4">
