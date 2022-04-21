@@ -147,7 +147,7 @@
 						$("#bidPriceInputGrow5").val($scope.bid_price_input_grow5);
 					}
 					if ($scope.bid_price_input_grow6 == "" || $scope.bid_price_input_grow6 == null || $scope.lot_move_init == "YES"){
-						$scope.bid_price_input_grow6 = $scope.commaSetting(10*$scope.growPriceOffline($scope.lot.START_PRICE != null? $scope.lot.START_PRICE : $scope.lot.EXPE_PRICE_FROM_JSON[$scope.base_currency]));
+						$scope.bid_price_input_grow6 = "";	
 						$("#bidPriceInputGrow6").val($scope.bid_price_input_grow6);
 					}
 					
@@ -202,8 +202,10 @@
 					$scope.outGrowPrice = 100000;
 				} else if (parseInt($input) >= 20000000 && parseInt($input) < 200000000){
 					$scope.outGrowPrice = 1000000;
-				} else if (parseInt($input) >= 200000000){
+				} else if (parseInt($input) >= 200000000 && parseInt($input) < 2000000000){
 					$scope.outGrowPrice = 10000000;
+				} else if (parseInt($input) >= 2000000000){
+					$scope.outGrowPrice = 100000000;
 				} else{
 					$scope.outGrowPrice = 0;
 				}
