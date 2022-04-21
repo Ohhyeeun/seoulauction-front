@@ -1022,8 +1022,7 @@ app.controller('lotListCtl', function($scope, consts, common, bid, $interval, is
 	}
 
 	$scope.blacklotGo = function(url, sale_no, lot_no) {
-		//TODO:sale_no 바꾸기
-		window.location.href = url+encodeURIComponent("sale_no=700&lot_no="+lot_no);
+		window.location.href = url+encodeURIComponent("sale_no="+sale_no+"&lot_no="+lot_no);
 	}
 });
 </script>
@@ -1423,12 +1422,12 @@ app.controller('lotListCtl', function($scope, consts, common, bid, $interval, is
                                             
                                             <!-- 아트시 응찰버튼 -->
 										   <!-- TODO: 블랙랏 응찰 URI 변경 -->
-                                            <span class="btn_style01 orange01" ng-if="viewId == 'CURRENT_AUCTION' && sale_outside_yn == 'Y'">
+                                            <%--<span class="btn_style01 orange01" ng-if="viewId == 'CURRENT_AUCTION' && sale_outside_yn == 'Y'">
                                                 <button type="button" ng-if="viewId == 'CURRENT_AUCTION' && sale_outside_yn == 'Y'" name="Artsy" value="Artsy" align="center" scrolling="no" onClick="window.open('https://www.artsy.net/auction/seoul-auction-crossroad')";>   
                                                     <span ng-if="locale != 'ko'">BLACKLOT Bid</span>
                                                     <span ng-if="locale == 'ko'">블랙랏 응찰</span>
                                                  </button>     
-                                            </span> 
+                                            </span> --%>
                                             
                                             <!-- 아트시 응찰버튼(2개 동시 게시 시) -->                     
                                             <!-- <span class="btn_style01 orange01" ng-if="viewId == 'CURRENT_AUCTION' && sale_outside_yn == 'Y' && sale.SALE_NO != '667'">      
