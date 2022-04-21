@@ -5,6 +5,9 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <jsp:include page="../include/header.jsp" flush="false"/>
+
+<spring:eval expression="@property['blacklot.router.domain']" var="blacklot" scope="page"/>
+
 <link href="/css/angular/ng-animation.css" rel="stylesheet">
 <link href="/css/angular/ngDialog.min.css" rel="stylesheet">
 <link href="/css/angular/popup.css" rel="stylesheet">
@@ -246,7 +249,11 @@ app.controller('lotDetailCtl', function($scope, consts, common, bid, $interval, 
 	$scope.listBack = function(){
 		window.history.back();
 	}
-	
+
+	$scope.blacklotGo = function(url, sale_no, lot_no) {
+		//TODO:sale_no 바꾸기
+		window.location.href = url+encodeURIComponent("sale_no=700&lot_no="+lot_no);
+	}
 });
 
 /* // 자세히 보기 팝업
@@ -762,58 +769,31 @@ function OnloadImg(){
                             <div class="title"> 
 								<div class="mat">  
                                     <p ng-if="locale == 'ko'" class="inquiry_no_email"> 
-                                    	<span ng-if="sale.SALE_NO == '669'" class="inquiry_no_email_lang">  
-                                    		<!-- <span>
-	                                    		<a href="mailto:specialist@artsy.net">specialist@artsy.net</a>
-                                    		</span>  -->
-                                    		<span> 
-												<a href="tel:02-2075-4470">02-2075-4470</a> / <a href="mailto:kmc@seoulauction.com">kmc@seoulauction.com</a> 
+                                    	<span class="inquiry_no_email_lang">
+                                    		<span>
+												<a href="tel:010-4464-0396">010-4464-0396</a> / <a href="mailto:ynjang@seoulauction.com">ynjang@seoulauction.com</a>
 											</span> 
                                     		<span style="margin-top: 20px;">   
-                                    			<a href="https://www.artsy.net/auction/seoul-auction-crossroad" target="_blank">
-		                                        	<strong><span style="color:#62c3bc;">▶ 아트시 응찰하기</span></strong>   
+                                    			<a ng-click="blacklotGo('${blacklot}', sale.SALE_NO, lot.LOT_NO)" style="cursor:pointer;">
+		                                        	<strong><span style="color:#62c3bc;">▶ 블랙랏 응찰하기</span></strong>
 		                                        </a>
                                     		</span>   
                                     	</span>  
-                                    	
-                                    	<span ng-if="sale.SALE_NO != '669'" class="inquiry_no_email_lang">   
-                                    		<span> 
-												<a href="tel:02-2075-4391">02-2075-4391</a> / <a href="mailto:ujin0618@seoulauction.com">ujin0618@seoulauction.com</a>
-											</span> 
-	                                    	<!-- <span style="margin-top: 20px;">    
-		                                    	<a href="https://www.seoulauction.com" target="_blank">  
-		                                        	<strong><span style="color:#62c3bc;">▶ 아트시 응찰하기</span></strong> 
-		                                        </a>
-		                                    </span> -->  
-                                    	</span>    
+
                                     </p> 
                                     <!-- //작품문의 국문 --> 
                                     
-                                    <p ng-if="locale != 'ko'" class="inquiry_no_email"> 
-                                    	<span ng-if="sale.SALE_NO == '669'" class="inquiry_no_email_lang"> 
-                                    		<!-- <span> 
-	                                    		<a href="mailto:specialist@artsy.net">specialist@artsy.net</a>
-                                    		</span>  --> 
-                                    		<span> 
-												<a href="tel:02-2075-4391">02-2075-4391</a> / <a href="mailto:ujin0618@seoulauction.com">ujin0618@seoulauction.com</a>
-											</span> 
-                                    		<span style="margin-top: 20px;">
-                                    			<a href="https://www.artsy.net/auction/seoul-auction-crossroad" target="_blank">
-		                                        	<strong><span style="color:#62c3bc;">▶ Bid on Artsy</span></strong>   
-		                                        </a>    
-                                    		</span> 
-                                    	</span> 
-                                    	
-                                    	<span ng-if="sale.SALE_NO != '669'" class="inquiry_no_email_lang">   
+                                    <p ng-if="locale != 'ko'" class="inquiry_no_email">
+										<span class="inquiry_no_email_lang">
                                     		<span>
-												<a href="mailto:ujin0618@seoulauction.com">ujin0618@seoulauction.com</a> / <a href="tel:02-2075-4391">02-2075-4391</a>
-											</span> 
-	                                    	<!-- <span style="margin-top: 20px;">    
-		                                    	<a href="https://www.seoulauction.com" target="_blank">   
-		                                        	<strong><span style="color:#62c3bc;">▶ Bid on Artsy</span></strong> 
+												<a href="tel:010-4464-0396">010-4464-0396</a> / <a href="mailto:ynjang@seoulauction.com">ynjang@seoulauction.com</a>
+											</span>
+                                    		<span style="margin-top: 20px;">
+                                    			<a ng-click="blacklotGo('${blacklot}', sale.SALE_NO, lot.LOT_NO)" style="cursor:pointer;">
+		                                        	<strong><span style="color:#62c3bc;">▶ Bid on BLACKLOT</span></strong>
 		                                        </a>
-		                                    </span> --> 
-                                    	</span>  
+                                    		</span>
+                                    	</span>
                                     </p>
                                     <!-- //작품문의 영문 --> 
 									
