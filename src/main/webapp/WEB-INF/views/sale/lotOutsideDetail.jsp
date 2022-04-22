@@ -846,16 +846,17 @@ function OnloadImg(){
                                     <ul ng-if="!custInfo.CUST_NO && lot.END_YN != 'Y' && ['main','hongkong','plan'].indexOf(sale.SALE_KIND_CD) > -1 && (lot.DB_NOW | date:'yyyyMMdd') >= (lot.SALE_TO_DT | date:'yyyyMMdd')">
                                         <li><spring:message code="label.auction.loginlog1" /></li>
                                     </ul>
-                                    <ul ng-if="custInfo.CUST_NO > 0 && is_login && custInfo.LOCAL_KIND_CD != 'foreigner' && ['main','hongkong','plan'].indexOf(sale.SALE_KIND_CD) > -1 && sale_status == 'ING' && (lot.DB_NOW | date:'yyyyMMdd') < (lot.SALE_TO_DT | date:'yyyyMMdd')">
+
+                                    <%--<ul ng-if="custInfo.CUST_NO > 0 && is_login && custInfo.LOCAL_KIND_CD != 'foreigner' && ['main','hongkong','plan'].indexOf(sale.SALE_KIND_CD) > -1 && sale_status == 'ING' && (lot.DB_NOW | date:'yyyyMMdd') < (lot.SALE_TO_DT | date:'yyyyMMdd')">
                                         <li ng-if="custInfo.MEMBERSHIP_YN != 'Y'">
                                             <spring:message code="label.auction.membershipchk" />
                                         </li>
-                                    </ul>	
+                                    </ul>
                                     <ul ng-if="custInfo.CUST_NO > 0 && is_login && custInfo.LOCAL_KIND_CD == 'foreigner' && ['main','hongkong','plan'].indexOf(sale.SALE_KIND_CD) > -1 && sale_status == 'ING' && (lot.DB_NOW | date:'yyyyMMdd') < (lot.SALE_TO_DT | date:'yyyyMMdd')">
                                         <li ng-if="custInfo.FORE_BID_YN != 'Y'">
                                             <spring:message code="label.auction.membershipchk" />
                                         </li>
-                                    </ul>
+                                    </ul>--%>
 								</div> 
 							</div>
                             
