@@ -653,7 +653,7 @@ function showTopLayer() {
                             </li> 
 
                             <li>      
-	                           <span ng-if="outsideIng > 0"><a href="https://www.seoulauction.com/currentAuction?sale_outside_yn=Y&lang={{locale}}"><span ng-if="locale=='ko'">아트시 경매</span><span ng-if="locale!='ko'">ARTSY Auction</span><img src="/images/icon/now_icon.png" style="vertical-align: text-bottom; margin-left: 2px;"/></a></span>    
+	                           <span ng-if="outsideIng > 0"><a href="/currentAuction?sale_outside_yn=Y&lang={{locale}}"><span ng-if="locale=='ko'">블랙랏 경매</span><span ng-if="locale!='ko'">BLACKLOT Auction</span><img src="/images/icon/now_icon.png" style="vertical-align: text-bottom; margin-left: 2px;"/></a></span>
 	                           <span ng-if="outsideIng == 0 || outsideIng == null" id="M_Only_OutsideEnd"><span ng-if="locale=='ko'">아트시 경매</span><span ng-if="locale!='ko'">ARTSY Auction</span></span> 
 							</li>    
 	                        <!-- <li> 
