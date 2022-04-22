@@ -251,7 +251,7 @@ app.controller('lotDetailCtl', function($scope, consts, common, bid, $interval, 
 	}
 
 	$scope.blacklotGo = function(url, sale_no, lot_no) {
-		window.location.href = url+encodeURIComponent("sale_no="+sale_no+"&lot_no="+lot_no);
+		window.open(url+encodeURIComponent("sale_no="+sale_no+"&lot_no="+lot_no));
 	}
 });
 
