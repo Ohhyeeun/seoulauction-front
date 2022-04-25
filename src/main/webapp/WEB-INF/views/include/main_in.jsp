@@ -270,6 +270,18 @@ input[type="checkbox"].overlay_checkbox{
         <div class="onerow"></div>
         <h2 class="mainContents_tit">AUCTION</h2>
 
+        <!-- 오프라인 경매 -->
+        <div class="col4">
+            <a href="/currentAuction?sale_kind=offline_only&sale_no=700&page=1">
+                <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220411_02.gif" style="width:100%;"/>
+                <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220411_02.gif" style="width:100%;"/>
+            </a>
+            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
+            <p class="mainContents_txt" ng-if="locale=='ko'">166회 서울옥션 미술품경매</p>
+            <p class="mainContents_txt" ng-if="locale!='ko'">166th ART AUCTION</p>
+            <div style="clear:both;"></div>
+        </div>
+
         <!-- 아트시 경매 -->
       	<div class="col4">
             <a href="/currentAuction?sale_outside_yn=Y&sale_no=703#page1">
@@ -280,18 +292,6 @@ input[type="checkbox"].overlay_checkbox{
             <p class="mainContents_txt" ng-if="locale!='ko'">BLACKLOT Original & Edition</p>
             <div style="clear:both;"></div>
       	</div>
-
-        <!-- 오프라인 경매 -->
-        <div class="col4">
-			 <a href="/currentAuction?sale_kind=offline_only&sale_no=700&page=1"> 
-                 <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220411_02.gif" style="width:100%;"/>
-                 <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220411_02.gif" style="width:100%;"/>
-             </a>
-          <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
-          <p class="mainContents_txt" ng-if="locale=='ko'">166회 서울옥션 미술품경매</p>
-          <p class="mainContents_txt" ng-if="locale!='ko'">166th ART AUCTION</p>
-          <div style="clear:both;"></div>
-        </div>
 
         <!-- 커밍순 썸네일 -->
         <div class="col4 last">
@@ -425,40 +425,40 @@ input[type="checkbox"].overlay_checkbox{
 				<h2 class="mainContents_tit">VIDEO</h2>
 				<div class="col8" style="overflow:hidden">
 	          	<div class="popupVideo">
-	                  <a data-video="SnrKwsQTfXk">
-	                      <img src="/images/img/main/video/2022041501.jpg" style="width:100%; cursor:pointer;" alt="video1"/>
+	                  <a data-video="7nJ-DsmLfOo?start=9">
+	                      <img src="/images/img/main/video/20220425_01.jpg" style="width:100%; cursor:pointer;" alt="video1"/>
 	                  </a>
 	                  <div class="video-popup">
 	                      <div class="video-popup-closer"></div>
 	                  </div>
-	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">산불 피해 이재민 돕기 온라인 자선경매 | Special Interview. 박서보</p>
-	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">산불 피해 이재민 돕기 온라인 자선경매 | Special Interview. 박서보</p>
+	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">WALK THROUGH WITH THE SPECIALIST | 166th ART AUCTION_Modern & Contemporary Art</p>
+	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">WALK THROUGH WITH THE SPECIALIST | 166th ART AUCTION_Modern & Contemporary Art</p>
 	          	</div>
 	     	</div>
 	      	<div class="col4 last" style="overflow:hidden">
 	          	<div class="popupVideo">
-	                  <a data-video="gua4k7RB3F0">
-	                      <img src="/images/img/main/video/2022041502.jpg" style="width:100%; cursor:pointer;" alt="video2"/>
+	                  <a data-video="bGii1-k-rSo?start=3">
+	                      <img src="/images/img/main/video/20220425_02.jpg" style="width:100%; cursor:pointer;" alt="video2"/>
 	                  </a>
 	                  <div class="video-popup">
 	                      <div class="video-popup-closer"></div>
 	                  </div>
-	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">WHAT'S ON AT SA | 166th ART AUCTION</p>
-	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">WHAT'S ON AT SA | 166th ART AUCTION</p>
+	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">WALK THROUGH WITH THE SPECIALIST | 166th ART AUCTION_Korean Traditional Art</p>
+	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">WALK THROUGH WITH THE SPECIALIST | 166th ART AUCTION_Korean Traditional Art</p>
 	            </div>
 
 	         	<span class="m_only"><img src="/images/img/main/video/00.jpg" style="width:100%;" alt="높이용"/></span>
 
-	          	<div class="popupVideo">
-	                  <a data-video="oSp2Hn9Eq7o">
-	                      <img src="/images/img/main/video/20220328_02.jpg" style="width:100%; cursor:pointer;" alt="video2"/>
-	                  </a>
-	                  <div class="video-popup">
-	                      <div class="video-popup-closer"></div>
-	                  </div>
-	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">AUCTION DAY REVIEW | Contemporary Art Sale</p>
-	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">AUCTION DAY REVIEW | Contemporary Art Sale</p>
-	          	</div>
+                <div class="popupVideo">
+                    <a data-video="gua4k7RB3F0">
+                        <img src="/images/img/main/video/2022041502.jpg" style="width:100%; cursor:pointer;" alt="video2"/>
+                    </a>
+                    <div class="video-popup">
+                        <div class="video-popup-closer"></div>
+                    </div>
+                    <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">WHAT'S ON AT SA | 166th ART AUCTION</p>
+                    <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">WHAT'S ON AT SA | 166th ART AUCTION</p>
+                </div>
 	      	</div>
 
      	<div class="onerow"></div>
