@@ -789,9 +789,8 @@ input[type="checkbox"].overlay_checkbox{
                         </span>
                     </p> --> 
 
-                    <!--<a href="/noticeView?write_no=5507" style="display:block; text-align:center;">-->
-                        <img src="/images/img/main/overlay/20220402_time.png" alt="layerpopup" style="text-align:center; margin-bottom: 10px;">
-                        <img src="/images/img/main/overlay/20220402_thanks_to.png" alt="layerpopup">  
+                    <!--<a href="/noticeView?write_no=5507" style="display:block; text-align:center;">--> 
+                        <img src="/images/img/main/overlay/20220402_thanks_to.png" alt="layerpopup">
                     <!-- </a> -->
 
                     <!-- <a href="" style="display:block;">
