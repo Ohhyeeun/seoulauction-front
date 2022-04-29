@@ -453,27 +453,27 @@ input[type="checkbox"].overlay_checkbox{
 	     	</div>
 	      	<div class="col4 last" style="overflow:hidden">
 	          	<div class="popupVideo">
-	                  <a data-video="7nJ-DsmLfOo">
+	                  <a data-video="bGii1-k-rSo?start=3">
 	                      <img src="/images/img/main/video/20220425_02.jpg" style="width:100%; cursor:pointer;" alt="video2"/>
 	                  </a>
 	                  <div class="video-popup">
 	                      <div class="video-popup-closer"></div>
 	                  </div>
-	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">WALK THROUGH WITH THE SPECIALIST | 166th ART AUCTION_Modern & Contemporary Art</p>
-	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">WALK THROUGH WITH THE SPECIALIST | 166th ART AUCTION_Modern & Contemporary Art</p>
+	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">WALK THROUGH WITH THE SPECIALIST | 166th ART AUCTION_Korean Traditional Art</p>
+	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">WALK THROUGH WITH THE SPECIALIST | 166th ART AUCTION_Korean Traditional Art</p>
 	            </div>
 
 	         	<span class="m_only"><img src="/images/img/main/video/00.jpg" style="width:100%;" alt="높이용"/></span>
 
                 <div class="popupVideo">
-                    <a data-video="gua4k7RB3F0">
+                    <a data-video="7nJ-DsmLfOo">
                         <img src="/images/img/main/video/20220429_02.jpg" style="width:100%; cursor:pointer;" alt="video2"/>
                     </a>
                     <div class="video-popup">
                         <div class="video-popup-closer"></div>
                     </div>
-                    <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">WHAT'S ON AT SA | 166th ART AUCTION</p>
-                    <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">WHAT'S ON AT SA | 166th ART AUCTION</p>
+                    <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">WALK THROUGH WITH THE SPECIALIST | 166th ART AUCTION_Modern & Contemporary Art</p>
+                    <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">WALK THROUGH WITH THE SPECIALIST | 166th ART AUCTION_Modern & Contemporary Art</p>
                 </div>
 	      	</div>
 
