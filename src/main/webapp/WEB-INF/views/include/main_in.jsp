@@ -270,11 +270,15 @@ input[type="checkbox"].overlay_checkbox{
         <div class="onerow"></div>
         <h2 class="mainContents_tit">AUCTION</h2>
 
-        <!-- 커밍순 썸네일 -->  
+        <!-- 온라인 경매 -->
         <div class="col4">
-                    <img src="/images/img/main/auction_sum/20190613.jpg" style="width:100%;"/>
+            <!-- <a href="/currentAuction?sale_kind=online_only&sale_no=702&page=1"> -->
+                 <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220502_ko.gif" style="width:100%;"/>
+                 <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220502_en.gif" style="width:100%;"/>
+            <!-- </a> -->
             <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
-            <p class="mainContents_txt"></p>
+            <p class="mainContents_txt" ng-if="locale=='ko'">5월 e BID 프리미엄 온라인 경매</p>
+            <p class="mainContents_txt" ng-if="locale!='ko'">e BID Premium Online Auction in May</p>
             <div style="clear:both;"></div>
         </div>
 
@@ -305,18 +309,6 @@ input[type="checkbox"].overlay_checkbox{
             <div style="clear:both;"></div>
       	</div> -->
 
-        <!-- 온라인 경매
-        <div class="col4">
-            <a href="/currentAuction?sale_kind=online_only&sale_no=702&page=1">
-                 <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220413_ko.gif" style="width:100%;"/>
-                 <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220413_en.gif" style="width:100%;"/>
-            </a>
-            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
-            <p class="mainContents_txt" ng-if="locale=='ko'">e BID 4월 퍼블릭 온라인 경매 Ⅱ</p>
-            <p class="mainContents_txt" ng-if="locale!='ko'">e BID Public Online Auction Ⅱ in April</p>
-            <div style="clear:both;"></div>
-        </div> -->
-
         <!-- 오프라인 경매
         <div class="col4">
             <a href="/currentAuction?sale_kind=offline_only&sale_no=700&page=1">
@@ -329,7 +321,7 @@ input[type="checkbox"].overlay_checkbox{
             <div style="clear:both;"></div>
         </div> -->
 
-				<!-- 온라인 경매 -->
+		<!-- 온라인 경매 -->
         <!-- <div class="col4">
             <a href="/currentAuction?sale_kind=online_only&sale_no=698&page=1">
                  <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220324_ko.gif" style="width:100%;"/>
