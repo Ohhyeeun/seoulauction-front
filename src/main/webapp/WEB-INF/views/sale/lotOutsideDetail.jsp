@@ -767,35 +767,20 @@ function OnloadImg(){
 							
                             <div class="title"> 
 								<div class="mat">  
-                                    <p ng-if="locale == 'ko'" class="inquiry_no_email"> 
+                                    <p class="inquiry_no_email">
                                     	<span class="inquiry_no_email_lang">
                                     		<span>
 												<a href="tel:010-4464-0396">010-4464-0396</a> / <a href="mailto:ynjang@seoulauction.com">ynjang@seoulauction.com</a>
 											</span> 
-                                    		<span style="margin-top: 20px;">   
+                                    		<span ng-if="lot.END_YN == 'N' && sale.AUTO_BID_REQ_CLOSE_DT <= sale.DB_NOW" style="margin-top: 20px;">
                                     			<a ng-click="blacklotGo('${blacklot}', sale.SALE_NO, lot.LOT_NO)" style="cursor:pointer;">
-		                                        	<strong><span style="color:#62c3bc;">▶ 블랙랏 응찰하기</span></strong>
+		                                        	<strong ng-if="locale == 'ko'"><span style="color:#62c3bc;">▶ 블랙랏 응찰하기</span></strong>
+													<strong ng-if="locale != 'ko'"><span style="color:#62c3bc;">▶ Bid on BLACKLOT</span></strong>
 		                                        </a>
                                     		</span>   
                                     	</span>  
-
-                                    </p> 
-                                    <!-- //작품문의 국문 --> 
-                                    
-                                    <p ng-if="locale != 'ko'" class="inquiry_no_email">
-										<span class="inquiry_no_email_lang">
-                                    		<span>
-												<a href="tel:010-4464-0396">010-4464-0396</a> / <a href="mailto:ynjang@seoulauction.com">ynjang@seoulauction.com</a>
-											</span>
-                                    		<span style="margin-top: 20px;">
-                                    			<a ng-click="blacklotGo('${blacklot}', sale.SALE_NO, lot.LOT_NO)" style="cursor:pointer;">
-		                                        	<strong><span style="color:#62c3bc;">▶ Bid on BLACKLOT</span></strong>
-		                                        </a>
-                                    		</span>
-                                    	</span>
                                     </p>
-                                    <!-- //작품문의 영문 --> 
-									
+
 									<%-- <p ng-if="locale == 'ko' && !custInfo.CUST_NO && is_login && ['main','hongkong','plan'].indexOf(sale.SALE_KIND_CD) > -1 && sale_status == 'ING'"><spring:message code="label.auction.membershipchk" /></p> --%>
 									<!-- <p ng-if="locale != 'ko' && sale.SALE_NO == '667'">specialist@artsy.net</p>
 									<p ng-if="locale != 'ko' && sale.SALE_NO != '667'">ujin0618@seoulauction.com / 02-2075-4391</p>       
