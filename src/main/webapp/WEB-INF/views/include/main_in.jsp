@@ -282,11 +282,15 @@ input[type="checkbox"].overlay_checkbox{
             <div style="clear:both;"></div>
         </div>
 
-        <!-- 커밍순 썸네일 -->
+        <!-- 온라인 경매 -->
         <div class="col4">
-            <img src="/images/img/main/auction_sum/20190613.jpg" style="width:100%;"/>
+            <a href="https://www.blacklot.com/" target="_blank">
+                <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220504.jpg" style="width:100%;"/>
+                <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220504.jpg" style="width:100%;"/>
+            </a>
             <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
-            <p class="mainContents_txt"></p>
+            <p class="mainContents_txt" ng-if="locale=='ko'">BLACKLOT ART WEEK</p>
+            <p class="mainContents_txt" ng-if="locale!='ko'">BLACKLOT ART WEEK</p>
             <div style="clear:both;"></div>
         </div>
 
