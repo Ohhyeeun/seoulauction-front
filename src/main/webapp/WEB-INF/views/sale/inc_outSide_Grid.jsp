@@ -194,7 +194,7 @@
                                                 <span ng-if="!is_login && sale_status == 'END'">
                                                     <spring:message code="label.auction.soldpricelog" />
                                                 </span>
-												<span class="btn_style01 xlarge green02 full bidding_btn02 bidding_btn02_en" >
+												<span class="btn_style01 xlarge green02 full bidding_btn02 bidding_btn02_en" ng-if="lot.END_YN == 'N' && sale.AUTO_BID_REQ_CLOSE_DT <= sale.DB_NOW">
 													<button type="button" ng-click="blacklotGo('${blacklot}', sale.SALE_NO, lot.LOT_NO)">
 														<span ng-if="locale=='ko'">블랙랏</span><span ng-if="locale!='ko'">BLACKLOT</span> <spring:message code="label.go.bid.now" />
 													</button>

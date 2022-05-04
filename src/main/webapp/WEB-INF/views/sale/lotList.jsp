@@ -1197,13 +1197,14 @@ app.controller('lotListCtl', function($scope, consts, common, bid, $interval, is
                                                     <button type="button" ng-if="viewId == 'CURRENT_AUCTION'" name="EXHIBITION" value="EXHIBITION" align="center" scrolling="no" onClick="window.open('https://www.seoulauction.com/nas_img/front/homepage/VR/')"; >VR Video</button>
                                                 </span> -->   
                                                 
-                                                <!-- 아트시 응찰버튼 -->   
+                                                <!-- 블랙랏 응찰버튼 -->
+                                                <%--
                                                 <span class="btn_style01 orange01" ng-if="viewId == 'CURRENT_AUCTION' && sale_outside_yn == 'Y'">
                                                     <button type="button" ng-if="viewId == 'CURRENT_AUCTION' && sale_outside_yn == 'Y'" name="Artsy" value="Artsy" align="center" scrolling="no" onClick="window.open('https://blacklot.com/event/auction202204/gallery/9')"; >
                                                     	<span ng-if="locale != 'ko'">Blacklot All Bidding Page</span>
                                                         <span ng-if="locale == 'ko'">블랙랏 전체 응찰페이지</span>
                                                     </button>   
-                                                </span>
+                                                </span>--%>
                                                 
                                                 <!-- 아트시 응찰버튼 (동시 게시 시)-->  
                                                 <!-- <span class="btn_style01 orange01" ng-if="viewId == 'CURRENT_AUCTION' && sale_outside_yn == 'Y' && sale.SALE_NO != '667'">    
@@ -1421,12 +1422,13 @@ app.controller('lotListCtl', function($scope, consts, common, bid, $interval, is
                                             </span> -->  
                                             
                                             <!-- 블랙랏 응찰버튼 -->
+                                           <%--
                                             <span class="btn_style01 orange01" ng-if="viewId == 'CURRENT_AUCTION' && sale_outside_yn == 'Y'">
                                                 <button type="button" ng-if="viewId == 'CURRENT_AUCTION' && sale_outside_yn == 'Y'" name="Artsy" value="Artsy" align="center" scrolling="no" onClick="window.open('https://blacklot.com/event/auction202204/gallery/9')";>
                                                     <span ng-if="locale != 'ko'">Blacklot All Bidding Page</span>
                                                     <span ng-if="locale == 'ko'">블랙랏 전체 응찰페이지</span>
                                                  </button>     
-                                            </span>
+                                            </span>--%>
                                             
                                             <!-- 아트시 응찰버튼(2개 동시 게시 시) -->                     
                                             <!-- <span class="btn_style01 orange01" ng-if="viewId == 'CURRENT_AUCTION' && sale_outside_yn == 'Y' && sale.SALE_NO != '667'">      
