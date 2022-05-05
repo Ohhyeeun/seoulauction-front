@@ -295,10 +295,10 @@ input[type="checkbox"].overlay_checkbox{
         </div>
 
         <!-- 아트시 경매 -->
-      	<div class="col4 last">
-            <!-- <a href="/currentAuction?sale_outside_yn=Y&sale_no=703#page1"> -->
+      	<div class="col4 last">  
+            <a href="/currentAuction?sale_outside_yn=Y&sale_no=706#page1">
                 <img src="/images/img/main/auction_sum/20220504_black.jpg" style="width:100%;"/>
-            <!-- </a> -->
+            </a>
             <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
             <p class="mainContents_txt" ng-if="locale=='ko'">2nd BLACKLOT Original & Edition</p>
             <p class="mainContents_txt" ng-if="locale!='ko'">2nd BLACKLOT Original & Edition</p>
