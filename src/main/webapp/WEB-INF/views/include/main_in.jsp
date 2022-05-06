@@ -437,8 +437,8 @@ input[type="checkbox"].overlay_checkbox{
 				<h2 class="mainContents_tit">VIDEO</h2>
 				<div class="col8" style="overflow:hidden">
 	          	<div class="popupVideo">
-	                  <a data-video="RrhdYCeMNn0">
-	                      <img src="/images/img/main/video/20220429_01.PNG" style="width:100%; cursor:pointer;" alt="video1"/>
+	                  <a data-video="lkCFN3vG9eQ">
+	                      <img src="/images/img/main/video/20220506_01.png" style="width:100%; cursor:pointer;" alt="video1"/>
 	                  </a>
 	                  <div class="video-popup">
 	                      <div class="video-popup-closer"></div>
