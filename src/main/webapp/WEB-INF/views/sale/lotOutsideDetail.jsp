@@ -906,7 +906,7 @@ function OnloadImg(){
                     <div class="thumb_list">                     
                         <ul style="display:table; text-align:left;" > 
                             <li ng-repeat="lot2 in otherLotList" style="text-align: center; margin:5px; width:130px; height:130px;"> 
-                                <a ng-href="{{is_login ? '/lotDetail?sale_no=' + sale_no + '&lot_no=' + lot2.LOT_NO : null}}"> 
+                                <a ng-href="{{is_login ? '/lotOutsideDetail?sale_no=' + sale_no + '&lot_no=' + lot2.LOT_NO : null}}">
                                     <img ng-src="<spring:eval expression="@configure['img.root.path']" />{{lot2.LOT_IMG_NAME | imagePath1 : lot2.LOT_IMG_PATH : 'list'}}" title="LOT.{{lot2.LOT_NO}}-{{lot2.TITLE_JSON[locale]}}" style="max-width:120px; max-height:120px; overflow:hidden;"/> 
                                 </a> 
                             </li> 
