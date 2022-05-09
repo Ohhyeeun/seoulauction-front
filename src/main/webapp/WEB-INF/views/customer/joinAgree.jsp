@@ -256,18 +256,27 @@
 								<div class="tit type02">
 									<strong><spring:message code="label.membership.jj" /></strong>
 								</div>
-								<div class="list_style01 type02">
+								<div class="list_style01 type02" ng-if="locale=='ko'">
 									<ul>
-										<li><spring:message code="label.membership.jj01" /></li>
-										<li><spring:message code="label.membership.jj02" /></li>
-										<li><spring:message code="label.membership.jj03" /></li>
-										<li><spring:message code="label.membership.jj04" /></li>
-										<li><spring:message code="label.membership.jj05" /></li>
-										<li><spring:message code="label.membership.jj06" /></li>
+										<li>연회비<br>국내 거주 20만원, 해외거주 500USD</li>
+										<li>혜택<br />
+											오프라인 경매(메이저, 기획) 참여 자격 부여<br />
+											오프라인 경매 도록 발송<br />
+											서울옥션 달력 발송
+										</li>
+									</ul>
+								</div>
+								<div class="list_style01 type02" ng-if="locale!='ko'">
+									<ul>
+										<li>Auction books are provided.</li>
+										<li>Provided Website Bidding service<br>
+											The member who wants bidding through the written report or phone call, please fill the<br> application form completely and submit at the website or the back of catalogue.
+										</li>
+										<li>e-mail : info@seoulauction.com</li>
 									</ul>
 								</div>
 							</div>
-							<div>
+							<div ng-if="locale=='en'" style="margin-left:0; padding-left:0; border-left:none;">  
 								<div class="tit type03">
 									<strong><spring:message code="label.membership.jja" /></strong>
 								</div>

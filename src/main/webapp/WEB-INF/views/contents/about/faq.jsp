@@ -214,7 +214,22 @@
 									<span class="sp_icon bul_answer"><span class="hidden">답변</span></span>
 									<div>1. 안드로이드 폰에 해당<br/>2. 메세지 리스트의 설정으로 이동<br/>3. 메세지 차단<br/>4. 차단메세지<br/>5. 차단된 번호 리스트가 뜸<br/>6. 해당되는 번호 누르고 복원을 클릭</div>  
 								</div> 
-							</li>	
+							</li>
+							<li>
+								<div class="question">
+									<span class="sp_icon bul_question"><span class="hidden">질문</span></span>
+									<a href="#">정회원 환불절차가 어떻게 진행되나요?</a>
+								</div>
+								<div class="answer" style="display: none;">
+									<span class="sp_icon bul_answer"><span class="hidden">답변</span></span>
+									<div>정회원 유효기간 만료 전 이용계약을 해지하는 경우, 아래 기준에 따라 연회비를 환불 받을 수 있습니다.<br><br>
+										가입 직후 – 1개월 미만 : 전액 환불<br>
+										1개월 이상 – 3개월 미만 : 80% 환불<br>
+										3개월 이상 – 6개월 미만 : 60% 환불<br>
+										가입 후 6개월 이상 : 환불 미진행
+									</div>
+								</div>
+							</li>
                             <!--<li>
 								<div class="question">
 									<span class="sp_icon bul_question"><span class="hidden">질문</span></span>
