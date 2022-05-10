@@ -55,7 +55,6 @@ span.edition_txt:before {
 	width: 12px;
 	height: 12px;
 }
-
 /* 경매 디테일 페이지 수정 */
 .master_detail .left .img_represent .hidden_box,
 .master_detail .left .img_represent ul li {
@@ -3291,8 +3290,21 @@ input[type="checkbox"].auctionagree_checkinput:checked+label:before {
 }
 .agree_checkboxwrap {
 	background: #fcfcfc;
-	padding: 10px;
+	padding: 10px 20px;
 	margin-bottom: 10px;
+}
+.agree_checkboxwrap_tit {
+	font-size: 1.5714rem;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+.agree_checkbox01 {
+	margin-bottom: 30px;
+}
+.agree_checkbox01>ul>li:last-child {
+	background: transparent;
+	padding-left: 0;
+	padding: 10px 0;
 }
 .agree_checkboxwrap ul {
 
@@ -3313,7 +3325,6 @@ input[type="checkbox"].auctionagree_checkinput:checked+label:before {
 	vertical-align: top;
 	width: calc(100% - 30px);
 	font-size: 13px;
-	padding-bottom: 3px;
 }
 .auctionagree_check_contents_en {
 	width: auto;

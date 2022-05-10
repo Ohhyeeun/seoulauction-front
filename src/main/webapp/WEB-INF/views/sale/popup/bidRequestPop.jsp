@@ -120,7 +120,7 @@
 										</div>
 										<span style="font-size:16px; align-self:flex-end; margin-left:7px;">{{sale.CURR_CD}} ( {{viewKorean(save_data.bid_price.toString())}} )</span>
 									</div>
-									<div class="wrap offline_priceguide" ng-if="save_data.bid_kind_cd == 'paper_online' && lot.EXPE_PRICE_INQ_YN != 'Y' && sale.CURR_CD != 'USD'"> 
+									<div class="wrap offline_priceguide" ng-if="save_data.bid_kind_cd == 'paper_online' || save_data.bid_kind_cd == 'paper_phone' && lot.EXPE_PRICE_INQ_YN != 'Y' && sale.CURR_CD != 'USD'">
 										<div class="offline_bidpricebox clearfix">  
 											<input ng-model="bid_auto_price" type="text" name="" id="" maxlength="16" class="tar paper_bid_input" onkeyup="moneyFormat(event, this);" readonly/>
 										</div>  

@@ -86,97 +86,94 @@
         cursor: pointer;
     }
 
-#text{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    font-size: 45px;
-    color: #33333;
-	background: #ffffff;
-    transform: translate(-50%,-50%);
-    -ms-transform: translate(-50%,-50%);
-	-webkit-transform: translate(-50%,-50%);
-}
-#closebtn{
-    position: absolute;
-    top: 0px;
-    right: 10px;
-    font-size: 35px;
-    color: #333333;
-}
-#textbg{
-    position: absolute;
-    /* top: 50%;
-    left: 50%; */
-	bottom: 0;
-	right: 0;
-    font-size: 43px;
-    color: #333333;
-    padding:20px;
-    padding-bottom: 10px;
-	background: #ffffff;
-    box-shadow: rgb(0 0 0 / 5%) -1px 7px 8px 1px; 
-    /* transform: translate(-50%,-50%);
-    -ms-transform: translate(-50%,-50%);  */
-}
-.layerbox_wrap {
-	overflow: hidden;
-	color: #fff;
-}
-.layerbox {
-	font-size: 14px;
-	line-height: 1.5;
-}
-.layer_tit {
-	font-size: 20px;
-	font-weight: bold;
-	display:block;
-	padding: 20px 0;
-}
-.layer_img img {
-/* 	max-width: 500px; */
-	max-height: 130px;
-	margin: 0 auto;
-	text-align: center;
-}
-@media screen and (max-width: 768px) {
-#overlay {
-    position: fixed;
-    display: none;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    /* background-color: rgba(255,255,255,0.8); */
-    z-index: 999;
-    cursor: pointer;
-}
-#text{
-    font-size: 25px;
-}
-#textbg {
-	/* width: 100%;
-	max-width: 300px; */
-	padding: 10px;
-}
-#closebtn {
-	font-size: 30px;
-	font-weight: bold;
-}
-.layer_tit {
-	font-size: 14px;
-}
-.layerbox {
-	font-size: 12px;
-}
-.layer_img img {
-	max-width: 100%;
-	/* max-height: 550px; */
-	max-height: 100px;
-}
-}
+    #text{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        font-size: 45px;
+        color: #33333;
+        background: #ffffff;
+        transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+        -webkit-transform: translate(-50%,-50%);
+    }
+    #closebtn{
+        position: absolute;
+        top: 0px;
+        right: 10px;
+        font-size: 35px;
+        color: #333333;
+    }
+    #textbg{
+        position: absolute;
+        /* top: 50%;
+        left: 50%; */
+        bottom: 0;
+        right: 0;
+        font-size: 43px;
+        color: #333333;
+        /* background: #ffffff; */
+        /* transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);  */
+        box-shadow: rgba(0,0,0,0.1) 1px 12px 9px 1px;
+    }
+    .layerbox_wrap {
+        overflow: hidden;
+        color: #fff;
+        max-width: 300px;
+    }
+    .layerbox {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+    .layer_tit {
+        font-size: 20px;
+        font-weight: bold;
+        display:block;
+        padding: 20px 0;
+    }
+    .layer_img img {
+        margin: 0 auto;
+        text-align: center;
+        max-width: 100%;
+        max-height: 100%;
+    }
+    input[type="checkbox"].overlay_checkbox{
+        margin-left: 20px;
+    }
+    @media screen and (max-width: 768px) {
+        #overlay {
+            position: fixed;
+            display: none;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            /* background-color: rgba(255,255,255,0.8); */
+            z-index: 999;
+            cursor: pointer;
+        }
+        #text{
+            font-size: 25px;
+        }
+        .layerbox_wrap {
+            max-width: 200px;
+        }
+        #closebtn {
+            font-size: 30px;
+            font-weight: bold;
+        }
+        .layer_tit {
+            font-size: 14px;
+        }
+        .layerbox {
+            font-size: 12px;
+        }
+
+    }
+
 
 </style>
 <style>
@@ -275,48 +272,58 @@
 
         <!-- 온라인 경매 -->
         <div class="col4">
-            <a href="/currentAuction?sale_kind=online_only&sale_no=702&page=1">
-                <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220413_ko.gif" style="width:100%;"/>
-                <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220413_en.gif" style="width:100%;"/>
+            <a href="/currentAuction?sale_kind=online_only&sale_no=704&page=1">
+                <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220502_ko.gif" style="width:100%;"/>
+                <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220502_en.gif" style="width:100%;"/>
             </a>
             <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
-            <p class="mainContents_txt" ng-if="locale=='ko'">e BID 4월 퍼블릭 온라인 경매 Ⅱ</p>
-            <p class="mainContents_txt" ng-if="locale!='ko'">e BID Public Online Auction Ⅱ in April</p>
+            <p class="mainContents_txt" ng-if="locale=='ko'">5월 e BID 프리미엄 온라인 경매</p>
+            <p class="mainContents_txt" ng-if="locale!='ko'">e BID Premium Online Auction in May</p>
+            <div style="clear:both;"></div>
+        </div>
+
+        <!-- 아트시 경매 -->
+        <div class="col4">
+            <a href="/currentAuction?sale_outside_yn=Y&sale_no=706#page1">
+                <img src="/images/img/main/auction_sum/20220504_black.jpg" style="width:100%;"/>
+            </a>
+            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
+            <p class="mainContents_txt" ng-if="locale=='ko'">2nd BLACKLOT Original & Edition</p>
+            <p class="mainContents_txt" ng-if="locale!='ko'">2nd BLACKLOT Original & Edition</p>
             <div style="clear:both;"></div>
         </div>
 
         <!-- 온라인 경매 -->
-        <div class="col4">
-            <a href="/currentAuction?sale_kind=online_only&sale_no=701&page=1">
-                <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220411_01.gif" style="width:100%;"/>
-                <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220411_01.gif" style="width:100%;"/>
-            </a>
+        <div class="col4 last">
+            <!-- <a href="/currentAuction?sale_kind=online_only&sale_no=704&page=1"> -->
+            <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220504_ko.gif" style="width:100%;"/>
+            <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220504_en.gif" style="width:100%;"/>
+            <!-- </a> -->
             <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
-            <p class="mainContents_txt" ng-if="locale=='ko'">산불 피해 이재민 돕기 온라인 자선경매</p>
-            <p class="mainContents_txt" ng-if="locale!='ko'">Online Charity Auction for victims of wildfire</p>
+            <p class="mainContents_txt" ng-if="locale=='ko'">5월 e BID 퍼블릭 온라인 경매 Ⅰ</p>
+            <p class="mainContents_txt" ng-if="locale!='ko'">e BID Public Online Auction Ⅰ in May</p>
             <div style="clear:both;"></div>
         </div>
 
-        <!-- 오프라인 경매 -->
-        <div class="col4 last">
-
-			 <a href="/currentAuction?sale_kind=offline_only&sale_no=700&page=1"> 
-                 <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220411_02.gif" style="width:100%;"/>
-                 <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220411_02.gif" style="width:100%;"/>
-             </a>
-          <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
-          <p class="mainContents_txt" ng-if="locale=='ko'">166회 서울옥션 미술품경매</p>
-          <p class="mainContents_txt" ng-if="locale!='ko'">166th ART AUCTION</p>
-          <div style="clear:both;"></div>
-        </div>
-
         <!-- 커밍순 썸네일
-    <div class="col4 last">
-                <img src="/images/img/main/auction_sum/20190613.jpg" style="width:100%;"/>
-        <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
-        <p class="mainContents_txt"></p>
-        <div style="clear:both;"></div>
-    </div> -->
+        <div class="col4 last">
+            <img src="/images/img/main/auction_sum/20190613.jpg" style="width:100%;"/>
+            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
+            <p class="mainContents_txt"></p>
+            <div style="clear:both;"></div>
+        </div> -->
+
+        <!-- 오프라인 경매
+        <div class="col4">
+            <a href="/currentAuction?sale_kind=offline_only&sale_no=700&page=1">
+                <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220411_02.gif" style="width:100%;"/>
+                <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220411_02.gif" style="width:100%;"/>
+            </a>
+            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
+            <p class="mainContents_txt" ng-if="locale=='ko'">166회 서울옥션 미술품경매</p>
+            <p class="mainContents_txt" ng-if="locale!='ko'">166th ART AUCTION</p>
+            <div style="clear:both;"></div>
+        </div> -->
 
         <!-- 온라인 경매 -->
         <!-- <div class="col4">
@@ -365,17 +372,6 @@
             <p class="mainContents_txt" ng-if="locale!='ko'">BLACKLOT Launching Exhibition</p>
             <div style="clear:both;"></div>
         </div> -->
-
-        <!-- 아트시 경매
-      	<div class="col4">
-            <a href="/currentAuction?sale_kind=offline_only&sale_outside_yn=Y&sale_no=669#page1">
-                <img src="/images/img/main/auction_sum/20211018.jpg" style="width:100%;"/>
-            </a>
-            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
-            <p class="mainContents_txt" ng-if="locale=='ko'">SEOUL AUCTION X ARTSY</p>
-            <p class="mainContents_txt" ng-if="locale!='ko'">SEOUL AUCTION X ARTSY</p>
-            <div style="clear:both;"></div>
-      	</div> -->
 
         <!-- 부산 세일 -->
         <!--<div class="col4">
@@ -441,39 +437,39 @@
         <h2 class="mainContents_tit">VIDEO</h2>
         <div class="col8" style="overflow:hidden">
             <div class="popupVideo">
-                <a data-video="GB32owUiPqw">
-                    <img src="/images/img/main/video/20220407.jpg" style="width:100%; cursor:pointer;" alt="video1"/>
+                <a data-video="lkCFN3vG9eQ">
+                    <img src="/images/img/main/video/20220506_01.png" style="width:100%; cursor:pointer;" alt="video1"/>
                 </a>
                 <div class="video-popup">
                     <div class="video-popup-closer"></div>
                 </div>
-                <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">FOCUS ON: eBID Public Online Auction Ⅰ in April</p>
-                <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">FOCUS ON: eBID Public Online Auction Ⅰ in April</p>
+                <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">FOCUS ON: eBID Premium Online Auction in May 2022</p>
+                <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">FOCUS ON: eBID Premium Online Auction in May 2022</p>
             </div>
         </div>
         <div class="col4 last" style="overflow:hidden">
             <div class="popupVideo">
-                <a data-video="HyOD1CMbc5I">
-                    <img src="/images/img/main/video/20220401_02.jpg" style="width:100%; cursor:pointer;" alt="video2"/>
+                <a data-video="bGii1-k-rSo?start=3">
+                    <img src="/images/img/main/video/20220425_02.jpg" style="width:100%; cursor:pointer;" alt="video2"/>
                 </a>
                 <div class="video-popup">
                     <div class="video-popup-closer"></div>
                 </div>
-                <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">FOCUS ON: eBID Premium Online Auction in April 2022_국내작가편</p>
-                <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">FOCUS ON: eBID Premium Online Auction in April 2022_국내작가편</p>
+                <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">WALK THROUGH WITH THE SPECIALIST | 166th ART AUCTION_Korean Traditional Art</p>
+                <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">WALK THROUGH WITH THE SPECIALIST | 166th ART AUCTION_Korean Traditional Art</p>
             </div>
 
             <span class="m_only"><img src="/images/img/main/video/00.jpg" style="width:100%;" alt="높이용"/></span>
 
             <div class="popupVideo">
-                <a data-video="oSp2Hn9Eq7o">
-                    <img src="/images/img/main/video/20220328_02.jpg" style="width:100%; cursor:pointer;" alt="video2"/>
+                <a data-video="7nJ-DsmLfOo">
+                    <img src="/images/img/main/video/20220429_02.jpg" style="width:100%; cursor:pointer;" alt="video2"/>
                 </a>
                 <div class="video-popup">
                     <div class="video-popup-closer"></div>
                 </div>
-                <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">AUCTION DAY REVIEW | Contemporary Art Sale</p>
-                <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">AUCTION DAY REVIEW | Contemporary Art Sale</p>
+                <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">WALK THROUGH WITH THE SPECIALIST | 166th ART AUCTION_Modern & Contemporary Art</p>
+                <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">WALK THROUGH WITH THE SPECIALIST | 166th ART AUCTION_Modern & Contemporary Art</p>
             </div>
         </div>
 
@@ -690,7 +686,7 @@
             <div class="web_only">
                 <!-- 배너 1개 일 때 -->
                 <a href="https://sotwo.com/" target="_blank">
-                    <img src="/images/img/main/ad/2021040501.jpg" alt="banner" style="width:100%; vertical-align: auto;"/>
+                    <img src="/images/img/main/ad/20220509_banner.jpg" alt="banner" style="width:100%; vertical-align: auto;"/>
                 </a>
                 <!-- <div class="sub_banner02" id="slides01" style="margin-top:50px;">
                     <a href="" class="sp_btn slidesjs-previous slidesjs-navigation"><span class="hidden">이전</span></a>
@@ -776,9 +772,9 @@
 <c:if test="${locale == 'ko'}">
     <div id="overlay" onclick="off()">
         <div id="textbg">
-        	<span id="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-        	<div class="layerbox_wrap">
-    	    	<div class="layer_img">
+            <span id="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            <div class="layerbox_wrap">
+                <div class="layer_img">
                     <!-- <p class="layer_tit" style="text-align:center;">
                         [제로베이스 더 페인터스 진행 오류 안내]
 
@@ -797,14 +793,9 @@
                         </span>
                     </p> -->
 
-<!--                     <a href="/noticeView?write_no=5507" style="display:block; text-align:center;" target="_blank">  -->
-<!--                         <img src="/images/img/main/overlay/20220127_ko.jpg" alt="layerpopup" style="text-align:center;">           -->
-<!--                     </a>  -->
-
-                    <!-- 이미지 두개 이상 -->
-                    <a href="/noticeView?write_no=5507" style="display:block; text-align:center;">
-                        <img src="/images/img/main/overlay/lot_time_popup_1x.png" alt="layerpopup" style="text-align:center; margin-bottom: 10px;">
-                    </a>
+                    <!--<a href="/noticeView?write_no=5507" style="display:block; text-align:center;">-->
+                    <img src="/images/img/main/overlay/20220402_thanks_to.png" alt="layerpopup">
+                    <!-- </a> -->
 
                     <!-- <a href="" style="display:block;">
                         <img src="/images/img/main/overlay/20220127_2.jpeg" alt="layerpopup" style= "text-align:center; ">
@@ -817,12 +808,14 @@
                     <!-- 버튼 -->
                     <!-- <a href="/currentAuction?sale_kind=online_only" class="btn_main_more green" style="width:80px;">상세 보기</a>
                     <a href="/noticeView?write_no=3518" class="btn_main_more green" style="width:80px;">자세히 보기</a> -->
-    	    	</div>
-	        </div> <!-- //layerbox_wrap -->
+                </div>
+            </div> <!-- //layerbox_wrap -->
             <!-- 오늘하루 안보기 버튼 -->
-            <input type="checkbox" name="close" value="OK" onclick="javascript:closeWin('overlay', 1);"/>
-            <font style="font-size:12px; vertical-align: middle;" onclick="javascript:closeWin('overlay', 1);">하루동안 이 창을 열지 않음</font>
-         </div>
+            <div style="background-color: #fff;">
+                <input class="overlay_checkbox" type="checkbox" name="close" value="OK" onclick="javascript:closeWin('overlay', 1);"/>
+                <font style="font-size:12px; vertical-align: middle;" onclick="javascript:closeWin('overlay', 1);">하루동안 이 창을 열지 않음</font>
+            </div>
+        </div>
     </div>
 </c:if>
 
@@ -921,18 +914,18 @@
 <script>
     // overlay 사용 (국문만 사용시 사용)
     $(window).ready(function(){
-    var blnCookie = getCookie("overlay");
-    if(!blnCookie == false){
-        document.getElementById("overlay").style.display = "none";
-    } else {
-        if( "${locale}" == "ko" ){
-		document.getElementById("overlay").style.display = "block";
-	}
-}
-});
-    /*
+        var blnCookie = getCookie("overlay");
+        if(!blnCookie == false){
+            document.getElementById("overlay").style.display = "none";
+        } else {
+            if( "${locale}" == "ko" ){
+                document.getElementById("overlay").style.display = "block";
+            }
+        }
+    });
+
     // overlay 사용 (국문영문모두사용시 사용)
-    $(window).ready(function(){
+    /*$(window).ready(function(){
     var blnCookie = getCookie("overlay");
     if(!blnCookie == false){
         document.getElementById("overlay").style.display = "none";
@@ -940,8 +933,7 @@
             document.getElementById("overlay").style.display = "block";
     }
     });
-     */
-
+    */
 
     function off() {
         document.getElementById("overlay").style.display = "none";
@@ -949,9 +941,9 @@
 
     //창닫기(overlay)
     function closeWin(winName, expiredays) {
-       setCookie( winName, "done" , expiredays);
-       var obj = eval( "window." + winName );
-       obj.style.display = "none";
+        setCookie( winName, "done" , expiredays);
+        var obj = eval( "window." + winName );
+        obj.style.display = "none";
     }
 
 

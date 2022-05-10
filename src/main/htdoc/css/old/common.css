@@ -7392,13 +7392,12 @@ table .wrap_check.type03 > div {
 }
 .member_policy > div {
   float: left;
-  width: 276px;
-  margin-left: 40px;
-  padding-left: 40px;
+  width: calc(100% / 2 - 21px);
+  margin-left: 20px;
+  padding-left: 20px;
   border-left: 1px solid #ddd;
 }
 .member_policy > div:first-child {
-  width: 245px;
   padding-left: 0;
   margin-left: 0;
   border-left: none;
@@ -9849,16 +9848,6 @@ word-break: break-all;
 }
 .login_wrap .btn_wrap .btn_style01 a {
   padding: 14px 11px 13px;
-}
-.member_policy > div {
-  width: 31%;
-  box-sizing: border-box;
-  padding-left: 2%;
-  margin-left: 2%;
-}
-.member_policy > div:first-child {
-  margin-top: 0;
-  width: 30%;
 }
 .member_policy > div .tit {
   height: 60px;
