@@ -199,17 +199,33 @@ Log in  -> Account -> Change Information -> Password -> Sumit</div>
 									<span class="sp_icon bul_answer"><span class="hidden">A</span></span>
 									<div>1. If you write your email address incorrectly, you will not receive an email.<br/>2. Please check your Spam folder.<br/>3. If you contact info@seoulauction.com to let us know that the email certification was not completed during your membership application process, we will address the problem in a timely manner.</div>  
 								</div> 
-							</li>	
-                            <!--<li>
+							</li>
+							<li>
 								<div class="question">
 									<span class="sp_icon bul_question"><span class="hidden">Q</span></span>
-									<a href="#">고객원격지원?</a>
+									<a href="#">I would like to get my subscription fee refund?</a>
 								</div>
 								<div class="answer" style="display: none;">
 									<span class="sp_icon bul_answer"><span class="hidden">A</span></span>
-									<div>1. 서울옥션 홈페이지에 문의가 있는경우 상담원의 필요의 의해 원격 지원을 할 수도 있습니다.<br/>2. 상담원과 통화중인 상태에서 고객님의 동의하에서만 지원이 가능합니다. (고객님의 컴퓨터에서 번호 동의가 없으면 지원이 불가합니다.)<br/>3. 아래의 주황색 버튼으로 접속해주세요.<br/>4. 크롬에서는 별도의 설치 파일이 필요합니다.<br/><br/><a href="https://113366.com/" target="new" style="background-color:#F93; color:#000; padding:5px;">고객원격지원</a></div>  
-								</div> 
-							</li>-->
+									<div>If you cancel your membership before the expiration of the validity period of your regular membership, you can receive a refund of the annual fee according to the criteria below.<br><br>
+
+										Immediately after joining - Less than 1 month: Full refund<br>
+										More than 1 month - Less than 3 months: 80% refund<br>
+										More than 3 months - Less than 6 months: 60% refund<br>
+										More than 6 months after joining: No refund
+									</div>
+								</div>
+							</li>
+							<!--<li>
+                                <div class="question">
+                                    <span class="sp_icon bul_question"><span class="hidden">Q</span></span>
+                                    <a href="#">고객원격지원?</a>
+                                </div>
+                                <div class="answer" style="display: none;">
+                                    <span class="sp_icon bul_answer"><span class="hidden">A</span></span>
+                                    <div>1. 서울옥션 홈페이지에 문의가 있는경우 상담원의 필요의 의해 원격 지원을 할 수도 있습니다.<br/>2. 상담원과 통화중인 상태에서 고객님의 동의하에서만 지원이 가능합니다. (고객님의 컴퓨터에서 번호 동의가 없으면 지원이 불가합니다.)<br/>3. 아래의 주황색 버튼으로 접속해주세요.<br/>4. 크롬에서는 별도의 설치 파일이 필요합니다.<br/><br/><a href="https://113366.com/" target="new" style="background-color:#F93; color:#000; padding:5px;">고객원격지원</a></div>
+                                </div>
+                            </li>-->
 						</ul>
 					</div>
 				</div>
