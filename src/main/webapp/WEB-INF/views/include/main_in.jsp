@@ -270,18 +270,6 @@ input[type="checkbox"].overlay_checkbox{
         <div class="onerow"></div>
         <h2 class="mainContents_tit">AUCTION</h2>
 
-        <!-- 온라인 경매 -->
-        <div class="col4">
-            <a href="/currentAuction?sale_kind=online_only&sale_no=704&page=1"> 
-                 <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220502_ko.gif" style="width:100%;"/>
-                 <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220502_en.gif" style="width:100%;"/>
-            </a>
-            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
-            <p class="mainContents_txt" ng-if="locale=='ko'">5월 e BID 프리미엄 온라인 경매</p>
-            <p class="mainContents_txt" ng-if="locale!='ko'">e BID Premium Online Auction in May</p>
-            <div style="clear:both;"></div>
-        </div>
-
         <!-- 아트시 경매 -->
       	<div class="col4">
             <a href="/currentAuction?sale_outside_yn=Y&sale_no=706#page1">
@@ -294,7 +282,7 @@ input[type="checkbox"].overlay_checkbox{
       	</div>
 
         <!-- 온라인 경매 -->
-        <div class="col4 last">
+        <div class="col4">
             <!-- <a href="/currentAuction?sale_kind=online_only&sale_no=704&page=1"> -->
                 <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220504_ko.gif" style="width:100%;"/>
                 <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220504_en.gif" style="width:100%;"/>
@@ -302,6 +290,18 @@ input[type="checkbox"].overlay_checkbox{
             <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
             <p class="mainContents_txt" ng-if="locale=='ko'">5월 e BID 퍼블릭 온라인 경매 Ⅰ</p>
             <p class="mainContents_txt" ng-if="locale!='ko'">e BID Public Online Auction Ⅰ in May</p>
+            <div style="clear:both;"></div>
+        </div>
+
+        <!-- 오프라인 경매 -->
+        <div class="col4 last">
+            <a href="/currentAuction?sale_kind=offline_only&sale_no=708&page=1">
+                <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220504_01.jpg" style="width:100%;"/>
+                <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220504_01.jpg" style="width:100%;"/>
+            </a>
+            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
+            <p class="mainContents_txt" ng-if="locale=='ko'">Contemporary Art Sale</p>
+            <p class="mainContents_txt" ng-if="locale!='ko'">Contemporary Art Sale</p>
             <div style="clear:both;"></div>
         </div>
 
