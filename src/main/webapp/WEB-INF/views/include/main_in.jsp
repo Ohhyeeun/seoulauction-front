@@ -295,7 +295,7 @@ input[type="checkbox"].overlay_checkbox{
 
         <!-- 오프라인 경매 -->
         <div class="col4 last">
-            <a href="/currentAuction?sale_kind=offline_only&sale_no=708&page=1">
+            <a href="/currentAuction?sale_kind=offline_only&sale_no=705&page=1">
                 <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220504_01.jpg" style="width:100%;"/>
                 <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220504_01.jpg" style="width:100%;"/>
             </a>
