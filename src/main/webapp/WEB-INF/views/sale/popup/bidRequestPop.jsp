@@ -165,7 +165,7 @@
 										</div>
 										<p><span ng-if="locale=='ko'">연락처가 다르시면 회원정보수정 후 다시 신청해주세요.</span><span ng-if="locale!='ko'">If below contact information is incorrect, please change.</span></p>
 										<span class="btn_style01 gray03 mt15">
-											<a href="/customer/modifyForm"><span ng-if="locale=='ko'">회원정보수정 바로보기</span><span ng-if="locale!='ko'">Contact Info</span></a>
+											<a href="/customer/modifyForm" target="_blank"><span ng-if="locale=='ko'">회원정보수정 바로보기</span><span ng-if="locale!='ko'">Contact Info</span></a>
 										</span>
 										<div class="box_style09 mt15"> 
 											<div class="list_style01 none">
