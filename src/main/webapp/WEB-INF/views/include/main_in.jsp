@@ -270,17 +270,6 @@ input[type="checkbox"].overlay_checkbox{
         <div class="onerow"></div>
         <h2 class="mainContents_tit">AUCTION</h2>
 
-        <!-- 아트시 경매 -->
-      	<div class="col4">
-            <a href="/currentAuction?sale_outside_yn=Y&sale_no=706#page1">
-                <img src="/images/img/main/auction_sum/20220504_black.jpg" style="width:100%;"/>
-            </a>
-            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
-            <p class="mainContents_txt" ng-if="locale=='ko'">2nd BLACKLOT Original & Edition</p>
-            <p class="mainContents_txt" ng-if="locale!='ko'">2nd BLACKLOT Original & Edition</p>
-            <div style="clear:both;"></div>
-      	</div>
-
         <!-- 온라인 경매 -->
         <div class="col4">
             <a href="/currentAuction?sale_kind=online_only&sale_no=707&page=1">
@@ -290,6 +279,17 @@ input[type="checkbox"].overlay_checkbox{
             <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
             <p class="mainContents_txt" ng-if="locale=='ko'">5월 e BID 퍼블릭 온라인 경매 Ⅰ</p>
             <p class="mainContents_txt" ng-if="locale!='ko'">e BID Public Online Auction Ⅰ in May</p>
+            <div style="clear:both;"></div>
+        </div>
+
+        <!-- 아트시 경매 -->
+        <div class="col4">
+            <!-- <a href="/currentAuction?sale_outside_yn=Y&sale_no=706#page1"> -->
+            <img src="/images/img/main/auction_sum/20220512.jpg" style="width:100%;"/>
+            <!-- </a> -->
+            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
+            <p class="mainContents_txt" ng-if="locale=='ko'">3rd Original&Edition</p>
+            <p class="mainContents_txt" ng-if="locale!='ko'">3rd Original&Edition</p>
             <div style="clear:both;"></div>
         </div>
 
