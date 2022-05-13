@@ -437,39 +437,39 @@ input[type="checkbox"].overlay_checkbox{
 				<h2 class="mainContents_tit">VIDEO</h2>
 				<div class="col8" style="overflow:hidden">
 	          	<div class="popupVideo">
-	                  <a data-video="lkCFN3vG9eQ">
-	                      <img src="/images/img/main/video/20220506_01.png" style="width:100%; cursor:pointer;" alt="video1"/>
+	                  <a data-video="NP0T9kG5heA">
+	                      <img src="/images/img/main/video/20220513_01.jpg" style="width:100%; cursor:pointer;" alt="video1"/>
 	                  </a>
 	                  <div class="video-popup">
 	                      <div class="video-popup-closer"></div>
 	                  </div>
-	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">FOCUS ON: eBID Premium Online Auction in May 2022</p>
-	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">FOCUS ON: eBID Premium Online Auction in May 2022</p>
+	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">WHAT'S ON AT SA | Contemporary Art Sale</p>
+	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">WHAT'S ON AT SA | Contemporary Art Sale</p>
 	          	</div>
 	     	</div>
 	      	<div class="col4 last" style="overflow:hidden">
 	          	<div class="popupVideo">
-	                  <a data-video="bGii1-k-rSo?start=3">
-	                      <img src="/images/img/main/video/20220425_02.jpg" style="width:100%; cursor:pointer;" alt="video2"/>
+	                  <a data-video="YBxJm7rAcDI">
+	                      <img src="/images/img/main/video/20220513_02.jpg" style="width:100%; cursor:pointer;" alt="video2"/>
 	                  </a>
 	                  <div class="video-popup">
 	                      <div class="video-popup-closer"></div>
 	                  </div>
-	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">WALK THROUGH WITH THE SPECIALIST | 166th ART AUCTION_Korean Traditional Art</p>
-	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">WALK THROUGH WITH THE SPECIALIST | 166th ART AUCTION_Korean Traditional Art</p>
+	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">FOCUS ON: eBID Public Online Auction I in May</p>
+	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">FOCUS ON: eBID Public Online Auction I in May</p>
 	            </div>
 
 	         	<span class="m_only"><img src="/images/img/main/video/00.jpg" style="width:100%;" alt="높이용"/></span>
 
                 <div class="popupVideo">
-                    <a data-video="7nJ-DsmLfOo">
-                        <img src="/images/img/main/video/20220429_02.jpg" style="width:100%; cursor:pointer;" alt="video2"/>
+                    <a data-video="RrhdYCeMNn0">
+                        <img src="/images/img/main/video/20220513_03.jpg" style="width:100%; cursor:pointer;" alt="video2"/>
                     </a>
                     <div class="video-popup">
                         <div class="video-popup-closer"></div>
                     </div>
-                    <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">WALK THROUGH WITH THE SPECIALIST | 166th ART AUCTION_Modern & Contemporary Art</p>
-                    <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">WALK THROUGH WITH THE SPECIALIST | 166th ART AUCTION_Modern & Contemporary Art</p>
+                    <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">AUCTION DAY REVIEW | 166th ART AUCTION</p>
+                    <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">AUCTION DAY REVIEW | 166th ART AUCTION</p>
                 </div>
 	      	</div>
 
