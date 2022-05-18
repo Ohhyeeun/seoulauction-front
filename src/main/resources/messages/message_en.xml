@@ -361,6 +361,7 @@
 	<entry key="label.auction.detail.literature">LITERATURE</entry>
 	<entry key="label.auction.detail.exhibited">EXHIBITED</entry>
 	<entry key="label.auction.detail.provenance">PROVENANCE</entry>
+	<entry key="label.auction.detail.notice">NOTICE</entry>
 	<entry key="label.auction.detail.artistOtherLot">More from the Artist</entry>
 
 	<entry key="label.artwork.condition_report">Condition Report</entry>
