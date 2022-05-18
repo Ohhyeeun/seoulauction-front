@@ -268,208 +268,196 @@
         </div> --%>
         <!-- //상단 슬라이드 배너 -->
         <div class="onerow"></div>
-        <h2 class="mainContents_tit">AUCTION</h2>
-
-        <!-- 온라인 경매 -->
-        <div class="col4">
-            <a href="/currentAuction?sale_kind=online_only&sale_no=704&page=1">
-                <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220502_ko.gif" style="width:100%;"/>
-                <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220502_en.gif" style="width:100%;"/>
-            </a>
-            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
-            <p class="mainContents_txt" ng-if="locale=='ko'">5월 e BID 프리미엄 온라인 경매</p>
-            <p class="mainContents_txt" ng-if="locale!='ko'">e BID Premium Online Auction in May</p>
-            <div style="clear:both;"></div>
-        </div>
+        <h2 class="maincontents_tit">auction</h2>
 
         <!-- 아트시 경매 -->
         <div class="col4">
-            <a href="/currentAuction?sale_outside_yn=Y&sale_no=706#page1">
+            <a href="/currentauction?sale_outside_yn=y&sale_no=706#page1">
                 <img src="/images/img/main/auction_sum/20220504_black.jpg" style="width:100%;"/>
             </a>
-            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
-            <p class="mainContents_txt" ng-if="locale=='ko'">2nd BLACKLOT Original & Edition</p>
-            <p class="mainContents_txt" ng-if="locale!='ko'">2nd BLACKLOT Original & Edition</p>
+            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">auction</p>
+            <p class="maincontents_txt" ng-if="locale=='ko'">2nd blacklot original & edition</p>
+            <p class="maincontents_txt" ng-if="locale!='ko'">2nd blacklot original & edition</p>
             <div style="clear:both;"></div>
         </div>
 
         <!-- 온라인 경매 -->
-        <div class="col4 last">
-            <!-- <a href="/currentAuction?sale_kind=online_only&sale_no=704&page=1"> -->
+        <div class="col4"> 
+            <!-- <a href="/currentauction?sale_kind=online_only&sale_no=704&page=1"> -->
             <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220504_ko.gif" style="width:100%;"/>
             <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220504_en.gif" style="width:100%;"/>
             <!-- </a> -->
-            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
-            <p class="mainContents_txt" ng-if="locale=='ko'">5월 e BID 퍼블릭 온라인 경매 Ⅰ</p>
-            <p class="mainContents_txt" ng-if="locale!='ko'">e BID Public Online Auction Ⅰ in May</p>
+            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">auction</p>
+            <p class="maincontents_txt" ng-if="locale=='ko'">5월 e bid 퍼블릭 온라인 경매 ⅰ</p>
+            <p class="maincontents_txt" ng-if="locale!='ko'">e bid public online auction ⅰ in may</p>
             <div style="clear:both;"></div>
         </div>
 
-        <!-- 커밍순 썸네일
+        <!-- 커밍순 썸네일 -->
         <div class="col4 last">
             <img src="/images/img/main/auction_sum/20190613.jpg" style="width:100%;"/>
-            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
-            <p class="mainContents_txt"></p>
+            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">auction</p>
+            <p class="maincontents_txt"></p>
             <div style="clear:both;"></div>
-        </div> -->
+        </div>
 
         <!-- 오프라인 경매
         <div class="col4">
-            <a href="/currentAuction?sale_kind=offline_only&sale_no=700&page=1">
+            <a href="/currentauction?sale_kind=offline_only&sale_no=700&page=1">
                 <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220411_02.gif" style="width:100%;"/>
                 <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220411_02.gif" style="width:100%;"/>
             </a>
-            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
-            <p class="mainContents_txt" ng-if="locale=='ko'">166회 서울옥션 미술품경매</p>
-            <p class="mainContents_txt" ng-if="locale!='ko'">166th ART AUCTION</p>
+            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">auction</p>
+            <p class="maincontents_txt" ng-if="locale=='ko'">166회 서울옥션 미술품경매</p>
+            <p class="maincontents_txt" ng-if="locale!='ko'">166th art auction</p>
             <div style="clear:both;"></div>
         </div> -->
 
         <!-- 온라인 경매 -->
         <!-- <div class="col4">
-            <a href="/currentAuction?sale_kind=online_only&sale_no=698&page=1">
+            <a href="/currentauction?sale_kind=online_only&sale_no=698&page=1">
                  <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220324_ko.gif" style="width:100%;"/>
                  <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220324_en.gif" style="width:100%;"/>
             </a>
-            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
-            <p class="mainContents_txt" ng-if="locale=='ko'">4월 e BID 프리미엄 온라인 경매</p>
-            <p class="mainContents_txt" ng-if="locale!='ko'">e BID Premium Online Auction in April</p>
+            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">auction</p>
+            <p class="maincontents_txt" ng-if="locale=='ko'">4월 e bid 프리미엄 온라인 경매</p>
+            <p class="maincontents_txt" ng-if="locale!='ko'">e bid premium online auction in april</p>
             <div style="clear:both;"></div>
         </div> -->
 
         <!-- 제로베이스
 <div class="col4">
-    <a href="/currentAuction?sale_kind=zerobase_only&page=1">
+    <a href="/currentauction?sale_kind=zerobase_only&page=1">
          <img src="/images/img/main/auction_sum/20220317.jpg" style="width:100%;"/>
                  </a>
 
-    <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
-    <p class="mainContents_txt" ng-if="locale=='ko'">ZEROBASE</p>
-    <p class="mainContents_txt" ng-if="locale!='ko'">ZEROBASE</p>
+    <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">auction</p>
+    <p class="maincontents_txt" ng-if="locale=='ko'">zerobase</p>
+    <p class="maincontents_txt" ng-if="locale!='ko'">zerobase</p>
     <div style="clear:both;"></div>
 
 </div> -->
 
         <!-- 온라인 경매
         <div class="col4">
- 			<a href="/currentAuction?sale_kind=online_only&sale_no=692&page=1">
+ 			<a href="/currentauction?sale_kind=online_only&sale_no=692&page=1">
                  <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220223_ko.gif" style="width:100%;"/>
 				 <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220223_en.gif" style="width:100%;"/>
  			</a>
-            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
-            <p class="mainContents_txt" ng-if="locale=='ko'">3월 e BID 프리미엄 온라인 경매</p>
-            <p class="mainContents_txt" ng-if="locale!='ko'">e BID Premium Online Auction in March</p>
+            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">auction</p>
+            <p class="maincontents_txt" ng-if="locale=='ko'">3월 e bid 프리미엄 온라인 경매</p>
+            <p class="maincontents_txt" ng-if="locale!='ko'">e bid premium online auction in march</p>
             <div style="clear:both;"></div>
         </div>  -->
 
         <!-- 블랙랏 전시
         <div class="col4">
- 			<a href="/currentExhibit?sale_kind=exhibit_only&sale_no=673&page=1">
+ 			<a href="/currentexhibit?sale_kind=exhibit_only&sale_no=673&page=1">
                  <img src="/images/img/main/auction_sum/20211026.jpg" style="width:100%;"/>
  			</a>
-            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
-            <p class="mainContents_txt" ng-if="locale=='ko'">블랙랏 런칭 전시</p>
-            <p class="mainContents_txt" ng-if="locale!='ko'">BLACKLOT Launching Exhibition</p>
+            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">auction</p>
+            <p class="maincontents_txt" ng-if="locale=='ko'">블랙랏 런칭 전시</p>
+            <p class="maincontents_txt" ng-if="locale!='ko'">blacklot launching exhibition</p>
             <div style="clear:both;"></div>
         </div> -->
 
         <!-- 부산 세일 -->
         <!--<div class="col4">
-           <a href="/currentAuction?sale_kind=offline_only&page=1">
-           <a href="/currentAuction?sale_kind=offline_only&sale_no=582&page=1">
+           <a href="/currentauction?sale_kind=offline_only&page=1">
+           <a href="/currentauction?sale_kind=offline_only&sale_no=582&page=1">
                <img src="/images/img/main/auction_sum/auction_thumb20201013.jpg" style="width:100%;"/>
            </a>
-           <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
-           <p class="mainContents_txt" ng-if="locale=='ko'">서울옥션 부산경매</p>
-           <p class="mainContents_txt" ng-if="locale!='ko'">Seoul Auction Busan Sale</p>
+           <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">auction</p>
+           <p class="maincontents_txt" ng-if="locale=='ko'">서울옥션 부산경매</p>
+           <p class="maincontents_txt" ng-if="locale!='ko'">seoul auction busan sale</p>
            <div style="clear:both;"></div>
         </div>  -->
 
         <!-- 홍콩 세일 ->
        <div class="col4">
-           <a href="/currentAuction?sale_kind=offline_only&sale_no=566&page=1">
+           <a href="/currentauction?sale_kind=offline_only&sale_no=566&page=1">
              <img src="/images/img/main/auction_sum/20200624_sum.jpg" style="width:100%;"/>
            </a>
-           <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
-           <p class="mainContents_txt" ng-if="locale=='ko'">제 32회 HONG KONG SALE</p>
-           <p class="mainContents_txt" ng-if="locale!='ko'">32nd HONG KONG SALE</p>
+           <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">auction</p>
+           <p class="maincontents_txt" ng-if="locale=='ko'">제 32회 hong kong sale</p>
+           <p class="maincontents_txt" ng-if="locale!='ko'">32nd hong kong sale</p>
            <div style="clear:both;"></div>
         </div> -->
 
         <!-- 이벤트 썸네일 ->
         <div class="col4">
-            <!-- <a href="/noticeView?write_no=3041"> ->
+            <!-- <a href="/noticeview?write_no=3041"> ->
             <a href="https://www.artsy.net/auction/seoul-auction-spring-online-auction-goat">
                 <img src="/images/img/main/auction_sum/2020033101.png" style="width:100%;"/>
             </a>
-            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
-            <p class="mainContents_txt" ng-if="locale=='ko'">아트시 X 서울옥션 온라인 경매</p>
-            <p class="mainContents_txt" ng-if="locale!='ko'">Artsy X Seoul Auction</p>
+            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">auction</p>
+            <p class="maincontents_txt" ng-if="locale=='ko'">아트시 x 서울옥션 온라인 경매</p>
+            <p class="maincontents_txt" ng-if="locale!='ko'">artsy x seoul auction</p>
             <div style="clear:both;"></div>
         </div>
 
          <!-- 위탁 안내 -->
         <!-- <div class="col4 last">
-           <a href="/auctionGuide/page?view=commissionGuide">
-           <!-- <a href="/currentAuction?sale_kind=online_only&sale_no=483&page=1">  ->
+           <a href="/auctionguide/page?view=commissionguide">
+           <!-- <a href="/currentauction?sale_kind=online_only&sale_no=483&page=1">  ->
                 <img src="/images/img/main/auction_sum/20191217.jpg" style="width:100%;"/>
            </a>
-           <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
-           <p class="mainContents_txt" ng-if="locale=='ko'">위탁 안내</p>
-           <p class="mainContents_txt" ng-if="locale!='ko'">Introduction to Consignment</p>
+           <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">auction</p>
+           <p class="maincontents_txt" ng-if="locale=='ko'">위탁 안내</p>
+           <p class="maincontents_txt" ng-if="locale!='ko'">introduction to consignment</p>
            <div style="clear:both;"></div>
         </div> -->
 
         <!--<div class="col4">
-            <a href="/currentAuction?sale_kind=offline_only">
+            <a href="/currentauction?sale_kind=offline_only">
                  <img src="/images/img/main/auction_sum/20190304.jpg" style="width:100%;"/>
              </a>
-             <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
-             <p class="mainContents_txt">28th HONG KONG SALE </p>
+             <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">auction</p>
+             <p class="maincontents_txt">28th hong kong sale </p>
            <div class="alert">
-                 <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-                 <strong>NOTICE! </strong><strong>Auction Blue</strong> 홈페이지에서 경매가 진행됩니다.
+                 <span class="closebtn" onclick="this.parentelement.style.display='none';">&times;</span>
+                 <strong>notice! </strong><strong>auction blue</strong> 홈페이지에서 경매가 진행됩니다.
            </div>
            <div style="clear:both;"></div>
          </div>  -->
 
         <div class="onerow"></div>
-        <h2 class="mainContents_tit">VIDEO</h2>
+        <h2 class="maincontents_tit">video</h2>
         <div class="col8" style="overflow:hidden">
-            <div class="popupVideo">
-                <a data-video="lkCFN3vG9eQ">
+            <div class="popupvideo">
+                <a data-video="lkcfn3vg9eq">
                     <img src="/images/img/main/video/20220506_01.png" style="width:100%; cursor:pointer;" alt="video1"/>
                 </a>
                 <div class="video-popup">
                     <div class="video-popup-closer"></div>
                 </div>
-                <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">FOCUS ON: eBID Premium Online Auction in May 2022</p>
-                <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">FOCUS ON: eBID Premium Online Auction in May 2022</p>
+                <p class="web_only maincontents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">focus on: ebid premium online auction in may 2022</p>
+                <p class="web_only maincontents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">focus on: ebid premium online auction in may 2022</p>
             </div>
         </div>
         <div class="col4 last" style="overflow:hidden">
-            <div class="popupVideo">
-                <a data-video="bGii1-k-rSo?start=3">
+            <div class="popupvideo">
+                <a data-video="bgii1-k-rso?start=3">
                     <img src="/images/img/main/video/20220425_02.jpg" style="width:100%; cursor:pointer;" alt="video2"/>
                 </a>
                 <div class="video-popup">
                     <div class="video-popup-closer"></div>
                 </div>
-                <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">WALK THROUGH WITH THE SPECIALIST | 166th ART AUCTION_Korean Traditional Art</p>
-                <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">WALK THROUGH WITH THE SPECIALIST | 166th ART AUCTION_Korean Traditional Art</p>
+                <p class="web_only maincontents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">walk through with the specialist | 166th art auction_korean traditional art</p>
+                <p class="web_only maincontents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">walk through with the specialist | 166th art auction_korean traditional art</p>
             </div>
 
             <span class="m_only"><img src="/images/img/main/video/00.jpg" style="width:100%;" alt="높이용"/></span>
 
-            <div class="popupVideo">
-                <a data-video="7nJ-DsmLfOo">
+            <div class="popupvideo">
+                <a data-video="7nj-dsmlfoo">
                     <img src="/images/img/main/video/20220429_02.jpg" style="width:100%; cursor:pointer;" alt="video2"/>
                 </a>
                 <div class="video-popup">
                     <div class="video-popup-closer"></div>
                 </div>
-                <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">WALK THROUGH WITH THE SPECIALIST | 166th ART AUCTION_Modern & Contemporary Art</p>
-                <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">WALK THROUGH WITH THE SPECIALIST | 166th ART AUCTION_Modern & Contemporary Art</p>
+                <p class="web_only maincontents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">walk through with the specialist | 166th art auction_modern & contemporary art</p>
+                <p class="web_only maincontents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">walk through with the specialist | 166th art auction_modern & contemporary art</p>
             </div>
         </div>
 
@@ -477,18 +465,18 @@
 
         <!-- 전시장 vr
         <div class="col6" style="overflow:hidden">
-           	<h2 class="mainContents_tit mainContents_tit_mver">
-           		<p ng-if="locale=='ko'">VR 전시장 보기</p><p ng-if="locale!='ko'">VR Exhibition</p>
+           	<h2 class="maincontents_tit maincontents_tit_mver">
+           		<p ng-if="locale=='ko'">vr 전시장 보기</p><p ng-if="locale!='ko'">vr exhibition</p>
            	</h2>
-           	<a href="/nas_img/front/homepage/VR/164th/index.html" target="_blank" title="60VRPop">
-                <img src="/nas_img/front/homepage/VR/164th/resource/bg01.jpg" style="width:100%; hight:auto; verflow:hidden;"/>
+           	<a href="/nas_img/front/homepage/vr/164th/index.html" target="_blank" title="60vrpop">
+                <img src="/nas_img/front/homepage/vr/164th/resource/bg01.jpg" style="width:100%; hight:auto; verflow:hidden;"/>
            	</a>
         </div> -->
 
         <!-- 서울옥션빈칸
        <div class="col6 last" style="overflow:hidden">
-           <h2 class="mainContents_tit mainContents_tit_mver">
-                <p ng-if="locale=='ko'">서울옥션</p><p ng-if="locale!='ko'">SeoulAuction</p>
+           <h2 class="maincontents_tit maincontents_tit_mver">
+                <p ng-if="locale=='ko'">서울옥션</p><p ng-if="locale!='ko'">seoulauction</p>
            </h2>
            <a href="/about/page?view=introduction">
                <img src="/images/img/main/ex/sa01.jpg" style="width:100%; hight:auto;"/>
@@ -496,144 +484,144 @@
        </div> -->
 
         <!-- 서울옥션 블루 썸네일(추후 생성시 밑에 썸네일 엘리먼트스타일 padding-top:50px; 넣기)
-          <h2 class="mainContents_tit">SEOUL AUCTION BLUE</h2>
+          <h2 class="maincontents_tit">seoul auction blue</h2>
 
            <div class="col4">
-               <a href="https://www.auctionblue.com/auctions/AUCID0000001168/" target="_blank">
-                   <img src="/images/img/main/bluenow/BLUENOW_128.jpg" style="width:100%;"/>
+               <a href="https://www.auctionblue.com/auctions/aucid0000001168/" target="_blank">
+                   <img src="/images/img/main/bluenow/bluenow_128.jpg" style="width:100%;"/>
                </a>
-               <p style="padding-top:30px; padding-bottom:5px; font-size:12px;"> ONLINE AUCTION : 2021.3.18 (Thu) 1pm</p>
-               <p class="mainContents_txt">128th BLUENOW</p>
+               <p style="padding-top:30px; padding-bottom:5px; font-size:12px;"> online auction : 2021.3.18 (thu) 1pm</p>
+               <p class="maincontents_txt">128th bluenow</p>
                <div style="clear:both;"></div>
            </div>
 
            <div class="col4">
-               <a href="https://www.auctionblue.com/auctions/AUCID0000001169/" target="_blank">
-                   <img src="/images/img/main/bluenow/BLUENOW_129.jpg" style="width:100%;"/>
+               <a href="https://www.auctionblue.com/auctions/aucid0000001169/" target="_blank">
+                   <img src="/images/img/main/bluenow/bluenow_129.jpg" style="width:100%;"/>
                </a>
-               <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">ONLINE AUCTION : 2021.3.25 (Thu) 1pm</p>
-               <p class="mainContents_txt">129th BLUENOW</p>
+               <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">online auction : 2021.3.25 (thu) 1pm</p>
+               <p class="maincontents_txt">129th bluenow</p>
                <div style="clear:both;"></div>
            </div>
 
           <div class="col4 last">
-               <a href="https://www.auctionblue.com/auctions/AUCID0000001172/" target="_blank">
-                   <img src="/images/img/main/bluenow/BLUENOW_130.jpg" style="width:100%;"/>
+               <a href="https://www.auctionblue.com/auctions/aucid0000001172/" target="_blank">
+                   <img src="/images/img/main/bluenow/bluenow_130.jpg" style="width:100%;"/>
                </a>
-               <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">ONLINE AUCTION : 2021.4.1 (Thu) 1pm</p>
-               <p class="mainContents_txt">130th BLUENOW</p>
+               <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">online auction : 2021.4.1 (thu) 1pm</p>
+               <p class="maincontents_txt">130th bluenow</p>
                <div style="clear:both;"></div>
            </div> -->
 
         <!-- 강남센터 전시
         <div class="col6" style="overflow:hidden">
-            <h2 class="mainContents_tit mainContents_tit_mver">
-             	<p ng-if="locale=='ko'">서울옥션 강남센터</p><p ng-if="locale!='ko'">Gangnam Center</p>
+            <h2 class="maincontents_tit maincontents_tit_mver">
+             	<p ng-if="locale=='ko'">서울옥션 강남센터</p><p ng-if="locale!='ko'">gangnam center</p>
             </h2>
-            <a href="/about/page?view=gnExhibition">
+            <a href="/about/page?view=gnexhibition">
             	<img src="/images/img/main/gang/sa21.jpg" style="width:100%; hight:auto;"/>
             </a>
         </div>  -->
 
         <!-- 강남센터 전시
         <div class="col6 last" style="overflow:hidden">
-            <h2 class="mainContents_tit mainContents_tit_mver">
-                 <p ng-if="locale=='ko'">서울옥션 강남센터</p><p ng-if="locale!='ko'">Gangnam Center</p>
+            <h2 class="maincontents_tit maincontents_tit_mver">
+                 <p ng-if="locale=='ko'">서울옥션 강남센터</p><p ng-if="locale!='ko'">gangnam center</p>
             </h2>
-            <a href="/about/page?view=gnExhibition">
+            <a href="/about/page?view=gnexhibition">
                 <img src="/images/img/main/gang/sa22.jpg" style="width:100%; hight:auto;"/>
             </a>
         </div> -->
 
         <!-- 로얄살루트
         <div class="col6" style="padding-top:50px; overflow:hidden">
-            <h2 class="mainContents_tit mainContents_tit_mver">
-            	<p ng-if="locale=='ko'">로얄살루트</p><p ng-if="locale!='ko'">Royal Salute</p>
+            <h2 class="maincontents_tit maincontents_tit_mver">
+            	<p ng-if="locale=='ko'">로얄살루트</p><p ng-if="locale!='ko'">royal salute</p>
             </h2>
-            <a href="/about/page?view=EventExhibition">
+            <a href="/about/page?view=eventexhibition">
                 <img src="/images/img/main/ad/20211004.jpg" style="width:100%; hight:auto;"/>
             </a>
         </div> -->
 
         <!-- 아카데미
         <div class="col6 last" style="padding-top:50px; overflow:hidden">
-            <h2 class="mainContents_tit mainContents_tit_mver">
+            <h2 class="maincontents_tit maincontents_tit_mver">
             	<spring:message code="label.academy" />
             </h2>
-            <a href="/academyArtauctionView?academy_no=104">
+            <a href="/academyartauctionview?academy_no=104">
                 <img src="/images/img/main/aca/aca38.jpg" style="width:100%; hight:auto;"/>
             </a>
         </div> -->
 
         <!-- 아트시 전시장 vr
         <div class="col6 last" style="padding-top:50px; overflow:hidden">
-            <h2 class="mainContents_tit mainContents_tit_mver">
-            	<p ng-if="locale=='ko'">VR 전시장 보기</p><p ng-if="locale!='ko'">VR Exhibition</p>
+            <h2 class="maincontents_tit maincontents_tit_mver">
+            	<p ng-if="locale=='ko'">vr 전시장 보기</p><p ng-if="locale!='ko'">vr exhibition</p>
             </h2>
-            <a href="/service/page?view=auction360VRPop_online2" target="new" title="60VRPop">
+            <a href="/service/page?view=auction360vrpop_online2" target="new" title="60vrpop">
             	<img src="/images/img/main/ex/vr43.jpg" style="width:100%; hight:auto; verflow:hidden;"/>
             </a>
         </div> -->
 
         <!-- 경매 건물 vr
         <div class="col6" style="padding-top:50px; overflow:hidden">
-            <h2 class="mainContents_tit mainContents_tit_mver">
-            	<p ng-if="locale=='ko'">VR 영상</p><p ng-if="locale!='ko'">VR Video</p>
+            <h2 class="maincontents_tit maincontents_tit_mver">
+            	<p ng-if="locale=='ko'">vr 영상</p><p ng-if="locale!='ko'">vr video</p>
             </h2>
-            <a href="/service/page?view=auction360VRPop_online2" target="new" title="60VRPop">
+            <a href="/service/page?view=auction360vrpop_online2" target="new" title="60vrpop">
                 <img src="/images/img/main/ex/vr41.jpg" style="width:100%; hight:auto; verflow:hidden;"/>
             </a>
         </div> -->
 
         <!-- 홍콩 리미티드
         <div class="col6 " style="padding-top:50px; overflow:hidden">
-            <h2 class="mainContents_tit mainContents_tit_mver">
-            	<p ng-if="locale=='ko'">서울옥션 홍콩 리미티드</p><p ng-if="locale!='ko'">SEOUL AUCTION HONG KONG LIMITED</p>
+            <h2 class="maincontents_tit maincontents_tit_mver">
+            	<p ng-if="locale=='ko'">서울옥션 홍콩 리미티드</p><p ng-if="locale!='ko'">seoul auction hong kong limited</p>
             </h2>
             <a href="/about/page?view=saplus">
-            	<img src="/images/img/main/SA/sa17.jpg" style="width:100%; hight:auto;"/>
+            	<img src="/images/img/main/sa/sa17.jpg" style="width:100%; hight:auto;"/>
             </a>
         </div> -->
 
         <!--부산 전시
         <div class="col6 last" style="padding-top:50px; overflow:hidden">
-            <h2 class="mainContents_tit mainContents_tit_mver">
-            	<p ng-if="locale=='ko'">서울옥션 부산</p><p ng-if="locale!='ko'">Seoul Auction BUSAN</p>
+            <h2 class="maincontents_tit maincontents_tit_mver">
+            	<p ng-if="locale=='ko'">서울옥션 부산</p><p ng-if="locale!='ko'">seoul auction busan</p>
             </h2>
-            <!-- <a href="/about/page?view=gnExhibition02"> ->
+            <!-- <a href="/about/page?view=gnexhibition02"> ->
             	<img src="/images/img/main/gang/sa07.jpg" style="width:100%; hight:auto;"/>
             <!-- </a>
         </div> -->
 
-        <!--서울옥션 X 삼성카드
+        <!--서울옥션 x 삼성카드
         <div class="col6 last" style="padding-top:50px; overflow:hidden">
-            <h2 class="mainContents_tit mainContents_tit_mver">
-               	<p ng-if="locale=='ko'">서울옥션 X 삼성카드</p><p ng-if="locale!='ko'">SeoulAuction X Samsung Card</p>
+            <h2 class="maincontents_tit maincontents_tit_mver">
+               	<p ng-if="locale=='ko'">서울옥션 x 삼성카드</p><p ng-if="locale!='ko'">seoulauction x samsung card</p>
             </h2>
-            <a href="/noticeView?write_no=2629">
+            <a href="/noticeview?write_no=2629">
          	   <img src="/images/img/main/samsung.jpg" style="width:100%; hight:auto;"/>
             </a>
         </div> -->
 
         <div class="onerow"></div>
         <div class="col6 web_only">
-            <h2 class="mainContents_tit" style="border-bottom: 2px solid #000;">
-                <a href="/noticeList"><spring:message code="label.notice" /></a>
+            <h2 class="maincontents_tit" style="border-bottom: 2px solid #000;">
+                <a href="/noticelist"><spring:message code="label.notice" /></a>
             </h2>
-            <div id="recentNoticeContainer" ng-controller="recentNoticeCtl" data-ng-init="loadRecentNotice();">
+            <div id="recentnoticecontainer" ng-controller="recentnoticectl" data-ng-init="loadrecentnotice();">
                 <ul>
-                    <span ng-if="locale=='ko'"><li ng-repeat="row in recentList" class="mainContent_notice"><a href="/noticeView?write_no={{row.WRITE_NO}}">{{row.TITLE}}</a></li></span>
-                    <span ng-if="locale!='ko'"><li ng-repeat="row in recentList" class="mainContent_notice"><p ng-if="row.TITLE_EN != null || row.TITLE_EN != ''"><a href="/noticeView?write_no={{row.WRITE_NO}}">{{row.TITLE_EN}}</a></p></li></span>
+                    <span ng-if="locale=='ko'"><li ng-repeat="row in recentlist" class="maincontent_notice"><a href="/noticeview?write_no={{row.write_no}}">{{row.title}}</a></li></span>
+                    <span ng-if="locale!='ko'"><li ng-repeat="row in recentlist" class="maincontent_notice"><p ng-if="row.title_en != null || row.title_en != ''"><a href="/noticeview?write_no={{row.write_no}}">{{row.title_en}}</a></p></li></span>
 
                 </ul>
             </div>
         </div>
         <div class="col6 last web_only">
-            <h2 class="mainContents_tit" style="border-bottom: 2px solid #000;"><a href="/about/page?view=pressList"><spring:message code="label.press" /></a></h2>
-            <div id="recentPressContainer" ng-controller="recentPressCtl" data-ng-init="loadRecentPress();">
+            <h2 class="maincontents_tit" style="border-bottom: 2px solid #000;"><a href="/about/page?view=presslist"><spring:message code="label.press" /></a></h2>
+            <div id="recentpresscontainer" ng-controller="recentpressctl" data-ng-init="loadrecentpress();">
                 <ul>
-                    <span ng-if="locale=='ko'"><li ng-repeat="row in recentPressList" class="mainContent_notice"><a href="{{row.PRESS_URL}}" target="new">{{row.PRESS_TITLE}}</a></li></span>
-                    <span ng-if="locale!='ko'"><li ng-repeat="row in recentPressList" class="mainContent_notice"><a href="{{row.PRESS_URL_EN}}" target="new">{{row.PRESS_TITLE_EN}}</a></p></li></span>
+                    <span ng-if="locale=='ko'"><li ng-repeat="row in recentpresslist" class="maincontent_notice"><a href="{{row.press_url}}" target="new">{{row.press_title}}</a></li></span>
+                    <span ng-if="locale!='ko'"><li ng-repeat="row in recentpresslist" class="maincontent_notice"><a href="{{row.press_url_en}}" target="new">{{row.press_title_en}}</a></p></li></span>
 
                 </ul>
             </div>
@@ -641,42 +629,42 @@
 
         <div class="onerow"></div>
         <div class="col12 last">
-            <h2 class="mainContents_tit">HOW TO</h2>
+            <h2 class="maincontents_tit">how to</h2>
             <div class="col3">
-                <a href="/auctionGuide/page?view=biddingGuide"><img src="/images/img/main/howto/02.jpg" style="width:100%;"/></a>
-                <p class="mainContents_txt" style="padding-top: 20px;"><spring:message code="label.howto.auction" /></p>
+                <a href="/auctionguide/page?view=biddingguide"><img src="/images/img/main/howto/02.jpg" style="width:100%;"/></a>
+                <p class="maincontents_txt" style="padding-top: 20px;"><spring:message code="label.howto.auction" /></p>
             </div>
             <div class="col3">
-                <a href="/auctionGuide/page?view=commissionGuide"><img src="/images/img/main/howto/05.jpg" style="width:100%;"/></a>
-                <p class="mainContents_txt" style="padding-top: 20px;"><spring:message code="label.howto.contract" /></p>
+                <a href="/auctionguide/page?view=commissionguide"><img src="/images/img/main/howto/05.jpg" style="width:100%;"/></a>
+                <p class="maincontents_txt" style="padding-top: 20px;"><spring:message code="label.howto.contract" /></p>
             </div>
             <div class="col3">
-                <a href="/auctionGuide/page?view=priGuide"><img src="/images/img/main/howto/07.jpg" style="width:100%;"/> </a>
-                <p class="mainContents_txt" style="padding-top: 20px;"><spring:message code="label.howto.PRIVATE" /></p>
+                <a href="/auctionguide/page?view=priguide"><img src="/images/img/main/howto/07.jpg" style="width:100%;"/> </a>
+                <p class="maincontents_txt" style="padding-top: 20px;"><spring:message code="label.howto.private" /></p>
             </div>
             <div class="col3 last">
                 <a href="/join/agree"><img src="/images/img/main/howto/06.jpg" style="width:100%;"/></a>
-                <p class="mainContents_txt" style="padding-top: 20px;"><spring:message code="label.agree" /></p>
+                <p class="maincontents_txt" style="padding-top: 20px;"><spring:message code="label.agree" /></p>
             </div>
         </div>
 
         <div class="onerow"></div>
-        <h2 class="mainContents_tit">FAMILY SITE</h2>
+        <h2 class="maincontents_tit">family site</h2>
         <div class="col4">
             <a href="https://www.auctionblue.com" target="_blank"><img src="/images/img/main/ect/blue.jpg" style="width:100%;"/></a>
-            <p class="mainContents_txt" style="padding-top: 20px;"><spring:message code="label.AuctionBlueonline" /></p>
+            <p class="maincontents_txt" style="padding-top: 20px;"><spring:message code="label.auctionblueonline" /></p>
         </div>
         <div class="col4">
             <a href="https://printbakery.com/" target="_blank"><img src="/images/img/main/ect/20220225_01.png" style="width:100%;"/></a>
-            <p class="mainContents_txt" style="padding-top: 20px;"><spring:message code="label.printbakery" /></p>
+            <p class="maincontents_txt" style="padding-top: 20px;"><spring:message code="label.printbakery" /></p>
         </div>
         <div class="col4 last">
-            <a href="https://www.youtube.com/channel/UCITsbs0m_QpXwZSZ-jc3ORA" target="_blank">
+            <a href="https://www.youtube.com/channel/ucitsbs0m_qpxwzsz-jc3ora" target="_blank">
                 <img src="/images/img/main/ect/20220331.png" style="width:100%;"/>
             </a>
-            <!-- <p style="padding-top:30px; padding-bottom:30px; font-size:18px; font-weight:600;" ng-if="locale=='ko'"><Bon Voyage : Kim Sun woo></p> -->
-            <p class="mainContents_txt" style="padding-top: 20px;" ng-if="locale=='ko'">PRINT BAKERY YOUTUBE</p>
-            <p class="mainContents_txt" style="padding-top: 20px;" ng-if="locale!='ko'">PRINT BAKERY YOUTUBE</p>
+            <!-- <p style="padding-top:30px; padding-bottom:30px; font-size:18px; font-weight:600;" ng-if="locale=='ko'"><bon voyage : kim sun woo></p> -->
+            <p class="maincontents_txt" style="padding-top: 20px;" ng-if="locale=='ko'">print bakery youtube</p>
+            <p class="maincontents_txt" style="padding-top: 20px;" ng-if="locale!='ko'">print bakery youtube</p>
         </div>
 
 
