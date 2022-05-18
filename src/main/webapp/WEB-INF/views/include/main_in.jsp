@@ -757,7 +757,7 @@
 
 
 <!-- 국문 레이어팝업 -->
-<c:if test="${locale == 'ko'}">
+<%--<c:if test="${locale == 'ko'}">
     <div id="overlay" onclick="off()">
         <div id="textbg">
             <span id="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
@@ -805,7 +805,7 @@
             </div>
         </div>
     </div>
-</c:if>
+</c:if>--%>
 
 
 <!-- 영문 레이어팝업 -->
@@ -900,20 +900,20 @@
 
 
 <script>
-    // overlay 사용 (국문만 사용시 사용)
-    $(window).ready(function(){
-        var blnCookie = getCookie("overlay");
-        if(!blnCookie == false){
-            document.getElementById("overlay").style.display = "none";
-        } else {
-            if( "${locale}" == "ko" ){
+    // overlay 사용 (국문만 사용시 사용) 
+    /* $(window).ready(function(){
+         var blnCookie = getCookie("overlay");
+         if(!blnCookie == false){
+             document.getElementById("overlay").style.display = "none";
+         } else {
+             if( "${locale}" == "ko" ){
                 document.getElementById("overlay").style.display = "block";
             }
         }
     });
 
     // overlay 사용 (국문영문모두사용시 사용)
-    /*$(window).ready(function(){
+    $(window).ready(function(){
     var blnCookie = getCookie("overlay");
     if(!blnCookie == false){
         document.getElementById("overlay").style.display = "none";
@@ -921,7 +921,7 @@
             document.getElementById("overlay").style.display = "block";
     }
     });
-    */
+
 
     function off() {
         document.getElementById("overlay").style.display = "none";
@@ -933,7 +933,7 @@
         var obj = eval( "window." + winName );
         obj.style.display = "none";
     }
-
+*/
 
     // 쿠키 가져오기
     function getCookie( name ) {
