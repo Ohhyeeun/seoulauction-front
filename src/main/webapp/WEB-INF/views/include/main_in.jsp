@@ -270,18 +270,6 @@ input[type="checkbox"].overlay_checkbox{
         <div class="onerow"></div>
         <h2 class="mainContents_tit">AUCTION</h2>
 
-        <!-- 온라인 경매 -->
-        <div class="col4">
-            <a href="/currentAuction?sale_kind=online_only&sale_no=707&page=1">
-                <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220504_ko.gif" style="width:100%;"/>
-                <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220504_en.gif" style="width:100%;"/>
-            </a>
-            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
-            <p class="mainContents_txt" ng-if="locale=='ko'">5월 e BID 퍼블릭 온라인 경매 Ⅰ</p>
-            <p class="mainContents_txt" ng-if="locale!='ko'">e BID Public Online Auction Ⅰ in May</p>
-            <div style="clear:both;"></div>
-        </div>
-
         <!-- 아트시 경매 -->
         <div class="col4">
             <a href="/currentAuction?sale_outside_yn=Y&sale_no=708#page1">
@@ -294,7 +282,7 @@ input[type="checkbox"].overlay_checkbox{
         </div>
 
         <!-- 오프라인 경매 -->
-        <div class="col4 last">
+        <div class="col4">
             <a href="/currentAuction?sale_kind=offline_only&sale_no=705&page=1">
                 <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220504_01.jpg" style="width:100%;"/>
                 <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220504_01.jpg" style="width:100%;"/>
@@ -305,13 +293,25 @@ input[type="checkbox"].overlay_checkbox{
             <div style="clear:both;"></div>
         </div>
 
-        <!-- 커밍순 썸네일
+        <!-- 커밍순 썸네일 -->
         <div class="col4 last">
             <img src="/images/img/main/auction_sum/20190613.jpg" style="width:100%;"/>
             <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
             <p class="mainContents_txt"></p>
             <div style="clear:both;"></div>
-        </div> -->
+        </div>
+
+        <!-- 온라인 경매
+        <div class="col4">
+            <a href="/currentAuction?sale_kind=online_only&sale_no=707&page=1">
+                <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220504_ko.gif" style="width:100%;"/>
+                <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220504_en.gif" style="width:100%;"/>
+            </a>
+            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
+            <p class="mainContents_txt" ng-if="locale=='ko'">5월 e BID 퍼블릭 온라인 경매 Ⅰ</p>
+            <p class="mainContents_txt" ng-if="locale!='ko'">e BID Public Online Auction Ⅰ in May</p>
+            <div style="clear:both;"></div>
+        </div>-->
 
         <!-- 오프라인 경매
         <div class="col4">
@@ -769,7 +769,7 @@ input[type="checkbox"].overlay_checkbox{
 
 
 <!-- 국문 레이어팝업 -->
-<c:if test="${locale == 'ko'}">
+<%--<c:if test="${locale == 'ko'}">
     <div id="overlay" onclick="off()">
         <div id="textbg">
         	<span id="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
@@ -817,7 +817,7 @@ input[type="checkbox"].overlay_checkbox{
             </div>
          </div>
     </div>
-</c:if>
+</c:if>--%>
 
 
 <!-- 영문 레이어팝업 -->
@@ -913,7 +913,7 @@ input[type="checkbox"].overlay_checkbox{
 
 <script>
 // overlay 사용 (국문만 사용시 사용)
-$(window).ready(function(){
+/*$(window).ready(function(){
 var blnCookie = getCookie("overlay");
 if(!blnCookie == false){
     document.getElementById("overlay").style.display = "none";
@@ -925,7 +925,7 @@ if(!blnCookie == false){
 });
 
 // overlay 사용 (국문영문모두사용시 사용)
-/*$(window).ready(function(){
+$(window).ready(function(){
 var blnCookie = getCookie("overlay");
 if(!blnCookie == false){
     document.getElementById("overlay").style.display = "none";
@@ -933,11 +933,12 @@ if(!blnCookie == false){
 		document.getElementById("overlay").style.display = "block";
 }
 });
-*/
+
 
 function off() {
     document.getElementById("overlay").style.display = "none";
 }
+*/ 
 
 //창닫기(overlay)
 function closeWin(winName, expiredays) {
