@@ -445,6 +445,7 @@ public class PayController {
 		boolean paySuccess = false;		// 결제 성공 여부
 		logger.debug("nice result : {} / {}", PayMethod, ResultCode);
 
+		
 		if(PayMethod.equals("VBANK")){		//가상계좌
 			if(ResultCode.equals("4110")) paySuccess = true;
 		}
