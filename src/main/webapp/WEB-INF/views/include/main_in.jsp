@@ -270,18 +270,7 @@ input[type="checkbox"].overlay_checkbox{
         <div class="onerow"></div>
         <h2 class="mainContents_tit">AUCTION</h2>
 
-        <!-- 아트시 경매 -->
-        <div class="col4">
-            <a href="/currentAuction?sale_outside_yn=Y&sale_no=708#page1">
-                <img src="/images/img/main/auction_sum/20220512.jpg" style="width:100%;"/>
-            </a>
-            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
-            <p class="mainContents_txt" ng-if="locale=='ko'">3rd Original&Edition</p>
-            <p class="mainContents_txt" ng-if="locale!='ko'">3rd Original&Edition</p>
-            <div style="clear:both;"></div>
-        </div>
-
-        <!-- 오프라인 경매 -->
+        <!-- 오프라인 경매 -->  
         <div class="col4">
             <a href="/currentAuction?sale_kind=offline_only&sale_no=705&page=1">
                 <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220504_01.jpg" style="width:100%;"/>
@@ -294,7 +283,7 @@ input[type="checkbox"].overlay_checkbox{
         </div>
 
         <!-- 온라인 경매 -->
-        <div class="col4 last">
+        <div class="col4">
             <a href="/currentAuction?sale_kind=online_only&sale_no=709&page=1">
                 <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220519_ko.gif" style="width:100%;"/>
                 <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220519_en.gif" style="width:100%;"/>
@@ -305,11 +294,22 @@ input[type="checkbox"].overlay_checkbox{
             <div style="clear:both;"></div>
         </div>
 
-        <!-- 커밍순 썸네일
+        <!-- 커밍순 썸네일 -->
         <div class="col4 last">
             <img src="/images/img/main/auction_sum/20190613.jpg" style="width:100%;"/>
             <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
             <p class="mainContents_txt"></p>
+            <div style="clear:both;"></div>
+        </div>
+
+        <!-- 아트시 경매
+        <div class="col4">
+            <a href="/currentAuction?sale_outside_yn=Y&sale_no=708#page1">
+                <img src="/images/img/main/auction_sum/20220512.jpg" style="width:100%;"/>
+            </a>
+            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
+            <p class="mainContents_txt" ng-if="locale=='ko'">3rd Original&Edition</p>
+            <p class="mainContents_txt" ng-if="locale!='ko'">3rd Original&Edition</p>
             <div style="clear:both;"></div>
         </div> -->
 
