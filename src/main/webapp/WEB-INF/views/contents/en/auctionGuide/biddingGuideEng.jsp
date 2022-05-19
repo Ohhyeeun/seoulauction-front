@@ -38,8 +38,8 @@
 							<div class="list_style03">
 								<ul>
 									<li>
-										<div class="tit">Subscription Member(Full Member)</div>
-										<p>A regular member requires a membership fee(yearly USD 500) and have diversity of advantages with free receipt of periodicals issued by Seoul Auction(unique catalogues, preview exhibition guide book, etc.). You can Bid the all auctions(Art auction, Hong Kong Auction, Special Auction).</p>
+										<div class="tit">Subscription Member (Regular Member)</div>
+										<p>A regular member requires an annual membership fee(Domestic resident 200,000KRW / overseas resident USD 500).<br> And A regular member can participate in auction(Major & Special Auction) as the bidder and shall be provided with the catalogue and information.</p>
 									</li>
 									<li>
 										<div class="tit">Associate Member</div>

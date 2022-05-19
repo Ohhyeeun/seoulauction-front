@@ -208,7 +208,6 @@ Log in  -> Account -> Change Information -> Password -> Sumit</div>
 								<div class="answer" style="display: none;">
 									<span class="sp_icon bul_answer"><span class="hidden">A</span></span>
 									<div>If you cancel your membership before the expiration of the validity period of your regular membership, you can receive a refund of the annual fee according to the criteria below.<br><br>
-
 										Immediately after joining - Less than 1 month: Full refund<br>
 										More than 1 month - Less than 3 months: 80% refund<br>
 										More than 3 months - Less than 6 months: 60% refund<br>

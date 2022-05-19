@@ -268,6 +268,7 @@
 								</div>
 								<div class="list_style01 type02" ng-if="locale!='ko'">
 									<ul>
+										<li>Annual membership fee<br>Domestic resident : KRW 200,000<br>Overseas resident : 500 USD<br>(A person who stayed over 183 days in Korea, classified as a domestic<br> resident.)</li>
 										<li>Auction books are provided.</li>
 										<li>Provided Website Bidding service<br>
 											The member who wants bidding through the written report or phone call, please fill the<br> application form completely and submit at the website or the back of catalogue.
@@ -383,7 +384,7 @@
 														<p>
 															<br>
 														</p> 
-													</div> 
+													</div>
 													
 													<h4 class="cbp-nttrigger">3. 대리인 또는 매도인으로서의 서울옥션</h4>
 													<div class="cbp-ntcontent">
