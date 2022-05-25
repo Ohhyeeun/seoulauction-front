@@ -22,7 +22,7 @@
 			<div class="contents_wrap">   
 				<div class="contents">  
                     <div class="tit_h2"> 
-						<h2>SA Gangnam Center Exhibition</h2>
+						<h2>Gangnam Center Exhibition</h2>
 					</div> 
  					<!-- 전시썸네일 이미지 슬라이드 -->       
 					<%--<div class="sub_banner02" id="slides">
@@ -47,14 +47,14 @@
                     <div class="storage_cont title_area">   
                     	<div class="exhibition_firstbox"> 
 							<div class="title" style="margin-bottom: 10px;">
-								<p>Seoul Auction Gangnam Center Exhibition</p>    
+								<p>Gangnam Center Exhibition</p>
 								<h3 style="margin-top:10px; font-weight: 800;">HA TAE IM<br>
 									Yellow, the color of radiant memories</h3>
 							</div>  
 							<p style="line-height:30px; font-size:16px;">
 								27th(Fri) May - 12(Sun) June, 2022<br>
 								10am - 7pm<br>
-								Seoul Auction Gangnam Center 6F
+								Gangnam Center 6F
 							</p>         
 	                        <!--<a href="/currentExhibit?sale_kind=exhibit_only&sale_no=637" class="btn_main_more green exhibiton_listbtn" >LIST</a> 
 							<a href="https://www.seoulauction.com/nas_img/front/homepage/e-book/mariKim/index.html" class="btn_main_more green exhibiton_listbtn" target="_blank" >CATALOGUE</a>      
@@ -95,7 +95,7 @@
 							<div class="contact">  
 								<div class="title">Contact</div>     
 								<div class="info"> 
-									<div class="highlight">Seoul Auction Gangnam Center <strong>Hee Jin Kim</strong></div>
+									<div class="highlight">Gangnam Center <strong>Hee Jin Kim</strong></div>
 									<div class="tel"><strong class="tit">Tel</strong> <span>+82 (0)2-2075-4397 </span></div>
                                     <div class="email"><strong class="tit">E-mail</strong> <a href="mailto:hjk@seoulauction.com">hjk@seoulauction.com</a></div>
 								</div>     
@@ -116,7 +116,7 @@
 								<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12655.621508400407!2d127.03040534787746!3d37.533727752054204!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x20893aab0caffe0c!2zKOyjvCnshJzsmrjsmKXshZgg6rCV64Ko7IKs7JilIFNlb3VsIEF1Y3Rpb24gR2FuZ25hbSBCcmFuY2g!5e0!3m2!1sko!2skr!4v1547529016843" width="500" height="350" frameborder="0" style="border:0"></iframe>
 							</div>
 							<div class="right">
-								<div class="title">Seoul Auction Gangnam Center</div>
+								<div class="title">Gangnam Center</div>
 								<!-- 20150608 -->
 								<div class="cont">
 									<dl>

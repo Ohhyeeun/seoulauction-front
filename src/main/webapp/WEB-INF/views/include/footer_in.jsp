@@ -151,7 +151,8 @@ app.controller('footerCtl', function($scope, consts, common ) {
                               <li><a href="/about/page?view=location"><spring:message code="label.seoulauction.location" /></a></li>
                               <li class="full"><a href="/about/page?view=faq"><spring:message code="label.faq" /></a></li>
 						 <p>Link</p>
-                         	  <!-- <li><a href="/about/page?view=gnExhibition" ><spring:message code="label.seoulauction.introgang0" /></a></li> -->
+                         	  <li><a href="/about/page?view=gnExhibition" ng-if="locale=='ko'">강남센터 Exhibition</a></li>
+                         	  <li><a href="/about/page?view=gnExhibition" ng-if="locale!='ko'">Gangnam Center Exhibition</a></li>
                               <!-- 강남전시 1,2 ->
                               <li><a href="/about/page?view=gnExhibition" ><spring:message code="label.seoulauction.introgang1" /></a></li>
                               <li><a href="/about/page?view=gnExhibition02" ><spring:message code="label.seoulauction.introgang2" /></a></li> -->

@@ -21,7 +21,7 @@
 			<div class="contents_wrap">    
 				<div class="contents">
 					<div class="tit_h2">    
-						<h2>서울옥션 강남센터 Exhibition</h2>      
+						<h2>강남센터 Exhibition</h2>
 					</div>     
 					<!-- 전시썸네일 이미지 슬라이드 -->
 					<%-- <div class="sub_banner02" id="slides">
@@ -46,14 +46,14 @@
 					<div class="storage_cont title_area">
 						<div class="exhibition_firstbox"> 
 							<div class="title" style="margin-bottom: 10px;">   
-								<p>서울옥션 강남센터 전시기획</p>   
+								<p>강남센터 전시기획</p>
 								<h3 style="margin-top:10px; font-weight:800;">하태임<br>Yellow, 찬란한 기억
 								</h3>
 							</div>   
 							<p style="line-height:30px; font-size:16px;">
 								2022. 05. 27 (금) - 06. 12 (일)<br>
 								10am - 7pm<br>
-								서울옥션 강남센터 6F
+								강남센터 6F
 							</p>      
 	                        <!--<a href="/currentExhibit?sale_kind=exhibit_only&sale_no=637" class="btn_main_more green exhibiton_listbtn">작품보기</a>   
                             <a href="https://www.seoulauction.com/nas_img/front/homepage/e-book/mariKim/index.html" class="btn_main_more green exhibiton_listbtn" target="_blank" >도록보기</a>     
@@ -70,7 +70,7 @@
 									- 하태임, 2022
 								</p>
                                 <p style="margin-bottom: 15px;">
-									하태임 작가의 작업에서 캔버스에 칠해진 각각의 색은 고유한 상징과 의미로서 존재합니다. 컬러밴드 하나하나에 인간의 사고와 정서, 느낌과 기분을 감각적으로 구현해 이야기를 담아내는데, 묽게 탄 물감에 붓을 적셔 느린 호흡으로 천천히 칠하고 그것이 온전히 마르기를 기다린 후 또 똑 같은 호흡으로 그 위에 다시 붓질을 하는 수행과도 같은 작업을 통해 하나의 작품이 완성됩니다. 
+									하태임 작가의 작업에서 캔버스에 칠해진 각각의 색은 고유한 상징과 의미로서 존재합니다. 컬러밴드 하나하나에 인간의 사고와 정서, 느낌과 기분을 감각적으로 구현해 이야기를 담아내는데, 묽게 탄 물감에 붓을 적셔 느린 호흡으로 천천히 칠하고 그것이 온전히 마르기를 기다린 후 또 똑 같은 호흡으로 그 위에 다시 붓질을 하는 수행과도 같은 작업을 통해 하나의 작품이 완성됩니다.
 
 								</p>
                                 <p style="margin-bottom: 15px;">
@@ -92,7 +92,7 @@
 							<div class="contact"> 
 								<div class="title">문의 Contact</div>  
 								<div class="info"> 
-									<div class="highlight">서울옥션 전시마케팅팀 <strong>김희진 선임</strong></div>
+									<div class="highlight">전시마케팅팀 <strong>김희진 선임</strong></div>
 									<div class="tel"><strong class="tit">Tel</strong> <span>02-2075-4397</span></div>
                                     <div class="email"><strong class="tit">E-mail</strong> <a href="mailto:hjk@seoulauction.com">hjk@seoulauction.com</a></div>
 								</div>
@@ -113,7 +113,7 @@
 								<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12655.621508400407!2d127.03040534787746!3d37.533727752054204!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x20893aab0caffe0c!2zKOyjvCnshJzsmrjsmKXshZgg6rCV64Ko7IKs7JilIFNlb3VsIEF1Y3Rpb24gR2FuZ25hbSBCcmFuY2g!5e0!3m2!1sko!2skr!4v1547529016843" width="500" height="350" frameborder="0" style="border:0"></iframe>
 							</div>
 							<div class="right">
-								<div class="title">서울옥션 강남센터</div>
+								<div class="title">강남센터</div> 
 								<!-- 20150608 -->
 								<div class="cont">
 									<dl> 
