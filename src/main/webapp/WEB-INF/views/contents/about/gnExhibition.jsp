@@ -23,36 +23,37 @@
 					<div class="tit_h2">    
 						<h2>서울옥션 강남센터 Exhibition</h2>      
 					</div>     
-					<!-- 전시썸네일 이미지 슬라이드 -->       
-					<div class="sub_banner02" id="slides">     
+					<!-- 전시썸네일 이미지 슬라이드 -->
+					<%-- <div class="sub_banner02" id="slides">
 						<a href="" class="sp_btn slidesjs-previous slidesjs-navigation"><span class="hidden">이전</span></a> 
 						<a href="" class="sp_btn slidesjs-next slidesjs-navigation"><span class="hidden">다음</span></a>  
 						<!-- 세로이미지 일 때 -->  
-						<div><img class="verticalimg_slide" src="/images/img/gnag/img_banner31.jpg" alt="gangnam" /></div> 
-						<div><img class="verticalimg_slide" src="/images/img/gnag/img_banner32.jpg" alt="gangnam" /></div>  
+						<div><img class="verticalimg_slide" src="/images/img/gnag/img_banner31.jpg" alt="gangnam" /></div>
+						<div><img class="verticalimg_slide" src="/images/img/gnag/img_banner32.jpg" alt="gangnam" /></div>
 						<!-- 가로이미지  일 때 -->    
-						<!-- <div><img src="/images/img/gnag/img_banner11.jpg" alt="gangnam" /></div>
-                        <div><img src="/images/img/gnag/img_banner11.jpg" alt="gangnam" /></div> -->   
-					</div>  
+						<div><img src="/images/img/gnag/img_banner11.jpg" alt="gangnam" /></div>
+                        <div><img src="/images/img/gnag/img_banner11.jpg" alt="gangnam" /></div>
+					</div> --%>
 					 
-					<!-- 전시썸네일 이미지 단일 -->       
-                    <!-- <div class="exhibition_img_box">     
-                     	<img src="/images/img/gnag/img_banner29.jpg" alt="강남전시 배너" style="margin-bottom: 10px;"/>               
-                    </div>   
-                    <div class="exhibition_img_box">     
-                     	<img src="/images/img/gnag/img_banner30.jpg" alt="강남전시 배너" />                           
-                    </div> -->  
+					<!-- 전시썸네일 이미지 단일 -->
+                    <!-- <div class="exhibition_img_box">
+                     	<img src="/images/img/gnag/img_banner29.jpg" alt="강남전시 배너" style="margin-bottom: 10px;"/>
+                    </div> -->
+                    <div class="exhibition_img_box">
+                     	<img src="/images/img/gnag/img_banner33.jpg" alt="강남전시 배너" />
+                    </div>
                           
 					<div class="storage_cont title_area">
 						<div class="exhibition_firstbox"> 
 							<div class="title" style="margin-bottom: 10px;">   
 								<p>서울옥션 강남센터 전시기획</p>   
-								<h3 style="margin-top:10px; font-weight:800;">승효상, 최덕주<br> 결구(結構)와 수직(手織)의 풍경</h3>     
+								<h3 style="margin-top:10px; font-weight:800;">하태임<br>Yellow, 찬란한 기억
+								</h3>
 							</div>   
-							<p style="line-height:30px; font-size:16px;">    
-	                            2021.6.29(火) - 7.18(日)<br>
-                                10am - 7pm<br>  
-                                서울옥션 강남센터 6층    
+							<p style="line-height:30px; font-size:16px;">
+								2022. 05. 27 (금) - 06. 12 (일)<br>
+								10am - 7pm<br>
+								서울옥션 강남센터 6F
 							</p>      
 	                        <!--<a href="/currentExhibit?sale_kind=exhibit_only&sale_no=637" class="btn_main_more green exhibiton_listbtn">작품보기</a>   
                             <a href="https://www.seoulauction.com/nas_img/front/homepage/e-book/mariKim/index.html" class="btn_main_more green exhibiton_listbtn" target="_blank" >도록보기</a>     
@@ -60,28 +61,26 @@
 	                    </div>   
                         <div style="border-top: #CCC solid 1px; padding-top: 20px;">                
                         	<div style="line-height:30px; text-align: justify;">    
-                            	<p style="margin-bottom: 15px;">                                   
-                                	서울옥션은 오는 6월 29일(화)부터 7월 18일(일)까지 특별전시 승효상과 최덕주 2인전 &#60;결구(結構)와 수직(手織)의 풍경&#62;을 선보입니다.<br> 
-                                약 45점의 가구와 조각보, 근현대 회화로 구성된 이번 전시는 다양한 예술품을 한자리에서 감상할 수 있는 기회로 보다 다양한 예술의 본질을 공유하고자 합니다.
-                                </p>
-                                <p style="margin-bottom: 15px;">                                  
-                                	승효상의 가구와 최덕주의 조각보는 여러모로 닮은 점이 있습니다. 결과로서 이뤄지는 형상에 대한 신념이 있어야 하며, 그 형상을 이루기 위한 면밀한 계획과 계산이 수반되어야 합니다. 마지막으로 막대한 노동이 뒤따르는 것이 그 둘의 공통점으로 가구와 조각보가 이 과정적 원칙에 충실하다면 그 자체의 진실성으로 다른 요소가 개입할 이유가 없습니다. 다시 말해, 결구에 충실하고 수직에 집중되었다면 그대로 감동적이라 할 수 있습니다.
-                                </p>
-                                <p style="margin-bottom: 15px;">                                  
-                                	이번 전시에 등장하는 모든 가구들과 조각보들은 수사와 장식을 멀리합니다. 특히 가구는 겉으로 보기에는 단순하고 평온해 보이지만, 결구를 이루는 부재들 사이의 투쟁이 있으며, 이것은 가구들이 때로는 긴장을 부르는 이유이기도 합니다. 그래서 승효상 작가는 스스로 추방된 이들이 거주하는 수도원의 가구라는 부제까지 달았습니다. 조각보는 염색부터 직조까지 문자 그대로의 수고로 이루어진 것으로 한 땀 한 땀이라는 글귀가 갖는 진지함과 색조의 얇은 천 속에는 보이지 않는 치열과 집요가 담겨있습니다.
-                                </p>
-                                <p>                                     
-                                	가구와 조각보를 함께 전시하는 일은 흔하지 않습니다. 어떻게 보면 결구와 수직은 최첨단기술도 닿을 수 없는 세계의 삶이라는 같은 결을 가지며, 이 둘의 모임은 하나보다 더욱 아름다운 풍경을 이룰 수도 있을 것이라 여겨집니다. 
-결구와 수직의 풍경이 관람객들을 위로하며 쉬게 해주는 전시가 되기를 바랍니다.    
-								</p>   
-								
-								<p style="font-weight: bold; margin: 20px 0;">       
-									※ 사회적 거리두기 4단계 지침 시행에 따라 사전예약하지 않으신 분은 전시 관람이 어려우니, 하기 전화번호로 반드시 예약 후 방문해주시기 바랍니다.<br>
-								</p>  
-								<p style="font-weight: bold; margin-bottom: 15px;">   
-									관람예약: 02-545-0330<br>  
-									전시운영시간: 10am – 7pm 
+                            	<p style="margin-bottom: 15px;">
+									Yellow, 찬란한 기억<br>
+									온화함과 기쁨을 담고 있는 빛 줄기의 색<br><br>
+
+									'노랑'은 '빛'이다. 찬란한 기억과 치유의 에너지, 이 생명의 에너지 가득한 노란색은 내 기억의 첫머리를 장식하고 있다.<br>
+									나에게 색이란 음악에서 다양한 높낮이를 가지고 있는 음표들이 하나의 곡을 완성해가듯 색들의 반복과 차이를 통해 펼쳐지는 하나의 노래이며 미지의 세계로 열려있는 '문'이자 '통로'이다.<br>
+									- 하태임, 2022
 								</p>
+                                <p style="margin-bottom: 15px;">                                  
+                                	승효상의 가구와 최덕주의 조각보는 여러모로 닮은 점이 있습니다. 결과로서 이뤄지는 형상에 대한 신념이 있어야 하며, 그 형상을 이루기 위한 면밀한 계획과 계산이 수반되어야 합니다.<br>
+									마지막으로 막대한 노동이 뒤따르는 것이 그 둘의 공통점으로 가구와 조각보가 이 과정적 원칙에 충실하다면 그 자체의 진실성으로 다른 요소가 개입할 이유가 없습니다.<br>
+									다시 말해, 결구에 충실하고 수직에 집중되었다면 그대로 감동적이라 할 수 있습니다.<br>
+                                </p>
+                                <p style="margin-bottom: 15px;">
+									이번 전시를 위해 작가는 그 동안 작품 속에서 보여주었던 다양한 컬러들 중 노란색 컬러를 택했습니다. ‘Yellow’라는 주조색을 통해 작가가 캔버스 위에 풀어내는 고유의 상징과 의미들을 함께 느껴 볼 수 있는 시간이 되기를 바랍니다.
+								</p>
+								<%-- <p style="font-weight: bold; margin-bottom: 15px;">
+									관람예약: 02-545-0330<br>
+									전시운영시간: 10am – 7pm
+								</p> --%>
 							</div> 
                         </div> 
                               
