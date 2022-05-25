@@ -22,7 +22,7 @@
 			<div class="contents_wrap">   
 				<div class="contents">  
                     <div class="tit_h2"> 
-						<h2>SA Gangnam Center Exhibition</h2>   
+						<h2>SA Gangnam Center Exhibition</h2>
 					</div> 
  					<!-- 전시썸네일 이미지 슬라이드 -->       
 					<%--<div class="sub_banner02" id="slides">
@@ -48,10 +48,13 @@
                     	<div class="exhibition_firstbox"> 
 							<div class="title" style="margin-bottom: 10px;">
 								<p>Seoul Auction Gangnam Center Exhibition</p>    
-								<h3 style="margin-top:10px; font-weight: 800;"></h3>
+								<h3 style="margin-top:10px; font-weight: 800;">HA TAE IM<br>
+									Yellow, the color of radiant memories</h3>
 							</div>  
 							<p style="line-height:30px; font-size:16px;">
-
+								27th(Fri) May - 12(Sun) June, 2022<br>
+								10am - 7pm<br>
+								Seoul Auction Gangnam Center 6F
 							</p>         
 	                        <!--<a href="/currentExhibit?sale_kind=exhibit_only&sale_no=637" class="btn_main_more green exhibiton_listbtn" >LIST</a> 
 							<a href="https://www.seoulauction.com/nas_img/front/homepage/e-book/mariKim/index.html" class="btn_main_more green exhibiton_listbtn" target="_blank" >CATALOGUE</a>      
@@ -59,17 +62,17 @@
                        	</div>  
                         <div style="border-top: #CCC solid 1px; padding-top: 20px;">               
 							<div style="line-height:27px; text-align: justify;">           
-                            	<%--<p style="margin-bottom: 15px;">
-									There are several similarities that unite the jogakbo, a traditional style of Korean patchwork that is created by sewing together pieces of fabric, and furniture that is made according to pre-determined structures/frameworks. The first is a conviction about the resulting shape. The second is the fact that this conviction is based on exhaustive planning and calculations. The final similarity is that a tremendous amount of hard work must be applied. When makers of furniture or patchwork wrapping cloths adhere devotedly to these procedural principles, such veracity alone is sufficient to see the project through. No other inputs are necessary. In other words, keeping faithful to the framework and staying focused on the hand-weaving bring impressive results in themselves.</p>
-                                <p style="margin-bottom: 15px;">                                   
-	                               Of course, elaborate hand-embroidery and ornamentation can be eye-catching at times. All of the furniture and patchwork wrapping cloth displayed in this exhibition, however, have little to do with hand-embellishment and decoration. The furniture in particular looks simple and calm at first glance, but this impression belies the intense battle in play among the interlocked parts of the framework. This strong presence of conflict allows the furniture to emanate a tension and explains why this exhibition is subtitled “A Monastery for the Self-exiled.” The jogakbo is, from dying to weaving, the outcome of painstaking effort. The dedication to making one stitch after another is the key to success. The thin sheets of fabric in ephemeral colors are packed with an invisible intensity and tenacity.
+                            	<p style="margin-bottom: 15px;">
+									Yellow, the color of radiant memories
+								<p style="margin-bottom: 15px;">
+								The color of light, full of warmth and joy
                                 </p>
-                                <p style="margin-bottom: 15px;">                                 
-    	                            Furniture and jogakbo are rarely displayed side-by-side at the same exhibition. In a sense, things that are woven or connected are part of a world that is beyond the reach of cutting-edge technologies. This exhibition hopes to create a beautiful scene through the unexpected harmony of things that are woven and things that are interlocked. 
+                                <p style="margin-bottom: 15px;">
+									Yellow is the color of light. This vibrant and energetic color that holds therapeutic power fills my earliest memories with radiance.
                                 </p>
-                                <p>                                    
-	                                May the woven and interlocked presentations on display grant us much-needed rest and solace during these chaotic times.
-								</p>--%>
+								<p style="margin-bottom: 15px;">
+									To me, colors are like notes of music: just as notes of different pitches together make up a song, the repetition and differences of colors make up my works. These colors are passages and doors to an unknown world.
+								</p>
 							</div> 
                             <!-- <p style="font-size:12px; margin-top: 20px;">       
                                <strong>Artists</strong><br/>   
@@ -92,9 +95,9 @@
 							<div class="contact">  
 								<div class="title">Contact</div>     
 								<div class="info"> 
-									<div class="highlight">Seoul Auction Gangnam Center <strong>Karam Yoon</strong></div>    
-									<div class="tel"><strong class="tit">Tel</strong> <span>+82 (0)2-2075-4422</span></div>    
-                                    <div class="email"><strong class="tit">E-mail</strong> <a href="mailto:kyoon@seoulauction.com">kyoon@seoulauction.com</a></div>        
+									<div class="highlight">Seoul Auction Gangnam Center <strong>Hee Jin Kim</strong></div>
+									<div class="tel"><strong class="tit">Tel</strong> <span>+82 (0)2-2075-4397 </span></div>
+                                    <div class="email"><strong class="tit">E-mail</strong> <a href="mailto:hjk@seoulauction.com">hjk@seoulauction.com</a></div>
 								</div>     
 							</div>  
 							<!-- <div class="right">  

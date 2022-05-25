@@ -93,10 +93,10 @@
 							<div class="contact"> 
 								<div class="title">문의 Contact</div>  
 								<div class="info"> 
-									<div class="highlight">서울옥션 전시마케팅팀 <strong>윤가람 팀장</strong></div>
-									<div class="tel"><strong class="tit">Tel</strong> <span>02-2075-4422</span></div> 
-                                    <div class="email"><strong class="tit">E-mail</strong> <a href="mailto:kyoon@seoulauction.com">kyoon@seoulauction.com</a></div>        
-								</div>      
+									<div class="highlight">서울옥션 전시마케팅팀 <strong>김희진 선임</strong></div>
+									<div class="tel"><strong class="tit">Tel</strong> <span>02-2075-4397</span></div>
+                                    <div class="email"><strong class="tit">E-mail</strong> <a href="mailto:hjk@seoulauction.com">hjk@seoulauction.com</a></div>
+								</div>
 							</div> 
                            <!-- <div class="right">
 								<span class="btn_style01 icon02"><a href="/customer/inquiryForm" class="fix">1대1문의</a><span class="ico next02"></span></span>
