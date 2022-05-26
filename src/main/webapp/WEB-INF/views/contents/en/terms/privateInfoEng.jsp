@@ -200,7 +200,7 @@
 							※ Directed to the privacy department.<br><br>
 
 							▶ Privacy Department<br>
-							Webservice Develeopment Team<br>
+							Webservice Development Team<br>
 							02-395-0330 / sos@seoulauction.com<br>
 							※ Directed to the privacy department.<br><br>
 
@@ -254,7 +254,7 @@
 									<th scope="col">Number of Installations</th>
 									<th scope="col">Installation Location and Shooting Range</th>
 								</tr>
-								<tr> 
+								<tr>
 									<td>129</td>
 									<td rowspan="2">Building lobby, exhibition hall, warehouse and parking lot entrance</td>
 								</tr>
@@ -307,12 +307,11 @@
 								<th scope="col">Consignee</th>
 								<th scope="col">Manager</th>
 								<th scope="col">Contact</th>
-								<th scope="col">Contact</th>
 							</tr>
 							<tr>
-								<td>24 hours</td>
-								<td>180 days from the date of recording</td>
-								<td>NVR location</td>
+								<td>S1</td>
+								<td>Sales Manager at the Business Site</td>
+								<td>02-2075-4494</td>
 							</tr>
 						</table><br>
 						⑥ Matters Concerning the Checking Method and the Place of Personal Image Information<br>
