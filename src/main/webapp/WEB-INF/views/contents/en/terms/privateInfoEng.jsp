@@ -29,7 +29,7 @@
 					<div class="law_cont">
 						Seoul Auction (hereinafter referred to as the “Company”) has established and is disclosing the following guidelines to protect the privacy of the data subjects and to quickly and smoothly address the related difficulties pursuant to the Act on the Promotion of Information and Communications Network Utilization and Information Protection and the Personal Information Protection Act.<br><br>
 
-					<h4 style="color: rgb(0, 0, 0); font-weight:700;">Article 1 (Purpose of Processing Personal Information)</h4>
+						<h4 style="color: rgb(0, 0, 0); font-weight:700;">Article 1 (Purpose of Processing Personal Information)</h4>
 						<p>The Company processes the personal information for the following purposes. The personal information processed shall not be used for the purposes outside the following purposes and shall obtain prior consent, etc. when the purpose of use changes, pursuant to the relevant laws.<br><br>
 							1. Homepage membership subscription and management<br>
 							Personal information are processed for the purposes of verifying the intention of subscribe to the membership, personal identification and authentication for the provision of the membership services, maintenance and management of member qualification, personal verification pursuant to the implementation of the limited identity verification system and prevention of illegal use of the services, etc.<br><br>
@@ -39,7 +39,7 @@
 							Personal information are processed for the purposes of verifying the identity of the complainants, verification of complaints, contact/notification for factual investigation, notification of results of the processing, etc.<br><br>
 							4. Marketing and advertisement purposes<br>
 							Personal information are processed for the purposes of delivering marketing information, such as events, etc., determining the connection frequency and/or statistics on the service use by the members, etc.<br><br>
-							</p>
+						</p>
 
 						<h4 style="color: rgb(0, 0, 0); font-weight:700;">Article 2 (Processing and Retention Period of Personal Information)</h4>
 						<p>
@@ -56,82 +56,82 @@
 							2) Retention of communication confirmation data pursuant to Article 41 of the Protection of Communications Secrets Act<br>
 							- Date of telecommunications by subscribers, starting and ending time, subscriber number of the other party, frequency of use, data on tracing location of connectors: 1 Year<br>
 							- Computer communication, data on internet log records, data on tracing a location of connection: 3 Months<br><br>
-							</p>
+						</p>
 
 						<h4 style="color: rgb(0, 0, 0); font-weight:700;">Article 3 (Entrustment of the Processing of Personal Information)</h4>
 
 						<p>
 							① The Company entrusts the processing of the personal information for smooth processing of the personal information as follows.<br>
-							<table class="privacy_table">
-								<tr>
-									<th scope="col">Company</th>
-									<th scope="col">Contents of entrusted work</th>
-								</tr>
-								<tr>
-									<td>LG Uplus Corp.</td>
-									<td rowspan="2">Text message sending service</td>
-								</tr>
-								<tr>
-									<td>BADAINFO Co., Ltd.</td>
-								</tr>
-								<tr>
-									<td>Samil Courier Packaging</td>
-									<td>Catalog sending service</td>
-								</tr>
-								<tr>
-									<td>Stibee</td>
-									<td>Mail sending service</td>
-								</tr>
-								<tr>
-									<td>ks Express</td>
-									<td rowspan="15">Artwork transport service</td>
-								</tr>
-								<tr>
-									<td>One-top Transport</td>
-								</tr>
-								<tr>
-									<td>Art in Art Co., Ltd.</td>
-								</tr>
-								<tr>
-									<td>Art Peak</td>
-								</tr>
-								<tr>
-									<td>Art Dream</td>
-								</tr>
-								<tr>
-									<td>H&h Express	</td>
-								</tr>
-								<tr>
-									<td>Modu Art</td>
-								</tr>
-								<tr>
-									<td>Kyungmin Express</td>
-								</tr>
-								<tr>
-									<td>JM Art</td>
-								</tr>
-								<tr>
-									<td>ARTrans Co., Ltd</td>
-								</tr>
-								<tr>
-									<td>DONGBU ART Co., Ltd.</td>
-								</tr>
-								<tr>
-									<td>Ohyang Express Co., Ltd.</td>
-								</tr>
-								<tr>
-									<td>THE art ALL</td>
-								</tr>
-								<tr>
-									<td>VART</td>
-								</tr>
-								<tr>
-									<td>Nano Art</td>
-								</tr>
-							</table>
-							② The Company shall stipulate the prohibition of the processing of the personal information outside the purposes of performing the entrusted responsibilities, technical and administrative protection measures, restriction on re-entrustment, management and supervision of trustees, and indemnification, etc. in the entrustment contract pursuant to Article 25 of the Personal Information Protection Act, and the Company shall supervise the trustees to safely process the personal information.<br>
-							③ The Company shall announce any changes to the entrusted responsibilities or the trustees through this privacy policy, without delay.<br><br>
-							</p>
+						<table class="privacy_table">
+							<tr>
+								<th scope="col">Company</th>
+								<th scope="col">Contents of entrusted work</th>
+							</tr>
+							<tr>
+								<td>LG Uplus Corp.</td>
+								<td rowspan="2">Text message sending service</td>
+							</tr>
+							<tr>
+								<td>BADAINFO Co., Ltd.</td>
+							</tr>
+							<tr>
+								<td>Samil Courier Packaging</td>
+								<td>Catalog sending service</td>
+							</tr>
+							<tr>
+								<td>Stibee</td>
+								<td>Mail sending service</td>
+							</tr>
+							<tr>
+								<td>ks Express</td>
+								<td rowspan="15">Artwork transport service</td>
+							</tr>
+							<tr>
+								<td>One-top Transport</td>
+							</tr>
+							<tr>
+								<td>Art in Art Co., Ltd.</td>
+							</tr>
+							<tr>
+								<td>Art Peak</td>
+							</tr>
+							<tr>
+								<td>Art Dream</td>
+							</tr>
+							<tr>
+								<td>H&h Express	</td>
+							</tr>
+							<tr>
+								<td>Modu Art</td>
+							</tr>
+							<tr>
+								<td>Kyungmin Express</td>
+							</tr>
+							<tr>
+								<td>JM Art</td>
+							</tr>
+							<tr>
+								<td>ARTrans Co., Ltd</td>
+							</tr>
+							<tr>
+								<td>DONGBU ART Co., Ltd.</td>
+							</tr>
+							<tr>
+								<td>Ohyang Express Co., Ltd.</td>
+							</tr>
+							<tr>
+								<td>THE art ALL</td>
+							</tr>
+							<tr>
+								<td>VART</td>
+							</tr>
+							<tr>
+								<td>Nano Art</td>
+							</tr>
+						</table>
+						② The Company shall stipulate the prohibition of the processing of the personal information outside the purposes of performing the entrusted responsibilities, technical and administrative protection measures, restriction on re-entrustment, management and supervision of trustees, and indemnification, etc. in the entrustment contract pursuant to Article 25 of the Personal Information Protection Act, and the Company shall supervise the trustees to safely process the personal information.<br>
+						③ The Company shall announce any changes to the entrusted responsibilities or the trustees through this privacy policy, without delay.<br><br>
+						</p>
 
 						<h4 style="color: rgb(0, 0, 0); font-weight:700;">Article 4 (Rights and Obligations of the Data Subjects and the Method of Exercise)</h4>
 
@@ -200,8 +200,9 @@
 							※ Directed to the privacy department.<br><br>
 
 							▶ Privacy Department<br>
-							Seoul Auction Customer Center<br>
-							02-395-0330 / sos@seoulauction.com<br><br>
+							Webservice Development Team<br>
+							02-395-0330 / sos@seoulauction.com<br>
+							※ Directed to the privacy department.<br><br>
 
 							② All inquiries, complaints, damage relief, etc. concerning all personal information protection that arise in the course of using the services (or business) of the Company can be directed to the privacy officer or the privacy department. The Company shall provide replies to such inquiries without delay.<br><br>
 						</p>
@@ -248,20 +249,16 @@
 							- Crime Prevention for Customer Safety<br><br>
 
 							② Number of Installations, Installation Location and Shooting Range
-							<table class="privacy_table">
-								<tr>
-									<th scope="col">Number of Installations</th>
-									<th scope="col">Installation Location and Shooting Range</th>
-								</tr>
-								<tr>
-									<td>LG Uplus Corp.</td>
-									<td rowspan="2">Text message sending service</td>
-								</tr>
-								<tr>
-									<td>129</td>
-									<td>Building lobby, exhibition hall, warehouse and parking lot entrance</td>
-								</tr>
-							</table>
+						<table class="privacy_table">
+							<tr>
+								<th scope="col">Number of Installations</th>
+								<th scope="col">Installation Location and Shooting Range</th>
+							</tr>
+							<tr>
+								<td>129</td>
+								<td rowspan="2">Building lobby, exhibition hall, warehouse and parking lot entrance</td>
+							</tr>
+						</table><br>
 						③ Chief Manager and Access Authority<br>
 						The company has personal image information protection officers as follows to protect customers' image information and to handle complaints related to personal image information.<br><br>
 
@@ -287,7 +284,7 @@
 								<td>HR and General Affairs Team</td>
 								<td>02-2075-4494</td>
 							</tr>
-						</table>
+						</table><br>
 						④ Recording Time, Storage Period, Storage Location and Processing Method of Image Information<br>
 						<table class="privacy_table">
 							<tr>
@@ -300,7 +297,7 @@
 								<td>180 days from the date of recording</td>
 								<td>NVR location</td>
 							</tr>
-						</table>
+						</table><br>
 						- Processing Method: Requests such as use of personal image information for other purpose, provision to a third party, destruction, and viewing shall be recorded and managed, and when the storage period expires, it shall permanently be deleted (shredded or incinerated in the case of printed materials) in a way that cannot be restored.<br><br>
 
 						⑤ Matters Concerning the Consignment Such as Installation and Management of Image Information Processing Equipment (only if applicable)<br>
@@ -310,14 +307,13 @@
 								<th scope="col">Consignee</th>
 								<th scope="col">Manager</th>
 								<th scope="col">Contact</th>
-								<th scope="col">Contact</th>
 							</tr>
 							<tr>
-								<td>24 hours</td>
-								<td>180 days from the date of recording</td>
-								<td>NVR location</td>
+								<td>S1</td>
+								<td>Sales Manager at the Business Site</td>
+								<td>02-2075-4494</td>
 							</tr>
-						</table>
+						</table><br>
 						⑥ Matters Concerning the Checking Method and the Place of Personal Image Information<br>
 						- Checking Method: You can check by contacting the image information manager in advance and visiting the Company.<br>
 						- Location: NVR location<br><br>
@@ -331,7 +327,7 @@
 
 						<h4 style="color: rgb(0, 0, 0); font-weight:700;">Article 13 (Modification of the Privacy Policy)</h4>
 						<p>
-							The current privacy policy and the operation and management policy for image information processing equipment were revised on 00/00/2022, and contents may be added, deleted, or modified due to changes in related laws and guidelines or the needs of the Company. In this case, we will notify you in advance through the website or e-mail. In addition, we may obtain the customer's separate consent if necessary in accordance with relevant laws and regulations.<br>
+							The current privacy policy and the operation and management policy for image information processing equipment were revised on 05/26/2022, and contents may be added, deleted, or modified due to changes in related laws and guidelines or the needs of the Company. In this case, we will notify you in advance through the website or e-mail. In addition, we may obtain the customer's separate consent if necessary in accordance with relevant laws and regulations.<br>
 							- Announcement Date: 05/19/2022<br>
 							- Effective Date: 05/26/2022<br><br>
 						</p>

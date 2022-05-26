@@ -92,7 +92,7 @@
 							<div class="contact"> 
 								<div class="title">문의 Contact</div>  
 								<div class="info"> 
-									<div class="highlight">전시마케팅팀 <strong>김희진 선임</strong></div>
+									<div class="highlight">전시기획팀 <strong>김희진 선임</strong></div>
 									<div class="tel"><strong class="tit">Tel</strong> <span>02-2075-4397</span></div>
                                     <div class="email"><strong class="tit">E-mail</strong> <a href="mailto:hjk@seoulauction.com">hjk@seoulauction.com</a></div>
 								</div>
