@@ -282,11 +282,14 @@ input[type="checkbox"].overlay_checkbox{
             <div style="clear:both;"></div>
         </div>
 
-        <!-- 커밍순 썸네일  -->  
+        <!-- 제로베이스 -->
         <div class="col4">
-            <img src="/images/img/main/auction_sum/20190613.jpg" style="width:100%;"/>
+            <!-- <a href="/currentAuction?sale_kind=zerobase_only&page=1"> -->
+            	 <img src="/images/img/main/auction_sum/20220526.jpg" style="width:100%;"/>
+			<!-- </a> -->
             <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
-            <p class="mainContents_txt"></p>
+            <p class="mainContents_txt" ng-if="locale=='ko'">ZEROBASE v11 HIP! POP!</p>
+            <p class="mainContents_txt" ng-if="locale!='ko'">ZEROBASE v11 HIP! POP!</p>
             <div style="clear:both;"></div>
         </div>
 
@@ -342,17 +345,6 @@ input[type="checkbox"].overlay_checkbox{
             <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
             <p class="mainContents_txt" ng-if="locale=='ko'">166회 서울옥션 미술품경매</p>
             <p class="mainContents_txt" ng-if="locale!='ko'">166th ART AUCTION</p>
-            <div style="clear:both;"></div>
-        </div> -->
-
-        <!-- 제로베이스
-        <div class="col4">
-            <a href="/currentAuction?sale_kind=zerobase_only&page=1">
-            	 <img src="/images/img/main/auction_sum/20220317.jpg" style="width:100%;"/>
-			</a>
-            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
-            <p class="mainContents_txt" ng-if="locale=='ko'">ZEROBASE</p>
-            <p class="mainContents_txt" ng-if="locale!='ko'">ZEROBASE</p>
             <div style="clear:both;"></div>
         </div> -->
 
