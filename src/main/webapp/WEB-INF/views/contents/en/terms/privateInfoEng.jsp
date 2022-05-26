@@ -200,8 +200,9 @@
 							※ Directed to the privacy department.<br><br>
 
 							▶ Privacy Department<br>
-							Seoul Auction Customer Center<br>
-							02-395-0330 / sos@seoulauction.com<br><br>
+							Webservice Develeopment Team<br>
+							02-395-0330 / sos@seoulauction.com<br>
+							※ Directed to the privacy department.<br><br>
 
 							② All inquiries, complaints, damage relief, etc. concerning all personal information protection that arise in the course of using the services (or business) of the Company can be directed to the privacy officer or the privacy department. The Company shall provide replies to such inquiries without delay.<br><br>
 						</p>
@@ -253,15 +254,11 @@
 									<th scope="col">Number of Installations</th>
 									<th scope="col">Installation Location and Shooting Range</th>
 								</tr>
-								<tr>
-									<td>LG Uplus Corp.</td>
-									<td rowspan="2">Text message sending service</td>
-								</tr>
-								<tr>
+								<tr> 
 									<td>129</td>
-									<td>Building lobby, exhibition hall, warehouse and parking lot entrance</td>
+									<td rowspan="2">Building lobby, exhibition hall, warehouse and parking lot entrance</td>
 								</tr>
-							</table>
+							</table><br>
 						③ Chief Manager and Access Authority<br>
 						The company has personal image information protection officers as follows to protect customers' image information and to handle complaints related to personal image information.<br><br>
 
@@ -287,7 +284,7 @@
 								<td>HR and General Affairs Team</td>
 								<td>02-2075-4494</td>
 							</tr>
-						</table>
+						</table><br>
 						④ Recording Time, Storage Period, Storage Location and Processing Method of Image Information<br>
 						<table class="privacy_table">
 							<tr>
@@ -300,7 +297,7 @@
 								<td>180 days from the date of recording</td>
 								<td>NVR location</td>
 							</tr>
-						</table>
+						</table><br>
 						- Processing Method: Requests such as use of personal image information for other purpose, provision to a third party, destruction, and viewing shall be recorded and managed, and when the storage period expires, it shall permanently be deleted (shredded or incinerated in the case of printed materials) in a way that cannot be restored.<br><br>
 
 						⑤ Matters Concerning the Consignment Such as Installation and Management of Image Information Processing Equipment (only if applicable)<br>
@@ -317,7 +314,7 @@
 								<td>180 days from the date of recording</td>
 								<td>NVR location</td>
 							</tr>
-						</table>
+						</table><br>
 						⑥ Matters Concerning the Checking Method and the Place of Personal Image Information<br>
 						- Checking Method: You can check by contacting the image information manager in advance and visiting the Company.<br>
 						- Location: NVR location<br><br>
@@ -331,7 +328,7 @@
 
 						<h4 style="color: rgb(0, 0, 0); font-weight:700;">Article 13 (Modification of the Privacy Policy)</h4>
 						<p>
-							The current privacy policy and the operation and management policy for image information processing equipment were revised on 00/00/2022, and contents may be added, deleted, or modified due to changes in related laws and guidelines or the needs of the Company. In this case, we will notify you in advance through the website or e-mail. In addition, we may obtain the customer's separate consent if necessary in accordance with relevant laws and regulations.<br>
+							The current privacy policy and the operation and management policy for image information processing equipment were revised on 05/26/2022, and contents may be added, deleted, or modified due to changes in related laws and guidelines or the needs of the Company. In this case, we will notify you in advance through the website or e-mail. In addition, we may obtain the customer's separate consent if necessary in accordance with relevant laws and regulations.<br>
 							- Announcement Date: 05/19/2022<br>
 							- Effective Date: 05/26/2022<br><br>
 						</p>
