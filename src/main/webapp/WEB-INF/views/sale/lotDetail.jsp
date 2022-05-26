@@ -893,33 +893,7 @@ function OnloadImg(){
                                     	<a href="mailto:saplus@seoulauction.com">E-mail: saplus@seoulauction.com</a>   
                                     </p>
                                     <p ng-if="locale != 'ko' && !custInfo.CUST_NO && is_login && ['main','hongkong','plan'].indexOf(sale.SALE_KIND_CD) > -1 && sale_status == 'ING'"><spring:message code="label.auction.membershipchk" /></p>
-									
-									<p ng-if="sale.NOTICE_DTL_JSON != null">
-									<span ng-bind-html="sale.NOTICE_DTL_JSON[locale]"></span>
-									</p>
-                                    
-                                    <p ng-if="locale == 'ko' && sale.NOTICE_DTL_JSON == null && ['online','online_zb'].indexOf(sale.SALE_KIND_CD) > -1">
-                                        작품 컨디션은 주관적인 견해에 따라 다를 수 있습니다. 재질의 특성상 울음 등의 변형이 있을 수 있으니  반드시 '실물 확인' 후 응찰 해주시기 바랍니다.</br>
-                                        컨디션에 액자 상태는 포함되지 않으며, 작품을 직접 확인하지 못하여 발생하는 모든 책임은 응찰자에게 있습니다.</br>
-                                        응찰 및 낙찰 취소는 불가합니다. 부득이한 사유로 낙찰 취소시, 낙찰가의 30%에 해당하는 위약금이 발생합니다.</br>
-                                        출품작 중 일부는 문화재 보호법상의 문화재에 해당되므로 해외반출이 불가하오니 이 점 유의하시기 바랍니다.</br>
-                                        <font style="font-weight:700">
-                                        응찰은 실물 확인 후 진행되는 것을 전제로 하며, 작품 중 일부에는 복사본이 포함되어 있을 수 있으니 신중히 응찰해주시기 바랍니다.</br>
-                                        배송 : <br/>
-                                        작품은 사전예약을 통해 7일 이내 출고하여야 합니다.<br/>
-                                        또한 작품 운송은 '구매자 비용'으로 진행하셔야 합니다. 
-                                        </font>
-                                    </p>
-                                    <p ng-if="locale != 'ko' && sale.NOTICE_DTL_JSON == null && ['online','online_zb'].indexOf(sale.SALE_KIND_CD) > -1">
-                                        The condition of the artwork may vary based on subjective opinion, and changes in the material may occur due to the innate characteristics of such material. (As wrinkles may form in the material of an artwork, altering the appearance of the work, please make sure to check the condition of the actual artwork before making your bid.)</br>
-                                        Details on the condition of the artwork’s frame are not included in the description of the condition of the artwork itself. The bidder alone is responsible for checking the condition of the actual/physical artwork.</br>
-                                        A (successful) bid can be cancelled with a penalty. In the event a bid must be cancelled, the bidder must pay a penalty corresponding to 30 percent of the successful bid price.</br>
-                                       
-                                        If the artwork requires installation, etc., a separate fee shall be incurred by the bidder.</br>
-                                        The part of Korean traditional works cannot be carried out abroad, because of the Cultural Properties Protection Law.</br>
- The bidding is conducted on the premise that the bidder has identified the condition of artworks. Some of the artworks may have copies, so please make a careful bid.</br>
-* The work must be picked-up within 7 days of the sale through advanced arrangement. Also, shipping costs and packing shall be carried under the responsibility of the winning bidder.</br>
-                                    </p> 
+
                                     <ul ng-if="!custInfo.CUST_NO && lot.END_YN == 'Y'" >
                                         <li><spring:message code="label.auction.soldpricelog" /></li>
                                     </ul>
@@ -1339,6 +1313,10 @@ Shipping : </br>
 							<div class="txt" bind-html-compile="lot.CMMT_JSON[locale]"></div>
 							<div class="txt" ng-if="(locale == 'en' && lot.CMMT_JSON['zh'] != null) && (lot.CMMT_JSON[locale] != lot.CMMT_JSON['zh'])" bind-html-compile="lot.CMMT_JSON['zh']"></div>							
 						</div>
+					</div>
+					<div class="master_info explain" ng-if="sale.NOTICE_DTL_JSON[locale]">
+						<div class="tit"><spring:message code="label.auction.detail.notice" /></div>
+						<div class="txt" bind-html-compile="sale.NOTICE_DTL_JSON[locale]"></div>
 					</div>
 					<%-- <div class="master_info explain" ng-if="sale.PREVIEW_JSON">
 						<div class="left" style="padding-right: 0px;">
