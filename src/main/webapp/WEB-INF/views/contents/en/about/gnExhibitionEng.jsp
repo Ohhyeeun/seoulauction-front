@@ -22,10 +22,10 @@
 			<div class="contents_wrap">   
 				<div class="contents">  
                     <div class="tit_h2"> 
-						<h2>SA Gangnam Center Exhibition</h2>   
+						<h2>Gangnam Center Exhibition</h2>
 					</div> 
  					<!-- 전시썸네일 이미지 슬라이드 -->       
-					<div class="sub_banner02" id="slides">     
+					<%--<div class="sub_banner02" id="slides">
 						<a href="" class="sp_btn slidesjs-previous slidesjs-navigation"><span class="hidden">이전</span></a> 
 						<a href="" class="sp_btn slidesjs-next slidesjs-navigation"><span class="hidden">다음</span></a>  
 						<!-- 세로이미지 일 때 -->  
@@ -34,26 +34,27 @@
 						<!-- 가로이미지  일 때 -->    
 						<!-- <div><img src="/images/img/gnag/img_banner11.jpg" alt="gangnam" /></div>
                         <div><img src="/images/img/gnag/img_banner11.jpg" alt="gangnam" /></div> -->   
-					</div> 
+					</div>--%>
 					  
 					<!-- 전시썸네일 이미지 단일 -->   
                     <!-- <div class="exhibition_img_box">     
                      	<img src="/images/img/gnag/img_banner29.jpg" alt="강남전시 배너" style="margin-bottom: 10px;"/>                
-                    </div>   
+                    </div> -->
                     <div class="exhibition_img_box">     
-                     	<img src="/images/img/gnag/img_banner30.jpg" alt="강남전시 배너" />                           
-                    </div> -->        
+                     	<img src="/images/img/gnag/img_banner33.jpg" alt="강남전시 배너" />
+                    </div>
                     
                     <div class="storage_cont title_area">   
                     	<div class="exhibition_firstbox"> 
 							<div class="title" style="margin-bottom: 10px;">
-								<p>Seoul Auction Gangnam Center Exhibition</p>    
-								<h3 style="margin-top:10px; font-weight: 800;">Seung H-Sang, Choi DukJoo<br> Landscape Woven, Connected The woven and the connected</h3>        
+								<p>Gangnam Center Exhibition</p>
+								<h3 style="margin-top:10px; font-weight: 800;">HA TAE IM<br>
+									Yellow, the color of radiant memories</h3>
 							</div>  
-							<p style="line-height:30px; font-size:16px;">      
-	                            (Tue)29 June - (Sun)18 July, 2021<br>
-                                10am - 7pm<br>
-                                Seoul Auction Gangnam Center 6F
+							<p style="line-height:30px; font-size:16px;">
+								27th(Fri) May - 12(Sun) June, 2022<br>
+								10am - 7pm<br>
+								Gangnam Center 6F
 							</p>         
 	                        <!--<a href="/currentExhibit?sale_kind=exhibit_only&sale_no=637" class="btn_main_more green exhibiton_listbtn" >LIST</a> 
 							<a href="https://www.seoulauction.com/nas_img/front/homepage/e-book/mariKim/index.html" class="btn_main_more green exhibiton_listbtn" target="_blank" >CATALOGUE</a>      
@@ -61,17 +62,17 @@
                        	</div>  
                         <div style="border-top: #CCC solid 1px; padding-top: 20px;">               
 							<div style="line-height:27px; text-align: justify;">           
-                            	<p style="margin-bottom: 15px;">                                                                      
-									There are several similarities that unite the jogakbo, a traditional style of Korean patchwork that is created by sewing together pieces of fabric, and furniture that is made according to pre-determined structures/frameworks. The first is a conviction about the resulting shape. The second is the fact that this conviction is based on exhaustive planning and calculations. The final similarity is that a tremendous amount of hard work must be applied. When makers of furniture or patchwork wrapping cloths adhere devotedly to these procedural principles, such veracity alone is sufficient to see the project through. No other inputs are necessary. In other words, keeping faithful to the framework and staying focused on the hand-weaving bring impressive results in themselves.</p>
-                                <p style="margin-bottom: 15px;">                                   
-	                               Of course, elaborate hand-embroidery and ornamentation can be eye-catching at times. All of the furniture and patchwork wrapping cloth displayed in this exhibition, however, have little to do with hand-embellishment and decoration. The furniture in particular looks simple and calm at first glance, but this impression belies the intense battle in play among the interlocked parts of the framework. This strong presence of conflict allows the furniture to emanate a tension and explains why this exhibition is subtitled “A Monastery for the Self-exiled.” The jogakbo is, from dying to weaving, the outcome of painstaking effort. The dedication to making one stitch after another is the key to success. The thin sheets of fabric in ephemeral colors are packed with an invisible intensity and tenacity.
+                            	<p style="margin-bottom: 15px;">
+									Yellow, the color of radiant memories
+								<p style="margin-bottom: 15px;">
+								The color of light, full of warmth and joy
                                 </p>
-                                <p style="margin-bottom: 15px;">                                 
-    	                            Furniture and jogakbo are rarely displayed side-by-side at the same exhibition. In a sense, things that are woven or connected are part of a world that is beyond the reach of cutting-edge technologies. This exhibition hopes to create a beautiful scene through the unexpected harmony of things that are woven and things that are interlocked. 
+                                <p style="margin-bottom: 15px;">
+									Yellow is the color of light. This vibrant and energetic color that holds therapeutic power fills my earliest memories with radiance.
                                 </p>
-                                <p>                                    
-	                                May the woven and interlocked presentations on display grant us much-needed rest and solace during these chaotic times.
-								</p> 
+								<p style="margin-bottom: 15px;">
+									To me, colors are like notes of music: just as notes of different pitches together make up a song, the repetition and differences of colors make up my works. These colors are passages and doors to an unknown world.
+								</p>
 							</div> 
                             <!-- <p style="font-size:12px; margin-top: 20px;">       
                                <strong>Artists</strong><br/>   
@@ -84,7 +85,7 @@
                         </div>    
                         
 						
-						<!--<div class="btns mt10">  
+						<!--<div class="btns mt10">   
 							<span class="btn_style01">
 								<a href="/about/page?view=location" target="_blank" title="Location">Seoul Auction Location</a>
 							</span>
@@ -94,9 +95,9 @@
 							<div class="contact">  
 								<div class="title">Contact</div>     
 								<div class="info"> 
-									<div class="highlight">Seoul Auction Gangnam Center <strong>Karam Yoon</strong></div>    
-									<div class="tel"><strong class="tit">Tel</strong> <span>+82 (0)2-2075-4422</span></div>    
-                                    <div class="email"><strong class="tit">E-mail</strong> <a href="mailto:kyoon@seoulauction.com">kyoon@seoulauction.com</a></div>        
+									<div class="highlight">Gangnam Center <strong>Hee Jin Kim</strong></div>
+									<div class="tel"><strong class="tit">Tel</strong> <span>+82 (0)2-2075-4397 </span></div>
+                                    <div class="email"><strong class="tit">E-mail</strong> <a href="mailto:hjk@seoulauction.com">hjk@seoulauction.com</a></div>
 								</div>     
 							</div>  
 							<!-- <div class="right">  
@@ -115,7 +116,7 @@
 								<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12655.621508400407!2d127.03040534787746!3d37.533727752054204!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x20893aab0caffe0c!2zKOyjvCnshJzsmrjsmKXshZgg6rCV64Ko7IKs7JilIFNlb3VsIEF1Y3Rpb24gR2FuZ25hbSBCcmFuY2g!5e0!3m2!1sko!2skr!4v1547529016843" width="500" height="350" frameborder="0" style="border:0"></iframe>
 							</div>
 							<div class="right">
-								<div class="title">Seoul Auction Gangnam Center</div>
+								<div class="title">Gangnam Center</div>
 								<!-- 20150608 -->
 								<div class="cont">
 									<dl>

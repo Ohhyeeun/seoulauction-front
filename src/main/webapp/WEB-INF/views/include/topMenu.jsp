@@ -382,8 +382,10 @@ function showTopLayer() {
 							<li ng-if="locale == 'ko'" style="padding-top:10px;"><a href="/currentExhibit?sale_kind=exhibit_only&sale_no=673&page=1">블랙랏 런칭 전시 (하이라이트)</a></li> 
 							<li ng-if="locale != 'ko'" style="padding-top:10px;"><a href="/currentExhibit?sale_kind=exhibit_only&sale_no=673&page=1">BLACKLOT Launching Exhibition (highlights)</a></li> -->    
 							     
-	                    	<!--<li style="padding-top:10px;"><a href="/about/page?view=gnExhibition&lang={{locale}}" ><spring:message code="label.seoulauction.introgang0" /></a></li>-->
-	                    	<!-- 강남전시 1,2  
+	                    	<%--<li style="padding-top:10px;"><a href="/about/page?view=gnExhibition&lang={{locale}}" ><spring:message code="label.seoulauction.introgang0" /></a></li>--%>
+							<li style="padding-top:10px;" ng-if="locale=='ko'"><a href="/about/page?view=gnExhibition&lang={{locale}}">강남센터 Exhibition</a></li>
+							<li style="padding-top:10px;" ng-if="locale!='ko'"><a href="/about/page?view=gnExhibition&lang={{locale}}">Gangnam Center Exhibition</a></li>
+	                    	<!-- 강남전시 1,2
 	                        <li style="padding-top:10px;"><a href="/about/page?view=gnExhibition" ><spring:message code="label.seoulauction.introgang1" /></a></li>
 	                        <li style="padding-top:10px;"><a href="/about/page?view=gnExhibition02" ><spring:message code="label.seoulauction.introgang2" /></a></li> -->
                             
@@ -795,18 +797,20 @@ function showTopLayer() {
                        	</a> 
                     </li> -->       
                     
-                    <!-- 강남전시 1,2   
-                    <li class="dropdown"><a href="/about/page?view=gnExhibition" ><spring:message code="label.seoulauction.introgang1" /></a></li>  
-                    <li class="dropdown"><a href="/about/page?view=gnExhibition02" ><spring:message code="label.seoulauction.introgang2" /></a></li> -->  
+                    <!-- 강남전시 1,2 -->
+                    <li class="dropdown" ng-if="locale=='ko'"><a href="/about/page?view=gnExhibition">강남센터 Exhibition</a></li>
+                    <li class="dropdown" ng-if="locale!='ko'"><a href="/about/page?view=gnExhibition">Gangnam Center Exhibition</a></li>
+                    <%--<li class="dropdown"><a href="/about/page?view=gnExhibition" ><spring:message code="label.seoulauction.introgang1" /></a></li>--%>
+                    <!-- <li class="dropdown"><a href="/about/page?view=gnExhibition02" ><spring:message code="label.seoulauction.introgang2" /></a></li> -->
                     
                     <li class="dropdown"> 
                     	<div class="mobile_copyright">
-                    		<div class="copy_txtbox">  
-                    			<p class="copy_txtbox_url">  
+                    		<div class="copy_txtbox">
+                    			<p class="copy_txtbox_url">
 				       				www.seoulauction.com
-				       			</p>        
-				       			<p class="copy_txtbox_inquery">    
-				       				<a ng-if="locale == 'ko'" href="tel:02-395-0330" style="color: #333;">고객센터</a>   
+				       			</p>
+				       			<p class="copy_txtbox_inquery">
+				       				<a ng-if="locale == 'ko'" href="tel:02-395-0330" style="color: #333;">고객센터</a>
 				       				<a ng-if="locale == 'ko'" href="/customer/inquiryForm" style="color: #333;">1:1 문의</a>     
                                     <a ng-if="locale != 'ko'" href="/customer/inquiryForm" style="color: #333;">1:1 Inquiry</a>       
 				       			</p>  

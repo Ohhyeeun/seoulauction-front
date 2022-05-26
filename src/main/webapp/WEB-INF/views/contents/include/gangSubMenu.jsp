@@ -5,8 +5,9 @@
 
 				<ul> 
                 	<li ng-if="locale == 'ko'" class="<c:if test='${fn:indexOf(pageContext.request.requestURI,\"gnExhibition.jsp\") > -1}'>sele</c:if>">
-						<a href="/about/page?view=gnExhibition"><spring:message code="label.seoulauction.introgang0" /></a>
-					</li> 
+						<%--<a href="/about/page?view=gnExhibition"><spring:message code="label.seoulauction.introgang0" /></a>--%>
+						<a href="/about/page?view=gnExhibition">강남센터 Exhibition</a>
+					</li>
                     <li ng-if="locale != 'ko'" class="<c:if test='${fn:indexOf(pageContext.request.requestURI,\"gnExhibitionEng.jsp\") > -1}'>sele</c:if>">   
 						<a href="/about/page?view=gnExhibition"><spring:message code="label.seoulauction.introgang0" /></a>       
 					</li> 

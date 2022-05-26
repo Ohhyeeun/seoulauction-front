@@ -270,6 +270,17 @@
         <div class="onerow"></div>
         <h2 class="mainContents_tit">AUCTION</h2>
 
+        <!-- 제로베이스 -->
+        <div class="col4">
+            <!-- <a href="/currentAuction?sale_kind=zerobase_only&page=1"> -->
+            <img src="/images/img/main/auction_sum/20220526.jpg" style="width:100%;"/>
+            <!-- </a> -->
+            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
+            <p class="mainContents_txt" ng-if="locale=='ko'">ZEROBASE v11 HIP! POP!</p>
+            <p class="mainContents_txt" ng-if="locale!='ko'">ZEROBASE v11 HIP! POP!</p>
+            <div style="clear:both;"></div>
+        </div>
+
         <!-- 온라인 경매 -->
         <div class="col4">
             <a href="/currentAuction?sale_kind=online_only&sale_no=704&page=1">
@@ -282,7 +293,7 @@
             <div style="clear:both;"></div>
         </div>
 
-        <!-- 아트시 경매 -->
+        <!-- 아트시 경매
         <div class="col4">
             <a href="/currentAuction?sale_outside_yn=Y&sale_no=706#page1">
                 <img src="/images/img/main/auction_sum/20220504_black.jpg" style="width:100%;"/>
@@ -291,7 +302,7 @@
             <p class="mainContents_txt" ng-if="locale=='ko'">2nd BLACKLOT Original & Edition</p>
             <p class="mainContents_txt" ng-if="locale!='ko'">2nd BLACKLOT Original & Edition</p>
             <div style="clear:both;"></div>
-        </div>
+        </div> -->
 
         <!-- 온라인 경매 -->
         <div class="col4 last">
@@ -311,6 +322,7 @@
             <p class="mainContents_txt" ng-if="locale!='ko'">e BID Public Online Auction Ⅰ in May</p>
             <div style="clear:both;"></div>
         </div>--%>
+
 
         <!-- 커밍순 썸네일  -->  
         <%--<div class="col4">
@@ -364,7 +376,6 @@
             <div style="clear:both;"></div>
         </div> -->
 
-
         <!-- 온라인 경매 -->
         <!-- <div class="col4">
             <a href="/currentAuction?sale_kind=online_only&sale_no=698&page=1">
@@ -400,7 +411,6 @@
             <p class="mainContents_txt" ng-if="locale!='ko'">ZEROBASE</p>
             <div style="clear:both;"></div>
         </div> -->
-
 
         <!-- 온라인 경매
         <div class="col4">
@@ -836,7 +846,7 @@
                         내부적으로 빠른 복구를 위해 확인 중에 있습니다.<br>
                         경매는 Lot.35 정지윤 작가님의 작품부터 15시10분에 재진행하도록 하겠습니다.<br><br>
 
-                        고객 여러분들의 양해 부탁드립니다.
+                        고객 여러분들의 양해 부탁드립니다. 
 
 
 
