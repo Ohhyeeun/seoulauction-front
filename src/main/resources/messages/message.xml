@@ -365,10 +365,10 @@
 	<entry key="label.auction.detail.literature">LITERATURE</entry>
 	<entry key="label.auction.detail.exhibited">EXHIBITED</entry>
 	<entry key="label.auction.detail.provenance">PROVENANCE</entry>
+	<entry key="label.auction.detail.notice">NOTICE</entry>
 	<entry key="label.auction.detail.artistOtherLot">작가의 작품 더보기</entry>
 
 	<entry key="label.artwork.condition_report">컨디션 리포트</entry>
-	
 	<entry key="label.membership.inquerysell">1대1 위탁문의</entry>
 	<entry key="label.membership.inqueryselllog">1대1 문의는 로그인 후 이용 가능합니다</entry>
 </properties>
