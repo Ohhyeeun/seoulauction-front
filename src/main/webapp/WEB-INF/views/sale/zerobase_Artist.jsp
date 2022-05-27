@@ -219,7 +219,7 @@
 					<div class="artist_box">
 					<figure class="effect-julia">      
 						<a href="{{artList.ARTIST_URL}}" target="_blank">       
-							<img ng-src="<spring:eval expression="@configure['img.root.path']" />{{artList.FILE_NAME | imagePath : artList.FILE_PATH}}" height="100%;" alt="asdasd" />
+							<img ng-src="<spring:eval expression="@configure['img.root.path']" />{{artList.FILE_NAME | imagePath : artList.FILE_PATH}}" height="100%;" alt="" onError="this.src='https://www.seoulauction.com/images/img/zero_base/default_small.png'" />
 						</a>      
 						 <figcaption ng-if="artList.ARTIST_URL != null">
 							 <!-- <h2><span>영상보기</span></h2> -->
