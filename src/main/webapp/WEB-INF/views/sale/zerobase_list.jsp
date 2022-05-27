@@ -154,7 +154,7 @@ app.controller('artDetailListCtl', function($scope, consts, common) {
 								<div class="tit zero_tit">
 									<span class="num"></span>
 									<!-- // num -->
-                                        <img src="https://www.seoulauction.com/nas_img/{{artList.FILE_PATH}}/{{artList.FILE_NAME}}" width="170px" height="170px" style="margin: 20px 0; background-size: contain;">   
+                                        <img ng-src="<spring:eval expression="@configure['img.root.path']"/>{{artList.FILE_PATH}}/{{artList.FILE_NAME}}" width="170px" height="170px" onError="this.src='https://www.seoulauction.com/images/img/zero_base/default_small.png'" style="margin: 20px 0; background-size: contain;">
                                         <span ng-if="locale == 'ko'" style="font-weight: 600; text-align:center;"> {{artList.ARTIST_NAME_BLOB_KO}} </span>  
                                         <span ng-if="locale != 'ko'" style="font-weight: 600; text-align:center;"> {{artList.ARTIST_NAME_BLOB_EN}} </span>
 									<!-- <span ng-if="viewId == 'CURRENT_AUCTION' && sale_status == 'ING' && sale.SALE_KIND_CD == 'online' && sale_status = 'END'">진행 LOT : <span ng-bind="curr_lot_no"></span></span> -->
