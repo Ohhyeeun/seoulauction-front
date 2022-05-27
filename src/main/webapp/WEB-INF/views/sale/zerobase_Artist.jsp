@@ -162,10 +162,12 @@
 				<div class="artist_float" ng-repeat="artListNew in artListNew" ng-if="artListNew.ARTIST_NO != 14973">
 					<div class="artist_box">
 					<figure class="effect-julia">
-						<a href="{{artListNew.ARTIST_URL}}" target="_blank">
-							<img ng-src="<spring:eval expression="@configure['img.root.path']"/>{{artListNew.FILE_NAME | imagePath : artListNew.FILE_PATH}}" height="100%;" alt="" />
-						</a> 
-						 <figcaption ng-if="artListNew.ARTIST_URL != null">
+						<a ng-if="artListNew.ARTIST_URL != null" href="{{artListNew.ARTIST_URL}}" target="_blank">
+							<img ng-src="<spring:eval expression="@configure['img.root.path']"/>{{artListNew.FILE_NAME | imagePath : artListNew.FILE_PATH}}" height="100%;" alt="" onError="this.src='https://www.seoulauction.com/images/img/zero_base/default_small.png'"/>
+						</a>
+						<img ng-if="artListNew.ARTIST_URL == null" ng-src="<spring:eval expression="@configure['img.root.path']"/>{{artListNew.FILE_NAME | imagePath : artListNew.FILE_PATH}}" height="100%;" alt="" onError="this.src='https://www.seoulauction.com/images/img/zero_base/default_small.png'"/>
+
+						<figcaption ng-if="artListNew.ARTIST_URL != null">
 							<!-- <h2><span>영상보기</span></h2> -->   
                             <div>
                                 <!-- <p>서울옥션 제로베이스 아티스트</p>  -->
