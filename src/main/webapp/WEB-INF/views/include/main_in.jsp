@@ -283,10 +283,10 @@ input[type="checkbox"].overlay_checkbox{
 
         <!-- 온라인 경매 -->
         <div class="col4">
-            <!-- <a href="/currentAuction?sale_kind=online_only&sale_no=709&page=1"> -->
+            <a href="/currentAuction?sale_kind=online_only&sale_no=710&page=1">
                 <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/06_20220519_ko.gif" style="width:100%;"/>
                 <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/06_20220519_en.gif" style="width:100%;"/>
-            <!-- </a> -->
+            </a>
             <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
             <p class="mainContents_txt" ng-if="locale=='ko'">6월 e BID 프리미엄 온라인 경매</p>
             <p class="mainContents_txt" ng-if="locale!='ko'">e BID Premium Online Auction in June</p>
