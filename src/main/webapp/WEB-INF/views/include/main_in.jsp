@@ -460,14 +460,14 @@ input[type="checkbox"].overlay_checkbox{
 	         	<span class="m_only"><img src="/images/img/main/video/00.jpg" style="width:100%;" alt="높이용"/></span>
 
                 <div class="popupVideo">
-                    <a data-video="_e6uLn8lE-k"> 
-                        <img src="/images/img/main/video/20220527_03.jpg" style="width:100%; cursor:pointer;" alt="video2"/>
+                    <a data-video="OYrIxlCYK4E?start=8">
+                        <img src="/images/img/main/video/20220603.jpg" style="width:100%; cursor:pointer;" alt="video2"/>
                     </a>
                     <div class="video-popup">
                         <div class="video-popup-closer"></div>
                     </div>
-                    <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">ZEROBASE v11, 𝙃𝙄𝙋ǃ 𝙋𝙊𝙋ǃ 트레일러</p>
-                    <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">ZEROBASE v11, 𝙃𝙄𝙋ǃ 𝙋𝙊𝙋ǃ 트레일러</p>
+                    <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">FOCUS ON: eBID Premium Online Auction in June 2022</p>
+                    <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">FOCUS ON: eBID Premium Online Auction in June 2022</p>
                 </div>
 	      	</div>
 
