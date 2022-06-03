@@ -204,7 +204,7 @@
                                 </p>
                                 <br/><br/>
                                 <p style="font-size:16px; font-weight:600; line-height:30px;">3. 구매 수수료</p>
-                                <p style="line-height:30px; font-size:16px;">낙찰가에 따른 낙찰수수료는 기본적으로 아래의 방침을 따릅니다. 단, 내부정책에 따라 다른 수수료율이 적용되는 경우가 있습니다.<br/>
+                                <p style="line-height:30px; font-size:16px;"><%--낙찰가에 따른 낙찰수수료는 기본적으로 아래의 방침을 따릅니다. 단, 내부정책에 따라 다른 수수료율이 적용되는 경우가 있습니다.<br/>--%>
                                 온라인 경매 일괄 18% (부가세 별도)<br/>
                                 낙찰가(Hammer Price) : 경매사가 낙찰봉을 두드리면서 낙찰된 금액<br/>
                                 구매가(Purchase Price) : 낙찰가 + 낙찰 수수료 + 부가가치세가 합산된 금액
