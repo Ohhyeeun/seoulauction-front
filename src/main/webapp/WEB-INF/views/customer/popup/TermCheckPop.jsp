@@ -84,8 +84,8 @@ function checkboxAll(){
 					<li>
 						<input type="checkbox" name="agree_checkbox" id="chk04" class="auctionagree_checkinput" />
 						<label for="chk04" class="auctionagree_check" style="cursor:pointer;">
-							<c:if test="${locale == 'ko'}"><span class="auctionagree_check_contents">낙찰자가 ①지정된 기일에 낙찰대금을 납부하지 않거나,②부득이 낙찰을 철회하는 경우,낙찰가의 30%에해당하는 금액을 낙찰철회비(위약금)로 납부하여야 합니다.</span></c:if>
-							<c:if test="${locale != 'ko'}"><span class="auctionagree_check_contents">A successful bidder must immediately pay a buyer withdrawal fee, corresponding to 30% of the hammer price, ①when the successful bidder fail to make a full payment, including the buyer’s premium, by the payment deadline or ②when withdrawing the successful bid for unavoidable reasons.</span></c:if>
+							<c:if test="${locale == 'ko'}"><span class="auctionagree_check_contents">낙찰철회시 낙찰가의 30%에 해당하는 낙찰철회비가 부과됩니다.</span></c:if>
+							<c:if test="${locale != 'ko'}"><span class="auctionagree_check_contents">When withdrawing the successful bid, a successful bidder must immediately pay a buyer withdrawal fee, corresponding to 30% of the hammer price.</span></c:if>
 						</label>
 					</li>
 					<li>
