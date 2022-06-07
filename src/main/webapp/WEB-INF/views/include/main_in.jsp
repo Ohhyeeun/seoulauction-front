@@ -300,8 +300,8 @@ input[type="checkbox"].overlay_checkbox{
                 <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220603_en.gif" style="width:100%;"/ >
             <%--</a>--%>
             <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
-            <p class="mainContents_txt" ng-if="locale=='ko'">e BID 6월 퍼블릭 온라인 경매 Ⅰ</p>
-            <p class="mainContents_txt" ng-if="locale!='ko'">e BID Public Online Auction Ⅰ in June</p>
+            <p class="mainContents_txt" ng-if="locale=='ko'">6월 e BID 퍼블릭 온라인 경매 Ⅰ</p>
+            <p class="mainContents_txt" ng-if="locale!='ko'">e BID Public Online Auction Ⅰ in June </p>
             <div style="clear:both;"></div>
         </div>
 
