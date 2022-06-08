@@ -270,29 +270,6 @@ input[type="checkbox"].overlay_checkbox{
         <div class="onerow"></div>
         <h2 class="mainContents_tit">AUCTION</h2>
 
-        <!-- 제로베이스
-        <div class="col4">
-            <a href="/currentAuction?sale_kind=zerobase_only&page=1">
-                <img src="/images/img/main/auction_sum/20220526.jpg" style="width:100%;"/>
-            </a> 
-            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
-            <p class="mainContents_txt" ng-if="locale=='ko'">ZEROBASE v11 HIP! POP!</p>
-            <p class="mainContents_txt" ng-if="locale!='ko'">ZEROBASE v11 HIP! POP!</p>
-            <div style="clear:both;"></div>
-        </div> -->
-
-        <!-- 온라인 경매 -->
-        <div class="col4">
-            <a href="/currentAuction?sale_kind=online_only&sale_no=710&page=1">
-                <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/06_20220519_ko.gif" style="width:100%;"/>
-                <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/06_20220519_en.gif" style="width:100%;"/>
-            </a>
-            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
-            <p class="mainContents_txt" ng-if="locale=='ko'">6월 e BID 프리미엄 온라인 경매</p>
-            <p class="mainContents_txt" ng-if="locale!='ko'">e BID Premium Online Auction in June</p>
-            <div style="clear:both;"></div>
-        </div>
-
         <!-- 온라인 경매 -->
         <div class="col4">
             <%--<a href="/currentAuction?sale_kind=online_only&sale_no=710&page=1">--%>
@@ -306,12 +283,31 @@ input[type="checkbox"].overlay_checkbox{
         </div>
 
         <!-- 커밍순 썸네일  -->
+        <div class="col4">
+            <img src="/images/img/main/auction_sum/20190613.jpg" style="width:100%;"/>
+            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
+            <p class="mainContents_txt"></p>
+            <div style="clear:both;"></div>
+        </div>
+
+        <!-- 커밍순 썸네일  -->
         <div class="col4 last">
             <img src="/images/img/main/auction_sum/20190613.jpg" style="width:100%;"/>
             <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
             <p class="mainContents_txt"></p>
             <div style="clear:both;"></div>
         </div>
+
+        <!-- 제로베이스
+        <div class="col4">
+            <a href="/currentAuction?sale_kind=zerobase_only&page=1">
+                <img src="/images/img/main/auction_sum/20220526.jpg" style="width:100%;"/>
+            </a>
+            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
+            <p class="mainContents_txt" ng-if="locale=='ko'">ZEROBASE v11 HIP! POP!</p>
+            <p class="mainContents_txt" ng-if="locale!='ko'">ZEROBASE v11 HIP! POP!</p>
+            <div style="clear:both;"></div>
+        </div> -->
 
         <!-- 오프라인 경매
         <div class="col4">
