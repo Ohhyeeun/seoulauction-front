@@ -49,13 +49,13 @@
 								</div>
 								<ul>
 									<li><a href="/currentAuction?sale_kind=online_only">진행경매</a></li>
-                                    <li><a href="/currentAuction?sale_kind=offline_only&sale_no=563">아트시 경매</a></li> 
+                                    <li><a href="/currentAuction?sale_outside_yn=Y&lang={{locale}}">블랙랏 제로베이스</a></li>
 									<li><a href="/upcomingAuction?sale_kind=online_only">예정경매</a></li>
  									<li><a href="/auctionGuide/page?view=onlinebidGuide">경매안내</a></li>
-                                    <li style="border-bottom: 1px solid #333; height: 10px;"><li>  
-                                    <li style="padding-top: 10px;"><a href="/currentAuction?sale_kind=zerobase_only"><span ng-if="locale=='ko'">제로베이스 경매</span><span ng-if="locale!='ko'">Zero base</span></a> 
+                                    <%--<li style="border-bottom: 1px solid #333; height: 10px;"><li>
+                                    <li style="padding-top: 10px;"><a href="/currentAuction?sale_kind=zerobase_only"><span ng-if="locale=='ko'">제로베이스 경매</span><span ng-if="locale!='ko'">Zero base</span></a>--%>
                               </li>
-                              <li><a href="/zerobaseArtist"><span ng-if="locale=='ko'">제로베이스 작가</span><span ng-if="locale!='ko'">Zero base Artist</span></a></li>
+                              <%--<li><a href="/zerobaseArtist"><span ng-if="locale=='ko'">제로베이스 작가</span><span ng-if="locale!='ko'">Zero base Artist</span></a></li>--%>
 									<!--<li><a href="/otherSales">전시판매</a></li>-->
 								</ul>
 							</div>

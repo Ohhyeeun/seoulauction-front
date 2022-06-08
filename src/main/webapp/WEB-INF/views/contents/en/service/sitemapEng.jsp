@@ -49,13 +49,13 @@
                                 </div>
                                 <ul>
                                     <li><a href="/currentAuction?sale_kind=online_only">Current</a></li>
-                                    <li><a href="/currentAuction?sale_kind=offline_only&sale_no=563">ARTSY Auction</a></li>  
+                                    <li><a href="/currentAuction?sale_outside_yn=Y&lang={{locale}}">BLACKLOT ZEROBASE</a></li>
                                     <li><a href="/upcomingAuction?sale_kind=online_only">Upcoming</a></li>
                                     <li><a href="/auctionGuide/page?view=onlinebidGuide">Guide</a></li>
-                                    <li style="border-bottom: 1px solid #333; height: 10px;"><li>  
-                                    <li style="padding-top: 10px;"><a href="/currentAuction?sale_kind=zerobase_only">Zero base</a> 
+                                    <%--<li style="border-bottom: 1px solid #333; height: 10px;"><li>
+                                    <li style="padding-top: 10px;"><a href="/currentAuction?sale_kind=zerobase_only">Zero base</a>--%>
                               </li>
-                              <li><a href="https://www.seoulauction.com/zerobaseArtist">Zero base Artist</a></li>   
+                              <%--<li><a href="https://www.seoulauction.com/zerobaseArtist">Zero base Artist</a></li>--%>
                                     <!--<li><a href="/otherSales">전시판매</a></li>-->  
                                 </ul>
                             </div>                    	

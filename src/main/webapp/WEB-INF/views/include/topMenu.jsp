@@ -297,13 +297,13 @@ function showTopLayer() {
                                             </li> 
                                             <li>      
 	                                            <span ng-if="outsideIng > 0"><a href="/currentAuction?sale_outside_yn=Y&lang={{locale}}">
-                                                	<span ng-if="locale=='ko'">블랙랏 경매</span><span ng-if="locale!='ko'">BLACKLOT Auction</span><img src="/images/icon/now_icon.png" /></a>
+                                                	<span ng-if="locale=='ko'">블랙랏 제로베이스</span><span ng-if="locale!='ko'">BLACKLOT ZEROBASE</span><img src="/images/icon/now_icon.png" /></a>
 												</span>
-                                                <span ng-if="outsideIng == 0 || outsideIng == null" id="outsideIngBtn"><span ng-if="locale=='ko'">아트시 경매</span><span ng-if="locale!='ko'">ARTSY Auction</span></span>
-											</li>                 
+                                                <span ng-if="outsideIng == 0 || outsideIng == null" id="outsideIngBtn"><span ng-if="locale=='ko'">블랙랏 제로베이스</span><span ng-if="locale!='ko'">BLACKLOT ZEROBASE</span></span>
+											</li>
 	                                        <!-- <li><a href="/resultAuction?sale_kind=online&page=1&lang={{locale}}"><spring:message code="label.auction.result" /></a></li> --> 
 	                                        <li><a href="/auctionGuide/page?view=onlinebidGuide&lang={{locale}}"><spring:message code="label.howto.onbid" /></a></li>
-	                                        <li class="zero_bar" style="cursor: none;"></li>  
+	                                        <%--<li class="zero_bar" style="cursor: none;"></li>
 	                                        <li>
 	                                            <span ng-if="zerobaseIng > 0"><a href="/currentAuction?sale_kind=zerobase_only&page=1&lang={{locale}}"><span ng-if="locale=='ko'">제로베이스 경매</span><span ng-if="locale!='ko'">Zero base</span><img src="/images/icon/now_icon.png" /></a></span>
 	                                            <span ng-if="zerobaseIng == 0 || zerobaseIng == null" id="zerobaseBtn"><span ng-if="locale=='ko'">제로베이스 경매</span><span ng-if="locale!='ko'">Zero base</span></span> 
@@ -311,7 +311,7 @@ function showTopLayer() {
 	                                        <li>
 	                                            <a href="https://www.seoulauction.com/zerobaseArtist?page=1&lang={{locale}}"><span ng-if="locale=='ko'">제로베이스 작가</span><span ng-if="locale!='ko'">Zero base Artist</span><span ng-if="zerobaseIng > 0"><img src="/images/icon/now_icon.png" /></a></span>
 	                                            <!-- <span ng-if="zerobaseIng == 0 || zerobaseIng == null" id="zerobaseBtn"><span ng-if="locale=='ko'">제로베이스 작가</span><span ng-if="locale!='ko'">Zero base Artist</span></span> --> 
-	                                        </li>
+	                                        </li>--%>
 											<!--<li><a href="/resultAuction"><spring:message code="label.auction.result" /></a></li>-->
 										</ul> 
 									</li>   
@@ -655,8 +655,8 @@ function showTopLayer() {
                             </li> 
 
                             <li>      
-	                           <span ng-if="outsideIng > 0"><a href="/currentAuction?sale_outside_yn=Y&lang={{locale}}"><span ng-if="locale=='ko'">블랙랏 경매</span><span ng-if="locale!='ko'">BLACKLOT Auction</span><img src="/images/icon/now_icon.png" style="vertical-align: text-bottom; margin-left: 2px;"/></a></span>
-	                           <span ng-if="outsideIng == 0 || outsideIng == null" id="M_Only_OutsideEnd"><span ng-if="locale=='ko'">아트시 경매</span><span ng-if="locale!='ko'">ARTSY Auction</span></span> 
+	                           <span ng-if="outsideIng > 0"><a href="/currentAuction?sale_outside_yn=Y&lang={{locale}}"><span ng-if="locale=='ko'">블랙랏 제로베이스</span><span ng-if="locale!='ko'">BLACKLOT ZEROBASE</span><img src="/images/icon/now_icon.png" style="vertical-align: text-bottom; margin-left: 2px;"/></a></span>
+	                           <span ng-if="outsideIng == 0 || outsideIng == null" id="M_Only_OutsideEnd"><span ng-if="locale=='ko'">블랙랏 제로베이스</span><span ng-if="locale!='ko'">BLACKLOT ZEROBASE</span></span>
 							</li>    
 	                        <!-- <li> 
 	                        	<a href="/resultAuction?sale_kind=online&lang={{locale}}"><spring:message code="label.auction.result" /></a>
@@ -682,7 +682,7 @@ function showTopLayer() {
 								</ul> 
 	                        </li> -->  
 	                        <li><a href="/auctionGuide/page?view=onlinebidGuide&lang={{locale}}"><spring:message code="label.howto.onbid" /></a></li>
-	                        <li class="zero_bar" style="cursor: none;"></li>  
+	                        <%--<li class="zero_bar" style="cursor: none;"></li>
 	                        <li> 
 		                        <span ng-if="zerobaseIng > 0"><a href="/currentAuction?sale_kind=zerobase_only&lang={{locale}}"><span ng-if="locale=='ko'">제로베이스 경매</span><span ng-if="locale!='ko'">Zero base</span><img src="/images/icon/now_icon.png" style="vertical-align: text-bottom; margin-left: 2px;"/></a></span> 
 		                        <span ng-if="zerobaseIng == 0 || zerobaseIng == null" id="M_Only_ZeroEnd"><span ng-if="locale=='ko'">제로베이스 경매</span><span ng-if="locale!='ko'">Zero base</span></span> 
@@ -690,7 +690,7 @@ function showTopLayer() {
 		                    <li> 
 		                        <a href="https://www.seoulauction.com/zerobaseArtist?lang={{locale}}"><span ng-if="locale=='ko'">제로베이스 작가</span><span ng-if="locale!='ko'">Zero base Artist</span><span ng-if="zerobaseIng > 0"><img src="/images/icon/now_icon.png" style="vertical-align: text-bottom; margin-left: 2px;"/></span></a>  
 		                        <!-- <span ng-if="zerobaseIng == 0 || zerobaseIng == null" id="zerobaseBtn"><span ng-if="locale=='ko'">제로베이스 작가</span><span ng-if="locale!='ko'">Zero base Artist</span></span> --> 
-		                    </li> 
+		                    </li>--%>
 		                </ul>
 	             	 </li> 
 	              	<li><a href="#">PRIVATE SALE</a>

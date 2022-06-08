@@ -59,16 +59,15 @@ app.controller('footerCtl', function($scope, consts, common ) {
                               <li><a href="/currentAuction?sale_kind=online_only"><spring:message code="label.auction.current" /></a></li>
                               <li>
                                   <a href="/currentAuction?sale_outside_yn=Y&lang={{locale}}">
-                                    <span ng-if="locale=='ko'">블랙랏 경매</span><span ng-if="locale!='ko'">BLACKLOT Auction</span>
-                                  </a>
+                                    <span ng-if="locale=='ko'">블랙랏 제로베이스</span><span ng-if="locale!='ko'">BLACKLOT ZEROBASE</span>
+                                  </a> 
                               </li>
 							  <li><a href="/upcomingAuction?sale_kind=online_only"><spring:message code="label.auction.upcoming" /></a></li>
                               <li><a href="/auctionGuide/page?view=onlinebidGuide"><spring:message code="label.howto.bid" /></a></li>
-                              <li style="border-bottom: 1px solid #333; height: 10px; max-width: 100px;"><li>
+                              <%--<li style="border-bottom: 1px solid #333; height: 10px; max-width: 100px;"><li>
                               <li style="padding-top: 10px;"><a href="/currentAuction?sale_kind=zerobase_only"><span ng-if="locale=='ko'">제로베이스 경매</span><span ng-if="locale!='ko'">Zero base</span></a>
                               </li>
-                              <li><a href="/zerobaseArtist"><span ng-if="locale=='ko'">제로베이스 작가</span><span ng-if="locale!='ko'">Zero base Artist</span></a></li>
-
+                              <li><a href="/zerobaseArtist"><span ng-if="locale=='ko'">제로베이스 작가</span><span ng-if="locale!='ko'">Zero base Artist</span></a></li>--%>
                       </ul>
                   </div>
                   <div class="nav">
