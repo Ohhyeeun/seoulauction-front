@@ -35,7 +35,7 @@
     <link rel="icon" type="image/png" href="/images/icon/favic/favicon-16x16.png" sizes="16x16"/> 
     <meta name="application-name" content="SeoulAuction" />
  
-    <link href="<c:url value="/css/old/common.css?ver=20220318" />" rel="stylesheet">     
+    <link href="<c:url value="/css/old/common.css?ver=20220610" />" rel="stylesheet">      
     <link href="<c:url value="/css/sa.common.2.0.css?ver=20210901" />" rel="stylesheet">    
     <link href="<c:url value="/css/sa.common.2.1.css?ver=20220318" />" rel="stylesheet">            
     <link type="text/css" href="/css/imgzoom/magnific-popup.css" rel="stylesheet"> 

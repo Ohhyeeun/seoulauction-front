@@ -4747,7 +4747,7 @@ table .wrap_check.type03 > div {
 .master_detail .right {
   float: right;
   width: calc(35% - 10px);
-    word-break: break-all;
+    word-break: break-all; 
 }
 .master_detail .right > div {
   padding-top: 23px;
