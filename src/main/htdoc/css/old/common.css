@@ -8456,7 +8456,8 @@ Released under the MIT License <https://www.opensource.org/licenses/mit-license.
   }
   .master_detail .right {
 	width: calc(100% - 600px);
-	margin-left: 50px;   
+	margin-left: 50px;
+      word-break: break-all;
   }
   .ex_detail .detail div div ul{
   width: 500px;
