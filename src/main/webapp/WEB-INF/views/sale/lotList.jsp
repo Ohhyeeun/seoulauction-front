@@ -1171,9 +1171,9 @@ app.controller('lotListCtl', function($scope, consts, common, bid, $interval, is
                                                     <button type="button" ng-if="viewId == 'CURRENT_AUCTION'" name="ARTIST VIEW" value="ARTIST VIEW" align="center" scrolling="no" onClick="window.open('https://www.seoulauction.com/zerobaseArtist')"; >ARTIST VIEW</button>    
                                                 </span>  
                                                  
-                                                <!-- e-book 도록 보기 (버튼 4개일시 빼기) -->     
-                                                <span class="btn_style01 dark" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_NO == '705'">
-                                                    <button type="button" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_NO == '705'" name=" CATALOGUE" value=" CATALOGUE" align="center" scrolling="no" onClick="window.open('/nas_img/front/homepage/e-book/Contemporary_Art_Sale/index.html')"; >CATALOGUE</button>
+                                                <!-- e-book 도록 보기 (버튼 4개일시 빼기) -->
+                                                <span class="btn_style01 dark" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_NO == '713'">
+                                                    <button type="button" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_NO == '713'" name=" CATALOGUE" value=" CATALOGUE" align="center" scrolling="no" onClick="window.open('/nas_img/front/homepage/e-book/167th/index.html')"; >CATALOGUE</button>
                                                 </span>   
                                                 
 												<span class="btn_style01 green" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_NO == '679'"> 
@@ -1397,10 +1397,10 @@ app.controller('lotListCtl', function($scope, consts, common, bid, $interval, is
                                             </span>  
                                             
                                             <!-- e-book 도록 보기 -->       
-                                            <span class="btn_style01 dark" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_NO == '705'">
-                                                <button type="button" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_NO == '705'" name=" CATALOGUE" value=" CATALOGUE" align="center" scrolling="no" onClick="window.open('/nas_img/front/homepage/e-book/Contemporary_Art_Sale/index.html')";>CATALOGUE</button>
-                                            </span>     
-                                            
+                                            <span class="btn_style01 dark" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_NO == '713'">
+                                                <button type="button" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_NO == '713'" name=" CATALOGUE" value=" CATALOGUE" align="center" scrolling="no" onClick="window.open('/nas_img/front/homepage/e-book/167th/index.html')";>CATALOGUE</button>
+                                            </span>
+
                                             <!-- EXHIBITION 버튼 표시(VR) -->  
                                             <!-- 홍콩 EXHIBITION ->    
                                             <span class="btn_style01 dark" ng-if="sale.SALE_NO == '566'">

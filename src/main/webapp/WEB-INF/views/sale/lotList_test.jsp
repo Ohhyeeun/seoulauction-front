@@ -1299,11 +1299,11 @@ app.controller('lotListCtl', function($scope, consts, common, bid, $interval, is
                                             <button type="button" ng-if="viewId == 'CURRENT_AUCTION'" name="EXHIBITION" value="EXHIBITION" align="center" scrolling="no" onClick="window.open('${contextPath}/service/page?view=auction360VRPop_online2')"; >VR Video</button>   
                                         </span> -->  
                                         
-                                        <!-- e-book 도록 보기  -->       
-                                            <span class="btn_style01 dark" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_NO == '681'">  
-                                                <button type="button" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_NO == '681'" name=" CATALOGUE" value=" CATALOGUE" align="center" scrolling="no" onClick="window.open('https://www.seoulauction.com/nas_img/front/homepage/e-book/164th/index.html')">CATALOGUE</button>                  
-                                            </span>   
-                                          
+                                        <!-- e-book 도록 보기  -->
+										<span class="btn_style01 dark" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_NO == '713'">
+											<button type="button" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_NO == '713'" name=" CATALOGUE" value=" CATALOGUE" align="center" scrolling="no" onClick="window.open('/nas_img/front/homepage/e-book/167th/index.html')";>CATALOGUE</button>
+										</span>
+
                                          <!-- 제로베이스 작가 보기 
                                          <span class="btn_style01 dark" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_NO == '569'">  
                                             <button type="button" ng-if="viewId == 'CURRENT_AUCTION' && sale.SALE_NO == '569'" name="ARTIST VIEW" value="ARTIST VIEW" align="center" scrolling="no" onClick="window.open('https://www.seoulauction.com/zerobaseArtist')"; >ARTIST VIEW</button>  
