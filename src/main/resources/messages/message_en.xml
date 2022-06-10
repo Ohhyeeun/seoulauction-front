@@ -233,19 +233,19 @@
 	<entry key="label.sns.blog">blog</entry>
 	<entry key="label.sns.google">Google</entry>
 
-	<entry key="label.auction.current">Current</entry>
-	<entry key="label.auction.offlinecurrent">Mayjor Auction</entry>  
+	<entry key="label.auction.current">Current</entry> 
+	<entry key="label.auction.offlinecurrent">Major Auction</entry>
 	<entry key="label.auction.upcoming">Upcoming</entry>
 	<entry key="label.auction.result">Result</entry>
 	<entry key="label.sale.exhibit">Other Sales</entry>
 	<entry key="label.artwork.search">Search</entry>
 	<entry key="label.online.blue">Auction Blue</entry>
-	<entry key="label.howto.onbid">Online Auction Infomation</entry>
-	<entry key="label.howto.bid">Auction Infomation</entry>
+	<entry key="label.howto.onbid">Online Auction Information</entry>
+	<entry key="label.howto.bid">Auction Information</entry>
 	<entry key="label.howto.buy">How To Buy</entry>
 	<entry key="label.howto.contract">How To Sell</entry>
 	<entry key="label.howto.delivery">Shipping Info</entry>
-	<entry key="label.howto.auction">Auction Infomation</entry>
+	<entry key="label.howto.auction">Auction Information</entry>
 	<entry key="label.howto.PRIVATE">Private Sale</entry>
 	<entry key="label.ps.privatesale">Private Sale</entry>
 	<entry key="label.ps.gallerynetwork">Gallery Network</entry>  
