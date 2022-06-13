@@ -383,8 +383,8 @@ function showTopLayer() {
 							<li ng-if="locale != 'ko'" style="padding-top:10px;"><a href="/currentExhibit?sale_kind=exhibit_only&sale_no=673&page=1">BLACKLOT Launching Exhibition (highlights)</a></li> -->    
 							     
 	                    	<%--<li style="padding-top:10px;"><a href="/about/page?view=gnExhibition&lang={{locale}}" ><spring:message code="label.seoulauction.introgang0" /></a></li>--%>
-							<li style="padding-top:10px;" ng-if="locale=='ko'"><a href="/about/page?view=gnExhibition&lang={{locale}}">강남센터 Exhibition</a></li>
-							<li style="padding-top:10px;" ng-if="locale!='ko'"><a href="/about/page?view=gnExhibition&lang={{locale}}">Gangnam Center Exhibition</a></li>
+							<%--<li style="padding-top:10px;" ng-if="locale=='ko'"><a href="/about/page?view=gnExhibition&lang={{locale}}">강남센터 Exhibition</a></li>
+							<li style="padding-top:10px;" ng-if="locale!='ko'"><a href="/about/page?view=gnExhibition&lang={{locale}}">Gangnam Center Exhibition</a></li>--%>
 	                    	<!-- 강남전시 1,2
 	                        <li style="padding-top:10px;"><a href="/about/page?view=gnExhibition" ><spring:message code="label.seoulauction.introgang1" /></a></li>
 	                        <li style="padding-top:10px;"><a href="/about/page?view=gnExhibition02" ><spring:message code="label.seoulauction.introgang2" /></a></li> -->
@@ -798,8 +798,8 @@ function showTopLayer() {
                     </li> -->       
                     
                     <!-- 강남전시 1,2 -->
-                    <li class="dropdown" ng-if="locale=='ko'"><a href="/about/page?view=gnExhibition">강남센터 Exhibition</a></li>
-                    <li class="dropdown" ng-if="locale!='ko'"><a href="/about/page?view=gnExhibition">Gangnam Center Exhibition</a></li>
+                    <%--<li class="dropdown" ng-if="locale=='ko'"><a href="/about/page?view=gnExhibition">강남센터 Exhibition</a></li>
+                    <li class="dropdown" ng-if="locale!='ko'"><a href="/about/page?view=gnExhibition">Gangnam Center Exhibition</a></li>--%> 
                     <%--<li class="dropdown"><a href="/about/page?view=gnExhibition" ><spring:message code="label.seoulauction.introgang1" /></a></li>--%>
                     <!-- <li class="dropdown"><a href="/about/page?view=gnExhibition02" ><spring:message code="label.seoulauction.introgang2" /></a></li> -->
                     

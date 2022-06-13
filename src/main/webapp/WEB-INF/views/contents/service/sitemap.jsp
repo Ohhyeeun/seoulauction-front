@@ -161,7 +161,7 @@
 									<h3>링&nbsp;&nbsp;&nbsp;크</h3>
 								</div>
 								<ul> 
-                                	<li><a href="/about/page?view=gnExhibition">강남센터 Exhibition</a></li>
+                                	<%--<li><a href="/about/page?view=gnExhibition">강남센터 Exhibition</a></li>--%>
                                     <!-- 강남전시 1,2 -> 
 									<li><a href="/about/page?view=gnExhibition">서울옥션 강남센터 Exhibition Ⅰ</a></li>
                                     <li><a href="/about/page?view=gnExhibition02">서울옥션 강남센터 Exhibition Ⅱ</a></li> -->
