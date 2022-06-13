@@ -288,10 +288,10 @@ app.controller('academyNowListCtl', function($scope, consts, common, is_login ) 
 							<div class="contact">
 								<div class="title">문의 Contact</div>
 								<div class="info"> 
-									<div class="highlight">서울옥션 브랜드기획팀 <strong>정은지 선임</strong></div>
-									<div class="tel"><strong class="tit">Tel</strong> <span>02-2075-4442</span></div>    
-									<div class="email"><strong class="tit">E-mail</strong> <a href="mailto:jej@seoulauction.com">jej@seoulauction.com</a></div> 
-								</div>
+									<div class="highlight">서울옥션 브랜드기획팀 <strong>음희선 선임</strong></div>
+									<div class="tel"><strong class="tit">Tel</strong> <span><a href="tel:02-2075-4466">02-2075-4466</a></span></div>
+									<div class="email"><strong class="tit">E-mail</strong><a href="mailto:ehs@seoulauction.com">ehs@seoulauction.com</a></div>
+								</div>  
 							</div>
 							<div class="right"> 
 								<span class="btn_style01 icon02"><a href="/customer/inquiryForm" class="fix">1대1 문의</a><span class="ico next02"></span></span>
