@@ -284,9 +284,9 @@ app.controller('academyNowListCtl', function($scope, consts, common, is_login ) 
 							<div class="contact">
 								<div class="title">Contact</div>
 								<div class="info">
-									<div class="highlight">Seoul Auction Academy <strong>Jung Eunji</strong></div> 
-									<div class="tel"><strong class="tit">Tel</strong> <span>82+ (0)2-2075-4442</span></div> 
-									<div class="email"><strong class="tit">E-mail</strong> <a href="mailto:jej@seoulauction.com">jej@seoulauction.com</a></div>
+									<div class="highlight">Seoul Auction Academy <strong>EUM Heesun</strong></div>
+									<div class="tel"><strong class="tit">Tel</strong><span><a href="tel:82+ (0)2-2075-4466">82+ (0)2-2075-4466</a></span></div>
+									<div class="email"><strong class="tit">E-mail</strong> <a href="mailto:ehs@seoulauction.com">ehs@seoulauction.com</a></div>
 								</div>
 							</div> 
 							<div class="right">
