@@ -447,7 +447,7 @@ input[type="checkbox"].overlay_checkbox{
 	     	</div>
 	      	<div class="col4 last" style="overflow:hidden">
 	          	<div class="popupVideo">
-	                  <a data-video="v3LNrzsX9tA">  
+	                  <a data-video="v3LNrzsX9tA">
 	                      <img src="/images/img/main/video/2022061402.jpg" style="width:100%; cursor:pointer;" alt="video2"/>
 	                  </a>
 	                  <div class="video-popup">
@@ -466,8 +466,8 @@ input[type="checkbox"].overlay_checkbox{
                     <div class="video-popup">
                         <div class="video-popup-closer"></div>
                     </div>
-                    <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">FOCUS ON: eBID Premium Online Auction in June 2022</p>
-                    <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">FOCUS ON: eBID Premium Online Auction in June 2022</p>
+                    <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">AUCTION DAY REVIEW | Contemporary Art Sale in May 2022</p>
+                    <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">AUCTION DAY REVIEW | Contemporary Art Sale in May 2022</p>
                 </div>
 	      	</div>
 
