@@ -435,33 +435,33 @@ input[type="checkbox"].overlay_checkbox{
 				<h2 class="mainContents_tit">VIDEO</h2>
 				<div class="col8" style="overflow:hidden">
 	          	<div class="popupVideo">
-	                  <a data-video="RgbcC_ljVzs?start=6">
-	                      <img src="/images/img/main/video/20220527_01.jpg" style="width:100%; cursor:pointer;" alt="video1"/>
+	                  <a data-video="F_AegiAyiMo">
+	                      <img src="/images/img/main/video/2022061401.jpg" style="width:100%; cursor:pointer;" alt="video1"/>
 	                  </a>
 	                  <div class="video-popup">
 	                      <div class="video-popup-closer"></div>
 	                  </div>
-	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">Yellow, 찬란한 기억 | Special Interview. 하태임</p>
-	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">Yellow, 찬란한 기억 | Special Interview. 하태임</p>
+	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">WHAT'S ON AT SA | 167th ART AUCTION</p>
+	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">WHAT'S ON AT SA | 167th ART AUCTION</p>
 	          	</div>
 	     	</div>
 	      	<div class="col4 last" style="overflow:hidden">
 	          	<div class="popupVideo">
-	                  <a data-video="F-xgbYX6cBs">
-	                      <img src="/images/img/main/video/20220527_02.jpg" style="width:100%; cursor:pointer;" alt="video2"/>
+	                  <a data-video="v3LNrzsX9tA">  
+	                      <img src="/images/img/main/video/2022061402.jpg" style="width:100%; cursor:pointer;" alt="video2"/>
 	                  </a>
 	                  <div class="video-popup">
 	                      <div class="video-popup-closer"></div>
 	                  </div>
-	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">AUCTION DAY REVIEW | Contemporary Art Sale in May 2022</p>
-	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">AUCTION DAY REVIEW | Contemporary Art Sale in May 2022</p>
+	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">FOCUS ON: eBID Public Online Auction I in June</p>
+	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">FOCUS ON: eBID Public Online Auction I in June</p>
 	            </div>
 
 	         	<span class="m_only"><img src="/images/img/main/video/00.jpg" style="width:100%;" alt="높이용"/></span>
 
                 <div class="popupVideo">
-                    <a data-video="OYrIxlCYK4E?start=8">
-                        <img src="/images/img/main/video/20220603.jpg" style="width:100%; cursor:pointer;" alt="video2"/>
+                    <a data-video="F-xgbYX6cBs">
+                        <img src="/images/img/main/video/20220527_02.jpg" style="width:100%; cursor:pointer;" alt="video2"/>
                     </a>
                     <div class="video-popup">
                         <div class="video-popup-closer"></div>
