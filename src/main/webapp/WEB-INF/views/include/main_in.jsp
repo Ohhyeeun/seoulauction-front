@@ -272,18 +272,6 @@ input[type="checkbox"].overlay_checkbox{
 
         <!-- 온라인 경매 -->
         <div class="col4">
-            <a href="/currentAuction?sale_kind=online_only&sale_no=712&page=1">
-                <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220603_ko.gif" style="width:100%;"/>
-                <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220603_en.gif" style="width:100%;"/>
-            </a>
-            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
-            <p class="mainContents_txt" ng-if="locale=='ko'">6월 e BID 퍼블릭 온라인 경매 Ⅰ</p>
-            <p class="mainContents_txt" ng-if="locale!='ko'">e BID Public Online Auction Ⅰ in June </p>
-            <div style="clear:both;"></div>
-        </div>
-
-        <!-- 온라인 경매 -->
-        <div class="col4">
             <!-- <a href="/currentAuction?sale_kind=online_only&sale_no=712&page=1"> -->
                 <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/20220609_ko.gif" style="width:100%;"/>
                 <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/20220609_en.gif" style="width:100%;"/>
@@ -295,7 +283,7 @@ input[type="checkbox"].overlay_checkbox{
         </div>
 
         <!-- 오프라인 경매 -->
-        <div class="col4 last">
+        <div class="col4"> 
             <a href="/currentAuction?sale_kind=offline_only&sale_no=713&page=1">
                 <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/167th.jpg" style="width:100%;"/>
                 <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/167th.jpg" style="width:100%;"/>
@@ -306,13 +294,13 @@ input[type="checkbox"].overlay_checkbox{
             <div style="clear:both;"></div>
         </div>
 
-        <!-- 커밍순 썸네일
+        <!-- 커밍순 썸네일 -->
         <div class="col4 last">
             <img src="/images/img/main/auction_sum/20190613.jpg" style="width:100%;"/>
             <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
             <p class="mainContents_txt"></p>
             <div style="clear:both;"></div>
-        </div> -->
+        </div>
 
         <!-- 제로베이스
         <div class="col4">
