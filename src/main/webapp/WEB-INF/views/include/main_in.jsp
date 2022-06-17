@@ -282,8 +282,19 @@ input[type="checkbox"].overlay_checkbox{
             <div style="clear:both;"></div>
         </div>
 
+        <!-- 아트시 경매-->
+        <div class="col4">
+            <%--            <a href="/currentAuction?sale_outside_yn=Y&sale_no=715#page1">--%>
+            <img src="/images/img/main/auction_sum/20220617.jpg" style="width:100%;"/>
+            <%--            </a>--%>
+            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
+            <p class="mainContents_txt" ng-if="locale=='ko'">ZEROBASE 대구</p>
+            <p class="mainContents_txt" ng-if="locale!='ko'">ZEROBASE DAEGU</p>
+            <div style="clear:both;"></div>
+        </div>
+
         <!-- 오프라인 경매 -->
-        <div class="col4"> 
+        <div class="col4 last">
             <a href="/currentAuction?sale_kind=offline_only&sale_no=713&page=1">
                 <img ng-if="locale =='ko'" src="/images/img/main/auction_sum/167th.jpg" style="width:100%;"/>
                 <img ng-if="locale !='ko'" src="/images/img/main/auction_sum/167th.jpg" style="width:100%;"/>
@@ -302,16 +313,7 @@ input[type="checkbox"].overlay_checkbox{
             <div style="clear:both;"></div>
         </div> -->
 
-        <!-- 아트시 경매-->
-        <div class="col4 last">
-<%--            <a href="/currentAuction?sale_outside_yn=Y&sale_no=715#page1">--%>
-                <img src="/images/img/main/auction_sum/20220617.jpg" style="width:100%;"/>
-<%--            </a>--%>
-            <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
-            <p class="mainContents_txt" ng-if="locale=='ko'">ZEROBASE 대구</p>
-            <p class="mainContents_txt" ng-if="locale!='ko'">ZEROBASE DAEGU</p>
-            <div style="clear:both;"></div>
-        </div>
+
 
         <!-- 제로베이스
         <div class="col4">
