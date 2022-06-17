@@ -294,24 +294,24 @@ input[type="checkbox"].overlay_checkbox{
             <div style="clear:both;"></div>
         </div>
 
-        <!-- 커밍순 썸네일 -->
+        <!-- 커밍순 썸네일
         <div class="col4 last">
             <img src="/images/img/main/auction_sum/20190613.jpg" style="width:100%;"/>
             <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
             <p class="mainContents_txt"></p>
             <div style="clear:both;"></div>
-        </div>
+        </div> -->
 
-        <!-- 아트시 경매
+        <!-- 아트시 경매-->
         <div class="col4 last">
-            <a href="/currentAuction?sale_outside_yn=Y&sale_no=708#page1">
-                <img src="/images/img/main/auction_sum/20220512.jpg" style="width:100%;"/>
-            </a>
+<%--            <a href="/currentAuction?sale_outside_yn=Y&sale_no=715#page1">--%>
+                <img src="/images/img/main/auction_sum/20220617.jpg" style="width:100%;"/>
+<%--            </a>--%>
             <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
-            <p class="mainContents_txt" ng-if="locale=='ko'">3rd Original&Edition</p>
-            <p class="mainContents_txt" ng-if="locale!='ko'">3rd Original&Edition</p>
+            <p class="mainContents_txt" ng-if="locale=='ko'">ZEROBASE 대구</p>
+            <p class="mainContents_txt" ng-if="locale!='ko'">ZEROBASE DAEGU</p>
             <div style="clear:both;"></div>
-        </div> --> 
+        </div>
 
         <!-- 제로베이스
         <div class="col4">
