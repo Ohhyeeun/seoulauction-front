@@ -284,9 +284,9 @@ input[type="checkbox"].overlay_checkbox{
 
         <!-- 아트시 경매-->
         <div class="col4">
-            <%--            <a href="/currentAuction?sale_outside_yn=Y&sale_no=715#page1">--%>
+            <a href="/currentAuction?sale_outside_yn=Y&sale_no=715#page1">
             <img src="/images/img/main/auction_sum/20220617.jpg" style="width:100%;"/>
-            <%--            </a>--%>
+            </a>
             <p style="padding-top:30px; padding-bottom:5px; font-size:12px;">Auction</p>
             <p class="mainContents_txt" ng-if="locale=='ko'">ZEROBASE 대구</p>
             <p class="mainContents_txt" ng-if="locale!='ko'">ZEROBASE DAEGU</p>
