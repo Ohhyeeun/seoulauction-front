@@ -437,14 +437,14 @@ input[type="checkbox"].overlay_checkbox{
 	     	</div>
 	      	<div class="col4 last" style="overflow:hidden">
 	          	<div class="popupVideo">
-	                  <a data-video="v3LNrzsX9tA">
-	                      <img src="/images/img/main/video/2022061402.jpg" style="width:100%; cursor:pointer;" alt="video2"/>
+	                  <a data-video="ZL9ASxTHgpQ">
+	                      <img src="/images/img/main/video/20220617.jpg" style="width:100%; cursor:pointer;" alt="video2"/>
 	                  </a>
 	                  <div class="video-popup">
 	                      <div class="video-popup-closer"></div>
 	                  </div>
-	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">FOCUS ON: eBID Public Online Auction I in June</p>
-	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">FOCUS ON: eBID Public Online Auction I in June</p>
+	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale=='ko'">FOCUS ON: eBID Public Online Auction II in June</p>
+	                  <p class="web_only mainContents_txt" style="padding-top: 20px; font-size:14px;" ng-if="locale!='ko'">FOCUS ON: eBID Public Online Auction II in June</p>
 	            </div>
 
 	         	<span class="m_only"><img src="/images/img/main/video/00.jpg" style="width:100%;" alt="높이용"/></span>
