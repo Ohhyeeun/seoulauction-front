@@ -79,7 +79,17 @@ public class LoginController {
 
 		String serverName = "https://" + request.getServerName();
 		String serverPort = ":" + request.getServerPort();
-		String targetUrl = request.getHeader("referer") != null ? request.getHeader("referer").replace(serverName, "").replace(serverPort, "") : "";
+
+		logger.info("referer: {}, server_name: {}", request.getHeader("referer"), request.getServerName());
+		String targetUrl = request.getHeader("referer") != null ? request.getHeader("referer") : "";
+		logger.info("targetUrl1: {}", targetUrl);
+		if(!targetUrl.contains(request.getServerName())) {
+			targetUrl = "/";
+		}
+		logger.info("targetUrl2: {}", targetUrl);
+		targetUrl = targetUrl.replace(serverName, "").replace(serverPort, "");
+		logger.info("targetUrl3: {}", targetUrl);
+
 		if(targetUrl.endsWith("login?logout") || targetUrl.endsWith("login?error") 
 				|| targetUrl.endsWith("/join/form/person") || targetUrl.endsWith("/join/form/company")) {
 			targetUrl = "/";
