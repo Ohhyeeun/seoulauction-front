@@ -488,60 +488,12 @@
 										</div> 
 										<!-- 응찰하기 btn & 경매기록 btn -->
 										<div class="btn bidding_btn" ng-if="sale.SALE_NO != '555' && sale.SALE_NO != '594'">
-	                                        <span ng-show='custInfo.CUST_NO > 0 && lot.STAT_CD != "reentry"' class="btn_style01 xlarge dark full bidding_btn02 dark_bidding_btn" 
+	                                        <span
 	                                            ng-if="['online','online_zb'].indexOf(sale.SALE_KIND_CD) > -1 && lot.END_YN == 'Y'"><!-- sale_status == 'END' 대체. lot.END_YN-->
 	                                            <button ng-if="custInfo.BID_FORBID == 'N' && custInfo.CUST_NO && ((custInfo.LOCAL_KIND_CD == 'foreigner' && custInfo.FORE_BID_YN == 'Y') || (custInfo.LOCAL_KIND_CD != 'foreigner'))" ng-click="showBidHistoryPopup({'parent':this, 'sale':sale, 'lot':lot});" >
 	                                                <spring:message code="label.go.bid.history" /><!-- 온라인응찰기록 -->
 	                                            </button>
 	                                        </span><!-- 온라인 / 종료 -->
-	    									
-	    									
-	    									<span ng-if="is_login == 'false' && lot.END_YN != 'Y' && ['online','online_zb'].indexOf(sale.SALE_KIND_CD) > -1 && sale.AUTO_BID_REQ_CLOSE_DT <= sale.DB_NOW" class="btn_style01 xlarge green02 full bidding_btn02" onClick="alert('로그인 후 확인할 수 있습니다.\n Please login for use.'); location.href='/login';"><!-- sale_status == 'END' 대체. lot.END_YN-->
-	                                            <button type="button">
-	                                                <spring:message code="label.go.bid.now" />
-	                                            </button>
-	                                        </span>
-	                                        
-	    									<!-- 응찰하기 버튼 와인 조건 추가 NY인경우 --> 	
-	                                        <span ng-show='custInfo.CUST_NO > 0 && lot.STAT_CD != "reentry" && (lot.WINE_YN == "N" || custInfo.EMP_GB == "Y")' class="btn_style01 xlarge green02 full bidding_btn02 bidding_btn02_en"
-	                                            ng-if="['online','online_zb'].indexOf(sale.SALE_KIND_CD) > -1 && lot.END_YN == 'N' && sale.AUTO_BID_REQ_CLOSE_DT <= sale.DB_NOW"><!-- sale_status == 'END' 대체. lot.END_YN-->
-	                                            <button type="button" ng-if="custInfo.BID_FORBID == 'N' && custInfo.CUST_NO && ((custInfo.LOCAL_KIND_CD == 'foreigner' && custInfo.FORE_BID_YN == 'Y') || (custInfo.LOCAL_KIND_CD != 'foreigner'))" ng-click="showBidPopup({'parent':this, 'sale':sale, 'lot':lot});" >
-	                                                <spring:message code="label.go.bid.now" />
-	                                            </button>
-	                                        </span>
-	                                        
-	                                        <!-- 응찰하기 버튼 와인 조건 추가 Y인경우 --> 	
-	                                        <span ng-show='custInfo.CUST_NO > 0 && lot.STAT_CD != "reentry" && lot.WINE_YN == "Y" && custInfo.EMP_GB == "N"' class="btn_style01 xlarge green02 full bidding_btn02 bidding_btn02_en"
-	                                            ng-if="['online','online_zb'].indexOf(sale.SALE_KIND_CD) > -1 && lot.END_YN == 'N' && sale.AUTO_BID_REQ_CLOSE_DT <= sale.DB_NOW"><!-- sale_status == 'END' 대체. lot.END_YN-->
-	                                            <button type="button" ng-if="custInfo.BID_FORBID == 'N' && custInfo.CUST_NO && ((custInfo.LOCAL_KIND_CD == 'foreigner' && custInfo.FORE_BID_YN == 'Y') || (custInfo.LOCAL_KIND_CD != 'foreigner'))" onClick="alert('와인 응찰은 서울옥션 담당자 또는 \n02-2075-4326으로 문의주시기 바랍니다. \nPlease contact ejlee@seoulauction.com for wine.')" >
-	                                                <spring:message code="label.go.bid.now" />
-	                                            </button>
-	                                        </span> 
-	                                        
-	                                        <span ng-show='custInfo.CUST_NO > 0 && lot.STAT_CD != "reentry"' class="btn_style01 xlarge green02 full bidding_btn02"   
-	                                            ng-if="sale.SALE_NO != '555' && sale.SALE_NO != '594' && ['main','hongkong','plan'].indexOf(sale.SALE_KIND_CD) > -1 && is_login && sale_status == 'ING' && (lot.DB_NOW | date:'yyyyMMdd') < (lot.SALE_TO_DT | date:'yyyyMMdd')"> 
-	                                            <button ng-if="(custInfo.MEMBERSHIP_YN == 'Y' || custInfo.FORE_BID_YN == 'Y') && sale.SALE_NO != '563' && sale.SALE_NO != '594'" type="button" ng-click="showBidRequestPopup({'parent':this, 'sale':sale, 'lot':lot});" > 
-	                                                <spring:message code="label.go.bid.request" />
-	                                            </button><!-- 정회원 --> 
-	                                        </span> 
-	                                        
-	                                        <span class="btn_style01 xlarge green02 full bidding_btn02" ng-if="sale.SALE_NO != '563' && sale.SALE_NO != '594' &&  ['main','hongkong','plan'].indexOf(sale.SALE_KIND_CD) > -1 && is_login == 'false' && sale_status == 'ING' && (lot.DB_NOW | date:'yyyyMMdd') < (lot.SALE_TO_DT | date:'yyyyMMdd')" onClick="alert('정회원 등록 후 재로그인하시면 응찰하실 수 있습니다.\n The website bidding is open to bidding members only. After Register on the website, try log in again.'); location.href='/login';">
-	                                            <button type="button" >
-	                                                <spring:message code="label.go.bid.request" />
-	                                            </button> 
-	                                        </span>  
-	                                                 
-	                                        <!-- 온라인 / 국내 -->
-	                                        <span ng-show='custInfo.CUST_NO > 0 && lot.STAT_CD != "reentry"' class="btn_style01 xlarge green02 btn_bid"
-	                                            ng-if="['main','hongkong','plan'].indexOf(sale.SALE_KIND_CD) > -1 && is_login && sale_status == 'ING' && (lot.DB_NOW | date:'yyyyMMdd') < (lot.SALE_TO_DT | date:'yyyyMMdd')">
-	                                            <button ng-if="custInfo.FORE_BID_YN == 'Y'" type="button" ng-click="showBidRequestPopup({'parent':this, 'sale':sale, 'lot':lot});" >
-	                                                <spring:message code="label.go.bid.request" />
-	                                            </button> 
-	                                        </span>
-	                                        <!-- 정회원. 국외 회원 응찰 여부 체크된 고객 --><!-- 온라인 / 국외-->
-	                                        <span ng-show='lot.STAT_CD != "reentry"' class="btn_style01 xlarge white full" ng-if="['main','hongkong','plan'].indexOf(sale.SALE_KIND_CD) >= 0 && !is_login && sale_status == 'ING'">
-	                                            <button type="button" onclick="loginAlert();"><spring:message code="label.go.bid.request" /></button>	
-	                                        </span><!-- 오프라인 / 로그아웃 -->
 	                                        </div>
 										</div> <!-- // auction_list_estimate --> 
 									</div>	
@@ -759,6 +711,6 @@
 									</span>--><!-- 오프라인 / 로그아웃 -->
 									
 									<span ng-show='lot.STAT_CD != "reentry"' ng-if="['private','exhibit'].indexOf(sale.SALE_KIND_CD) >= 0 && sale_status == 'ING'" class="btn_style01 xlarge white btn_bid">
-										<button type="button" onclick="goInquiryWrite();"><spring:message code="label.go.inquery" /></button>
+										<button type="button" onclick="();"><spring:message code="label.go.inquery" /></button>
 									</span><!-- 전시 -->
 								</div> <!--hidden_box end-->  

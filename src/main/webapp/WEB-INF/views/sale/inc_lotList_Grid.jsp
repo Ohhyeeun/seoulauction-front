@@ -355,8 +355,7 @@
                                                         </button>
                                                     </span>
                                                     
-                                                    <span ng-show='custInfo.CUST_NO > 0 && lot.STAT_CD != "reentry"' class="btn_style01 xlarge green02 full bidding_btn02"   
-                                                        ng-if="sale.SALE_NO != '555' && sale.SALE_NO != '594' && ['main','hongkong','plan'].indexOf(sale.SALE_KIND_CD) > -1 && is_login && sale_status == 'ING' && (lot.DB_NOW | date:'yyyyMMdd') < (lot.SALE_TO_DT | date:'yyyyMMdd')">
+                                                    <span class="btn_style01 xlarge green02 full bidding_btn02">
                                                         <button ng-if="(custInfo.MEMBERSHIP_YN == 'Y' || custInfo.FORE_BID_YN == 'Y') && sale.SALE_NO != '563' && sale.SALE_NO != '594'" type="button" ng-click="showBidRequestPopup({'parent':this, 'sale':sale, 'lot':lot});" >
                                                             <spring:message code="label.go.bid.request" />
                                                         </button><!-- 정회원 --> 

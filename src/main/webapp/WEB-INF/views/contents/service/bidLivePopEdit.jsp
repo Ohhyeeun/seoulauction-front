@@ -176,9 +176,7 @@
 				}  */
 	 		});
 		}
-		
-		
-		
+
 		//최초 시작가 기준으로 호가 반영 Function
 		$scope.growPriceOffline = function($input){
 			$scope.outGrowPrice;
@@ -209,7 +207,7 @@
 				} else{
 					$scope.outGrowPrice = 0;
 				}
-			}			
+			}
 		
 			return $scope.outGrowPrice;
 		};
@@ -303,7 +301,8 @@
 			
 			$scope.cnt_price = $scope.cnt_price + 1; //응찰 건수 기록
 		};
-		
+
+
 		// Live 하단 네비게이션 리스트
 		/* $scope.liveLotNaviList = function($input){
 			$scope.sale_no = $("#saleNumber").val();
