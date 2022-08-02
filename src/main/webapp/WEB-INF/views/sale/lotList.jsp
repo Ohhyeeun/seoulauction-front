@@ -1259,24 +1259,24 @@ app.controller('lotListCtl', function($scope, consts, common, bid, $interval, is
 				                                			</c:if>  
 														</a>   
 														<!-- 패들번호 발급 받았을 시 패들번호 표시 -->
-														<a ng-if="is_login == 'true' && custInfo.MEMBERSHIP_YN == 'Y' && padd_no > 0" class="livebid_page_btn"  alt="PADD NO. {{padd_no}}" style="cursor:default;">     
-				                                			<span class="livebid_pageback_txt">PADD NO. {{padd_no}}</span>
-														</a>
+<%--														<a ng-if="is_login == 'true' && custInfo.MEMBERSHIP_YN == 'Y' && padd_no > 0" class="livebid_page_btn"  alt="PADD NO. {{padd_no}}" style="cursor:default;">     --%>
+<%--				                                			<span class="livebid_pageback_txt">PADD NO. {{padd_no}}</span>--%>
+<%--														</a>--%>
 													</span>
 			                                	</div><!-- //livebid_pageback --> 
 			                                </div><!-- //livebid_page --> 
-			                                <div class="livebid_page" ng-if="sale_status == 'ING' && nowTime == liveEnd && liveCheckDt < liveStartDt && padd_no > 0">            
-			                                	<div class="livebid_pageback">        
-			                                		<!-- 경매 당일 패들번호 출력 -->          
-		<!-- 									<p style="color:#00acac;">nowTime : {{nowTime}} / liveEnd : {{liveEnd}}</p> -->
-		<!-- 									<p style="color:#00acac;">liveCheckDt : {{liveCheckDt}} / liveStartDt : {{liveStartDt}}</p> -->
-			                                		<span>  
-			                                			<a class="livebid_page_btn"  alt="PADD NO. {{padd_no}}" style="cursor:default;">     
-				                                			<span class="livebid_pageback_txt">PADD NO. {{padd_no}}</span>
-														</a>  
-			                                		</span>   
-			                                	</div><!-- //livebid_pageback -->       
-			                                </div> <!-- //livebid_page --> 
+<%--			                                <div class="livebid_page" ng-if="sale_status == 'ING' && nowTime == liveEnd && liveCheckDt < liveStartDt && padd_no > 0">            --%>
+<%--			                                	<div class="livebid_pageback">        --%>
+<%--			                                		<!-- 경매 당일 패들번호 출력 -->          --%>
+<%--		<!-- 									<p style="color:#00acac;">nowTime : {{nowTime}} / liveEnd : {{liveEnd}}</p> -->--%>
+<%--		<!-- 									<p style="color:#00acac;">liveCheckDt : {{liveCheckDt}} / liveStartDt : {{liveStartDt}}</p> -->--%>
+<%--			                                		<span>  --%>
+<%--			                                			<a class="livebid_page_btn"  alt="PADD NO. {{padd_no}}" style="cursor:default;">     --%>
+<%--				                                			<span class="livebid_pageback_txt">PADD NO. {{padd_no}}</span>--%>
+<%--														</a>  --%>
+<%--			                                		</span>   --%>
+<%--			                                	</div><!-- //livebid_pageback -->       --%>
+<%--			                                </div> <!-- //livebid_page --> --%>
 			                                <div class="livebid_page" ng-if="sale_status == 'ING' && liveCheckDt >= liveStartDt">       
 			                                	<div class="livebid_pageback">  
 			                                		<!-- 경매 당일 응찰하기 자동생성 -->          
@@ -1482,9 +1482,9 @@ app.controller('lotListCtl', function($scope, consts, common, bid, $interval, is
 		                                			</c:if> 
 												</a>   
 												<!-- 패들번호 발급 받았을 시 패들번호 표시 -->
-												<a ng-if="is_login == 'true' && custInfo.MEMBERSHIP_YN == 'Y' && padd_no > 0" class="livebid_page_btn"  alt="PADD NO. {{padd_no}}" style="cursor:default;">     
-		                                			<span class="livebid_pageback_txt">PADD NO. {{padd_no}}</span> 
-												</a>  
+												<a ng-if="is_login == 'true' && custInfo.MEMBERSHIP_YN == 'Y' && padd_no > 0" href="/service/page?view=bidLive_memberNew&sale_no={{sale.SALE_NO}}" class="livebid_page_btn"  alt="PADD NO. {{padd_no}}" style="cursor:default;">
+		                                			<span class="livebid_pageback_txt">PADD NO. {{padd_no}}</span>
+												</a>
 	                                		</span>
 	                                	</div>
 	                                </div><!-- //livebid_page --> 
