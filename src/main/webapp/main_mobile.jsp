@@ -17,10 +17,18 @@
 	   setCookie('mobileFlag', 'mobile', 1);
 		 	 
 	   window.onload = function(){
-			
+
+			 window.fetch('https://re-dev.seoulauction.com/api/main/test').then(result => {
+				 console.log(result);
+				 location.href = 'https://www.seoulauction.com';
+			 }).catch(err => {
+				 console.log(err)
+				 location.href = 'https://www.seoulauction.com';
+			 });
+
 			// 모바일 앱에서 버전으로 링크거는 방법이 아닌 호출하는 url에서 Re-Direction 처리함.
-			// 기본적으로 홈페이지 링크. 경매가 있을경우 경매 사이트로 바로 링크처리.		
-			location.href = 'https://www.seoulauction.com';	
+			// 기본적으로 홈페이지 링크. 경매가 있을경우 경매 사이트로 바로 링크처리.
+
 			//location.href = 'popupMSG.jsp';
 			
 			// 경매가 있을경우 경매 사이트로 바로 링크처리.
